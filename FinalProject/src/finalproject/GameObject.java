@@ -20,7 +20,7 @@ public class GameObject {
     int width;
     int height;
     double scale;
-    boolean direction; //true == right
+    boolean direction; //true == left
     
     public GameObject(){
         xPos = 0;
@@ -29,7 +29,7 @@ public class GameObject {
         width = 0;
         height = 0;
         scale = 0.0;
-        direction = true; //Facing right
+        direction = true; //Facing left
     }
     
     public GameObject(int xPos, int yPos, int rotation, int width, int height, double scale, boolean direction){
