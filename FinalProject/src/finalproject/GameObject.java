@@ -4,6 +4,11 @@ update the mouseOver method
  */
 package finalproject;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author harja
@@ -100,4 +105,23 @@ public class GameObject {
     public String toString(){
         return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;
     }
+    
+    public BufferedImage createBufferedImage(String src){
+        BufferedImage img;
+        
+        try{
+            
+        img =  ImageIO.read(getClass().getResourceAsStream(src));
+       
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, "ERROR LOADING " + src + " :\n" + e);
+            img=null;
+            
+            
+        } 
+         return img; 
+        
+    }
+    
+    
 }
