@@ -5,6 +5,7 @@
  */
 package finalproject;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +22,13 @@ public class FinalProject {
         
         
         JOptionPane.showMessageDialog(null,"Github is working correctly!");
+        
+        
+        JFrame game = new JFrame("Game");
+        game.setSize(500,500);
+        game.setVisible(true);
+        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
     }
     
 }
