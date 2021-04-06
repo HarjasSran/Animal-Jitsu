@@ -35,7 +35,10 @@ public class Player extends Character{
         return rank;
     }
     
-    //clone
+    public Player clone(){
+        Player newPlayer = new Player(); //After adding second constructor, use that
+        return newPlayer;
+    }
     
     public String toString(){
         return name + "\t" + rank;
