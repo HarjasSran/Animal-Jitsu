@@ -5,6 +5,8 @@
  */
 package finalproject;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author harja
@@ -16,6 +18,9 @@ public class FinalProject {
      */
     public static void main(String[] args) {
         System.out.println("hello");
+        
+        
+        JOptionPane.showMessageDialog(null,"Github is working correctly!");
     }
     
 }
