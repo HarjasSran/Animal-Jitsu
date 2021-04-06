@@ -3,21 +3,29 @@ Cant do yet, need to wait for images
  */
 package finalproject;
 
-import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 /**
  *
  * @author harja
  */
 public class Particle extends GameObject {
-    Image element;
+    String element;
+    BufferedImage particle;
     
-    //public Particle(){
-    //public Particle(image element, boolean direction)[    
+    public Particle(){
+        
+    }
+    
+    public Particle(String element, boolean direction){
+        particle = createBufferedImage(element);
+    }
     
     //setElement(Image element)
     
     //getElement()
+    
+   
     
     //clone()
     
