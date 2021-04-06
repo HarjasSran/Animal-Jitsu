@@ -67,4 +67,13 @@ public class User {
     public String getAnimal(){
         return animal;
     }
+    
+    public User clone(){
+        User newUser = new User(name, rank, bow, date, animal);
+        return newUser;
+    }
+    
+    public String toString(){
+        return name + "\t" + rank + "\t" + bow + "\t" + date + "\t" + animal;
+    }
 }
