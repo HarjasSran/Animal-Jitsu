@@ -28,6 +28,7 @@ public class FinalProject {
         game.setSize(500,500);
         game.setVisible(true);
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        game.add(new GameScreen()); 
         
     }
     
