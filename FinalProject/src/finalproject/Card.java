@@ -9,7 +9,7 @@ import java.awt.Color;
  *
  * @author harja
  */
-public class Card {
+public class Card extends Character{
     int element;
     int cardNumber;
     Color color;
