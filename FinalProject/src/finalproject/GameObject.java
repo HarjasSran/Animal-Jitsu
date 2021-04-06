@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author harja
  */
-public class GameObject {
+abstract public class GameObject {
     int xPos;
     int yPos;
     int rotation;
@@ -97,10 +97,6 @@ public class GameObject {
         
     }
     
-    public GameObject clone(){
-        GameObject newGameObject = new GameObject(xPos, yPos, rotation, width, height, scale, direction);
-        return newGameObject;
-    }
     
     public String toString(){
         return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;
