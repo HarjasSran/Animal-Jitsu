@@ -56,7 +56,7 @@
               <Component id="lblRules" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="345" max="-2" attributes="0"/>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -107,7 +107,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="1. When the game begins, you and Sensi Duck each &#xa;receive 5 cards, each with an element and a number.&#xa;&#xa;2. Snow cards defeat Water cards. Water cards beat &#xa;Fire cards Fire cards beat Snow cards.&#xa;&#xa;3. If both you and Sensi Duck choose the same element,&#xa;the winner of the round will be the card with the highest &#xa;number.&#xa;&#xa;4. If you and Sensi Duck choose a card of the same &#xa;element and number, nobody wins the round.&#xa;&#xa;5. You will have 15 seconds to choose a card that will&#xa; win help you win the game.&#xa;&#xa;6. The game ends when you or Sensi Duck have won at &#xa;least 1 round with each element OR won 3 rounds with &#xa;the same element.&#xa;"/>
+            <Property name="text" type="java.lang.String" value="1. When the game begins, you and Sensei Penguin each &#xa;receive 5 cards, each with an element and a number.&#xa;&#xa;2. Snow cards defeat Water cards. Water cards beat &#xa;Fire cards Fire cards beat Snow cards.&#xa;&#xa;3. If both you and Sensei Penguin choose the same element,&#xa;the winner of the round will be the card with the highest &#xa;number.&#xa;&#xa;4. If you and Sensei Penguin choose a card of the same &#xa;element and number, nobody wins the round.&#xa;&#xa;5. You will have 15 seconds to choose a card that will&#xa; win help you win the game.&#xa;&#xa;6. The game ends when you or Sensei Penguin have won at &#xa;least 1 round with each element OR won 3 rounds with &#xa;the same element.&#xa;"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -124,7 +124,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Challenge Sensei duck to gain experience&#xa;and level up. When you win a match, you will &#xa;advance to the next bow level.&#xa;"/>
+            <Property name="text" type="java.lang.String" value="Challenge Sensei Penguin to gain experience&#xa;and level up. When you win a match, you will &#xa;advance to the next bow level.&#xa;"/>
           </Properties>
         </Component>
       </SubComponents>

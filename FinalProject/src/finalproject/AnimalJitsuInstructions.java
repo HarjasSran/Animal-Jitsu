@@ -52,13 +52,13 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("1. When the game begins, you and Sensi Duck each \nreceive 5 cards, each with an element and a number.\n\n2. Snow cards defeat Water cards. Water cards beat \nFire cards Fire cards beat Snow cards.\n\n3. If both you and Sensi Duck choose the same element,\nthe winner of the round will be the card with the highest \nnumber.\n\n4. If you and Sensi Duck choose a card of the same \nelement and number, nobody wins the round.\n\n5. You will have 15 seconds to choose a card that will\n win help you win the game.\n\n6. The game ends when you or Sensi Duck have won at \nleast 1 round with each element OR won 3 rounds with \nthe same element.\n");
+        jTextArea1.setText("1. When the game begins, you and Sensei Penguin each \nreceive 5 cards, each with an element and a number.\n\n2. Snow cards defeat Water cards. Water cards beat \nFire cards Fire cards beat Snow cards.\n\n3. If both you and Sensei Penguin choose the same element,\nthe winner of the round will be the card with the highest \nnumber.\n\n4. If you and Sensei Penguin choose a card of the same \nelement and number, nobody wins the round.\n\n5. You will have 15 seconds to choose a card that will\n win help you win the game.\n\n6. The game ends when you or Sensei Penguin have won at \nleast 1 round with each element OR won 3 rounds with \nthe same element.\n");
         jScrollPane2.setViewportView(jTextArea1);
 
         jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
-        jTextArea2.setText("Challenge Sensei duck to gain experience\nand level up. When you win a match, you will \nadvance to the next bow level.\n");
+        jTextArea2.setText("Challenge Sensei Penguin to gain experience\nand level up. When you win a match, you will \nadvance to the next bow level.\n");
         jScrollPane1.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -92,7 +92,7 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
                 .addComponent(lblRules)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
