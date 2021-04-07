@@ -20,13 +20,30 @@ import javax.swing.JPanel;
  *
  * @author Aidan
  */
+
+
 public class GameScreen extends JPanel{
     
     private BufferedImage test1; 
     final long start = System.currentTimeMillis();
     
+    final BufferedImage GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
+    final BufferedImage BOSS_IMAGE = createBufferedImage("/assests/boss.png");
+    final BufferedImage GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
+    final BufferedImage TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
+    final BufferedImage MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
+    final BufferedImage ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
+
+
+
+    
+    final BufferedImage FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
+    final BufferedImage WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
+    final BufferedImage SNOWBALL_IMAGE = createBufferedImage("/assests/snowball.png");
+    
     
     public GameScreen(){
+        System.out.println(GIRAFFE_IMAGE);
         try {     
             test1 = ImageIO.read(getClass().getResourceAsStream("/assets/gorilla.png"));
             System.out.println(test1);
@@ -77,7 +94,8 @@ public class GameScreen extends JPanel{
    
    
    
-   g2d.drawImage(test1, 100, x, null);
+   //g2d.drawImage(test1, 100, x, null);
+   g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
    
    
        g2d.dispose(); 
@@ -86,5 +104,28 @@ public class GameScreen extends JPanel{
  }    
     
     
+    /**
+     * Accessor method which creates a 2d image using the source of the image
+     * @param src - source of the image
+     * @return - 2d image that can be put on screen for user
+     */
+    public final BufferedImage createBufferedImage(String src){
+        BufferedImage img;
+        
+        try{
+            
+        img =  ImageIO.read(getClass().getResourceAsStream(src)); //load image using source and save
+       
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, "ERROR LOADING " + src + " :\n" + e); //error message
+            img=null; //no image if error occurs 
+            
+            
+        } 
+         return img; 
+        
+    }
     
 }
+
+
