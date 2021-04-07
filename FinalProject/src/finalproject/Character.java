@@ -4,7 +4,7 @@ cant finish yet, wait for images
 package finalproject;
 
 import java.awt.Color;
-import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -13,14 +13,14 @@ import java.util.ArrayList;
  */
 public class Character extends GameObject {
     Color bow;
-    Image animal;
+    BufferedImage animal;
     ArrayList cards;
     
     public Character(){
         
     }
     
-    public Character(Color bow, Image animal, boolean direction, ArrayList cards){
+    public Character(Color bow, BufferedImage animal, boolean direction, ArrayList cards){
         this.bow = bow;
         this.animal = animal; 
         this.direction = direction;
@@ -34,11 +34,11 @@ public class Character extends GameObject {
         return bow;
     }
     
-    public void setAnimal(Image animal){
+    public void setAnimal(BufferedImage animal){
         this.animal = animal;
     }
     
-    public Image getAnimal(){
+    public BufferedImage getAnimal(){
         return animal;
     }
     
@@ -52,6 +52,6 @@ public class Character extends GameObject {
     }
     
     public String toString(){
-        return bow + "\t" + animal + "\t" + cards;
+        return "Color: " + bow + "\tAnimal: " + animal + "\tCards: " + cards;
     }
 }
