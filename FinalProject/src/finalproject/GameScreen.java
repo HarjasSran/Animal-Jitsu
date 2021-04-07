@@ -51,6 +51,17 @@ public class GameScreen extends JPanel {
         WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
         SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
         
+        //add music, search it up 
+        
+        //make cards array. use card class to create cards and array list of the random cards that got drawed into users hand
+        //computer has same array list of cards but not a "hand" arraylist
+        //let user pick a card from their array list and have computer draw random card
+        //compare the cards and declare a winner. give winner the element that they have won
+        
+        //make sure that once a card is played, it can not be drawn again from either user or computer
+        //keep the game running until someone has won with all of their elements or their are no more cards left
+        
+       
       
     }
 
