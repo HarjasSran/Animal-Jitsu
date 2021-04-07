@@ -18,17 +18,25 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
      * Creates new form CharacterSelectMenu
      */
     
-    ArrayList <ImageIcon> icons; 
+    ArrayList <ImageIcon> icons = new ArrayList(); 
     
-   
+    int i = 0;
+    
     public CharacterSelectMenu() {
-        ///icons.add()
-        
-        ImageIcon i = new ImageIcon("src/icons/gorillaIcon.png"); 
+
+        ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
+        ImageIcon giraffe = new ImageIcon("src/icons/giraffeIcon.png");
+        ImageIcon tiger = new ImageIcon("src/icons/tigerIcon.png");
+         ImageIcon zebra = new ImageIcon("src/icons/zebraIcon.png");
+        icons.add(gorilla);
+        icons.add(giraffe);
+        icons.add(tiger);
+        icons.add(zebra);
        
         initComponents();
         
-        jLabel1.setIcon(i);
+        //ImageIcon icon = new ImageIcon(icons.get(i));
+        jLabel1.setIcon(icons.get(i));
          System.out.println(jLabel1.getIcon());
         
         
@@ -52,17 +60,47 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Left.setText("<");
-        getContentPane().add(Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
+        Left.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeftActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
 
         right.setText(">");
-        getContentPane().add(right, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 520, 690));
+        right.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rightActionPerformed(evt);
+            }
+        });
+        getContentPane().add(right, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 450, 450));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/chunin.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightActionPerformed
+        //if (i <= icons.size()) {
+            //ImageIcon icon = new ImageIcon(icons.get(i + 1));
+            
+            jLabel1.setIcon(icons.get(i++));
+            System.out.println(icons.get(i));
+        //}
+    }//GEN-LAST:event_rightActionPerformed
+
+    private void LeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeftActionPerformed
+
+        //if (i >= icons.size()) {
+            //ImageIcon icon = new ImageIcon(icons.get(i - 1));
+            
+            jLabel1.setIcon(icons.get(i--));
+            System.out.println(icons.get(i));
+            
+        //}
+    }//GEN-LAST:event_LeftActionPerformed
 
     /**
      * @param args the command line arguments
