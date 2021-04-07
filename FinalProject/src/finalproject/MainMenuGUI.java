@@ -5,7 +5,9 @@
  */
 package finalproject;
 
-import javax.swing.JFrame;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.*;
 
 /**
  *
@@ -16,13 +18,24 @@ public class MainMenuGUI extends javax.swing.JFrame {
     /**
      * Creates new form MainMenuGUI
      */
-    public MainMenuGUI() {
+    public MainMenuGUI() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         initComponents();
         
-      
+        File f = new File("src/finalproject/naruto.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
+
+        Clip clip = AudioSystem.getClip();
+        
+        clip.open(audioStream);
+        
+        clip.start();
         
         
+
     }
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
