@@ -27,20 +27,32 @@ public class GameScreen extends JPanel{
     private BufferedImage test1; 
     final long start = System.currentTimeMillis();
     
-    final BufferedImage giraffe = createBufferedImage("/assets/giraffe.png");
+    final BufferedImage GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
+    final BufferedImage BOSS_IMAGE = createBufferedImage("/assests/boss.png");
+    final BufferedImage GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
+    final BufferedImage TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
+    final BufferedImage MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
+    final BufferedImage ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
+
+
+
+    
+    final BufferedImage FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
+    final BufferedImage WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
+    final BufferedImage SNOWBALL_IMAGE = createBufferedImage("/assests/snowball.png");
     
     
     public GameScreen(){
-        System.out.println(giraffe);
-//        try {     
-//            test1 = ImageIO.read(getClass().getResourceAsStream("/assets/gorilla.png"));
-//            System.out.println(test1);
-//        } catch (IOException  ex) {
-//            JOptionPane.showMessageDialog(null,"ERROR: "+ex);
-//            
-//           
-//        }
-//        System.out.println("done");
+        System.out.println(GIRAFFE_IMAGE);
+        try {     
+            test1 = ImageIO.read(getClass().getResourceAsStream("/assets/gorilla.png"));
+            System.out.println(test1);
+        } catch (IOException  ex) {
+            JOptionPane.showMessageDialog(null,"ERROR: "+ex);
+            
+           
+        }
+        System.out.println("done");
     }
     
     // test1 = ImageIO.read(getClass().getResourceAsStream("8BitDeckAssetstest1.png"));
@@ -82,7 +94,8 @@ public class GameScreen extends JPanel{
    
    
    
-   g2d.drawImage(test1, 100, x, null);
+   //g2d.drawImage(test1, 100, x, null);
+   g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
    
    
        g2d.dispose(); 
