@@ -17,6 +17,9 @@ public class MainMenuGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MainMenuGUI
+     * @throws javax.sound.sampled.UnsupportedAudioFileException
+     * @throws java.io.IOException
+     * @throws javax.sound.sampled.LineUnavailableException
      */
     public MainMenuGUI() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         initComponents();
