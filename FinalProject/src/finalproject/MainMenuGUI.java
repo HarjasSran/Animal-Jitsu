@@ -33,36 +33,14 @@ public class MainMenuGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new javax.swing.JPanel();
+        btnStart = new javax.swing.JButton();
         btnInstructions = new javax.swing.JButton();
         btnCredits = new javax.swing.JButton();
-        btnStart = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Animal Jitsu");
-
-        background.setBackground(new java.awt.Color(204, 0, 255));
-
-        btnInstructions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton1.png"))); // NOI18N
-        btnInstructions.setBorderPainted(false);
-        btnInstructions.setContentAreaFilled(false);
-        btnInstructions.setFocusPainted(false);
-        btnInstructions.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton2.png"))); // NOI18N
-        btnInstructions.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton3.png"))); // NOI18N
-        btnInstructions.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton2.png"))); // NOI18N
-        btnInstructions.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInstructionsActionPerformed(evt);
-            }
-        });
-
-        btnCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton1.png"))); // NOI18N
-        btnCredits.setBorderPainted(false);
-        btnCredits.setContentAreaFilled(false);
-        btnCredits.setFocusPainted(false);
-        btnCredits.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton2.png"))); // NOI18N
-        btnCredits.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton3.png"))); // NOI18N
-        btnCredits.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton2.png"))); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton1.png"))); // NOI18N
         btnStart.setText("jButton1");
@@ -78,49 +56,33 @@ public class MainMenuGUI extends javax.swing.JFrame {
                 btnStartActionPerformed(evt);
             }
         });
+        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 278, -1));
 
-        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
-        background.setLayout(backgroundLayout);
-        backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCredits)
-                    .addComponent(btnInstructions))
-                .addContainerGap(207, Short.MAX_VALUE))
-        );
-        backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(btnStart)
-                .addGap(24, 24, 24)
-                .addComponent(btnInstructions)
-                .addGap(18, 18, 18)
-                .addComponent(btnCredits)
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
+        btnInstructions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton1.png"))); // NOI18N
+        btnInstructions.setBorderPainted(false);
+        btnInstructions.setContentAreaFilled(false);
+        btnInstructions.setFocusPainted(false);
+        btnInstructions.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton2.png"))); // NOI18N
+        btnInstructions.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton3.png"))); // NOI18N
+        btnInstructions.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton2.png"))); // NOI18N
+        btnInstructions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInstructionsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        btnCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton1.png"))); // NOI18N
+        btnCredits.setBorderPainted(false);
+        btnCredits.setContentAreaFilled(false);
+        btnCredits.setFocusPainted(false);
+        btnCredits.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton2.png"))); // NOI18N
+        btnCredits.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton3.png"))); // NOI18N
+        btnCredits.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton2.png"))); // NOI18N
+        getContentPane().add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/chunin.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,7 +148,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
+    private javax.swing.JLabel background;
     private javax.swing.JButton btnCredits;
     private javax.swing.JButton btnInstructions;
     private javax.swing.JButton btnStart;
