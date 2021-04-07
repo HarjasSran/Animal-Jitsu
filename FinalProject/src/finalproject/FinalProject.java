@@ -23,6 +23,8 @@ public class FinalProject {
         MainMenuGUI menu = new MainMenuGUI(); 
         menu.setVisible(true);
         
+       
+        
         
         
       // JOptionPane.showMessageDialog(null,"Github is working correctly!");
