@@ -68,7 +68,7 @@ public class GameScreen extends JPanel{
  
    
    
-     System.out.println(Math.sin(4000));
+     
    
      
      
