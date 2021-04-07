@@ -28,7 +28,7 @@ public class GameScreen extends JPanel{
     
     public GameScreen(){
         try {     
-            test1 = ImageIO.read(getClass().getResourceAsStream("/assets/boss.png"));
+            test1 = ImageIO.read(getClass().getResourceAsStream("/assets/gorilla.png"));
             System.out.println(test1);
         } catch (IOException  ex) {
             JOptionPane.showMessageDialog(null,"ERROR: "+ex);
