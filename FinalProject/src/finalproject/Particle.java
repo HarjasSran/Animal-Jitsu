@@ -11,23 +11,30 @@ import java.awt.image.BufferedImage;
  */
 public class Particle extends GameObject {
 
-    String element;
-    BufferedImage particle;
+    BufferedImage element;
 
-    final static int SNOW_ELEMENT = 0;
-    final static int FIRE_ELEMENT = 1;
-    final static int WATER_ELEMENT = 2;
 
     public Particle() {
-
+        element = null;
+        direction = true;
     }
 
-    public Particle(String element, boolean direction) {
-        particle = createBufferedImage(element);
+    public Particle(BufferedImage element, boolean direction) {
+        this.element = element;
+        this.direction = direction;
     }
 
-    //setElement(Image element)
-    //getElement()
-    //clone()
-    //toString()
+    public void setElement(BufferedImage element){
+        this.element = element;
+    }
+    public BufferedImage getElement(){
+        return element;
+    }
+    public Particle clone(){
+        Particle newParticle = new Particle(element, direction);
+        return newParticle;
+    }
+    public String toString(){
+        return "Element: " + element + "Direction: " + direction;
+    }
 }
