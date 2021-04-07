@@ -21,14 +21,15 @@ public class FinalProject {
         System.out.println("hello");
         
         
-        JOptionPane.showMessageDialog(null,"Github is working correctly!");
+      // JOptionPane.showMessageDialog(null,"Github is working correctly!");
         
         
         JFrame game = new JFrame("Game");
-        game.setSize(500,500);
+        game.setSize(800,800);
         game.setVisible(true);
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.add(new GameScreen()); 
+       
         
     }
     
