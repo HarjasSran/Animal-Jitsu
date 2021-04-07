@@ -20,22 +20,27 @@ import javax.swing.JPanel;
  *
  * @author Aidan
  */
+
+
 public class GameScreen extends JPanel{
     
     private BufferedImage test1; 
     final long start = System.currentTimeMillis();
     
+    final BufferedImage giraffe = createBufferedImage("/assets/giraffe.png");
+    
     
     public GameScreen(){
-        try {     
-            test1 = ImageIO.read(getClass().getResourceAsStream("/assets/gorilla.png"));
-            System.out.println(test1);
-        } catch (IOException  ex) {
-            JOptionPane.showMessageDialog(null,"ERROR: "+ex);
-            
-           
-        }
-        System.out.println("done");
+        System.out.println(giraffe);
+//        try {     
+//            test1 = ImageIO.read(getClass().getResourceAsStream("/assets/gorilla.png"));
+//            System.out.println(test1);
+//        } catch (IOException  ex) {
+//            JOptionPane.showMessageDialog(null,"ERROR: "+ex);
+//            
+//           
+//        }
+//        System.out.println("done");
     }
     
     // test1 = ImageIO.read(getClass().getResourceAsStream("8BitDeckAssetstest1.png"));
@@ -86,5 +91,28 @@ public class GameScreen extends JPanel{
  }    
     
     
+    /**
+     * Accessor method which creates a 2d image using the source of the image
+     * @param src - source of the image
+     * @return - 2d image that can be put on screen for user
+     */
+    public final BufferedImage createBufferedImage(String src){
+        BufferedImage img;
+        
+        try{
+            
+        img =  ImageIO.read(getClass().getResourceAsStream(src)); //load image using source and save
+       
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, "ERROR LOADING " + src + " :\n" + e); //error message
+            img=null; //no image if error occurs 
+            
+            
+        } 
+         return img; 
+        
+    }
     
 }
+
+
