@@ -26,22 +26,30 @@ public class GameScreen extends JPanel {
     final long start = System.currentTimeMillis();
 
     static BufferedImage GIRAFFE_IMAGE=null;
-//    final BufferedImage BOSS_IMAGE = createBufferedImage("/assests/boss.png");
-//    final BufferedImage GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
-//    final BufferedImage TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
-//    final BufferedImage MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
-//    final BufferedImage ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
-//
-//
-//
-//    
-//    final BufferedImage FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
-//    final BufferedImage WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
-//    final BufferedImage SNOWBALL_IMAGE = createBufferedImage("/assests/snowball.png");
+    static BufferedImage BOSS_IMAGE = null;
+    static BufferedImage GORILLA_IMAGE = null;
+    static BufferedImage TIGER_IMAGE = null;
+    static BufferedImage MONKEY_IMAGE = null;
+    static BufferedImage ZEBRA_IMAGE = null;
+
+    
+    static BufferedImage FIREBALL_IMAGE = null;
+    static BufferedImage WATERBALL_IMAGE = null;
+    static BufferedImage SNOWBALL_IMAGE = null;
 
     public GameScreen() {
 
         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
+        BOSS_IMAGE = createBufferedImage("/assests/boss.png");
+        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
+        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
+        MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
+        ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
+        
+        
+        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
+        WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
+        SNOWBALL_IMAGE = createBufferedImage("/assests/snowball.png");
         
       
     }
