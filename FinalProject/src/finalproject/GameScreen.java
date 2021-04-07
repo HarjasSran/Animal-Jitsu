@@ -40,7 +40,7 @@ public class GameScreen extends JPanel {
     public GameScreen() {
 
         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
-        BOSS_IMAGE = createBufferedImage("/assests/boss.png");
+        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
         GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
         TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
         MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
@@ -49,7 +49,7 @@ public class GameScreen extends JPanel {
         
         FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
         WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
-        SNOWBALL_IMAGE = createBufferedImage("/assests/snowball.png");
+        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
         
       
     }
@@ -89,7 +89,7 @@ public class GameScreen extends JPanel {
      * @param src - source of the image
      * @return - 2d image that can be put on screen for user
      */
-    public BufferedImage createBufferedImage(String src) {
+    private BufferedImage createBufferedImage(String src) {
         BufferedImage img;
 
         try {
