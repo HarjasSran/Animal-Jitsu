@@ -20,23 +20,25 @@ public class FinalProject {
     public static void main(String[] args) {
         System.out.println("hello");
         
+        MainMenuGUI menu = new MainMenuGUI(); 
+        menu.setVisible(true);
+        
+        
         
       // JOptionPane.showMessageDialog(null,"Github is working correctly!");
         
-        
-        JFrame game = new JFrame("Game");
-        game.setSize(800,800);
-       
-        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        GameScreen gameScreen =new GameScreen(); 
-        game.add(gameScreen); 
-        game.setVisible(true);
-        
-        while(true){
-            //System.out.println(System.currentTimeMillis());
-        }
-       
+//        
+//        JFrame game = new JFrame("Game");
+//        game.setSize(800,800);
+//       
+//        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        
+//        GameScreen gameScreen =new GameScreen(); 
+//        game.add(gameScreen); 
+//        game.setVisible(true);
+//        
+//       
+//       
         
     }
     

@@ -5,6 +5,8 @@
  */
 package finalproject;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Aidan
@@ -61,6 +63,11 @@ public class MainMenuGUI extends javax.swing.JFrame {
         btnStart.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton3.png"))); // NOI18N
         btnStart.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton2.png"))); // NOI18N
         btnStart.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton2.png"))); // NOI18N
+        btnStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -107,6 +114,24 @@ public class MainMenuGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+      
+        
+        //Makes a new window when start is clicked
+        
+          JFrame game = new JFrame("Game");
+        game.setSize(800,800);
+       
+        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        GameScreen gameScreen =new GameScreen(); 
+        game.add(gameScreen); 
+        game.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_btnStartActionPerformed
 
     /**
      * @param args the command line arguments
