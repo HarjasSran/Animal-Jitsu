@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 public class GameScreen extends JPanel{
     
     private BufferedImage test1; 
-    
+    final long start = System.currentTimeMillis();
     
     
     public GameScreen(){
@@ -40,8 +40,13 @@ public class GameScreen extends JPanel{
     
     // test1 = ImageIO.read(getClass().getResourceAsStream("8BitDeckAssetstest1.png"));
   
+  
     
-    
+    //DELETE THESE_ FOR 
+  int x=0; 
+  double v=0;
+  int c=0; 
+  
  public void paint(Graphics g) {
     
    Graphics2D g2d = (Graphics2D) g; 
@@ -49,10 +54,34 @@ public class GameScreen extends JPanel{
     
    g2d.setColor(Color.red);
    
-   g2d.fillRect(100, 100, 50, 50);
-   g2d.drawImage(test1, 100, 100, null);
+ 
+   int elapsed = (int)(System.currentTimeMillis()-start); 
+   
+   
+  
+   c++; 
+  v += (Math.sin(c*0.001))/10;
+   x = (int) Math.floor(v);
+   
+ 
+  
+ 
+   
+   
+     System.out.println(Math.sin(4000));
+   
      
-     //repaint(); 
+     
+     g2d.fillRect(0,0,1000,1000); 
+   g2d.fillRect(100+x, 100, 50, 50);
+   
+   
+   
+   g2d.drawImage(test1, 100, x, null);
+   
+   
+       g2d.dispose(); 
+     repaint(); 
      
  }    
     
