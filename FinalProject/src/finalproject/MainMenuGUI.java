@@ -36,6 +36,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         btnStart = new javax.swing.JButton();
         btnInstructions = new javax.swing.JButton();
         btnCredits = new javax.swing.JButton();
+        title = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,6 +81,9 @@ public class MainMenuGUI extends javax.swing.JFrame {
         btnCredits.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton3.png"))); // NOI18N
         btnCredits.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton2.png"))); // NOI18N
         getContentPane().add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+
+        title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/header.png"))); // NOI18N
+        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/chunin.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -152,5 +156,6 @@ public class MainMenuGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnCredits;
     private javax.swing.JButton btnInstructions;
     private javax.swing.JButton btnStart;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
