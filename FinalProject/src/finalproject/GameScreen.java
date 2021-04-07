@@ -20,112 +20,81 @@ import javax.swing.JPanel;
  *
  * @author Aidan
  */
+public class GameScreen extends JPanel {
 
-
-public class GameScreen extends JPanel{
-    
-    private BufferedImage test1; 
+    private BufferedImage test1;
     final long start = System.currentTimeMillis();
-    
-    final BufferedImage GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
-    final BufferedImage BOSS_IMAGE = createBufferedImage("/assests/boss.png");
-    final BufferedImage GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
-    final BufferedImage TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
-    final BufferedImage MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
-    final BufferedImage ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
 
+    static BufferedImage GIRAFFE_IMAGE=null;
+//    final BufferedImage BOSS_IMAGE = createBufferedImage("/assests/boss.png");
+//    final BufferedImage GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
+//    final BufferedImage TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
+//    final BufferedImage MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
+//    final BufferedImage ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
+//
+//
+//
+//    
+//    final BufferedImage FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
+//    final BufferedImage WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
+//    final BufferedImage SNOWBALL_IMAGE = createBufferedImage("/assests/snowball.png");
 
+    public GameScreen() {
 
-    
-    final BufferedImage FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
-    final BufferedImage WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
-    final BufferedImage SNOWBALL_IMAGE = createBufferedImage("/assests/snowball.png");
-    
-    
-    public GameScreen(){
-        System.out.println(GIRAFFE_IMAGE);
-        try {     
-            test1 = ImageIO.read(getClass().getResourceAsStream("/assets/gorilla.png"));
-            System.out.println(test1);
-        } catch (IOException  ex) {
-            JOptionPane.showMessageDialog(null,"ERROR: "+ex);
-            
-           
-        }
-        System.out.println("done");
+        GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
+        
+      
     }
-    
+
     // test1 = ImageIO.read(getClass().getResourceAsStream("8BitDeckAssetstest1.png"));
-  
-  
-    
     //DELETE THESE_ FOR 
-  int x=0; 
-  double v=0;
-  int c=0; 
-  
- public void paint(Graphics g) {
-    
-   Graphics2D g2d = (Graphics2D) g; 
-   
-    
-   g2d.setColor(Color.red);
-   
- 
-   int elapsed = (int)(System.currentTimeMillis()-start); 
-   
-   
-  
-   c++; 
-  v += (Math.sin(c*0.001))/10;
-   x = (int) Math.floor(v);
-   
- 
-  
- 
-   
-   
-     
-   
-     
-     
-     g2d.fillRect(0,0,1000,1000); 
-   g2d.fillRect(100+x, 100, 50, 50);
-   
-   
-   
-   //g2d.drawImage(test1, 100, x, null);
-   g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
-   
-   
-       g2d.dispose(); 
-     repaint(); 
-     
- }    
-    
-    
+    int x = 0;
+    double v = 0;
+    int c = 0;
+
+    public void paint(Graphics g) {
+
+        Graphics2D g2d = (Graphics2D) g;
+
+        g2d.setColor(Color.red);
+
+        int elapsed = (int) (System.currentTimeMillis() - start);
+
+        c++;
+        v += (Math.sin(c * 0.001)) / 10;
+        x = (int) Math.floor(v);
+
+        g2d.fillRect(0, 0, 1000, 1000);
+        g2d.fillRect(100 + x, 100, 50, 50);
+
+        //g2d.drawImage(test1, 100, x, null);
+        g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
+
+        g2d.dispose();
+        repaint();
+
+    }
+
     /**
      * Accessor method which creates a 2d image using the source of the image
+     *
      * @param src - source of the image
      * @return - 2d image that can be put on screen for user
      */
-    public final BufferedImage createBufferedImage(String src){
+    public BufferedImage createBufferedImage(String src) {
         BufferedImage img;
-        
-        try{
-            
-        img =  ImageIO.read(getClass().getResourceAsStream(src)); //load image using source and save
-       
-        }catch(IOException e){
+
+        try {
+
+            img = ImageIO.read(getClass().getResourceAsStream(src)); //load image using source and save
+
+        } catch (IOException | IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, "ERROR LOADING " + src + " :\n" + e); //error message
-            img=null; //no image if error occurs 
-            
-            
-        } 
-         return img; 
-        
+            img = null; //no image if error occurs 
+
+        }
+        return img;
+
     }
-    
+
 }
-
-
