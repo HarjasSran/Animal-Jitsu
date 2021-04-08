@@ -26,7 +26,7 @@ public class GameScreen extends JPanel {
     
     final long start = System.currentTimeMillis();
 
-   static BufferedImage GIRAFFE_IMAGE=null;
+    static BufferedImage GIRAFFE_IMAGE=null;
     static BufferedImage BOSS_IMAGE = null;
     static BufferedImage GORILLA_IMAGE = null;
     static BufferedImage TIGER_IMAGE = null;
@@ -45,8 +45,10 @@ public class GameScreen extends JPanel {
     
     int totalCards = 33;
     
-   static BufferedImage image=null;
+    static BufferedImage image=null;
     String name;
+    
+    Player player;
 
     public GameScreen() {
 
@@ -105,12 +107,11 @@ public class GameScreen extends JPanel {
             cards.add(new Card(Card.SNOW_ELEMENT, i, false));
             compCards.add(new Card(Card.SNOW_ELEMENT, i, false));
         }
-        
                 
         
         name = CharacterSelectMenu.getUsername();
         
-        Player user = new Player(name, Color.white, image, false, cards);
+        player = new Player(name, Color.white, image, false, cards);
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
@@ -188,7 +189,7 @@ public class GameScreen extends JPanel {
  * @param g 
  */
     
-    Character character = new Character(Color.BLACK,image, true, cards); 
+    //static Character character = new Character(Color.BLACK,image, true, cards); 
     public void paint(Graphics g) {
         
       
@@ -206,7 +207,11 @@ public class GameScreen extends JPanel {
         g2d.fillRect(0, 0, 1000, 1000);
         g2d.fillRect(100 + x, 100, 50, 50);
 
-       character.render(g2d); 
+        player.setX(200);
+        player.setY(500);
+        player.setWidth(-player.getAnimal().getWidth()/4);
+        player.setHeight(player.getAnimal().getHeight()/4);
+        player.render(g2d); 
        
        // System.out.println(GameScreen.image);
        // g2d.drawImage(image, 100, x, null);
