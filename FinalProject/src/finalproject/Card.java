@@ -24,7 +24,7 @@ public class Card extends Character{
      * Default constructor
      */
     public Card(){
-      //BufferedImage cardSprite = createBufferedImage("");
+     
         element = 0;
         cardNumber = 1;
         color = Color.WHITE;
