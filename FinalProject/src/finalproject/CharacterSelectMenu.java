@@ -32,7 +32,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     static String name; 
     
     
-    public  static String getUsername(){
+    public static String getUsername(){
        return name;  
     }
     

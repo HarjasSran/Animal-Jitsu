@@ -44,6 +44,9 @@ public class GameScreen extends JPanel {
     ArrayList <Card> compHand = new ArrayList();
     
     int totalCards = 33;
+    
+    BufferedImage image = null;
+    String name;
 
     public GameScreen() {
 
@@ -53,30 +56,57 @@ public class GameScreen extends JPanel {
         TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
         MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
         ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
-//        
-//        
-//        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
-//        WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
-//        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
+        
+                
+        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
+        WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
+        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
+                
+        
+        if(CharacterSelectMenu.getAnimal().equals("giraffe")){
+            image = GIRAFFE_IMAGE;
+            
+        }
+        
+        else if(CharacterSelectMenu.getAnimal().equals("gorilla")){
+            image = GORILLA_IMAGE;
+        }
+        
+        else if(CharacterSelectMenu.getAnimal().equals("tiger")){
+            image = TIGER_IMAGE;
+        }
+        
+        else{
+            image = ZEBRA_IMAGE;
+        }
+
+        
+
         
         //All water element cards added to arraylist
 
-//        for (int i = 0; i < 10; i++) {
-//            cards.add(new Card(0, i, false));
-//            compCards.add(new Card(0, i, false));
-//        }
-//
-//        //All fire element cards added to arraylist
-//        for (int i = 0; i < 10; i++) {
-//            cards.add(new Card(1, i, false));
-//            compCards.add(new Card(1, i, false));
-//        }
-//
-//        //All snow element cards added to arraylist
-//        for (int i = 0; i < 10; i++) {
-//            cards.add(new Card(2, i, false));
-//            compCards.add(new Card(2, i, false));
-//        }
+        for (int i = 0; i < 10; i++) {
+            cards.add(new Card(0, i, false));
+            compCards.add(new Card(0, i, false));
+        }
+
+        //All fire element cards added to arraylist
+        for (int i = 0; i < 10; i++) {
+            cards.add(new Card(1, i, false));
+            compCards.add(new Card(1, i, false));
+        }
+
+        //All snow element cards added to arraylist
+        for (int i = 0; i < 10; i++) {
+            cards.add(new Card(2, i, false));
+            compCards.add(new Card(2, i, false));
+        }
+        
+                
+        
+        name = CharacterSelectMenu.getUsername();
+        
+        Player user = new Player(name, Color.white, image, false, cards);
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
@@ -170,24 +200,6 @@ public class GameScreen extends JPanel {
         g2d.fillRect(0, 0, 1000, 1000);
         g2d.fillRect(100 + x, 100, 50, 50);
 
-        
-        
-        BufferedImage image = null;
-        if(CharacterSelectMenu.getAnimal().equals("giraffe")){
-            image = GIRAFFE_IMAGE;
-        }
-        
-        else if(CharacterSelectMenu.getAnimal().equals("gorilla")){
-            image = GORILLA_IMAGE;
-        }
-        
-        else if(CharacterSelectMenu.getAnimal().equals("tiger")){
-            image = TIGER_IMAGE;
-        }
-        
-        else{
-            image = ZEBRA_IMAGE;
-        }
         
         g2d.drawImage(image, 100, x, null);
 

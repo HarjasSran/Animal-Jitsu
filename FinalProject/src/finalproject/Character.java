@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class Character extends GameObject {
     //create variables for attributes of the character
-    Color bow;// the color of the characters bow
-    BufferedImage animal;// the animal of the character
-    ArrayList cards;// the characters cards
+    protected Color bow;// the color of the characters bow
+    protected BufferedImage animal;// the animal of the character
+    protected ArrayList cards;// the characters cards
     
     /**
      * 

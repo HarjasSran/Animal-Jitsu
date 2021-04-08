@@ -3,6 +3,10 @@
  */
 package finalproject;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 /**
  *
  * @author harja
@@ -16,9 +20,13 @@ public class Player extends Character{
         rank = 0;
     }
     
-    //public Player(String name, Color bow, Image animal, boolean direction, ArrayList cards){
-        
-    //}
+    public Player(String name, Color bow, BufferedImage animal, boolean direction, ArrayList cards){
+        this.name = name;
+        this.bow = bow;
+        this.animal = animal;
+        this.direction = direction;
+        this.cards = cards;
+    }
         
     /**
      * 
