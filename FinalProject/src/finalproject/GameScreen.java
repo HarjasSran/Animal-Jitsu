@@ -80,11 +80,9 @@ public class GameScreen extends JPanel {
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
-//        }
-//        
-//        for (int i = 0; i < 4; i++) {
 //            drawCard(compCards, compHand);
 //        }
+//        
 //        
 //        Card compPick = compPickCard(compHand);
 //        drawCard(compCards, compHand);
@@ -115,10 +113,11 @@ public class GameScreen extends JPanel {
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
+//            drawCard(compCards, compHand);
 //        }
 //        
 //        for (int i = 0; i < 4; i++) {
-//            drawCard(compCards, compHand);
+//            
 //        }
 //        
 //        Card compPick = compPickCard(compHand);
