@@ -45,7 +45,7 @@ public class GameScreen extends JPanel {
     
     int totalCards = 33;
     
-    BufferedImage image = null;
+   static BufferedImage image=null;
     String name;
 
     public GameScreen() {
@@ -187,9 +187,11 @@ public class GameScreen extends JPanel {
  * 
  * @param g 
  */
+    
+    Character character = new Character(Color.BLACK,image, true, cards); 
     public void paint(Graphics g) {
         
-        System.out.println(CharacterSelectMenu.getAnimal());
+      
         
 
         Graphics2D g2d = (Graphics2D) g;
@@ -204,9 +206,12 @@ public class GameScreen extends JPanel {
         g2d.fillRect(0, 0, 1000, 1000);
         g2d.fillRect(100 + x, 100, 50, 50);
 
+       character.render(g2d); 
+       
+       // System.out.println(GameScreen.image);
+       // g2d.drawImage(image, 100, x, null);
         
-        g2d.drawImage(image, 100, x, null);
-
+        //g2d.drawImage(image, 500, 100,-image.getWidth()/2, image.getHeight()/2-x/20, null);
         g2d.dispose();
         repaint();
 
