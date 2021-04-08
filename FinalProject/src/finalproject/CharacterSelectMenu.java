@@ -146,7 +146,8 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_LeftActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-        // TODO add your handling code here:
+
+        //save user using User class
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
