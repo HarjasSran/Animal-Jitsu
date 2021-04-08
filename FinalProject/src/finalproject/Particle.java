@@ -30,21 +30,21 @@ public class Particle extends GameObject {
         this.direction = direction;
     }
     /**
-     * 
+     * mutator method to set the element
      * @param element 
      */
     public void setElement(BufferedImage element){
         this.element = element;
     }
     /**
-     * 
+     * accesor method to get the element
      * @return 
      */
     public BufferedImage getElement(){
         return element;
     }
     /**
-     * 
+     * clone method to clone the particle
      * @return 
      */
     public Particle clone(){
@@ -52,7 +52,7 @@ public class Particle extends GameObject {
         return newParticle;
     }
     /**
-     * 
+     * Accessor method to return all particle attributes and values
      * @return 
      */
     public String toString(){

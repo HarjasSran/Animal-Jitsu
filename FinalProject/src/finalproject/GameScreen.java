@@ -113,7 +113,10 @@ public class GameScreen extends JPanel {
     int x = 0;
     double v = 0;
     int c = 0;
-
+/**
+ * 
+ * @param g 
+ */
     public void paint(Graphics g) {
 
         Graphics2D g2d = (Graphics2D) g;
@@ -157,7 +160,11 @@ public class GameScreen extends JPanel {
         return img;
 
     }
-
+/**
+ * method that draws a new card
+ * @param cards
+ * @param hand 
+ */
     private void drawCard(ArrayList<Card> cards, ArrayList<Card> hand) {
         int rNum = (int) (Math.random() * totalCards + 1);
         Card drawCard = cards.get(rNum);
@@ -166,13 +173,22 @@ public class GameScreen extends JPanel {
         hand.add(drawCard);
         totalCards-= 1;
     }
-
+    /**
+     * method that picks a card for the sensei penguin
+     * @param compHand
+     * @return 
+     */
     private Card compPickCard(ArrayList<Card> compHand) {
         int rNum = (int)(Math.random()*5+1);
         Card cardDraw = compHand.get(rNum);
         return cardDraw;
     }
-
+    /**
+     * method to check if someone has won
+     * @param compPick
+     * @param userPick
+     * @return 
+     */
     private String checkWin(Card compPick, Card userPick) {
         String userWin = "";
         

@@ -12,9 +12,10 @@ import java.util.ArrayList;
  * @author harja
  */
 public class Character extends GameObject {
-    Color bow;
-    BufferedImage animal;
-    ArrayList cards;
+    //create variables for attributes of the character
+    Color bow;// the color of the characters bow
+    BufferedImage animal;// the animal of the character
+    ArrayList cards;// the characters cards
     
     /**
      * 
@@ -36,7 +37,7 @@ public class Character extends GameObject {
         this.cards = cards;
     }
     /**
-     * 
+     * mutator method to set the color of the bow
      * @param c 
      */
     public void setBow(Color c){
@@ -44,35 +45,35 @@ public class Character extends GameObject {
     }
     
     /**
-     * 
+     * accessor method to get the color of the bow
      * @return 
      */
     public Color getBow(){
         return bow;
     }
     /**
-     * 
+     * mutator method to set the animal
      * @param animal 
      */
     public void setAnimal(BufferedImage animal){
         this.animal = animal;
     }
     /**
-     * 
+     * accesor method to get the animal
      * @return 
      */
     public BufferedImage getAnimal(){
         return animal;
     }
     /**
-     * 
+     * accesor method to get the crds
      * @return 
      */
     public ArrayList getCards(){
         return cards;
     }
     /**
-     * 
+     * method to clone the character and its attributes
      * @return 
      */
     public Character clone(){
@@ -80,7 +81,7 @@ public class Character extends GameObject {
         return newChar;
     }
     /**
-     * 
+     * accessor method for all the attributes of the player
      * @return 
      */
     public String toString(){
