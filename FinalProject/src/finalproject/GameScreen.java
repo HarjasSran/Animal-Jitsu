@@ -26,12 +26,12 @@ public class GameScreen extends JPanel {
     private BufferedImage test1;
     final long start = System.currentTimeMillis();
 
-    static BufferedImage GIRAFFE_IMAGE=null;
-    static BufferedImage BOSS_IMAGE = null;
-    static BufferedImage GORILLA_IMAGE = null;
-    static BufferedImage TIGER_IMAGE = null;
-    static BufferedImage MONKEY_IMAGE = null;
-    static BufferedImage ZEBRA_IMAGE = null;
+//    static BufferedImage GIRAFFE_IMAGE=null;
+//    static BufferedImage BOSS_IMAGE = null;
+//    static BufferedImage GORILLA_IMAGE = null;
+//    static BufferedImage TIGER_IMAGE = null;
+//    static BufferedImage MONKEY_IMAGE = null;
+//    static BufferedImage ZEBRA_IMAGE = null;
 
     
     static BufferedImage FIREBALL_IMAGE = null;
@@ -47,17 +47,17 @@ public class GameScreen extends JPanel {
 
     public GameScreen() {
 
-        GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
-        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
-        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
-        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
-        MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
-        ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
-        
-        
-        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
-        WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
-        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
+//        GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
+//        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
+//        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
+//        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
+//        MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
+//        ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
+//        
+//        
+//        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
+//        WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
+//        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
         
         //All water element cards added to arraylist
         for (int i = 0; i < 10; i++) {
@@ -119,8 +119,7 @@ public class GameScreen extends JPanel {
 
         g2d.setColor(Color.red);
 
-        int elapsed = (int) (System.currentTimeMillis() - start);
-
+        
         c++;
         v += (Math.sin(c * 0.001)) / 10;
         x = (int) Math.floor(v);
@@ -129,7 +128,7 @@ public class GameScreen extends JPanel {
         g2d.fillRect(100 + x, 100, 50, 50);
 
         //g2d.drawImage(test1, 100, x, null);
-        g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
+      ///  g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
 
         g2d.dispose();
         repaint();

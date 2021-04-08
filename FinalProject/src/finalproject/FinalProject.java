@@ -30,7 +30,7 @@ public class FinalProject {
         
         
         
-       JOptionPane.showMessageDialog(null,"Github is working correctly!");
+      // JOptionPane.showMessageDialog(null,"Github is working correctly!");
         
         
         JFrame game = new JFrame("Game");
