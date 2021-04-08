@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -36,6 +37,13 @@ public class GameScreen extends JPanel {
     static BufferedImage FIREBALL_IMAGE = null;
     static BufferedImage WATERBALL_IMAGE = null;
     static BufferedImage SNOWBALL_IMAGE = null;
+    
+    ArrayList <Card> cards = new ArrayList();
+    ArrayList <Card> compCards = new ArrayList();
+    ArrayList <Card> hand = new ArrayList();
+    ArrayList <Card> compHand = new ArrayList();
+    
+    int totalCards = 33;
 
     public GameScreen() {
 
@@ -51,8 +59,42 @@ public class GameScreen extends JPanel {
         WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
         SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
         
-        //add music, search it up 
+        //All water element cards added to arraylist
+        for (int i = 0; i < 10; i++) {
+            cards.add(new Card(0, i, false));
+            compCards.add(new Card(0, i, false));
+        }
+
+        //All fire element cards added to arraylist
+        for (int i = 0; i < 10; i++) {
+            cards.add(new Card(1, i, false));
+            compCards.add(new Card(1, i, false));
+        }
+
+        //All snow element cards added to arraylist
+        for (int i = 0; i < 10; i++) {
+            cards.add(new Card(2, i, false));
+            compCards.add(new Card(2, i, false));
+        }
         
+        for (int i = 0; i < 4; i++) {
+            drawCard(cards, hand);
+        }
+        
+        for (int i = 0; i < 4; i++) {
+            drawCard(compCards, compHand);
+        }
+        
+        Card compPick = compPickCard(compHand);
+        drawCard(compCards, compHand);
+        int choice = Integer.parseInt(JOptionPane.showInputDialog("Pick a card to draw./n1. " + hand.get(0).toString() + "\n2. " + hand.get(1).toString() + "\n3. " + hand.get(2).toString() + "\n4. " + hand.get(3).toString() + "\n5. " + hand.get(4).toString()));
+        Card userPick = hand.get(choice);
+        hand.remove(choice);
+        drawCard(cards, hand);
+        
+        checkWin(compPick, userPick);
+        
+
         //make cards array. use card class to create cards and array list of the random cards that got drawed into users hand
         //computer has same array list of cards but not a "hand" arraylist
         //let user pick a card from their array list and have computer draw random card
@@ -116,4 +158,42 @@ public class GameScreen extends JPanel {
 
     }
 
+    private void drawCard(ArrayList<Card> cards, ArrayList<Card> hand) {
+        int rNum = (int) (Math.random() * totalCards + 1);
+        Card drawCard = cards.get(rNum);
+        drawCard.setFaceUp(true);
+        cards.remove(rNum);
+        hand.add(drawCard);
+        totalCards-= 1;
+    }
+
+    private Card compPickCard(ArrayList<Card> compHand) {
+        int rNum = (int)(Math.random()*5+1);
+        Card cardDraw = compHand.get(rNum);
+        return cardDraw;
+    }
+
+    private void checkWin(Card compPick, Card userPick) {
+        
+        
+        //snow(2) beats water(0)
+        //water(0) beats fire(1)
+        //fire(1) beats snow(2)
+        int compElement = compPick.getElement();
+        int userElement = userPick.getElement();
+        
+        int compNumber = compPick.getCardNumber();
+        int userNumber = compPick.getCardNumber();
+        
+        if (userElement != compElement) {
+            if (userElement == 0) {
+                if (compElement == 1) {
+                    
+                }
+            }
+        }
+    }
+
+    
+    
 }
