@@ -99,24 +99,34 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Left.setText("<");
+        Left.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft1.png"))); // NOI18N
+        Left.setBorderPainted(false);
+        Left.setContentAreaFilled(false);
+        Left.setFocusPainted(false);
+        Left.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft2.png"))); // NOI18N
+        Left.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft3.png"))); // NOI18N
         Left.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LeftActionPerformed(evt);
             }
         });
-        getContentPane().add(Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+        getContentPane().add(Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 70, -1));
 
         jLabel1.setFocusable(false);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 450, 450));
 
-        right.setText(">");
+        right.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButton1.png"))); // NOI18N
+        right.setBorderPainted(false);
+        right.setContentAreaFilled(false);
+        right.setFocusPainted(false);
+        right.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButton2.png"))); // NOI18N
+        right.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButton3.png"))); // NOI18N
         right.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rightActionPerformed(evt);
             }
         });
-        getContentPane().add(right, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 280, -1, -1));
+        getContentPane().add(right, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 280, 60, -1));
 
         nameField.setFont(new java.awt.Font("8-bit Arcade In", 1, 36)); // NOI18N
         nameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -141,18 +151,24 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         });
         getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 240, -1));
 
-        returnButton.setText("<");
+        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft1.png"))); // NOI18N
+        returnButton.setBorderPainted(false);
+        returnButton.setContentAreaFilled(false);
+        returnButton.setFocusPainted(false);
+        returnButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft2.png"))); // NOI18N
+        returnButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft3.png"))); // NOI18N
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 700, -1, -1));
+        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 670, 70, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/forest.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 770));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightActionPerformed

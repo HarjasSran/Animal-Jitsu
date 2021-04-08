@@ -91,20 +91,25 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
 
         returnButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         returnButton.setForeground(new java.awt.Color(255, 0, 0));
-        returnButton.setText("<");
+        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft1.png"))); // NOI18N
         returnButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 3));
+        returnButton.setBorderPainted(false);
         returnButton.setContentAreaFilled(false);
+        returnButton.setFocusPainted(false);
+        returnButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft2.png"))); // NOI18N
+        returnButton.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft3.png"))); // NOI18N
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 677, 90, 30));
+        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 657, 80, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/pixeltown.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-300, 0, 1350, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
