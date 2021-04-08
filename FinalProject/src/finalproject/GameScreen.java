@@ -40,8 +40,8 @@ public class GameScreen extends JPanel {
     
     ArrayList <Card> cards = new ArrayList();
     ArrayList <Card> compCards = new ArrayList();
-    ArrayList <Card> hand = new ArrayList();
-    ArrayList <Card> compHand = new ArrayList();
+   ArrayList <Card> hand = new ArrayList();
+   ArrayList <Card> compHand = new ArrayList();
     
     int totalCards = 33;
     
@@ -88,6 +88,8 @@ public class GameScreen extends JPanel {
         for (int i = 0; i < 10; i++) {
             cards.add(new Card(Card.WATER_ELEMENT, i, false));
             compCards.add(new Card(Card.WATER_ELEMENT, i, false));
+            
+            System.out.println("f");
         }
 
         //All fire element cards added to arraylist

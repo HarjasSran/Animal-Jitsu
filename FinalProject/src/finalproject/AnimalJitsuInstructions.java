@@ -35,7 +35,9 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
     private void initComponents() {
 
         lblInstructions = new javax.swing.JLabel();
+        btnStart = new javax.swing.JButton();
         lblBows = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         lblRules = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -46,6 +48,7 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Instructions");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblInstructions.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
@@ -53,10 +56,20 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         lblInstructions.setText("Instructions");
         getContentPane().add(lblInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 16, 180, 40));
 
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton1.png"))); // NOI18N
+        btnStart.setBorderPainted(false);
+        btnStart.setContentAreaFilled(false);
+        btnStart.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton2.png"))); // NOI18N
+        btnStart.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton3.png"))); // NOI18N
+        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 650, 250, -1));
+
         lblBows.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
         lblBows.setForeground(new java.awt.Color(0, 153, 0));
         lblBows.setText("Earn Your Bows");
         getContentPane().add(lblBows, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 67, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/instructions.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         lblRules.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
         lblRules.setForeground(new java.awt.Color(51, 153, 0));
@@ -67,14 +80,14 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 51, 51));
+        jTextArea1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setText("1. When the game begins, you and Sensei Penguin each \nreceive 5 cards, each with an element and a number.\n\n2. Snow cards defeat Water cards. Water cards beat \nFire cards Fire cards beat Snow cards.\n\n3. If both you and Sensei Penguin choose the same element,\nthe winner of the round will be the card with the highest \nnumber.\n\n4. If you and Sensei Penguin choose a card of the same \nelement and number, nobody wins the round.\n\n5. You will have 15 seconds to choose a card that will\n win help you win the game.\n\n6. The game ends when you or Sensei Penguin have won at \nleast 1 round with each element OR won 3 rounds with \nthe same element.\n");
         jTextArea1.setOpaque(false);
         jScrollPane2.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 227, 470, 400));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 227, 470, 10));
 
         jScrollPane1.setOpaque(false);
 
@@ -103,7 +116,7 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
                 returnButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 657, 80, 50));
+        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 80, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/pixeltown.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-300, 0, 1350, -1));
@@ -126,8 +139,10 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnStart;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
