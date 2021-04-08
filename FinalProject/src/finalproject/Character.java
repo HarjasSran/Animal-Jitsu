@@ -35,8 +35,6 @@ public class Character extends GameObject {
     public Character(Color bow, BufferedImage animal, boolean direction, ArrayList cards){
         this.bow = bow;
         this.animal = animal;
-        
-        
         this.direction = direction;
         this.cards = cards;
     }
@@ -90,8 +88,8 @@ public class Character extends GameObject {
      */
     
     public void render(Graphics2D g2d){
-        System.out.println(this.animal);
-        //g2d.drawImage(animal, 100, 100,animal.getWidth()/2, animal.getHeight()/2, null);
+        //System.out.println(this.animal);
+        g2d.drawImage(animal, this.getX(), this.getY(),this.getObjectWidth(), this.getObjectHeight(), null);
         
     }
     
