@@ -107,6 +107,11 @@ public class MainMenuGUI extends javax.swing.JFrame {
         btnCredits.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton2.png"))); // NOI18N
         btnCredits.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton3.png"))); // NOI18N
         btnCredits.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton2.png"))); // NOI18N
+        btnCredits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreditsActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/header.png"))); // NOI18N
@@ -139,6 +144,13 @@ public class MainMenuGUI extends javax.swing.JFrame {
        this.setVisible(false); 
        
     }//GEN-LAST:event_btnInstructionsActionPerformed
+
+    private void btnCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditsActionPerformed
+        Credits credits = new Credits(this);
+
+        credits.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCreditsActionPerformed
 
     /**
      * @param args the command line arguments
