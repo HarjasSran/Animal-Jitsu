@@ -61,6 +61,8 @@ public class GameScreen extends JPanel {
         FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
         WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
         SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
+        
+         //  CARD_SPRITESHEET =  createBufferedImage("/assets/cards.png");
                 
         
         if(CharacterSelectMenu.getAnimal().equals("giraffe")){

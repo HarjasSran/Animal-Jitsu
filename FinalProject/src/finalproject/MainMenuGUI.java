@@ -5,6 +5,7 @@
  */
 package finalproject;
 
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.*;
@@ -23,20 +24,29 @@ public class MainMenuGUI extends javax.swing.JFrame {
      * @throws java.io.IOException
      * @throws javax.sound.sampled.LineUnavailableException
      */
+    
+   static Clip clip=null; 
     public MainMenuGUI()  {
         initComponents();
         
         
+       // Image i = new Image(); 
+       // this.setIconImage();
+        
+        
         //throws UnsupportedAudioFileException, IOException, LineUnavailableException
+        
+        
         try{
          File f = new File("src/finalproject/naruto.wav");
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
 
-        Clip clip = AudioSystem.getClip();
+        clip = AudioSystem.getClip();
         
         clip.open(audioStream);
         
         clip.start();
+      
             
             
         }catch(LineUnavailableException | IOException | UnsupportedAudioFileException e){
@@ -62,6 +72,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
 
         btnStart = new javax.swing.JButton();
         btnInstructions = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
         btnCredits = new javax.swing.JButton();
         title = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
@@ -99,6 +110,14 @@ public class MainMenuGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
+
+        jToggleButton1.setText("Sound");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
 
         btnCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton1.png"))); // NOI18N
         btnCredits.setBorderPainted(false);
@@ -152,6 +171,20 @@ public class MainMenuGUI extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCreditsActionPerformed
 
+    boolean music=true; 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        
+        if(music){
+            music= false; 
+            clip.stop();
+        }else{
+            music=true;
+            clip.start();
+        }
+        
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -192,6 +225,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnCredits;
     private javax.swing.JButton btnInstructions;
     private javax.swing.JButton btnStart;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

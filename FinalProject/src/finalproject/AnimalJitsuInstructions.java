@@ -61,6 +61,11 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         btnStart.setContentAreaFilled(false);
         btnStart.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton2.png"))); // NOI18N
         btnStart.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton3.png"))); // NOI18N
+        btnStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 650, 250, -1));
 
         lblBows.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
@@ -132,6 +137,14 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+       
+        CharacterSelectMenu s = new CharacterSelectMenu(m);
+        s.setVisible(true);
+        this.setVisible(false); 
+        
+    }//GEN-LAST:event_btnStartActionPerformed
 
     /**
      * @param args the command line arguments

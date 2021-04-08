@@ -47,21 +47,21 @@ abstract public class GameObject {
      */
     public GameObject(){
         
-         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
-        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
-        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
-        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
-        MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
-        ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
-        
-        
-        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
-        WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
-        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
-        
-        
-        CARD_SPRITESHEET =  createBufferedImage("/assets/cards.png");
-        
+//         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
+//        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
+//        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
+//        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
+//        MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
+//        ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
+//        
+//        
+//        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
+//        WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
+//        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
+//        
+//        
+//        CARD_SPRITESHEET =  createBufferedImage("/assets/cards.png");
+//        
         
         
         

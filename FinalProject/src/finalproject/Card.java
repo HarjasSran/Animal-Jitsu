@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
  *
  * @author harja
  */
-public class Card extends Character{
+public class Card extends GameObject{
     int element;
     int cardNumber;
     Color color;
