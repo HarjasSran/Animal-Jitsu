@@ -96,39 +96,39 @@ public class GameScreen extends JPanel {
 //        String userWin = checkWin(compPick, userPick);
 //        
 
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(0, i, false));
-            compCards.add(new Card(0, i, false));
-        }
-
-        //All fire element cards added to arraylist
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(1, i, false));
-            compCards.add(new Card(1, i, false));
-        }
-
-        //All snow element cards added to arraylist
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(2, i, false));
-            compCards.add(new Card(2, i, false));
-        }
-        
-        for (int i = 0; i < 4; i++) {
-            drawCard(cards, hand);
-        }
-        
-        for (int i = 0; i < 4; i++) {
-            drawCard(compCards, compHand);
-        }
-        
-        Card compPick = compPickCard(compHand);
-        drawCard(compCards, compHand);
-        int choice = Integer.parseInt(JOptionPane.showInputDialog("Pick a card to draw./n1. " + hand.get(0).toString() + "\n2. " + hand.get(1).toString() + "\n3. " + hand.get(2).toString() + "\n4. " + hand.get(3).toString() + "\n5. " + hand.get(4).toString()));
-        Card userPick = hand.get(choice);
-        hand.remove(choice);
-        drawCard(cards, hand);
-        
-        String userWin = checkWin(compPick, userPick);
+//        for (int i = 0; i < 10; i++) {
+//            cards.add(new Card(0, i, false));
+//            compCards.add(new Card(0, i, false));
+//        }
+//
+//        //All fire element cards added to arraylist
+//        for (int i = 0; i < 10; i++) {
+//            cards.add(new Card(1, i, false));
+//            compCards.add(new Card(1, i, false));
+//        }
+//
+//        //All snow element cards added to arraylist
+//        for (int i = 0; i < 10; i++) {
+//            cards.add(new Card(2, i, false));
+//            compCards.add(new Card(2, i, false));
+//        }
+//        
+//        for (int i = 0; i < 4; i++) {
+//            drawCard(cards, hand);
+//        }
+//        
+//        for (int i = 0; i < 4; i++) {
+//            drawCard(compCards, compHand);
+//        }
+//        
+//        Card compPick = compPickCard(compHand);
+//        drawCard(compCards, compHand);
+//        int choice = Integer.parseInt(JOptionPane.showInputDialog("Pick a card to draw./n1. " + hand.get(0).toString() + "\n2. " + hand.get(1).toString() + "\n3. " + hand.get(2).toString() + "\n4. " + hand.get(3).toString() + "\n5. " + hand.get(4).toString()));
+//        Card userPick = hand.get(choice);
+//        hand.remove(choice);
+//        drawCard(cards, hand);
+//        
+//        String userWin = checkWin(compPick, userPick);
         //give element win to the user or sensei based on win or loss
 
         
