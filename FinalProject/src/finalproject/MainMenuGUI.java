@@ -8,6 +8,7 @@ package finalproject;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.*;
+import javax.swing.JFrame;
 
 /**
  *
@@ -113,16 +114,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         characterSelect.setVisible(true); 
         
         
-        //Makes a new window when start is clicked
         
-//          JFrame game = new JFrame("Game");
-//        game.setSize(800,800);
-//       
-//        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        
-//        GameScreen gameScreen =new GameScreen(); 
-//        game.add(gameScreen); 
-//        game.setVisible(true);
         
         
         
