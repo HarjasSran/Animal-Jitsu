@@ -36,6 +36,8 @@ abstract public class GameObject {
     static BufferedImage WATERBALL_IMAGE = null;
     static BufferedImage SNOWBALL_IMAGE = null;
     
+    static BufferedImage CARD_SPRITESHEET = null; 
+    
     
     
     
@@ -56,6 +58,9 @@ abstract public class GameObject {
         FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
         WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
         SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
+        
+        
+        CARD_SPRITESHEET =  createBufferedImage("/assets/cards.png");
         
         
         

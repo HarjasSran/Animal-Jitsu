@@ -54,8 +54,9 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         Left = new javax.swing.JButton();
-        right = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        right = new javax.swing.JButton();
+        nameField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,7 +68,10 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
                 LeftActionPerformed(evt);
             }
         });
-        getContentPane().add(Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
+        getContentPane().add(Left, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+
+        jLabel1.setFocusable(false);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 450, 450));
 
         right.setText(">");
         right.addActionListener(new java.awt.event.ActionListener() {
@@ -75,11 +79,20 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
                 rightActionPerformed(evt);
             }
         });
-        getContentPane().add(right, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, -1, -1));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 450, 450));
+        getContentPane().add(right, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 280, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/chunin.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        nameField.setFont(new java.awt.Font("8-bit Arcade In", 1, 36)); // NOI18N
+        nameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameField.setText("NAME");
+        nameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 530, 430, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/forest.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,6 +128,10 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_LeftActionPerformed
+
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +172,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     private javax.swing.JButton Left;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField nameField;
     private javax.swing.JButton right;
     // End of variables declaration//GEN-END:variables
 }
