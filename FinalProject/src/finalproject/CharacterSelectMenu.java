@@ -21,7 +21,9 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     ArrayList <ImageIcon> icons = new ArrayList(); 
     
     int i = 0;
-    
+    /**
+     * 
+     */
     public CharacterSelectMenu() {
 
         ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
