@@ -162,7 +162,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
                 returnButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 670, 70, -1));
+        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 70, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/forest.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 770));

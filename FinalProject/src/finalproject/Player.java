@@ -19,6 +19,7 @@ public class Player extends Character{
     //public Player(String name, Color bow, Image animal, boolean direction, ArrayList cards){
         
     //}
+        
     /**
      * 
      * @param name 

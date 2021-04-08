@@ -27,11 +27,11 @@ public class GameScreen extends JPanel {
     final long start = System.currentTimeMillis();
 
    static BufferedImage GIRAFFE_IMAGE=null;
-//    static BufferedImage BOSS_IMAGE = null;
-//    static BufferedImage GORILLA_IMAGE = null;
-//    static BufferedImage TIGER_IMAGE = null;
-//    static BufferedImage MONKEY_IMAGE = null;
-//    static BufferedImage ZEBRA_IMAGE = null;
+    static BufferedImage BOSS_IMAGE = null;
+    static BufferedImage GORILLA_IMAGE = null;
+    static BufferedImage TIGER_IMAGE = null;
+    static BufferedImage MONKEY_IMAGE = null;
+    static BufferedImage ZEBRA_IMAGE = null;
 
     
     static BufferedImage FIREBALL_IMAGE = null;
@@ -48,11 +48,11 @@ public class GameScreen extends JPanel {
     public GameScreen() {
 
         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
-//        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
-//        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
-//        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
-//        MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
-//        ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
+        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
+        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
+        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
+        MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
+        ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
 //        
 //        
 //        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
@@ -170,8 +170,26 @@ public class GameScreen extends JPanel {
         g2d.fillRect(0, 0, 1000, 1000);
         g2d.fillRect(100 + x, 100, 50, 50);
 
-        //g2d.drawImage(test1, 100, x, null);
-       g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
+        
+        
+        BufferedImage image = null;
+        if(CharacterSelectMenu.getAnimal().equals("giraffe")){
+            image = GIRAFFE_IMAGE;
+        }
+        
+        else if(CharacterSelectMenu.getAnimal().equals("gorilla")){
+            image = GORILLA_IMAGE;
+        }
+        
+        else if(CharacterSelectMenu.getAnimal().equals("tiger")){
+            image = TIGER_IMAGE;
+        }
+        
+        else{
+            image = ZEBRA_IMAGE;
+        }
+        
+        g2d.drawImage(image, 100, x, null);
 
         g2d.dispose();
         repaint();
