@@ -5,6 +5,7 @@
  */
 package finalproject;
 
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -68,6 +69,8 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         icons.add(zebra);
        
         initComponents();
+        // set icon image to penguin character
+       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         
         //ImageIcon icon = new ImageIcon(icons.get(i));
         jLabel1.setIcon(icons.get(i));

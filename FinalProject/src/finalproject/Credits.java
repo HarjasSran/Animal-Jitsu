@@ -5,6 +5,8 @@
  */
 package finalproject;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author carolinewiddecombe
@@ -19,6 +21,9 @@ public class Credits extends javax.swing.JFrame {
     public Credits(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
+        
+        // set icon image to penguin character
+       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
     }
 
     /**

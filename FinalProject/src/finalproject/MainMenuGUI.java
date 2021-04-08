@@ -6,9 +6,11 @@
 package finalproject;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.*;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -30,8 +32,8 @@ public class MainMenuGUI extends javax.swing.JFrame {
         initComponents();
         
         
-       // Image i = new Image(); 
-       // this.setIconImage();
+      // set icon image to penguin character
+       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         
         
         //throws UnsupportedAudioFileException, IOException, LineUnavailableException

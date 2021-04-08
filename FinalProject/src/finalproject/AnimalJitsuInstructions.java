@@ -4,6 +4,7 @@ INSTRUCTIONS MENU
 package finalproject;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 
 /**
  *
@@ -18,6 +19,10 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
     public AnimalJitsuInstructions(MainMenuGUI mainMenu) {
          m = mainMenu; 
         initComponents();
+        
+        
+        // set icon image to penguin character
+       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         jTextArea1.setOpaque(false);
     jTextArea1.setBackground(new Color(0,0,0,200));
     
