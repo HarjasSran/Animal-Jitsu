@@ -22,7 +22,7 @@ public class FinalProject {
      */
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         
-        
+       
         MainMenuGUI menu = new MainMenuGUI(); 
         menu.setVisible(true);
         

@@ -25,7 +25,35 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     /**
      * 
      */
+    
+    
+    //global variable storing animal
+    static int animal; 
+    static String name; 
+    
+    
+    public  static String getUsername(){
+       return name;  
+    }
+    
+    
+    
+    /**
+     * 
+     * @return integer denoting user animal choice
+     */
+    public static String getAnimal(){
+        
+        String animals[] = {"gorilla", "giraffe", "tiger", "zebra"}; 
+        
+        
+        
+        
+        return animals[animal]; 
+    }
+    
     public CharacterSelectMenu() {
+        
 
         ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
         ImageIcon giraffe = new ImageIcon("src/icons/giraffeIcon.png");
@@ -44,6 +72,8 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         
         
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -152,6 +182,10 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
       
+        //get name from user input field
+        name = nameField.getText(); 
+        //get animal index from user input
+        animal = i; 
         //Makes a new window when start is clicked
         
           JFrame game = new JFrame("Game");

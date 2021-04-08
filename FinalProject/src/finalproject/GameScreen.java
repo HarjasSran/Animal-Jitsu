@@ -154,6 +154,9 @@ public class GameScreen extends JPanel {
  * @param g 
  */
     public void paint(Graphics g) {
+        
+        System.out.println(CharacterSelectMenu.getAnimal());
+        
 
         Graphics2D g2d = (Graphics2D) g;
 
