@@ -57,9 +57,11 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         right = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
+        btnStart = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Left.setText("<");
@@ -90,6 +92,19 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 530, 430, 40));
+
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton1.png"))); // NOI18N
+        btnStart.setBorderPainted(false);
+        btnStart.setContentAreaFilled(false);
+        btnStart.setFocusPainted(false);
+        btnStart.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton2.png"))); // NOI18N
+        btnStart.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton3.png"))); // NOI18N
+        btnStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 240, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/forest.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 770));
@@ -133,6 +148,10 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
 
+    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+      
+    }//GEN-LAST:event_btnStartActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -170,6 +189,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Left;
+    private javax.swing.JButton btnStart;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField nameField;
