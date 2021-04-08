@@ -93,7 +93,7 @@ public class GameScreen extends JPanel {
         drawCard(cards, hand);
         
         String userWin = checkWin(compPick, userPick);
-        
+//        
         
 
         //make cards array. use card class to create cards and array list of the random cards that got drawed into users hand
