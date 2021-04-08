@@ -16,9 +16,9 @@ public class Card extends Character{
     Color color;
     boolean faceUp; //true == facing up
     
-    int WATER_ELEMENT = 0;
-    int FIRE_ELEMENT = 1;
-    int SNOW_ELEMENT = 2;
+    static int WATER_ELEMENT = 0;
+    static int FIRE_ELEMENT = 1;
+   static int SNOW_ELEMENT = 2;
     
     /**
      * Default constructor

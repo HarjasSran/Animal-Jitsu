@@ -86,20 +86,20 @@ public class GameScreen extends JPanel {
         //All water element cards added to arraylist
 
         for (int i = 0; i < 10; i++) {
-            cards.add(new Card(0, i, false));
-            compCards.add(new Card(0, i, false));
+            cards.add(new Card(Card.WATER_ELEMENT, i, false));
+            compCards.add(new Card(Card.WATER_ELEMENT, i, false));
         }
 
         //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
-            cards.add(new Card(1, i, false));
-            compCards.add(new Card(1, i, false));
+            cards.add(new Card(Card.FIRE_ELEMENT, i, false));
+            compCards.add(new Card(Card.FIRE_ELEMENT, i, false));
         }
 
         //All snow element cards added to arraylist
         for (int i = 0; i < 10; i++) {
-            cards.add(new Card(2, i, false));
-            compCards.add(new Card(2, i, false));
+            cards.add(new Card(Card.SNOW_ELEMENT, i, false));
+            compCards.add(new Card(Card.SNOW_ELEMENT, i, false));
         }
         
                 
