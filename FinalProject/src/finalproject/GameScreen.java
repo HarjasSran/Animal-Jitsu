@@ -69,7 +69,7 @@ public class GameScreen extends JPanel {
         WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
         SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
         
-        BACKGROUND_IMAGE = createBufferedImage("/backgrounds/chunin.png");
+        BACKGROUND_IMAGE = createBufferedImage("/backgrounds/level1.png");
         
         
         
@@ -225,10 +225,10 @@ public class GameScreen extends JPanel {
 //        player.setWidth(player.getAnimal().getWidth()/4);
 //        player.setHeight(player.getAnimal().getHeight()/4);
 
-        player.setScale(34);
+        player.setScale(80);
         player.render(g2d); 
         
-        comp.setScale(34);
+        comp.setScale(80);
         comp.render(g2d);
         
        // System.out.println(GameScreen.image);
