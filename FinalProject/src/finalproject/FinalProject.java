@@ -21,7 +21,7 @@ public class FinalProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        System.out.println("hello");
+        
         
         MainMenuGUI menu = new MainMenuGUI(); 
         menu.setVisible(true);
@@ -30,7 +30,7 @@ public class FinalProject {
         
         
         
-       JOptionPane.showMessageDialog(null,"Github is working correctly!");
+       
         
         
         JFrame game = new JFrame("Game");
@@ -38,7 +38,7 @@ public class FinalProject {
        
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        GameScreen gameScreen =new GameScreen(); 
+        GameScreen gameScreen = new GameScreen(); 
         game.add(gameScreen); 
         game.setVisible(true);
         
