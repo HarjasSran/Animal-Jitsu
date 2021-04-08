@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,10 +23,13 @@ public class MainMenuGUI extends javax.swing.JFrame {
      * @throws java.io.IOException
      * @throws javax.sound.sampled.LineUnavailableException
      */
-    public MainMenuGUI() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    public MainMenuGUI()  {
         initComponents();
         
-        File f = new File("src/finalproject/naruto.wav");
+        
+        //throws UnsupportedAudioFileException, IOException, LineUnavailableException
+        try{
+         File f = new File("src/finalproject/naruto.wav");
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
 
         Clip clip = AudioSystem.getClip();
@@ -33,6 +37,12 @@ public class MainMenuGUI extends javax.swing.JFrame {
         clip.open(audioStream);
         
         clip.start();
+            
+            
+        }catch(LineUnavailableException | IOException | UnsupportedAudioFileException e){
+            JOptionPane.showMessageDialog(null, "The following Error occured:" + e); 
+        }
+        
         
         
 
@@ -110,8 +120,10 @@ public class MainMenuGUI extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
       
-        CharacterSelectMenu characterSelect = new CharacterSelectMenu(); 
-        characterSelect.setVisible(true); 
+        CharacterSelectMenu characterSelect = new CharacterSelectMenu(this); 
+        
+       characterSelect.setVisible(true);
+        this.setVisible(false);
         
         
         
@@ -121,9 +133,9 @@ public class MainMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnInstructionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstructionsActionPerformed
-    AnimalJitsuInstructions instructions = new AnimalJitsuInstructions(); 
+    AnimalJitsuInstructions instructions = new AnimalJitsuInstructions(this); 
     instructions.setVisible(true);
-       
+       this.setVisible(false); 
        
     }//GEN-LAST:event_btnInstructionsActionPerformed
 
