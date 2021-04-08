@@ -33,13 +33,11 @@ public class Card extends Character{
      * Second constructor to make card with input
      * @param element 
      * @param cardNumber
-     * @param color
      * @param faceUp 
      */
-    public Card(int element, int cardNumber, Color color, boolean faceUp){
+    public Card(int element, int cardNumber, boolean faceUp){
         this.element = element;
         this.cardNumber = cardNumber;
-        this.color = color;
         this.faceUp = faceUp;
     }
     
@@ -108,7 +106,7 @@ public class Card extends Character{
      * @return - the clone of the card
      */
     public Card clone(){
-        Card newCard = new Card(element, cardNumber, color, faceUp); //create new card with the exact same attributes and value
+        Card newCard = new Card(element, cardNumber, faceUp); //create new card with the exact same attributes and value
         return newCard;
     }
     
