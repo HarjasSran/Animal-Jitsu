@@ -200,19 +200,19 @@ public class GameScreen extends JPanel {
         g2d.setColor(Color.red);
 
         
-        c++;
-        v += (Math.sin(c * 0.001)) / 10;
-        x = (int) Math.floor(v);
+//        c++;
+//        v += (Math.sin(c * 0.001)) / 10;
+//        x = (int) Math.floor(v);
 
-        g2d.fillRect(0, 0, 1000, 1000);
-        g2d.fillRect(100 + x, 100, 50, 50);
+//        g2d.fillRect(0, 0, 1000, 1000);
+//        g2d.fillRect(100 + x, 100, 50, 50);
 
-        player.setX(200);
-        player.setY(500);
+//        player.setX(200);
+//        player.setY(500);
 //        player.setWidth(player.getAnimal().getWidth()/4);
 //        player.setHeight(player.getAnimal().getHeight()/4);
 
-player.setScale(50);
+        player.setScale(34);
         player.render(g2d); 
        
        // System.out.println(GameScreen.image);
