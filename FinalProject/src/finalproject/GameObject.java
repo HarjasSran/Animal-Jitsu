@@ -66,7 +66,13 @@ abstract public class GameObject {
         this.xPos = xPos;
         this.yPos = yPos;
         this.rotation = rotation;
-        this.width = width;
+        
+        if (direction) {
+            this.width = width;
+        } else {
+            this.width = -width;
+        }
+        
         this.height = height;
         this.scale = scale;
         this.direction = direction;
@@ -142,24 +148,7 @@ abstract public class GameObject {
         return rotation;
     }
 
-    /**
-     * Mutator method to change the scale of the object updates the width and
-     * height accordingly
-     *
-     * @param scale - size scale of the objects
-     */
-    public void setScale(int scale) {
-        this.scale = scale;
 
-        
-        System.out.println(width*scale);
-        this.width = width*(scale); 
-        this.height = height*(scale); 
-        
-        
-       
-        System.out.println("width:" + width + "height: " + height);
-    }
 
     /**
      * Accessor method for scale
@@ -190,6 +179,7 @@ abstract public class GameObject {
      * @return - width of the object
      */
     public int getObjectWidth() {
+        
         return width;
     }
 

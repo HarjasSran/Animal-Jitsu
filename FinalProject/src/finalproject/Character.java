@@ -97,6 +97,25 @@ public class Character extends GameObject {
         
     }
     
+        /**
+     * Mutator method to change the scale of the object updates the width and
+     * height accordingly
+     *
+     * @param scale - size scale of the objects
+     */
+    public void setScale(int scale) {
+        this.scale = scale;
+
+        
+        //System.out.println(width*scale);
+        this.width = (this.getObjectWidth()*scale)/100; 
+        this.height = (this.getObjectHeight()*scale)/100; 
+        
+        
+       
+        
+    }
+    
     
     public String toString(){
         return "Color: " + bow + "\tAnimal: " + animal + "\tCards: " + cards;
