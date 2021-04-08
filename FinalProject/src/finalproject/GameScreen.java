@@ -92,7 +92,8 @@ public class GameScreen extends JPanel {
         hand.remove(choice);
         drawCard(cards, hand);
         
-        checkWin(compPick, userPick);
+        String userWin = checkWin(compPick, userPick);
+        
         
 
         //make cards array. use card class to create cards and array list of the random cards that got drawed into users hand
@@ -173,8 +174,8 @@ public class GameScreen extends JPanel {
         return cardDraw;
     }
 
-    private void checkWin(Card compPick, Card userPick) {
-        boolean userWin;
+    private String checkWin(Card compPick, Card userPick) {
+        String userWin = "";
         
         //snow(2) beats water(0)
         //water(0) beats fire(1)
@@ -188,17 +189,34 @@ public class GameScreen extends JPanel {
         if (userElement != compElement) {
             if (userElement == 0) {
                 if (compElement == 1) {
-                    userWin = true;
-                }
-                else{
-                    userWin = false;
+                    userWin = "win";
                 }
             }
             
             else if(userElement == 1){
-                
+                if(compElement == 2){
+                    userWin = "win";
+                }
+            }
+            
+            else if(userElement == 2){
+                if(compElement == 0){
+                    userWin = "win";
+                }
             }
         }
+        
+        else if (userElement == compElement){
+            if(userNumber > compNumber){
+                userWin = "win";
+            }
+            
+            else if(userElement == compNumber){
+                userWin = "tie";
+            }
+        }
+        
+        return userWin;
     }
 
     
