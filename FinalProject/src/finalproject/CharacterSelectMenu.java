@@ -149,7 +149,8 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-      
+        GameScreen gameScreen = new GameScreen(); 
+        gameScreen.setVisible(true); 
     }//GEN-LAST:event_btnStartActionPerformed
 
     /**

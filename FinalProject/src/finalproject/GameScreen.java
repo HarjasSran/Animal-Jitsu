@@ -23,7 +23,7 @@ import javax.swing.JPanel;
  */
 public class GameScreen extends JPanel {
 
-    private BufferedImage test1;
+    
     final long start = System.currentTimeMillis();
 
 //    static BufferedImage GIRAFFE_IMAGE=null;
