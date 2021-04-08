@@ -22,10 +22,44 @@ abstract public class GameObject {
     double scale;
     boolean direction; //true == left
     
+    
+    
+     static BufferedImage GIRAFFE_IMAGE=null;
+    static BufferedImage BOSS_IMAGE = null;
+    static BufferedImage GORILLA_IMAGE = null;
+    static BufferedImage TIGER_IMAGE = null;
+    static BufferedImage MONKEY_IMAGE = null;
+    static BufferedImage ZEBRA_IMAGE = null;
+
+    
+    static BufferedImage FIREBALL_IMAGE = null;
+    static BufferedImage WATERBALL_IMAGE = null;
+    static BufferedImage SNOWBALL_IMAGE = null;
+    
+    
+    
+    
+    
     /**
      * Default constructor
      */
     public GameObject(){
+        
+         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
+        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
+        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
+        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
+        MONKEY_IMAGE = createBufferedImage("/assets/monkey.png");
+        ZEBRA_IMAGE = createBufferedImage("/assets/zebra.png");
+        
+        
+        FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
+        WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
+        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
+        
+        
+        
+        
         xPos = 0;
         yPos = 0;
         rotation = 0;
@@ -176,6 +210,24 @@ abstract public class GameObject {
      */
     public String toString(){
         return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;
+    }
+    
+    
+    
+     protected BufferedImage createBufferedImage(String src) {
+        BufferedImage img;
+
+        try {
+
+            img = ImageIO.read(getClass().getResourceAsStream(src)); //load image using source and save
+
+        } catch (IOException | IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, "ERROR LOADING " + src + " :\n" + e); //error message
+            img = null; //no image if error occurs 
+
+        }
+        return img;
+
     }
     
     
