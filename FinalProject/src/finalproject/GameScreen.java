@@ -55,7 +55,8 @@ public class GameScreen extends JPanel {
     
 
     public GameScreen() {
-
+        
+        
         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
         BOSS_IMAGE = createBufferedImage("/assets/boss.png");
         GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
@@ -218,7 +219,7 @@ public class GameScreen extends JPanel {
         //g2d.fillRect(0, 0, 1000, 1000);
         //g2d.fillRect(100 + x, 100, 50, 50);
 
-        g2d.drawImage(BACKGROUND_IMAGE, 0,0,null);
+        g2d.drawImage(BACKGROUND_IMAGE, 0,0, 1920, 1080, null);
 //        player.setX(200);
 //        player.setY(500);
 //        player.setWidth(player.getAnimal().getWidth()/4);
