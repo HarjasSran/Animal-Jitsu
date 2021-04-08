@@ -15,19 +15,19 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
     /**
      * Creates new form AnimalJitsuInstructions
      */
-     MainMenuGUI m; 
+    MainMenuGUI m;
+
     public AnimalJitsuInstructions(MainMenuGUI mainMenu) {
-         m = mainMenu; 
+        m = mainMenu;
         initComponents();
-        
-        
+
         // set icon image to penguin character
-       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         jTextArea1.setOpaque(false);
-    jTextArea1.setBackground(new Color(0,0,0,200));
-    
-    jScrollPane2.getViewport().setOpaque(false);
- jScrollPane2.setOpaque(false);
+        jTextArea1.setBackground(new Color(0, 0, 0, 200));
+
+        jScrollPane2.getViewport().setOpaque(false);
+        jScrollPane2.setOpaque(false);
     }
 
     /**
@@ -73,8 +73,8 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         });
         getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 650, 250, -1));
 
-        lblBows.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
-        lblBows.setForeground(new java.awt.Color(0, 153, 0));
+        lblBows.setFont(new java.awt.Font("Krungthep", 0, 18)); // NOI18N
+        lblBows.setForeground(new java.awt.Color(255, 255, 255));
         lblBows.setText("Earn Your Bows");
         getContentPane().add(lblBows, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 67, -1, -1));
 
@@ -136,25 +136,24 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        
+        //if the user presses the back button, close this window and open the main menu window
         this.setVisible(false);
-        m.setVisible(true); 
-        
-        
+        m.setVisible(true);
+
+
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-       
+        //if the user presses the start window, close this window and open the animal selectionwindow
         CharacterSelectMenu s = new CharacterSelectMenu(m);
         s.setVisible(true);
-        this.setVisible(false); 
-        
+        this.setVisible(false);
+
     }//GEN-LAST:event_btnStartActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStart;
