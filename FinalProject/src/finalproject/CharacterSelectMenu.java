@@ -7,6 +7,7 @@ package finalproject;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -150,6 +151,22 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
       
+        //Makes a new window when start is clicked
+        
+          JFrame game = new JFrame("Game");
+        game.setSize(800,800);
+       
+        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        GameScreen gameScreen =new GameScreen(); 
+        game.add(gameScreen); 
+        game.setVisible(true);
+        
+        
+            //Makes a new window when start is clicked
+        
+          
+        
     }//GEN-LAST:event_btnStartActionPerformed
 
     /**

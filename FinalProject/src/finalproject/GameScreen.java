@@ -26,7 +26,7 @@ public class GameScreen extends JPanel {
     private BufferedImage test1;
     final long start = System.currentTimeMillis();
 
-//    static BufferedImage GIRAFFE_IMAGE=null;
+   static BufferedImage GIRAFFE_IMAGE=null;
 //    static BufferedImage BOSS_IMAGE = null;
 //    static BufferedImage GORILLA_IMAGE = null;
 //    static BufferedImage TIGER_IMAGE = null;
@@ -47,7 +47,7 @@ public class GameScreen extends JPanel {
 
     public GameScreen() {
 
-//        GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
+        GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
 //        BOSS_IMAGE = createBufferedImage("/assets/boss.png");
 //        GORILLA_IMAGE = createBufferedImage("/assets/gorilla.png");
 //        TIGER_IMAGE = createBufferedImage("/assets/tiger.png");
@@ -60,39 +60,39 @@ public class GameScreen extends JPanel {
 //        SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
         
         //All water element cards added to arraylist
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(0, i, false));
-            compCards.add(new Card(0, i, false));
-        }
-
-        //All fire element cards added to arraylist
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(1, i, false));
-            compCards.add(new Card(1, i, false));
-        }
-
-        //All snow element cards added to arraylist
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(2, i, false));
-            compCards.add(new Card(2, i, false));
-        }
-        
-        for (int i = 0; i < 4; i++) {
-            drawCard(cards, hand);
-        }
-        
-        for (int i = 0; i < 4; i++) {
-            drawCard(compCards, compHand);
-        }
-        
-        Card compPick = compPickCard(compHand);
-        drawCard(compCards, compHand);
-        int choice = Integer.parseInt(JOptionPane.showInputDialog("Pick a card to draw./n1. " + hand.get(0).toString() + "\n2. " + hand.get(1).toString() + "\n3. " + hand.get(2).toString() + "\n4. " + hand.get(3).toString() + "\n5. " + hand.get(4).toString()));
-        Card userPick = hand.get(choice);
-        hand.remove(choice);
-        drawCard(cards, hand);
-        
-        String userWin = checkWin(compPick, userPick);
+//        for (int i = 0; i < 10; i++) {
+//            cards.add(new Card(0, i, false));
+//            compCards.add(new Card(0, i, false));
+//        }
+//
+//        //All fire element cards added to arraylist
+//        for (int i = 0; i < 10; i++) {
+//            cards.add(new Card(1, i, false));
+//            compCards.add(new Card(1, i, false));
+//        }
+//
+//        //All snow element cards added to arraylist
+//        for (int i = 0; i < 10; i++) {
+//            cards.add(new Card(2, i, false));
+//            compCards.add(new Card(2, i, false));
+//        }
+//        
+//        for (int i = 0; i < 4; i++) {
+//            drawCard(cards, hand);
+//        }
+//        
+//        for (int i = 0; i < 4; i++) {
+//            drawCard(compCards, compHand);
+//        }
+//        
+//        Card compPick = compPickCard(compHand);
+//        drawCard(compCards, compHand);
+//        int choice = Integer.parseInt(JOptionPane.showInputDialog("Pick a card to draw./n1. " + hand.get(0).toString() + "\n2. " + hand.get(1).toString() + "\n3. " + hand.get(2).toString() + "\n4. " + hand.get(3).toString() + "\n5. " + hand.get(4).toString()));
+//        Card userPick = hand.get(choice);
+//        hand.remove(choice);
+//        drawCard(cards, hand);
+//        
+//        String userWin = checkWin(compPick, userPick);
 //        
         
 
@@ -129,7 +129,7 @@ public class GameScreen extends JPanel {
         g2d.fillRect(100 + x, 100, 50, 50);
 
         //g2d.drawImage(test1, 100, x, null);
-      ///  g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
+       g2d.drawImage(GIRAFFE_IMAGE, 100, x, null);
 
         g2d.dispose();
         repaint();
