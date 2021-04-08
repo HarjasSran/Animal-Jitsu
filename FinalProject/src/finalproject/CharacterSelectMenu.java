@@ -83,23 +83,35 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightActionPerformed
-        //if (i <= icons.size()) {
+        if (i < icons.size()-1) {
             //ImageIcon icon = new ImageIcon(icons.get(i + 1));
-            
-            jLabel1.setIcon(icons.get(i++));
+            System.out.println(i);
+             i++;
+           
+           
             System.out.println(icons.get(i));
-        //}
+        }else{
+            i=0;  
+        }
+        jLabel1.setIcon(icons.get(i));
+        
+        
     }//GEN-LAST:event_rightActionPerformed
 
     private void LeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeftActionPerformed
-
-        //if (i >= icons.size()) {
-            //ImageIcon icon = new ImageIcon(icons.get(i - 1));
-            
-            jLabel1.setIcon(icons.get(i--));
+  if (i > 0) {
+            //ImageIcon icon = new ImageIcon(icons.get(i + 1));
+            System.out.println(i);
+             i--;
+           
+           
             System.out.println(icons.get(i));
-            
-        //}
+        }else{
+            i=icons.size()-1;  
+        }
+        jLabel1.setIcon(icons.get(i));
+        
+        
     }//GEN-LAST:event_LeftActionPerformed
 
     /**
