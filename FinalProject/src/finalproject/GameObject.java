@@ -166,7 +166,7 @@ abstract public class GameObject {
         return direction;
     }
     
-    public void mouseOver(){ //check if the mouse is over a object
+    public void mouseOver(){ //check if the mouse is over an object
         
     }
     
@@ -178,27 +178,6 @@ abstract public class GameObject {
         return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;
     }
     
-    /**
-     * Accessor method which creates a 2d image using the source of the image
-     * @param src - source of the image
-     * @return - 2d image that can be put on screen for user
-     */
-    public BufferedImage createBufferedImage(String src){
-        BufferedImage img;
-        
-        try{
-            
-        img =  ImageIO.read(getClass().getResourceAsStream(src)); //load image using source and save
-       
-        }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "ERROR LOADING " + src + " :\n" + e); //error message
-            img=null; //no image if error occurs 
-            
-            
-        } 
-         return img; 
-        
-    }
     
     
 }

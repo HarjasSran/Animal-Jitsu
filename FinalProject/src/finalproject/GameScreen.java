@@ -174,7 +174,7 @@ public class GameScreen extends JPanel {
     }
 
     private void checkWin(Card compPick, Card userPick) {
-        
+        boolean userWin;
         
         //snow(2) beats water(0)
         //water(0) beats fire(1)
@@ -188,8 +188,15 @@ public class GameScreen extends JPanel {
         if (userElement != compElement) {
             if (userElement == 0) {
                 if (compElement == 1) {
-                    
+                    userWin = true;
                 }
+                else{
+                    userWin = false;
+                }
+            }
+            
+            else if(userElement == 1){
+                
             }
         }
     }
