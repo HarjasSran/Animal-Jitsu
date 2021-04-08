@@ -20,12 +20,12 @@ public class Player extends Character{
         rank = 0;
     }
     
-    public Player(String name, Color bow, BufferedImage animal, boolean direction, ArrayList cards){
+    public Player(int x, int y,String name, Color bow, BufferedImage animal, boolean direction, ArrayList cards){
+        
+        super(x,y,bow,animal,direction,cards); 
+        
         this.name = name;
-        this.bow = bow;
-        this.animal = animal;
-        this.direction = direction;
-        this.cards = cards;
+       
     }
         
     /**

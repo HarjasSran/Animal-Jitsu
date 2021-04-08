@@ -32,11 +32,15 @@ public class Character extends GameObject {
      * @param direction
      * @param cards 
      */
-    public Character(Color bow, BufferedImage animal, boolean direction, ArrayList cards){
+    public Character( int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList cards){
+        super(x,y,0,animal.getWidth(),animal.getHeight(),1,direction); 
         this.bow = bow;
         this.animal = animal;
-        this.direction = direction;
         this.cards = cards;
+       
+        
+        
+       
     }
     /**
      * mutator method to set the color of the bow
@@ -78,10 +82,10 @@ public class Character extends GameObject {
      * method to clone the character and its attributes
      * @return 
      */
-    public Character clone(){
-        Character newChar = new Character(bow, animal, direction, cards);
-        return newChar;
-    }
+//    public Character clone(){
+//        //Character newChar = new Character(bow, animal, direction, cards);
+//      //  return newChar;
+//    }
     /**
      * accessor method for all the attributes of the player
      * @return 

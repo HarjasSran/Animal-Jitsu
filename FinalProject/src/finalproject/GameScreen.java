@@ -111,7 +111,7 @@ public class GameScreen extends JPanel {
         
         name = CharacterSelectMenu.getUsername();
         
-        player = new Player(name, Color.white, image, false, cards);
+        player = new Player(200,500,name, Color.white, image, false, cards);
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
@@ -209,8 +209,10 @@ public class GameScreen extends JPanel {
 
         player.setX(200);
         player.setY(500);
-        player.setWidth(-player.getAnimal().getWidth()/4);
-        player.setHeight(player.getAnimal().getHeight()/4);
+//        player.setWidth(player.getAnimal().getWidth()/4);
+//        player.setHeight(player.getAnimal().getHeight()/4);
+
+player.setScale(50);
         player.render(g2d); 
        
        // System.out.println(GameScreen.image);
