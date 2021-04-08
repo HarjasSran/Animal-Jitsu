@@ -38,6 +38,8 @@ public class GameScreen extends JPanel {
     static BufferedImage WATERBALL_IMAGE = null;
     static BufferedImage SNOWBALL_IMAGE = null;
     
+    static BufferedImage BACKGROUND_IMAGE = null;
+    
     ArrayList <Card> cards = new ArrayList();
     ArrayList <Card> compCards = new ArrayList();
    ArrayList <Card> hand = new ArrayList();
@@ -49,6 +51,8 @@ public class GameScreen extends JPanel {
     String name;
     
     Player player;
+    Player comp;
+    
 
     public GameScreen() {
 
@@ -63,6 +67,10 @@ public class GameScreen extends JPanel {
         FIREBALL_IMAGE = createBufferedImage("/assets/fireball.png");
         WATERBALL_IMAGE = createBufferedImage("/assets/waterball.png");
         SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
+        
+        BACKGROUND_IMAGE = createBufferedImage("/backgrounds/chunin.png");
+        
+        
         
          //  CARD_SPRITESHEET =  createBufferedImage("/assets/cards.png");
                 
@@ -111,7 +119,9 @@ public class GameScreen extends JPanel {
         
         name = CharacterSelectMenu.getUsername();
         
-        player = new Player(200,500,name, Color.white, image, false, cards);
+        player = new Player(250,400,name, Color.white, image, false, cards);
+        
+        comp = new Player(600, 400, "Sensei Penguin", Color.black, BOSS_IMAGE, true, cards);
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
@@ -189,7 +199,8 @@ public class GameScreen extends JPanel {
  * @param g 
  */
     
-    //static Character character = new Character(Color.BLACK,image, true, cards); 
+    //static Character character = new Character(Color.BLACK,image, true, cards);
+    
     public void paint(Graphics g) {
         
       
@@ -197,16 +208,17 @@ public class GameScreen extends JPanel {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        g2d.setColor(Color.red);
+        //g2d.setColor(Color.red);
 
         
-//        c++;
-//        v += (Math.sin(c * 0.001)) / 10;
-//        x = (int) Math.floor(v);
+        c++;
+        v += (Math.sin(c * 0.001)) / 10;
+        x = (int) Math.floor(v);
 
-//        g2d.fillRect(0, 0, 1000, 1000);
-//        g2d.fillRect(100 + x, 100, 50, 50);
+        //g2d.fillRect(0, 0, 1000, 1000);
+        //g2d.fillRect(100 + x, 100, 50, 50);
 
+        g2d.drawImage(BACKGROUND_IMAGE, 0,0,null);
 //        player.setX(200);
 //        player.setY(500);
 //        player.setWidth(player.getAnimal().getWidth()/4);
@@ -214,13 +226,16 @@ public class GameScreen extends JPanel {
 
         player.setScale(34);
         player.render(g2d); 
-       
+        
+        comp.setScale(34);
+        comp.render(g2d);
+        
        // System.out.println(GameScreen.image);
        // g2d.drawImage(image, 100, x, null);
         
         //g2d.drawImage(image, 500, 100,-image.getWidth()/2, image.getHeight()/2-x/20, null);
         g2d.dispose();
-        repaint();
+        //repaint();
 
     }
 
