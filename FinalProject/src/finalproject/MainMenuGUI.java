@@ -24,14 +24,14 @@ public class MainMenuGUI extends javax.swing.JFrame {
     public MainMenuGUI() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         initComponents();
         
-//        File f = new File("src/finalproject/naruto.wav");
-//        AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
-//
-//        Clip clip = AudioSystem.getClip();
-//        
-//        clip.open(audioStream);
-//        
-//        clip.start();
+        File f = new File("src/finalproject/naruto.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
+
+        Clip clip = AudioSystem.getClip();
+        
+        clip.open(audioStream);
+        
+        clip.start();
         
         
 
