@@ -227,6 +227,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         GameScreen gameScreen =new GameScreen(); 
         game.add(gameScreen); 
         game.setVisible(true);
+        game.setLocationRelativeTo(null);
         
         
             //Makes a new window when start is clicked
