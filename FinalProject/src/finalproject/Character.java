@@ -4,6 +4,8 @@ cant finish yet, wait for images
 package finalproject;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -14,7 +16,7 @@ import java.util.ArrayList;
 public class Character extends GameObject {
     //create variables for attributes of the character
     protected Color bow;// the color of the characters bow
-    protected BufferedImage animal;// the animal of the character
+    BufferedImage animal;// the animal of the character
     protected ArrayList cards;// the characters cards
     
     /**
@@ -32,7 +34,9 @@ public class Character extends GameObject {
      */
     public Character(Color bow, BufferedImage animal, boolean direction, ArrayList cards){
         this.bow = bow;
-        this.animal = animal; 
+        this.animal = animal;
+        
+        
         this.direction = direction;
         this.cards = cards;
     }
@@ -84,6 +88,14 @@ public class Character extends GameObject {
      * accessor method for all the attributes of the player
      * @return 
      */
+    
+    public void render(Graphics2D g2d){
+        System.out.println(this.animal);
+        //g2d.drawImage(animal, 100, 100,animal.getWidth()/2, animal.getHeight()/2, null);
+        
+    }
+    
+    
     public String toString(){
         return "Color: " + bow + "\tAnimal: " + animal + "\tCards: " + cards;
     }

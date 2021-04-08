@@ -172,7 +172,7 @@ abstract public class GameObject {
      * Accessor method for width
      * @return - width of the object
      */
-    public int getWidth(){
+    public int getObjectWidth(){
         return width;
     }
     /**
@@ -186,7 +186,7 @@ abstract public class GameObject {
      * Accessor method for height
      * @return - height of the object
      */
-    public int getHeight(){
+    public int getObjectHeight(){
         return height;
     }
     
