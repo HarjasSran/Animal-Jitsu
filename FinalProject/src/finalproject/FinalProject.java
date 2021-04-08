@@ -33,14 +33,14 @@ public class FinalProject {
        
         
         
-        JFrame game = new JFrame("Game");
-        game.setSize(800,800);
-       
-        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        GameScreen gameScreen = new GameScreen(); 
-        game.add(gameScreen); 
-        game.setVisible(true);
+//        JFrame game = new JFrame("Game");
+//        game.setSize(800,800);
+//       
+//        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        
+//        GameScreen gameScreen = new GameScreen(); 
+//        game.add(gameScreen); 
+//        game.setVisible(true);
         
        
        
