@@ -237,7 +237,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         //Makes a new window when start is clicked
 
         JFrame game = new JFrame("Game");
-        game.setSize(1920, 1080);
+        game.setSize(1280, 720);
 
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

@@ -26,7 +26,7 @@ public class Computer extends Character{
      * Second constructor
      * @param skillLevel 
      */
-    public Computer(int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList cards, int skillLevel){
+    public Computer(int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards, int skillLevel){
         super(x,y,bow,animal,direction,cards); 
         this.skillLevel = skillLevel;
         

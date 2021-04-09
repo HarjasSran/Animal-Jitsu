@@ -38,7 +38,7 @@ int multiplier;
      * @param direction
      * @param cards
      */
-    public Character(int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList cards) {
+    public Character(int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards) {
 
         super(x, y, 0, animal.getWidth(), animal.getHeight(), 1, direction);
         this.bow = bow;
@@ -94,7 +94,7 @@ int multiplier;
      *
      * @return
      */
-    public ArrayList getCards() {
+    public ArrayList <Card> getCards() {
         return cards;//return the cards
     }
 

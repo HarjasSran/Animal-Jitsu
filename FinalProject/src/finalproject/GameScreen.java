@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -49,7 +50,8 @@ public class GameScreen extends JPanel {
     
     static BufferedImage CARD_SPRITE= null ;
 
-    ArrayList<Card> cards = new ArrayList();
+    ArrayList<Card> cards = new ArrayList<Card>();
+    
    // ArrayList<Card> compCards = new ArrayList();
   //  ArrayList<Card> hand = new ArrayList();
   //  ArrayList<Card> compHand = new ArrayList();
@@ -97,7 +99,7 @@ public class GameScreen extends JPanel {
         }
 
         
-        
+       
          //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
             cards.add(new Card(Card.FIRE_ELEMENT, i, false));
@@ -107,12 +109,19 @@ public class GameScreen extends JPanel {
         Collections.shuffle(cards); 
         
        
+        
+      // cards.s
 
         name = CharacterSelectMenu.getUsername();
 
-        player = new Player(550, 400, name, Color.white, image, false, cards);
-
-        comp = new Computer(1550, 400, Color.black, BOSS_IMAGE, true, cards, 1);
+        
+        //ArrayList playerCards = (ArrayList)cards.subList(0, cards.size()/2-1); 
+        player = new Player(550, 400, name, Color.white, image, false, splitCards(0, cards.size()/2-1, cards));
+        comp = new Computer(1550, 400, Color.black, BOSS_IMAGE, true,splitCards(cards.size()/2, cards.size()-1,cards), 1);
+        cards.clear();
+       
+        
+       
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
@@ -192,11 +201,12 @@ public class GameScreen extends JPanel {
     public void paint(Graphics g) {
 
         
+        
         //System.out.println(listener.isPressed());
         //System.out.println(listener.);
         Graphics2D g2d = (Graphics2D) g;
-        
-        
+        g2d.scale(0.6667, 0.6667);
+     
         
 
         //g2d.setColor(Color.red);
@@ -225,10 +235,14 @@ public class GameScreen extends JPanel {
         
         for (int i = 0; i < 5; i++) {
             
+            player.getCards().get(i).setX(i*140+40);
+             player.getCards().get(i).setY(40);
+              player.getCards().get(i).render(g2d);
+            
 
-              cards.get(i).setX(i*140+40);
-              cards.get(i).setY(40);
-            cards.get(i).render(g2d); 
+//              cards.get(i).setX(i*140+40);
+//              cards.get(i).setY(40);
+//            cards.get(i).render(g2d); 
           
             
         }
@@ -262,6 +276,20 @@ public class GameScreen extends JPanel {
         }
         return img;
 
+    }
+    
+    
+    private ArrayList<Card> splitCards(int start, int end, ArrayList<Card> cards){
+        
+        ArrayList<Card> split = new ArrayList(); 
+        for (int i = start; i <= end; i++) {
+            split.add(cards.get(i));
+            
+        }
+        
+       return split;  
+        
+        
     }
 
     /**

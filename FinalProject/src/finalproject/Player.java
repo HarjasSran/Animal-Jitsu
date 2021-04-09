@@ -20,7 +20,7 @@ public class Player extends Character{
         rank = 0;
     }
     
-    public Player(int x, int y,String name, Color bow, BufferedImage animal, boolean direction, ArrayList cards){
+    public Player(int x, int y,String name, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards){
         
         super(x,y,bow,animal,direction,cards); 
         
@@ -68,6 +68,12 @@ public class Player extends Character{
      * 
      * @return 
      */
+    
+//    public Card playCard (){
+//        
+//    }
+    
+    
     public String toString(){
         return name + "\t" + rank;
     }
