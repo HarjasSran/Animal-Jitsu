@@ -133,8 +133,8 @@ public class Card extends GameObject {
 
     public void render(Graphics2D g2d) {
         
-        this.setX(500);
-        this.setY(300); 
+        this.setX(100);
+        this.setY(100); 
          horizontalIndex = this.cardNumber;
          verticalIndex = this.element;
           cardXOffset = horizontalIndex * PIXEL_WIDTH;
