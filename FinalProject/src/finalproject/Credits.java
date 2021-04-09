@@ -63,7 +63,7 @@ public class Credits extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-
+        //if the user presses the back button, this window closes and the main menu button opens
         this.setVisible(false);
         m.setVisible(true);
     }//GEN-LAST:event_btnMenuActionPerformed
