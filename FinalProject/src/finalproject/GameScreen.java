@@ -222,10 +222,10 @@ public class GameScreen extends JPanel {
 //        player.setHeight(player.getAnimal().getHeight()/4);
 
         //System.out.println(listener.xPos);
-       // player.setScale(80);
+        player.setScale(80);
         player.render(g2d);
 
-       // comp.setScale(80);
+        comp.setScale(80);
         comp.render(g2d);
         
         

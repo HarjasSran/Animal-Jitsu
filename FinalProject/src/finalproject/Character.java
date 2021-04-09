@@ -117,7 +117,7 @@ int distort;
         distort = (int) Math.floor(x);
         
        currentFrame++; 
-        g2d.drawImage(animal, this.getX(), this.getY(), this.getObjectWidth(), this.getObjectHeight()+distort, null);
+        g2d.drawImage(animal, this.getX(), this.getY()+distort, this.getObjectWidth(), this.getObjectHeight()-distort, null);
         
         
        
@@ -136,8 +136,8 @@ int distort;
         this.scale = scale;
 
         //System.out.println(width*scale);
-        this.width = (this.getObjectWidth() * scale) / 100;
-        this.height = (this.getObjectHeight() * scale) / 100;
+        this.width = (this.getAnimal().getWidth() * scale) / 100;
+        this.height = (this.getAnimal().getHeight()* scale) / 100;
 
     }
     /**
