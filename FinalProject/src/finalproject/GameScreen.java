@@ -196,12 +196,17 @@ public class GameScreen extends JPanel {
      */
 
     //static Character character = new Character(Color.BLACK,image, true, cards);
+    
+   
     public void paint(Graphics g) {
 
         
         //System.out.println(listener.isPressed());
         //System.out.println(listener.);
         Graphics2D g2d = (Graphics2D) g;
+        
+        
+        
 
         //g2d.setColor(Color.red);
         c++;
@@ -224,14 +229,25 @@ public class GameScreen extends JPanel {
         comp.render(g2d);
         
         
-        System.out.println(cards.get(0).getCardNumber()); 
-        cards.get(26).render(g2d);
+     
+        
+        
+        for (int i = 0; i < 5; i++) {
+            
+
+              cards.get(i).setX(i*140+40);
+              cards.get(i).setY(40);
+            cards.get(i).render(g2d); 
+          
+            
+        }
+      
 
         // System.out.println(GameScreen.image);
         // g2d.drawImage(image, 100, x, null);
         //g2d.drawImage(image, 500, 100,-image.getWidth()/2, image.getHeight()/2-x/20, null);
         g2d.dispose();
-        //repaint();
+        repaint();
 
     }
 
