@@ -5,6 +5,7 @@
  */
 package finalproject;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -83,9 +84,11 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
 
-        largePixelFont = pixelFont.deriveFont(30.0f);
+        largePixelFont = pixelFont.deriveFont(60.0f);
         gameFont = pixelFont.deriveFont(100.0f);
 
+        
+       
         System.out.println(largePixelFont);
 
         //Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png"))
@@ -109,6 +112,8 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         initComponents();
 
         nameField.setFont(largePixelFont);
+         warning.setVisible(false);
+         warning.setFont(largePixelFont);
 
         //nameField.set
         // set icon image to penguin character
@@ -148,6 +153,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         nameField = new javax.swing.JTextField();
         btnStart = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
+        warning = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -185,7 +191,6 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
         nameField.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         nameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        nameField.setText("NAME");
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -219,8 +224,12 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         });
         getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 70, -1));
 
+        warning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        warning.setText("WARNING TEXT ");
+        getContentPane().add(warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 670, 850, 50));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/forest.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 770));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 770));
 
         pack();
         setLocationRelativeTo(null);
@@ -267,6 +276,11 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         name = nameField.getText();
         //get animal index from user input
         animal = i;
+        
+        
+        
+        
+        if(name.length()>0){
         //Makes a new window when start is clicked
 
         JFrame game = new JFrame("Game");
@@ -280,7 +294,11 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         game.setLocationRelativeTo(null);
 
         //Makes a new window when start is clicked
-
+        }else{
+            warning.setForeground(new Color(200,0,0));
+            warning.setText("PICK A NAME BEFORE CONTINUING");
+            warning.setVisible(true);
+        }
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
@@ -332,5 +350,6 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     private javax.swing.JTextField nameField;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton right;
+    private javax.swing.JLabel warning;
     // End of variables declaration//GEN-END:variables
 }
