@@ -198,6 +198,8 @@ public class GameScreen extends JPanel {
     //static Character character = new Character(Color.BLACK,image, true, cards);
     public void paint(Graphics g) {
 
+        
+        System.out.println(listener.isPressed());
         //System.out.println(listener.);
         Graphics2D g2d = (Graphics2D) g;
 
@@ -223,7 +225,7 @@ public class GameScreen extends JPanel {
         
         
         System.out.println(cards.get(0).getCardNumber()); 
-        cards.get(3).render(g2d);
+        cards.get(18).render(g2d);
 
         // System.out.println(GameScreen.image);
         // g2d.drawImage(image, 100, x, null);
