@@ -224,7 +224,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
        
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        GameScreen gameScreen =new GameScreen(); 
+        GameScreen gameScreen =new GameScreen(game); 
         game.add(gameScreen); 
         game.setVisible(true);
         game.setLocationRelativeTo(null);

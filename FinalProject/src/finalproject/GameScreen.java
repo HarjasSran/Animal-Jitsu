@@ -25,14 +25,14 @@ import javax.swing.JPanel;
  * @author Aidan
  */
 public class GameScreen extends JPanel {
-
+    
  
    
 
-    @Override
-    public Component add(Component comp) {
-        return super.add(comp); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public Component add(Component comp) {
+//        return super.add(comp); //To change body of generated methods, choose Tools | Templates.
+//    }
     
      //GameScreen g = new GameScreen(); 
     
@@ -66,8 +66,9 @@ public class GameScreen extends JPanel {
     Computer comp;
     
 
-    public GameScreen() {
+    public GameScreen(JFrame game){
         
+        game.getContentPane().addMouseListener(new ClickListener());
         
         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
         BOSS_IMAGE = createBufferedImage("/assets/boss.png");
