@@ -11,6 +11,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -88,24 +89,17 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         System.out.println(largePixelFont);
         
        
-        
-        
-        //  img = ImageIO.read(getClass().getResourceAsStream(src));
-        
-       
-
-//          try {
-//
-//            ImageIcon test = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("src/Icons/gorillaIcon.png"))); 
-//
-//        } catch (IOException | IllegalArgumentException e) {
-//            JOptionPane.showMessageDialog(null, "ERROR LOADING ICONS:\n" + e); //error message
-//         
-//
-//        }
+      
+      
        
        
-        ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
+        
+        //Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png"))
+       // ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
+        
+        URL gorillaURL = CharacterSelectMenu.class.getResource("/icons/gorillaIcon.png"); 
+           ImageIcon gorilla = new ImageIcon(gorillaURL);
+        
         ImageIcon giraffe = new ImageIcon("src/icons/giraffeIcon.png");
         ImageIcon tiger = new ImageIcon("src/icons/tigerIcon.png");
         ImageIcon zebra = new ImageIcon("src/icons/zebraIcon.png");
@@ -124,7 +118,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
         //ImageIcon icon = new ImageIcon(icons.get(i));
         jLabel1.setIcon(icons.get(i));
-        System.out.println(jLabel1.getIcon());
+      //  System.out.println(jLabel1.getIcon());
         
         
         

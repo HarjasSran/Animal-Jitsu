@@ -7,6 +7,7 @@ package finalproject;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.*;
@@ -37,11 +38,11 @@ public class MainMenuGUI extends javax.swing.JFrame {
         
         
         //throws UnsupportedAudioFileException, IOException, LineUnavailableException
-        
+        //C:\Users\Aidan\Documents\SummativeProjectNewestVersion\FinalSummativeICS4U\FinalProject\dist\FinalProject.zip\finalproject
         
         try{
-         File f = new File("src/finalproject/naruto.wav");
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
+        // File f = new File("/finalproject/naruto.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(new BufferedInputStream(getClass().getResourceAsStream("/finalproject/naruto.wav")));
 
         clip = AudioSystem.getClip();
         
