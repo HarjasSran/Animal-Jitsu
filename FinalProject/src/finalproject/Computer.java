@@ -4,6 +4,7 @@
 package finalproject;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -24,9 +25,16 @@ public class Computer extends Character{
     
     /**
      * Second constructor
+     * @param name
+     * @param x
+     * @param y
+     * @param bow
+     * @param animal
+     * @param direction
      * @param skillLevel 
+     * @param cards 
      */
-    public Computer(String name, int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards, int skillLevel){
+    public Computer(String name, int x, int y, int bow, BufferedImage animal, boolean direction, ArrayList<Card> cards, int skillLevel){
         super(name,x,y,bow,animal,direction,cards); 
         this.skillLevel = skillLevel;
         
@@ -55,6 +63,13 @@ public class Computer extends Character{
     public Computer clone(){
         Computer newComp = new Computer(name, xPos, yPos, bow, animal, direction, cards, skillLevel); //new copy of the computer sensei is created 
         return newComp;
+    }
+
+    public void render(Graphics2D g2d) {
+        super.render(g2d);
+        g2d.setFont(CharacterSelectMenu.gameFont);
+
+        g2d.drawChars(this.name.toCharArray(), 0, name.length(), this.getX() - 175, 1000);
     }
     
     /**

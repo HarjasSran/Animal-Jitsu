@@ -4,6 +4,7 @@
 package finalproject;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -12,17 +13,16 @@ import java.util.ArrayList;
  * @author harja
  */
 public class Player extends Character{
-    String name;
-    int rank;
+    int bow;
     
     public Player(){
-        name = "";
-        rank = 0;
+        bow = 1;
     }
     
-    public Player(String name, int x, int y,Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards){
+    public Player(String name, int x, int y, int bow, BufferedImage animal, boolean direction, ArrayList<Card> cards){
         
         super(name,x,y,bow,animal,direction,cards); 
+        this.bow = bow;
         
        
     }
@@ -43,20 +43,6 @@ public class Player extends Character{
     }
     /**
      * 
-     * @param rank 
-     */
-    public void setRank(int rank){
-        this.rank = rank;
-    }
-    /**
-     * 
-     * @return 
-     */
-    public int getRank(){
-        return rank;
-    }
-    /**
-     * 
      * @return 
      */
     public Player clone(){
@@ -71,9 +57,17 @@ public class Player extends Character{
 //    public Card playCard (){
 //        
 //    }
+    public void render(Graphics2D g2d) {
+        super.render(g2d);
+        g2d.setFont(CharacterSelectMenu.gameFont);
+        
+        g2d.drawChars((this.bow+ " " + this.name).toCharArray(), 0, name.length()+2, 50, 1000);
+
+    }
+
     
     
     public String toString(){
-        return name + "\t" + rank;
+        return name + "\t" + bow;
     }
 }

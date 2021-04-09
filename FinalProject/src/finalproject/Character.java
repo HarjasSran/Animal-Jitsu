@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Character extends GameObject {
 
     //create variables for attributes of the character
-    protected Color bow;// the color of the characters bow
+    protected int bow;// the color of the characters bow
     BufferedImage animal;// the animal of the character
     protected ArrayList cards;// the characters cards
     
@@ -40,20 +40,21 @@ int multiplier;
      * @param direction
      * @param cards
      */
-    public Character(String name, int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards) {
+    public Character(String name, int x, int y, int bow, BufferedImage animal, boolean direction, ArrayList<Card> cards) {
 
         super(x, y, 0, animal.getWidth(), animal.getHeight(), 1, direction);
-        this.bow = bow;
-        this.animal = animal;
-        this.cards = cards;
-        this.name = name;
+
         if (direction) {
             multiplier = 1;
         }
         else{
             multiplier = -1;
         }
-        
+
+        this.bow = bow;
+        this.animal = animal;
+        this.cards = cards;
+        this.name = name;
         
         
         //gorilla
@@ -66,8 +67,8 @@ int multiplier;
      *
      * @param c
      */
-    public void setBow(Color c) {
-        bow = c;
+    public void setBow(int bow) {
+        this.bow = bow;
     }
 
     /**
@@ -75,7 +76,7 @@ int multiplier;
      *
      * @return
      */
-    public Color getBow() {
+    public int getBow() {
         return bow; //return the color of the bow
     }
 
@@ -138,14 +139,14 @@ int distort;
        currentFrame++; 
         g2d.drawImage(animal, this.getX(), this.getY()+distort, this.getObjectWidth() * multiplier, this.getObjectHeight()-distort, null);
      
-        g2d.setFont(CharacterSelectMenu.gameFont);
-        if(this instanceof Player){
-            g2d.drawChars(this.name.toCharArray(), 0,name.length(),50, 1000);
-            
-        }
-        else if(this instanceof Computer){
-             g2d.drawChars(this.name.toCharArray(), 0,name.length(),this.getX()-175, 1000);
-        }
+//        g2d.setFont(CharacterSelectMenu.gameFont);
+//        if(this instanceof Player){
+//            g2d.drawChars(this.name.toCharArray(), 0,name.length(),50, 1000);
+//            
+//        }
+//        else if(this instanceof Computer){
+//             g2d.drawChars(this.name.toCharArray(), 0,name.length(),this.getX()-175, 1000);
+//        }
        
      
         
