@@ -50,6 +50,11 @@ int multiplier;
         else{
             multiplier = -1;
         }
+        
+        
+        
+        //gorilla
+        //   g2d.drawImage(GameScreen.WHITE_BOW, 425,645+distort/2,GameScreen.WHITE_BOW.getWidth()*3,GameScreen.WHITE_BOW.getHeight()*3-distort/5,null); 
 
     }
 
@@ -124,13 +129,27 @@ int distort;
           x += (Math.sin((currentFrame+this.xPos) * 0.001)) / 100;
         distort = (int) Math.floor(x);
         
+        
+       
+        
        currentFrame++; 
         g2d.drawImage(animal, this.getX(), this.getY()+distort, this.getObjectWidth() * multiplier, this.getObjectHeight()-distort, null);
-        
-        
+     
+        g2d.setFont(CharacterSelectMenu.gameFont);
+       // g2d.drawChars(, 0,3,500,500);
        
+     
+        
        
       
+        
+//        if(this.getAnimal() != GameScreen.BOSS_IMAGE){
+//            
+//              g2d.drawImage(GameScreen.WHITE_BOW, 425,645+distort/2,GameScreen.WHITE_BOW.getWidth()*3,GameScreen.WHITE_BOW.getHeight()*3-distort/5,null); 
+//          //g2d.drawImage(GameScreen.WHITE_BOW, 390,550+distort/2,GameScreen.WHITE_BOW.getWidth()*2,GameScreen.WHITE_BOW.getHeight()*2-distort/5,null); 
+//        }
+       
+
 
     }
 

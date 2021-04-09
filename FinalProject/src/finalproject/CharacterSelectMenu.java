@@ -68,63 +68,56 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
      *
      * @param mainMenu
      */
-    
-    static Font pixelFont; 
-    static Font largePixelFont; 
+    static Font pixelFont;
+    static Font largePixelFont;
+    static Font gameFont; 
+
     public CharacterSelectMenu(MainMenuGUI mainMenu) {
-        m = mainMenu; 
-       
-        
-        
-        try{
-            pixelFont=  Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf")); 
-            GraphicsEnvironment ge=  GraphicsEnvironment.getLocalGraphicsEnvironment(); 
+        m = mainMenu;
+
+        try {
+            pixelFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf"));
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(pixelFont.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf")));
-        }catch(IOException | FontFormatException e){
-         JOptionPane.showMessageDialog(null, e);
+        } catch (IOException | FontFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-        
-        largePixelFont = pixelFont.deriveFont(30.0f); 
-        
+
+        largePixelFont = pixelFont.deriveFont(30.0f);
+        gameFont = pixelFont.deriveFont(100.0f);
+
         System.out.println(largePixelFont);
-        
-       
-      
-      
-       
-       
-        
+
         //Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png"))
-       // ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
-        
-        URL gorillaURL = CharacterSelectMenu.class.getResource("/icons/gorillaIcon.png"); 
-           ImageIcon gorilla = new ImageIcon(gorillaURL);
-        
-        ImageIcon giraffe = new ImageIcon("src/icons/giraffeIcon.png");
-        ImageIcon tiger = new ImageIcon("src/icons/tigerIcon.png");
-        ImageIcon zebra = new ImageIcon("src/icons/zebraIcon.png");
+        // ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
+        URL gorillaURL = CharacterSelectMenu.class.getResource("/icons/gorillaIcon.png");
+        ImageIcon gorilla = new ImageIcon(gorillaURL);
+
+        URL giraffeURL = CharacterSelectMenu.class.getResource("/icons/giraffeIcon.png");
+        ImageIcon giraffe = new ImageIcon(giraffeURL);
+
+        URL tigerURL = CharacterSelectMenu.class.getResource("/icons/tigerIcon.png");
+        ImageIcon tiger = new ImageIcon(tigerURL);
+
+        URL zebraURL = CharacterSelectMenu.class.getResource("/icons/zebraIcon.png");
+        ImageIcon zebra = new ImageIcon(zebraURL);
         icons.add(gorilla);
         icons.add(giraffe);
         icons.add(tiger);
         icons.add(zebra);
 
         initComponents();
-        
-         nameField.setFont(largePixelFont); 
-         
-         //nameField.set
+
+        nameField.setFont(largePixelFont);
+
+        //nameField.set
         // set icon image to penguin character
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
 
         //ImageIcon icon = new ImageIcon(icons.get(i));
         jLabel1.setIcon(icons.get(i));
-      //  System.out.println(jLabel1.getIcon());
-        
-        
-        
-        
-        
-        
+        //  System.out.println(jLabel1.getIcon());
+
 //            try {
 //        //create the font to use. Specify the size!
 //        Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("/fonts/pixelfont.ttf")).deriveFont(12f);
@@ -136,16 +129,8 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 //    } catch(FontFormatException e) {
 //        e.printStackTrace();
 //    }
-
-    //use the font
-    //yourSwingComponent.setFont(customFont);
-        
-        
-        
-        
-        
-        
-
+        //use the font
+        //yourSwingComponent.setFont(customFont);
     }
 
     /**

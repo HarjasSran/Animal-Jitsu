@@ -48,6 +48,8 @@ public class GameScreen extends JPanel {
 
     static BufferedImage BACKGROUND_IMAGE = null;
     
+    static BufferedImage WHITE_BOW = null; 
+    
     static BufferedImage CARD_SPRITE= null ;
 
     ArrayList<Card> cards = new ArrayList<Card>();
@@ -83,6 +85,8 @@ public class GameScreen extends JPanel {
         SNOWBALL_IMAGE = createBufferedImage("/assets/snowball.png");
 
         BACKGROUND_IMAGE = createBufferedImage("/backgrounds/level1.png");
+        
+       WHITE_BOW= createBufferedImage("/bows/bow1.png"); 
         
         CARD_SPRITE = createBufferedImage("/assets/cards.png"); 
 
@@ -217,6 +221,8 @@ public class GameScreen extends JPanel {
         //g2d.fillRect(0, 0, 1000, 1000);
         //g2d.fillRect(100 + x, 100, 50, 50);
         g2d.drawImage(BACKGROUND_IMAGE, 0, 0, 1920, 1080, null);
+        
+       
 //        player.setX(200);
 //        player.setY(500);
 //        player.setWidth(player.getAnimal().getWidth()/4);
@@ -229,7 +235,7 @@ public class GameScreen extends JPanel {
         comp.setScale(80);
         comp.render(g2d);
         
-        
+       
      
         
         
