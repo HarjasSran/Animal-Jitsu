@@ -139,7 +139,7 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         earnYourBowsArea.setText("   Challenge \n   Sensei Penguin \n   to gain experience\n   and level up\n\n   When you win a match \n   you will advance \n   to the next bow level\n");
         jScrollPane1.setViewportView(earnYourBowsArea);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 96, 460, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 460, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/legend.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, -1, -1));

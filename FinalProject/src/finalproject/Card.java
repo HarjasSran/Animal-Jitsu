@@ -181,12 +181,15 @@ public class Card extends GameObject {
         int clickYPos = listener.getYPos();
         boolean isClicked = false;
         
-        if ((this.getX()+this.getObjectWidth())>= clickXPos && clickXPos>=this.getX()) {
+        if (clickXPos>this.getX() && clickXPos< this.getX()+this.getObjectWidth()) {
             isClicked = true;
-            System.out.println(true);
+          //  System.out.println(true + ""+clickXPos);
+          System.out.println(this.getX());
+        }else{
+             System.out.println(false);
         }
         
-        System.out.println(false);
+       
         return isClicked;
     }
 }

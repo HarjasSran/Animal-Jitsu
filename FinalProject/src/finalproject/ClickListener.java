@@ -16,11 +16,20 @@ public class ClickListener extends MouseAdapter {
 
     int xPos;
     int yPos;
+    double scale;
     boolean clicked;
 
+    public ClickListener(double scale){
+        this.scale=scale; 
+    }
+    
+    
     @Override
     public void mouseClicked(MouseEvent e) {
         xPos = e.getX();
+        
+        
+      
         yPos = e.getY();
         //System.out.println(xPos + ", " + yPos);
 

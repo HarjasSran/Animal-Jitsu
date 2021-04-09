@@ -219,7 +219,7 @@ public class GameScreen extends JPanel {
         //System.out.println(listener.isPressed());
         //System.out.println(listener.);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.scale(0.6667, 0.6667);
+       // g2d.scale(0.6667, 0.6667);
      
         
 
@@ -262,7 +262,8 @@ public class GameScreen extends JPanel {
              comp.getCards().get(i).render(g2d);            
         }
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
+          
             player.getCards().get(i).isClicked(listener);
         }
         //System.out.println(cardClicked);
