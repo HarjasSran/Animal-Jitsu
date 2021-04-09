@@ -24,6 +24,8 @@ public class Card extends GameObject {
     static int FIRE_ELEMENT = 0;
     static int WATER_ELEMENT = 1;
     static int SNOW_ELEMENT = 2;
+    
+     static int DEFAULT_SCALE = 5;
 
     /**
      * Default constructor
@@ -122,19 +124,25 @@ public class Card extends GameObject {
         return faceUp;//return weather or not the card is face up
     }
 
-    int cardScale = 5;
-    int horizontalIndex = this.cardNumber + 1;
-    int verticalIndex = this.element;
+   
+    int horizontalIndex;
+    int verticalIndex; 
 
-    int cardXOffset = horizontalIndex * PIXEL_WIDTH;
-    int cardYOffset = verticalIndex * PIXEL_HEIGHT;
+    int cardXOffset; 
+    int cardYOffset; 
 
     public void render(Graphics2D g2d) {
-
+        
+        this.setX(100);
+        this.setY(100); 
+         horizontalIndex = this.cardNumber;
+         verticalIndex = this.element;
+          cardXOffset = horizontalIndex * PIXEL_WIDTH;
+          cardYOffset = verticalIndex * PIXEL_HEIGHT;
         /**
          *
          */
-        g2d.drawImage(GameScreen.CARD_SPRITE, 0, 0, PIXEL_WIDTH * cardScale, PIXEL_HEIGHT * cardScale, cardXOffset, cardYOffset, PIXEL_WIDTH + cardXOffset, PIXEL_HEIGHT + cardYOffset, null);
+        g2d.drawImage(GameScreen.CARD_SPRITE, xPos, yPos, PIXEL_WIDTH * DEFAULT_SCALE+xPos, PIXEL_HEIGHT * DEFAULT_SCALE+yPos, cardXOffset, cardYOffset, PIXEL_WIDTH + cardXOffset, PIXEL_HEIGHT + cardYOffset, null);
 
     }
 
