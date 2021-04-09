@@ -136,7 +136,9 @@ int distort;
         
        
         
-       currentFrame++; 
+       currentFrame++;
+       BufferedImage bows[] = {GameScreen.BLACK_BOW, GameScreen.WHITE_BOW, GameScreen.GREEN_BOW, GameScreen.YELLOW_BOW, GameScreen.ORANGE_BOW, GameScreen.RED_BOW};
+        g2d.drawImage(bows[this.getBow()], this.getX()-this.getObjectWidth(), 965, bows[this.getBow()].getWidth(), bows[this.getBow()].getHeight(), null);
         g2d.drawImage(animal, this.getX(), this.getY()+distort, this.getObjectWidth() * multiplier, this.getObjectHeight()-distort, null);
      
 //        g2d.setFont(CharacterSelectMenu.gameFont);

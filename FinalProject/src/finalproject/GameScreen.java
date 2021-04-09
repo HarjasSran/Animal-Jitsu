@@ -49,6 +49,11 @@ public class GameScreen extends JPanel {
     static BufferedImage BACKGROUND_IMAGE = null;
     
     static BufferedImage WHITE_BOW = null; 
+    static BufferedImage GREEN_BOW = null;
+    static BufferedImage YELLOW_BOW = null;
+    static BufferedImage ORANGE_BOW = null;
+    static BufferedImage RED_BOW = null;
+    static BufferedImage BLACK_BOW = null;
     
     static BufferedImage CARD_SPRITE= null ;
 
@@ -86,7 +91,12 @@ public class GameScreen extends JPanel {
 
         BACKGROUND_IMAGE = createBufferedImage("/backgrounds/level1.png");
         
-       WHITE_BOW= createBufferedImage("/bows/bow1.png"); 
+       WHITE_BOW= createBufferedImage("/bows/whiteBow.png"); 
+       GREEN_BOW = createBufferedImage("/bows/greenBow.png");
+       YELLOW_BOW = createBufferedImage("/bows/yellowBow.png");
+       ORANGE_BOW = createBufferedImage("/bows/orangeBow.png");
+       RED_BOW = createBufferedImage("/bows/redBow.png");
+       BLACK_BOW = createBufferedImage("/bows/blackBow.png");
         
         CARD_SPRITE = createBufferedImage("/assets/cards.png"); 
 
