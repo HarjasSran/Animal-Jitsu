@@ -6,6 +6,7 @@
 package finalproject;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.*;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -22,26 +24,15 @@ import javax.swing.JPanel;
  *
  * @author Aidan
  */
-public class GameScreen extends JPanel implements MouseListener {
+public class GameScreen extends JPanel {
 
-    
-    public void mouseExited(MouseEvent e){
-        
+ 
+   
+
+    @Override
+    public Component add(Component comp) {
+        return super.add(comp); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public void mouseEntered(MouseEvent e){
-        
-    }
-    public void mouseReleased(MouseEvent e){
-        
-    }
-    public void mousePressed(MouseEvent e){
-       
-    }
-    public void mouseClicked(MouseEvent e){
-        System.out.println(e.getX());
-    }
-    
     
      //GameScreen g = new GameScreen(); 
     
