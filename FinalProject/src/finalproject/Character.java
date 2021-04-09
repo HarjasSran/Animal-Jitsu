@@ -20,6 +20,8 @@ public class Character extends GameObject {
     BufferedImage animal;// the animal of the character
     protected ArrayList cards;// the characters cards
     
+    protected String name;
+    
     protected long currentFrame=0; 
     final int distortOffset =(int)(Math.random()*10);
 
@@ -38,12 +40,13 @@ int multiplier;
      * @param direction
      * @param cards
      */
-    public Character(int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards) {
+    public Character(String name, int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards) {
 
         super(x, y, 0, animal.getWidth(), animal.getHeight(), 1, direction);
         this.bow = bow;
         this.animal = animal;
         this.cards = cards;
+        this.name = name;
         if (direction) {
             multiplier = 1;
         }
@@ -136,7 +139,13 @@ int distort;
         g2d.drawImage(animal, this.getX(), this.getY()+distort, this.getObjectWidth() * multiplier, this.getObjectHeight()-distort, null);
      
         g2d.setFont(CharacterSelectMenu.gameFont);
-       // g2d.drawChars(, 0,3,500,500);
+        if(this instanceof Player){
+            g2d.drawChars(this.name.toCharArray(), 0,name.length(),50, 1000);
+            
+        }
+        else if(this instanceof Computer){
+             g2d.drawChars(this.name.toCharArray(), 0,name.length(),this.getX()-175, 1000);
+        }
        
      
         

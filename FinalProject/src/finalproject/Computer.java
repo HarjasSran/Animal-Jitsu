@@ -26,8 +26,8 @@ public class Computer extends Character{
      * Second constructor
      * @param skillLevel 
      */
-    public Computer(int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards, int skillLevel){
-        super(x,y,bow,animal,direction,cards); 
+    public Computer(String name, int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList<Card> cards, int skillLevel){
+        super(name,x,y,bow,animal,direction,cards); 
         this.skillLevel = skillLevel;
         
         
@@ -53,7 +53,7 @@ public class Computer extends Character{
      * @return the cloned computer 
      */
     public Computer clone(){
-        Computer newComp = new Computer(xPos, yPos, bow, animal, direction, cards, skillLevel); //new copy of the computer sensei is created 
+        Computer newComp = new Computer(name, xPos, yPos, bow, animal, direction, cards, skillLevel); //new copy of the computer sensei is created 
         return newComp;
     }
     
