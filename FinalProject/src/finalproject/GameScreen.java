@@ -225,7 +225,18 @@ public class GameScreen extends JPanel {
         
         
         System.out.println(cards.get(0).getCardNumber()); 
-        cards.get(26).render(g2d);
+        
+        
+        for (int i = 0; i < 5; i++) {
+            
+            System.out.println(cards.get(i).getElement());
+              hand.get(i).setX(i*140+40);
+              cards.get(i).setY(40);
+            cards.get(i).render(g2d); 
+          
+            
+        }
+      
 
         // System.out.println(GameScreen.image);
         // g2d.drawImage(image, 100, x, null);

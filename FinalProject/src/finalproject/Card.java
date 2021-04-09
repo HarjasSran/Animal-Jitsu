@@ -21,11 +21,11 @@ public class Card extends GameObject {
     final static int PIXEL_WIDTH = 35;
     final static int PIXEL_HEIGHT = 47;
 
-    static int FIRE_ELEMENT = 0;
-    static int WATER_ELEMENT = 1;
-    static int SNOW_ELEMENT = 2;
+    final static int FIRE_ELEMENT = 0;
+    final static int WATER_ELEMENT = 1;
+    final static int SNOW_ELEMENT = 2;
     
-     static int DEFAULT_SCALE = 5;
+     static int DEFAULT_SCALE = 4;
 
     /**
      * Default constructor
@@ -133,15 +133,23 @@ public class Card extends GameObject {
 
     public void render(Graphics2D g2d) {
         
-        this.setX(100);
-        this.setY(100); 
-         horizontalIndex = this.cardNumber;
+        
+        if(faceUp){
+          horizontalIndex = this.cardNumber+1;
          verticalIndex = this.element;
-          cardXOffset = horizontalIndex * PIXEL_WIDTH;
-          cardYOffset = verticalIndex * PIXEL_HEIGHT;
+         
+        }else{
+            horizontalIndex=0; 
+            verticalIndex=0; 
+        }
+         cardXOffset = horizontalIndex * PIXEL_WIDTH;
+          cardYOffset = verticalIndex * PIXEL_HEIGHT;   
+        
         /**
          *
          */
+        
+       
         g2d.drawImage(GameScreen.CARD_SPRITE, xPos, yPos, PIXEL_WIDTH * DEFAULT_SCALE+xPos, PIXEL_HEIGHT * DEFAULT_SCALE+yPos, cardXOffset, cardYOffset, PIXEL_WIDTH + cardXOffset, PIXEL_HEIGHT + cardYOffset, null);
 
     }
