@@ -251,7 +251,7 @@ public class GameScreen extends JPanel {
      
         
         
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 5; i++) {
             player.getCards().get(i).setFaceUp(true);
             player.getCards().get(i).setX(i*140+40);
              player.getCards().get(i).setY(40);
@@ -264,9 +264,10 @@ public class GameScreen extends JPanel {
              comp.getCards().get(i).render(g2d);            
         }
         
-        for (int i = 0; i < 1; i++) {
-          
-            player.getCards().get(i).isClicked(listener);
+        if (player.getCards().get(1).isClicked(listener)) {
+            System.out.println(player.getCards().get(1).getCardNumber()); 
+        }else{
+            System.out.println(false);
         }
         //System.out.println(cardClicked);
       

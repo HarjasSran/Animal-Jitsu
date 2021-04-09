@@ -194,7 +194,7 @@ public class Card extends GameObject {
             //&& clickYPos>((double)this.getY()*GameScreen.SCREEN_SCALE) && clickYPos<this.getY()+this.getObjectHeight()-100
 
         } else {
-            System.out.println(false);
+            //System.out.println(false);
         }
         
        
