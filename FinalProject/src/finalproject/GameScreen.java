@@ -120,8 +120,8 @@ public class GameScreen extends JPanel {
 
         
         //ArrayList playerCards = (ArrayList)cards.subList(0, cards.size()/2-1); 
-        player = new Player(name, 550, 400, Color.white, image, false, splitCards(0, cards.size()/2-1, cards));
-        comp = new Computer("Sensei Peng",1550, 400, Color.black, BOSS_IMAGE, true,splitCards(cards.size()/2, cards.size()-1,cards), 1);
+        player = new Player(name, 550, 400, 1, image, false, splitCards(0, cards.size()/2-1, cards));
+        comp = new Computer("Sensei Peng",1550, 400, 0, BOSS_IMAGE, true,splitCards(cards.size()/2, cards.size()-1,cards), 1);
         cards.clear();
        
         
