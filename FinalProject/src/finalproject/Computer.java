@@ -3,6 +3,10 @@
  */
 package finalproject;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 /**
  *
  * @author harja
@@ -14,6 +18,7 @@ public class Computer extends Character{
      * Default constructor
      */
     public Computer(){
+        super(); 
         skillLevel = 0;
     }
     
@@ -21,8 +26,11 @@ public class Computer extends Character{
      * Second constructor
      * @param skillLevel 
      */
-    public Computer(int skillLevel){
+    public Computer(int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList cards, int skillLevel){
+        super(x,y,bow,animal,direction,cards); 
         this.skillLevel = skillLevel;
+        
+        
     }
     
     /**
@@ -45,7 +53,7 @@ public class Computer extends Character{
      * @return the cloned computer 
      */
     public Computer clone(){
-        Computer newComp = new Computer(skillLevel); //new copy of the computer sensei is created 
+        Computer newComp = new Computer(xPos, yPos, bow, animal, direction, cards, skillLevel); //new copy of the computer sensei is created 
         return newComp;
     }
     

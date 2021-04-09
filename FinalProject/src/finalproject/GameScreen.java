@@ -8,6 +8,7 @@ package finalproject;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,8 +22,28 @@ import javax.swing.JPanel;
  *
  * @author Aidan
  */
-public class GameScreen extends JPanel {
+public class GameScreen extends JPanel implements MouseListener {
 
+    
+    public void mouseExited(MouseEvent e){
+        
+    }
+    
+    public void mouseEntered(MouseEvent e){
+        
+    }
+    public void mouseReleased(MouseEvent e){
+        
+    }
+    public void mousePressed(MouseEvent e){
+       
+    }
+    public void mouseClicked(MouseEvent e){
+        System.out.println(e.getX());
+    }
+    
+    
+     //GameScreen g = new GameScreen(); 
     
     final long start = System.currentTimeMillis();
 
@@ -51,7 +72,7 @@ public class GameScreen extends JPanel {
     String name;
     
     Player player;
-    Player comp;
+    Computer comp;
     
 
     public GameScreen() {
@@ -122,7 +143,7 @@ public class GameScreen extends JPanel {
         
         player = new Player(250,400,name, Color.white, image, false, cards);
         
-        comp = new Player(600, 400, "Sensei Penguin", Color.black, BOSS_IMAGE, true, cards);
+        comp = new Computer(1200, 400, Color.black, BOSS_IMAGE, true, cards,1);
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
