@@ -106,7 +106,11 @@ abstract public class GameObject {
     public void setY(int yPos) {
         this.yPos = yPos;
     }
-
+    /**
+     * mutator method which sets the x and y position of the game objects
+     * @param xPos
+     * @param yPos 
+     */
     public void setPositon(int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
@@ -118,7 +122,7 @@ abstract public class GameObject {
      * @return - x position of the object
      */
     public int getX() {
-        return xPos;
+        return xPos;//return th x position
     }
 
     /**
@@ -127,7 +131,7 @@ abstract public class GameObject {
      * @return - y position of the object
      */
     public int getY() {
-        return yPos;
+        return yPos;//return the y position
     }
 
     /**
@@ -145,7 +149,7 @@ abstract public class GameObject {
      * @return - rotation of the object
      */
     public int getRotation() {
-        return rotation;
+        return rotation;//return the rotation
     }
 
 
@@ -156,7 +160,7 @@ abstract public class GameObject {
      * @return - scale of the object
      */
     public double getScale() {
-        return scale;
+        return scale;//return the scale
     }
 
     /**
@@ -180,7 +184,7 @@ abstract public class GameObject {
      */
     public int getObjectWidth() {
         
-        return width;
+        return width;//return the width
     }
 
     /**
@@ -216,11 +220,13 @@ abstract public class GameObject {
      * @return - direction that the object is facing
      */
     public boolean getDirection() {
-        return direction;
+        return direction;//return the direction
     }
-
-    public void mouseOver() { //check if the mouse is over an object
-
+    /**
+     * check if the mouse is over an object
+     */
+    public void mouseOver() { 
+        
     }
 
     /**
@@ -229,9 +235,13 @@ abstract public class GameObject {
      * @return - all GameObject attributes and values
      */
     public String toString() {
-        return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;
+        return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;//to string of attributes of the object
     }
-
+    /**
+     * method to create buffered image
+     * @param src
+     * @return 
+     */
     protected BufferedImage createBufferedImage(String src) {
         BufferedImage img;
 
@@ -244,7 +254,7 @@ abstract public class GameObject {
             img = null; //no image if error occurs 
 
         }
-        return img;
+        return img;//return the image
 
     }
 
