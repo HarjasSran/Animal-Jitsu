@@ -65,13 +65,12 @@ abstract public class GameObject {
      * @param scale - scale of the object
      * @param direction - the direction the object is facing. true == left
      */
-    public GameObject(int xPos, int yPos, int rotation, int width, int height, int scale, boolean direction) {
+    public GameObject(int xPos, int yPos, int rotation, int width, int height,int scale, boolean direction) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.rotation = rotation;
-            this.width = width;
+        this.width = width;
 
-        
         this.height = height;
         this.scale = scale;
         this.direction = direction;

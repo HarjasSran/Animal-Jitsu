@@ -116,9 +116,9 @@ public class GameScreen extends JPanel {
        
          //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
-            cards.add(new Card(Card.FIRE_ELEMENT, i, false));
-             cards.add(new Card(Card.WATER_ELEMENT, i, false));
-             cards.add(new Card(Card.SNOW_ELEMENT, i, false));
+            cards.add(new Card(0, 0, 0, 100, Card.FIRE_ELEMENT, i, false));
+             cards.add(new Card(0,0,0, 100,Card.WATER_ELEMENT, i, false));
+             cards.add(new Card(0,0,0, 100,Card.SNOW_ELEMENT, i, false));
         }
         Collections.shuffle(cards); 
         
@@ -249,7 +249,7 @@ public class GameScreen extends JPanel {
      
         
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             player.getCards().get(i).setFaceUp(true);
             player.getCards().get(i).setX(i*140+40);
              player.getCards().get(i).setY(40);
@@ -261,6 +261,11 @@ public class GameScreen extends JPanel {
              comp.getCards().get(i).setY(40);
              comp.getCards().get(i).render(g2d);            
         }
+        
+        for (int i = 0; i < 5; i++) {
+            player.getCards().get(i).isClicked(listener);
+        }
+        //System.out.println(cardClicked);
       
 
         // System.out.println(GameScreen.image);
@@ -377,5 +382,6 @@ public class GameScreen extends JPanel {
 
         return userWin;
     }
+
 
 }

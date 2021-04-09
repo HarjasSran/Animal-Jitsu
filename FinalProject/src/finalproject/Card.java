@@ -6,6 +6,7 @@ package finalproject;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  *
@@ -31,7 +32,7 @@ public class Card extends GameObject {
      * Default constructor
      */
     public Card() {
-
+        super();
         element = 0;
         cardNumber = 1;
         color = Color.WHITE;
@@ -45,7 +46,8 @@ public class Card extends GameObject {
      * @param cardNumber
      * @param faceUp
      */
-    public Card(int element, int cardNumber, boolean faceUp) {
+    public Card(int xPos, int yPos, int rotation,int scale, int element, int cardNumber, boolean faceUp) {
+        super(xPos, yPos, rotation, PIXEL_WIDTH * DEFAULT_SCALE, PIXEL_HEIGHT * DEFAULT_SCALE, scale, true);
         this.element = element;
         this.cardNumber = cardNumber;
         this.faceUp = faceUp;
@@ -160,7 +162,7 @@ public class Card extends GameObject {
      * @return - the clone of the card
      */
     public Card clone() {
-        Card newCard = new Card(element, cardNumber, faceUp); //create new card with the exact same attributes and value
+        Card newCard = new Card(xPos, yPos, rotation, scale, element, cardNumber, faceUp); //create new card with the exact same attributes and value
         return newCard;//return the clone of the card
     }
 
@@ -171,5 +173,20 @@ public class Card extends GameObject {
      */
     public String toString() {
         return "Element: " + String.valueOf(element) + "\tCard Number: " + String.valueOf(cardNumber) + "\tColour: " + color + "\tFacing: " + faceUp;//return tring of all attributes of the card
+    }
+    
+    
+    public boolean isClicked(ClickListener listener) {
+        int clickXPos = listener.getXPos();
+        int clickYPos = listener.getYPos();
+        boolean isClicked = false;
+        
+        if ((this.getX()+this.getObjectWidth())>= clickXPos && clickXPos>=this.getX()) {
+            isClicked = true;
+            System.out.println(true);
+        }
+        
+        System.out.println(false);
+        return isClicked;
     }
 }
