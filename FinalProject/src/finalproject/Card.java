@@ -134,7 +134,7 @@ public class Card extends GameObject {
     public void render(Graphics2D g2d) {
         
         
-        if(faceUp){
+        if(!faceUp){
           horizontalIndex = this.cardNumber+1;
          verticalIndex = this.element;
          

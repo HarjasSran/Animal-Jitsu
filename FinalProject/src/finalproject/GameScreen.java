@@ -13,6 +13,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -49,9 +50,9 @@ public class GameScreen extends JPanel {
     static BufferedImage CARD_SPRITE= null ;
 
     ArrayList<Card> cards = new ArrayList();
-    ArrayList<Card> compCards = new ArrayList();
-    ArrayList<Card> hand = new ArrayList();
-    ArrayList<Card> compHand = new ArrayList();
+   // ArrayList<Card> compCards = new ArrayList();
+  //  ArrayList<Card> hand = new ArrayList();
+  //  ArrayList<Card> compHand = new ArrayList();
 
     int totalCards = 33;
 
@@ -100,19 +101,12 @@ public class GameScreen extends JPanel {
          //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
             cards.add(new Card(Card.FIRE_ELEMENT, i, false));
+             cards.add(new Card(Card.WATER_ELEMENT, i, false));
+             cards.add(new Card(Card.SNOW_ELEMENT, i, false));
         }
+        Collections.shuffle(cards); 
         
-        //All water element cards added to arraylist
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(Card.WATER_ELEMENT, i, false));
-        }
-
        
-
-        //All snow element cards added to arraylist
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(Card.SNOW_ELEMENT, i, false));
-        }
 
         name = CharacterSelectMenu.getUsername();
 
@@ -193,6 +187,8 @@ public class GameScreen extends JPanel {
     //static Character character = new Character(Color.BLACK,image, true, cards);
     
    
+   
+    
     public void paint(Graphics g) {
 
         
