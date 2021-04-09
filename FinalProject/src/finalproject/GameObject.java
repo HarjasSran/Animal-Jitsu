@@ -23,18 +23,18 @@ abstract public class GameObject {
     int scale;
     boolean direction; //true == left
 
-    static BufferedImage GIRAFFE_IMAGE = null;
-    static BufferedImage BOSS_IMAGE = null;
-    static BufferedImage GORILLA_IMAGE = null;
-    static BufferedImage TIGER_IMAGE = null;
-    static BufferedImage MONKEY_IMAGE = null;
-    static BufferedImage ZEBRA_IMAGE = null;
-
-    static BufferedImage FIREBALL_IMAGE = null;
-    static BufferedImage WATERBALL_IMAGE = null;
-    static BufferedImage SNOWBALL_IMAGE = null;
-
-    static BufferedImage CARD_SPRITESHEET = null;
+//    static BufferedImage GIRAFFE_IMAGE = null;
+//    static BufferedImage BOSS_IMAGE = null;
+//    static BufferedImage GORILLA_IMAGE = null;
+//    static BufferedImage TIGER_IMAGE = null;
+//    static BufferedImage MONKEY_IMAGE = null;
+//    static BufferedImage ZEBRA_IMAGE = null;
+//
+//    static BufferedImage FIREBALL_IMAGE = null;
+//    static BufferedImage WATERBALL_IMAGE = null;
+//    static BufferedImage SNOWBALL_IMAGE = null;
+//
+//    static BufferedImage CARD_SPRITESHEET = null;
 
     /**
      * Default constructor

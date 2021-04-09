@@ -14,14 +14,16 @@ import java.awt.event.MouseEvent;
  */
 public class ClickListener extends MouseAdapter {
     
-    int xPos;
-    int yPos;
+   int xPos;
+     int yPos;
     boolean clicked;
     @Override
     public void mouseClicked(MouseEvent e) {
         xPos = e.getX();
         yPos = e.getY();
-        System.out.println(xPos + ", " + yPos);
+       System.out.println(xPos + ", " + yPos);
+       
+      
         
         //save x and y coordinates
     }
@@ -29,6 +31,7 @@ public class ClickListener extends MouseAdapter {
     @Override
     public void mousePressed(MouseEvent e){
         clicked = true;
+       // System.out.println("f" + clicked);
     }
     
     @Override
@@ -36,15 +39,15 @@ public class ClickListener extends MouseAdapter {
         clicked = false;
     }
     
-    public int getXPos(){
+    public  int getXPos(){
         return xPos;
     }
     
-    public int getYPos(){
+    public  int getYPos(){
         return yPos;
     }
     
-    public boolean isPressed(){
+    public  boolean isPressed(){
         return clicked;
     }
     

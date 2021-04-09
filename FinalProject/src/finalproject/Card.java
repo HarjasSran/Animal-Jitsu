@@ -4,6 +4,7 @@
 package finalproject;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 /**
@@ -16,10 +17,15 @@ public class Card extends GameObject {
     int cardNumber;
     Color color;
     boolean faceUp; //true == facing up
+    
+    final static int PIXEL_WIDTH =35; 
+    final static int PIXEL_HEIGHT=47; 
 
     static int WATER_ELEMENT = 0;
     static int FIRE_ELEMENT = 1;
     static int SNOW_ELEMENT = 2;
+    
+    
 
     /**
      * Default constructor
@@ -43,6 +49,8 @@ public class Card extends GameObject {
         this.element = element;
         this.cardNumber = cardNumber;
         this.faceUp = faceUp;
+        
+       
     }
 
     /**
@@ -115,6 +123,23 @@ public class Card extends GameObject {
      */
     public boolean getFaceUp() {
         return faceUp;//return weather or not the card is face up
+    }
+    
+    
+     int cardScale=5; 
+     int horizontalIndex=this.cardNumber; 
+     int verticalIndex=this.element ;
+     
+     int cardXOffset = horizontalIndex*PIXEL_WIDTH; 
+     int cardYOffset =  verticalIndex*PIXEL_HEIGHT; 
+    public void render(Graphics2D g2d){
+       
+        /**
+         * 
+         */
+       
+        g2d.drawImage(GameScreen.CARD_SPRITE,0,0,PIXEL_WIDTH*cardScale,PIXEL_HEIGHT*cardScale,cardXOffset,cardYOffset,PIXEL_WIDTH+cardXOffset,PIXEL_HEIGHT+cardYOffset,null);
+      
     }
 
     /**

@@ -47,7 +47,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         
         clip.open(audioStream);
         
-        clip.start();
+        //clip.start();
       
             
             
@@ -173,7 +173,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCreditsActionPerformed
 
-    boolean music=true; 
+    boolean music=false; 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         
         if(music){
