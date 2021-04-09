@@ -105,6 +105,8 @@ public class GameScreen extends JPanel {
         else{
             image = ZEBRA_IMAGE;
         }
+        
+        
 
         
 
