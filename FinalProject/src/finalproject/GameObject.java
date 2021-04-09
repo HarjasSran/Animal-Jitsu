@@ -39,6 +39,9 @@ abstract public class GameObject {
     /**
      * Default constructor
      */
+    
+    
+
     public GameObject() {
 
     
@@ -66,12 +69,8 @@ abstract public class GameObject {
         this.xPos = xPos;
         this.yPos = yPos;
         this.rotation = rotation;
-        
-        if (direction) {
             this.width = width;
-        } else {
-            this.width = -width;
-        }
+
         
         this.height = height;
         this.scale = scale;
@@ -170,11 +169,9 @@ abstract public class GameObject {
      */
     public void setWidth(int width) {
 
-        if (direction) {
+     
             this.width = width;
-        } else {
-            this.width = -width;
-        }
+
     }
 
     /**
