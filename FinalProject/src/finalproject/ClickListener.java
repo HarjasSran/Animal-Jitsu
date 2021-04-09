@@ -14,23 +14,21 @@ import java.awt.event.MouseEvent;
  */
 public class ClickListener extends MouseAdapter {
 
-    int xPos;
-    int yPos;
-    double scale;
+    double xPos;
+    double yPos;
+    double scale = GameScreen.SCREEN_SCALE;
     boolean clicked;
 
-    public ClickListener(double scale){
-        this.scale=scale; 
-    }
+
     
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        xPos = e.getX();
+        xPos = e.getX()*scale;
         
         
       
-        yPos = e.getY();
+        yPos = e.getY()*scale;
         //System.out.println(xPos + ", " + yPos);
 
         //save x and y coordinates
@@ -52,7 +50,7 @@ public class ClickListener extends MouseAdapter {
      *
      * @return
      */
-    public int getXPos() {
+    public double getXPos() {
         return xPos;//return x position
     }
 
@@ -61,7 +59,7 @@ public class ClickListener extends MouseAdapter {
      *
      * @return
      */
-    public int getYPos() {
+    public double getYPos() {
         return yPos;//return y position
     }
 

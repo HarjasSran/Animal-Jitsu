@@ -177,16 +177,24 @@ public class Card extends GameObject {
     
     
     public boolean isClicked(ClickListener listener) {
-        int clickXPos = listener.getXPos();
-        int clickYPos = listener.getYPos();
+        double clickXPos = listener.getXPos();
+        double clickYPos = listener.getYPos();
         boolean isClicked = false;
         
-        if (clickXPos>this.getX() && clickXPos< this.getX()+this.getObjectWidth()) {
+        double xCard = (double) this.getX()*GameScreen.SCREEN_SCALE - 10;
+        double widthCard = (double) this.getObjectWidth()*GameScreen.SCREEN_SCALE - 34;
+        
+        double yCard = (double) this.getY()*GameScreen.SCREEN_SCALE - 10; 
+        double heightCard = (double) this.getObjectHeight()*GameScreen.SCREEN_SCALE - 45;
+        
+        if (clickXPos > xCard && clickXPos < xCard + widthCard && clickYPos>yCard && clickYPos < yCard + heightCard) {
             isClicked = true;
-          //  System.out.println(true + ""+clickXPos);
-          System.out.println(this.getX());
-        }else{
-             System.out.println(false);
+
+            System.out.println(this.getCardNumber());
+            //&& clickYPos>((double)this.getY()*GameScreen.SCREEN_SCALE) && clickYPos<this.getY()+this.getObjectHeight()-100
+
+        } else {
+            System.out.println(false);
         }
         
        

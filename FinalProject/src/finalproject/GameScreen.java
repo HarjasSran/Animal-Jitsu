@@ -56,6 +56,8 @@ public class GameScreen extends JPanel {
     static BufferedImage BLACK_BOW = null;
     
     static BufferedImage CARD_SPRITE= null ;
+    
+    static double SCREEN_SCALE = 0.6667;
 
     ArrayList<Card> cards = new ArrayList<Card>();
     
@@ -219,7 +221,7 @@ public class GameScreen extends JPanel {
         //System.out.println(listener.isPressed());
         //System.out.println(listener.);
         Graphics2D g2d = (Graphics2D) g;
-       // g2d.scale(0.6667, 0.6667);
+       g2d.scale(SCREEN_SCALE, SCREEN_SCALE);
      
         
 
