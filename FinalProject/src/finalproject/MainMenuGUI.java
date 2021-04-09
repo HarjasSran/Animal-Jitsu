@@ -47,7 +47,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         
         clip.open(audioStream);
         
-        //clip.start();
+        clip.start();
       
             
             
@@ -113,13 +113,18 @@ public class MainMenuGUI extends javax.swing.JFrame {
         });
         getContentPane().add(btnInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
 
-        jToggleButton1.setText("Sound");
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/volumeON.png"))); // NOI18N
+        jToggleButton1.setBorderPainted(false);
+        jToggleButton1.setContentAreaFilled(false);
+        jToggleButton1.setFocusPainted(false);
+        jToggleButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/volumeOFF.png"))); // NOI18N
+        jToggleButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/volumeOFF.png"))); // NOI18N
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
 
         btnCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/CreditsButton1.png"))); // NOI18N
         btnCredits.setBorderPainted(false);
@@ -136,7 +141,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         getContentPane().add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/header.png"))); // NOI18N
-        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/chunin.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -173,7 +178,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCreditsActionPerformed
 
-    boolean music=false; 
+    boolean music=true; 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         
         if(music){
