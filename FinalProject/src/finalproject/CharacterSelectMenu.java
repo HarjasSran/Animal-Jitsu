@@ -6,9 +6,12 @@
 package finalproject;
 
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,8 +60,22 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     MainMenuGUI m; 
     public CharacterSelectMenu(MainMenuGUI mainMenu) {
         m = mainMenu; 
+       
+        //  img = ImageIO.read(getClass().getResourceAsStream(src));
         
+       
 
+//          try {
+//
+//            ImageIcon test = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("src/Icons/gorillaIcon.png"))); 
+//
+//        } catch (IOException | IllegalArgumentException e) {
+//            JOptionPane.showMessageDialog(null, "ERROR LOADING ICONS:\n" + e); //error message
+//         
+//
+//        }
+       
+       
         ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
         ImageIcon giraffe = new ImageIcon("src/icons/giraffeIcon.png");
         ImageIcon tiger = new ImageIcon("src/icons/tigerIcon.png");
