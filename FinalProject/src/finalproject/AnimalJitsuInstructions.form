@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Instructions"/>
@@ -34,11 +34,12 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Instructions"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="311" y="16" width="180" height="40"/>
+          <AbsoluteConstraints x="290" y="10" width="380" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -93,12 +94,18 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="35" y="198" width="-1" height="-1"/>
+          <AbsoluteConstraints x="40" y="250" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalScrollBar" type="javax.swing.JScrollBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="null"/>
+        </Property>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
@@ -106,7 +113,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="30" y="220" width="470" height="420"/>
+          <AbsoluteConstraints x="30" y="290" width="470" height="350"/>
         </Constraint>
       </Constraints>
 
@@ -121,8 +128,13 @@
             </Property>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="1. When the game begins, you and Sensei Penguin each &#xa;receive 5 cards, each with an element and a number.&#xa;&#xa;2. Snow cards defeat Water cards. Water cards beat &#xa;Fire cards Fire cards beat Snow cards.&#xa;&#xa;3. If both you and Sensei Penguin choose the same element,&#xa;the winner of the round will be the card with the highest &#xa;number.&#xa;&#xa;4. If you and Sensei Penguin choose a card of the same &#xa;element and number, nobody wins the round.&#xa;&#xa;5. You will have 15 seconds to choose a card that will&#xa; win help you win the game.&#xa;&#xa;6. The game ends when you or Sensei Penguin have won at &#xa;least 1 round with each element OR won 3 rounds with &#xa;the same element.&#xa;"/>
-            <Property name="opaque" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value=" 1&#xa; When the game begins &#xa; you and Sensei Penguin&#xa; each receive 5 cards &#xa; each with an element and a &#xa; number&#xa;&#xa; 2&#xa; Snow cards defeat &#xa; Water cards&#xa;&#xa; Water cards defeat &#xa; Fire cards &#xa;&#xa; Fire cards defeat&#xa; Snow cards&#xa;&#xa; 3&#xa; If both you and Sensei &#xa; Penguin choose&#xa; the same element&#xa; the winner of the round &#xa; will be the card with&#xa; the highest number&#xa;&#xa;&#xa;&#xa; 4&#xa; You will have &#xa; 15 seconds to &#xa; choose a card&#xa; that will help you &#xa; win the game&#xa;&#xa; 5&#xa; The game ends &#xa; when you &#xa; or Sensei Penguin&#xa; have won at &#xa; least 1 round &#xa; with each element &#xa; OR won 3 rounds with &#xa; the same element&#xa;"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
@@ -136,7 +148,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="35" y="96" width="329" height="-1"/>
+          <AbsoluteConstraints x="35" y="96" width="460" height="-1"/>
         </Constraint>
       </Constraints>
 
@@ -146,8 +158,9 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Challenge Sensei Penguin to gain experience&#xa;and level up. When you win a match, you will &#xa;advance to the next bow level.&#xa;"/>
+            <Property name="text" type="java.lang.String" value="   Challenge &#xa;   Sensei Penguin &#xa;   to gain experience&#xa;   and level up&#xa;&#xa;   When you win a match &#xa;   you will advance &#xa;   to the next bow level&#xa;"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -3,8 +3,16 @@ INSTRUCTIONS MENU
  */
 package finalproject;
 
+import static finalproject.CharacterSelectMenu.gameFont;
+import static finalproject.CharacterSelectMenu.largePixelFont;
+import static finalproject.CharacterSelectMenu.pixelFont;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +24,10 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
      * Creates new form AnimalJitsuInstructions
      */
     MainMenuGUI m;
+    
+     static Font pixelFont;
+    static Font smallPixel;
+    static Font mediumPixel; 
 
     public AnimalJitsuInstructions(MainMenuGUI mainMenu) {
         m = mainMenu;
@@ -25,12 +37,27 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         howToPlayArea.setOpaque(false);
         howToPlayArea.setBackground(new Color(0, 0, 0, 200));
-        howToPlayArea.setFont(CharacterSelectMenu.gameFont);
-        System.out.println("F "+CharacterSelectMenu.gameFont);
-        
-        lblInstructions.setFont(CharacterSelectMenu.gameFont); 
+       // howToPlayArea.setFont(CharacterSelectMenu.gameFont);
+       
+       try {
+            pixelFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf"));
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(pixelFont.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf")));
+        } catch (IOException | FontFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
-        jScrollPane2.getViewport().setOpaque(false);
+        smallPixel = pixelFont.deriveFont(35.0f);
+        mediumPixel = pixelFont.deriveFont(60.0f);
+
+       
+       earnYourBowsArea.setFont(smallPixel);
+       howToPlayArea.setFont(smallPixel);
+       lblInstructions.setFont(mediumPixel);
+       lblRules.setFont(smallPixel);
+       lblBows.setFont(smallPixel);
+
+        //jScrollPane2.getViewport().setOpaque(false);
         jScrollPane2.setOpaque(false);
     }
 
@@ -61,8 +88,9 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
 
         lblInstructions.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
         lblInstructions.setForeground(new java.awt.Color(255, 0, 0));
+        lblInstructions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInstructions.setText("Instructions");
-        getContentPane().add(lblInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 16, 180, 40));
+        getContentPane().add(lblInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 380, 40));
 
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton1.png"))); // NOI18N
         btnStart.setBorderPainted(false);
@@ -84,8 +112,10 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         lblRules.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
         lblRules.setForeground(new java.awt.Color(51, 153, 0));
         lblRules.setText("How to Play");
-        getContentPane().add(lblRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 198, -1, -1));
+        getContentPane().add(lblRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setHorizontalScrollBar(null);
         jScrollPane2.setOpaque(false);
 
         howToPlayArea.setEditable(false);
@@ -93,21 +123,23 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         howToPlayArea.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         howToPlayArea.setLineWrap(true);
         howToPlayArea.setRows(5);
-        howToPlayArea.setText("1. When the game begins, you and Sensei Penguin each \nreceive 5 cards, each with an element and a number.\n\n2. Snow cards defeat Water cards. Water cards beat \nFire cards Fire cards beat Snow cards.\n\n3. If both you and Sensei Penguin choose the same element,\nthe winner of the round will be the card with the highest \nnumber.\n\n4. If you and Sensei Penguin choose a card of the same \nelement and number, nobody wins the round.\n\n5. You will have 15 seconds to choose a card that will\n win help you win the game.\n\n6. The game ends when you or Sensei Penguin have won at \nleast 1 round with each element OR won 3 rounds with \nthe same element.\n");
-        howToPlayArea.setOpaque(false);
+        howToPlayArea.setText(" 1\n When the game begins \n you and Sensei Penguin\n each receive 5 cards \n each with an element and a \n number\n\n 2\n Snow cards defeat \n Water cards\n\n Water cards defeat \n Fire cards \n\n Fire cards defeat\n Snow cards\n\n 3\n If both you and Sensei \n Penguin choose\n the same element\n the winner of the round \n will be the card with\n the highest number\n\n\n\n 4\n You will have \n 15 seconds to \n choose a card\n that will help you \n win the game\n\n 5\n The game ends \n when you \n or Sensei Penguin\n have won at \n least 1 round \n with each element \n OR won 3 rounds with \n the same element\n");
+        howToPlayArea.setBorder(null);
+        howToPlayArea.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(howToPlayArea);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 470, 420));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 470, 350));
 
         jScrollPane1.setOpaque(false);
 
         earnYourBowsArea.setEditable(false);
         earnYourBowsArea.setColumns(20);
+        earnYourBowsArea.setLineWrap(true);
         earnYourBowsArea.setRows(5);
-        earnYourBowsArea.setText("Challenge Sensei Penguin to gain experience\nand level up. When you win a match, you will \nadvance to the next bow level.\n");
+        earnYourBowsArea.setText("   Challenge \n   Sensei Penguin \n   to gain experience\n   and level up\n\n   When you win a match \n   you will advance \n   to the next bow level\n");
         jScrollPane1.setViewportView(earnYourBowsArea);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 96, 329, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 96, 460, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/legend.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, -1, -1));
