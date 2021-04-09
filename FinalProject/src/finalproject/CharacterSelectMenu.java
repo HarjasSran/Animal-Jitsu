@@ -22,42 +22,47 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     /**
      * Creates new form CharacterSelectMenu
      */
-    
-    ArrayList <ImageIcon> icons = new ArrayList(); 
-    
+    ArrayList<ImageIcon> icons = new ArrayList();
+
     int i = 0;
     /**
-     * 
+     *
      */
-    
-    
+
     //global variable storing animal
-    static int animal; 
-    static String name; 
-    
-    
-    public static String getUsername(){
-       return name;  
-    }
-    
-    
-    
+    static int animal;
+    static String name;
+
     /**
-     * 
+     * accessor method to get the users name
+     *
+     * @return
+     */
+    public static String getUsername() {
+        return name; //return the name 
+    }
+
+    /**
+     *
      * @return integer denoting user animal choice
      */
-    
-    
-    public static String getAnimal(){
-        
-        String animals[] = {"gorilla", "giraffe", "tiger", "zebra"}; 
-        
-        
-        
-        
-        return animals[animal]; 
+    /**
+     * accessor method to get the animal
+     *
+     * @return
+     */
+    public static String getAnimal() {
+
+        String animals[] = {"gorilla", "giraffe", "tiger", "zebra"};
+        return animals[animal]; //return array of animals
     }
-    MainMenuGUI m; 
+    MainMenuGUI m;
+
+    /**
+     * menu to select the character
+     *
+     * @param mainMenu
+     */
     public CharacterSelectMenu(MainMenuGUI mainMenu) {
         m = mainMenu; 
        
@@ -79,24 +84,21 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
         ImageIcon giraffe = new ImageIcon("src/icons/giraffeIcon.png");
         ImageIcon tiger = new ImageIcon("src/icons/tigerIcon.png");
-         ImageIcon zebra = new ImageIcon("src/icons/zebraIcon.png");
+        ImageIcon zebra = new ImageIcon("src/icons/zebraIcon.png");
         icons.add(gorilla);
         icons.add(giraffe);
         icons.add(tiger);
         icons.add(zebra);
-       
+
         initComponents();
         // set icon image to penguin character
-       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
-        
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
+
         //ImageIcon icon = new ImageIcon(icons.get(i));
         jLabel1.setIcon(icons.get(i));
-         System.out.println(jLabel1.getIcon());
-        
-        
+        System.out.println(jLabel1.getIcon());
+
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,35 +194,33 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightActionPerformed
-        if (i < icons.size()-1) {
+        if (i < icons.size() - 1) {
             //ImageIcon icon = new ImageIcon(icons.get(i + 1));
             System.out.println(i);
-             i++;
-           
-           
+            i++;
+
             System.out.println(icons.get(i));
-        }else{
-            i=0;  
+        } else {
+            i = 0;
         }
         jLabel1.setIcon(icons.get(i));
-        
-        
+
+
     }//GEN-LAST:event_rightActionPerformed
 
     private void LeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeftActionPerformed
-  if (i > 0) {
+        if (i > 0) {
             //ImageIcon icon = new ImageIcon(icons.get(i + 1));
             System.out.println(i);
-             i--;
-           
-           
+            i--;
+
             System.out.println(icons.get(i));
-        }else{
-            i=icons.size()-1;  
+        } else {
+            i = icons.size() - 1;
         }
         jLabel1.setIcon(icons.get(i));
-        
-        
+
+
     }//GEN-LAST:event_LeftActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
@@ -229,32 +229,30 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-      
+
         //get name from user input field
-        name = nameField.getText(); 
+        name = nameField.getText();
         //get animal index from user input
-        animal = i; 
+        animal = i;
         //Makes a new window when start is clicked
-        
-          JFrame game = new JFrame("Game");
-        game.setSize(1920,1080);
-       
+
+        JFrame game = new JFrame("Game");
+        game.setSize(1920, 1080);
+
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        GameScreen gameScreen =new GameScreen(game); 
-        game.add(gameScreen); 
+
+        GameScreen gameScreen = new GameScreen(game);
+        game.add(gameScreen);
         game.setVisible(true);
         game.setLocationRelativeTo(null);
-        
-        
-            //Makes a new window when start is clicked
-        
-          
-        
+
+        //Makes a new window when start is clicked
+
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        this.setVisible(false); 
+        //if the user presses the return button, close this window and open the main menu 
+        this.setVisible(false);
         m.setVisible(true);
     }//GEN-LAST:event_returnButtonActionPerformed
 
