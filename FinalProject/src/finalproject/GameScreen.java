@@ -199,7 +199,7 @@ public class GameScreen extends JPanel {
     public void paint(Graphics g) {
 
         
-        System.out.println(listener.isPressed());
+        //System.out.println(listener.isPressed());
         //System.out.println(listener.);
         Graphics2D g2d = (Graphics2D) g;
 
