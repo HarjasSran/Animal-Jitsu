@@ -87,7 +87,7 @@
     <Component class="javax.swing.JTextField" name="nameField">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="8-bit Arcade In" size="36" style="1"/>
+          <Font name="Arial" size="36" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="NAME"/>

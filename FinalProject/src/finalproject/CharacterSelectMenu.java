@@ -5,7 +5,11 @@
  */
 package finalproject;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
@@ -63,9 +67,29 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
      *
      * @param mainMenu
      */
+    
+    static Font pixelFont; 
+    static Font largePixelFont; 
     public CharacterSelectMenu(MainMenuGUI mainMenu) {
         m = mainMenu; 
        
+        
+        
+        try{
+            pixelFont=  Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf")); 
+            GraphicsEnvironment ge=  GraphicsEnvironment.getLocalGraphicsEnvironment(); 
+            ge.registerFont(pixelFont.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf")));
+        }catch(IOException | FontFormatException e){
+         JOptionPane.showMessageDialog(null, e);
+        }
+        
+        largePixelFont = pixelFont.deriveFont(30.0f); 
+        
+        System.out.println(largePixelFont);
+        
+       
+        
+        
         //  img = ImageIO.read(getClass().getResourceAsStream(src));
         
        
@@ -91,12 +115,42 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         icons.add(zebra);
 
         initComponents();
+        
+         nameField.setFont(largePixelFont); 
+         
+         //nameField.set
         // set icon image to penguin character
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
 
         //ImageIcon icon = new ImageIcon(icons.get(i));
         jLabel1.setIcon(icons.get(i));
         System.out.println(jLabel1.getIcon());
+        
+        
+        
+        
+        
+        
+//            try {
+//        //create the font to use. Specify the size!
+//        Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("/fonts/pixelfont.ttf")).deriveFont(12f);
+//        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//        //register the font
+//        ge.registerFont(customFont);
+//    } catch (IOException e) {
+//        e.printStackTrace();
+//    } catch(FontFormatException e) {
+//        e.printStackTrace();
+//    }
+
+    //use the font
+    //yourSwingComponent.setFont(customFont);
+        
+        
+        
+        
+        
+        
 
     }
 
@@ -150,7 +204,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         });
         getContentPane().add(right, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 280, 60, -1));
 
-        nameField.setFont(new java.awt.Font("8-bit Arcade In", 1, 36)); // NOI18N
+        nameField.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         nameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nameField.setText("NAME");
         nameField.addActionListener(new java.awt.event.ActionListener() {
