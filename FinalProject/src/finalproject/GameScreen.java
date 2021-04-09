@@ -100,15 +100,11 @@ public class GameScreen extends JPanel {
          //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
             cards.add(new Card(Card.FIRE_ELEMENT, i, false));
-            compCards.add(new Card(Card.FIRE_ELEMENT, i, false));
         }
         
         //All water element cards added to arraylist
         for (int i = 0; i < 10; i++) {
             cards.add(new Card(Card.WATER_ELEMENT, i, false));
-            compCards.add(new Card(Card.WATER_ELEMENT, i, false));
-
-            System.out.println("f");
         }
 
        
@@ -116,7 +112,6 @@ public class GameScreen extends JPanel {
         //All snow element cards added to arraylist
         for (int i = 0; i < 10; i++) {
             cards.add(new Card(Card.SNOW_ELEMENT, i, false));
-            compCards.add(new Card(Card.SNOW_ELEMENT, i, false));
         }
 
         name = CharacterSelectMenu.getUsername();
