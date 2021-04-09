@@ -122,7 +122,7 @@ int distort;
         
        
        
-        System.out.println((Math.sin(currentFrame * 0.001)) / 10);
+      
 
     }
 
