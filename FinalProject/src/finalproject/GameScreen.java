@@ -234,17 +234,16 @@ public class GameScreen extends JPanel {
         
         
         for (int i = 0; i < 5; i++) {
-            
+            player.getCards().get(i).setFaceUp(true);
             player.getCards().get(i).setX(i*140+40);
              player.getCards().get(i).setY(40);
-              player.getCards().get(i).render(g2d);
-            
-
-//              cards.get(i).setX(i*140+40);
-//              cards.get(i).setY(40);
-//            cards.get(i).render(g2d); 
-          
-            
+              player.getCards().get(i).render(g2d);            
+        }
+        for (int i = 0; i < 5; i++) {
+           // comp.getCards().get(i).setFaceUp(true); 
+            comp.getCards().get(i).setX(i*140+1140);
+             comp.getCards().get(i).setY(40);
+             comp.getCards().get(i).render(g2d);            
         }
       
 
