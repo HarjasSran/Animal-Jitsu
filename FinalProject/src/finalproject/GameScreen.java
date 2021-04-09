@@ -95,6 +95,14 @@ public class GameScreen extends JPanel {
             image = ZEBRA_IMAGE;
         }
 
+        
+        
+         //All fire element cards added to arraylist
+        for (int i = 0; i < 10; i++) {
+            cards.add(new Card(Card.FIRE_ELEMENT, i, false));
+            compCards.add(new Card(Card.FIRE_ELEMENT, i, false));
+        }
+        
         //All water element cards added to arraylist
         for (int i = 0; i < 10; i++) {
             cards.add(new Card(Card.WATER_ELEMENT, i, false));
@@ -103,11 +111,7 @@ public class GameScreen extends JPanel {
             System.out.println("f");
         }
 
-        //All fire element cards added to arraylist
-        for (int i = 0; i < 10; i++) {
-            cards.add(new Card(Card.FIRE_ELEMENT, i, false));
-            compCards.add(new Card(Card.FIRE_ELEMENT, i, false));
-        }
+       
 
         //All snow element cards added to arraylist
         for (int i = 0; i < 10; i++) {
@@ -117,9 +121,9 @@ public class GameScreen extends JPanel {
 
         name = CharacterSelectMenu.getUsername();
 
-        player = new Player(250, 400, name, Color.white, image, false, cards);
+        player = new Player(550, 400, name, Color.white, image, false, cards);
 
-        comp = new Computer(1200, 400, Color.black, BOSS_IMAGE, true, cards, 1);
+        comp = new Computer(1550, 400, Color.black, BOSS_IMAGE, true, cards, 1);
 //        
 //        for (int i = 0; i < 4; i++) {
 //            drawCard(cards, hand);
@@ -211,13 +215,15 @@ public class GameScreen extends JPanel {
 //        player.setHeight(player.getAnimal().getHeight()/4);
 
         //System.out.println(listener.xPos);
-        player.setScale(60);
+        player.setScale(80);
         player.render(g2d);
 
-        comp.setScale(60);
+        comp.setScale(80);
         comp.render(g2d);
         
-        cards.get(0).render(g2d);
+        
+        System.out.println(cards.get(0).getCardNumber()); 
+        cards.get(3).render(g2d);
 
         // System.out.println(GameScreen.image);
         // g2d.drawImage(image, 100, x, null);
