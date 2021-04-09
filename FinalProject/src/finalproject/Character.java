@@ -23,6 +23,7 @@ public class Character extends GameObject {
     protected long currentFrame=0; 
     final int distortOffset =(int)(Math.random()*10);
 
+int multiplier;
     /**
      *default character constructor
      */
@@ -38,10 +39,17 @@ public class Character extends GameObject {
      * @param cards
      */
     public Character(int x, int y, Color bow, BufferedImage animal, boolean direction, ArrayList cards) {
+
         super(x, y, 0, animal.getWidth(), animal.getHeight(), 1, direction);
         this.bow = bow;
         this.animal = animal;
         this.cards = cards;
+        if (direction) {
+            multiplier = 1;
+        }
+        else{
+            multiplier = -1;
+        }
 
     }
 
@@ -117,7 +125,7 @@ int distort;
         distort = (int) Math.floor(x);
         
        currentFrame++; 
-        g2d.drawImage(animal, this.getX(), this.getY()+distort, this.getObjectWidth(), this.getObjectHeight()-distort, null);
+        g2d.drawImage(animal, this.getX(), this.getY()+distort, this.getObjectWidth() * multiplier, this.getObjectHeight()-distort, null);
         
         
        
