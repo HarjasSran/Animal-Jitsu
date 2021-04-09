@@ -19,6 +19,9 @@ public class Character extends GameObject {
     protected Color bow;// the color of the characters bow
     BufferedImage animal;// the animal of the character
     protected ArrayList cards;// the characters cards
+    
+    protected long currentFrame=0; 
+    final int distortOffset =(int)(Math.random()*10);
 
     /**
      *default character constructor
@@ -101,10 +104,25 @@ public class Character extends GameObject {
      *
      * @return
      */
-
+    
+// used to distort the heights of characters by a periodic funtion
+// making them appear to sort of breathe.     
+ double x=0.0;
+int distort; 
     public void render(Graphics2D g2d) {
         //System.out.println(this.animal);
-        g2d.drawImage(animal, this.getX(), this.getY(), this.getObjectWidth(), this.getObjectHeight(), null);
+        
+        
+          x += (Math.sin((currentFrame+this.xPos) * 0.001)) / 100;
+        distort = (int) Math.floor(x);
+        
+       currentFrame++; 
+        g2d.drawImage(animal, this.getX(), this.getY(), this.getObjectWidth(), this.getObjectHeight()+distort, null);
+        
+        
+       
+       
+        System.out.println((Math.sin(currentFrame * 0.001)) / 10);
 
     }
 

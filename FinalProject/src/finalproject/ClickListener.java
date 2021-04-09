@@ -22,7 +22,7 @@ public class ClickListener extends MouseAdapter {
     public void mouseClicked(MouseEvent e) {
         xPos = e.getX();
         yPos = e.getY();
-        System.out.println(xPos + ", " + yPos);
+        //System.out.println(xPos + ", " + yPos);
 
         //save x and y coordinates
     }

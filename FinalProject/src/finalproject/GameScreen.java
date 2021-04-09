@@ -196,12 +196,17 @@ public class GameScreen extends JPanel {
      */
 
     //static Character character = new Character(Color.BLACK,image, true, cards);
+    
+   
     public void paint(Graphics g) {
 
         
         //System.out.println(listener.isPressed());
         //System.out.println(listener.);
         Graphics2D g2d = (Graphics2D) g;
+        
+        
+        
 
         //g2d.setColor(Color.red);
         c++;
@@ -217,20 +222,20 @@ public class GameScreen extends JPanel {
 //        player.setHeight(player.getAnimal().getHeight()/4);
 
         //System.out.println(listener.xPos);
-        player.setScale(80);
+       // player.setScale(80);
         player.render(g2d);
 
-        comp.setScale(80);
+       // comp.setScale(80);
         comp.render(g2d);
         
         
-        System.out.println(cards.get(0).getCardNumber()); 
+     
         
         
         for (int i = 0; i < 5; i++) {
             
-            System.out.println(cards.get(i).getElement());
-              hand.get(i).setX(i*140+40);
+
+              cards.get(i).setX(i*140+40);
               cards.get(i).setY(40);
             cards.get(i).render(g2d); 
           
@@ -242,7 +247,7 @@ public class GameScreen extends JPanel {
         // g2d.drawImage(image, 100, x, null);
         //g2d.drawImage(image, 500, 100,-image.getWidth()/2, image.getHeight()/2-x/20, null);
         g2d.dispose();
-        //repaint();
+        repaint();
 
     }
 
