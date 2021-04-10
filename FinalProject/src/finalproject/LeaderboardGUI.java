@@ -2,11 +2,15 @@
 //April 10 2021
 //
 package finalproject;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.io.FileWriter;
 
-/**
- *
- * @author Aidan
- */
 public class LeaderboardGUI extends javax.swing.JFrame {
 
     /**
@@ -25,8 +29,22 @@ public class LeaderboardGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblLeaderboard = new javax.swing.JLabel();
+        txtList = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblLeaderboard.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
+        lblLeaderboard.setText("Leaderboard");
+        getContentPane().add(lblLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        txtList.setViewportView(jTextArea1);
+
+        getContentPane().add(txtList, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 280, 210));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -64,8 +82,65 @@ public class LeaderboardGUI extends javax.swing.JFrame {
                 new LeaderboardGUI().setVisible(true);
             }
         });
+        String data[] = new String[2];
+        data[0]="john";
+        data[1] = "2";
+        File f = new File("src/highscores/save.txt");//get file
+        ArrayList<String> list = new ArrayList();
+        try {
+            Scanner s = new Scanner(f); //if file is not found
+            
+            while (s.hasNextLine()){
+                String newData[] = new String[2];
+                newData[0] = (s.nextLine());
+                newData[1] = (s.nextLine());
+                list.add(newData[0]);
+                list.add(newData[1]);
+                
+            }
+
+            //descendingQuickSort(level, 5, 4);
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        list.add(data[0]);
+        list.add(data[1]);
+        
+        //save win counters to data file
+        try {
+            FileWriter myWriter = new FileWriter("src/highscores/save.txt");
+            for (int i = 0; i < list.size(); i++) {
+                myWriter.write(list.get(i)+"\n");
+            }
+            myWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error:" + e);
+        } catch (IOException ex) {
+            Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //int level[] = new int[list.size()];
+        //String name[] = new String[list.size()];
+        System.out.println(list);
+        int halfList = list.size()/2;
+        String name[] = new String[list.size()/2];
+        int level[] = new int[list.size()/2];
+        for (int i = 0; i < halfList; i++) {
+            name[i] = list.get(i*2);
+            level[i] = Integer.parseInt(list.get((i*2)+1));
+        }
+        
     }
 
+    
+    
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblLeaderboard;
+    private javax.swing.JScrollPane txtList;
     // End of variables declaration//GEN-END:variables
 }
