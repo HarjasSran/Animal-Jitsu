@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class Computer extends Character{
     int skillLevel;
     
+    
     /**
      * Default constructor
      */
@@ -64,8 +65,22 @@ public class Computer extends Character{
         Computer newComp = new Computer(name, xPos, yPos, bow, animal, direction, cards, skillLevel); //new copy of the computer sensei is created 
         return newComp;
     }
+    
+    
+    public void playCard(long startTime){
+        
+        
+     
+            int index = (int)(Math.random()*4); 
+        this.getCard(index).moveObject(1200, 500);   
+      
+        
+    }
+    
+    
 
     public void render(Graphics2D g2d) {
+        
         super.render(g2d);
         g2d.setFont(CharacterSelectMenu.gameFont);
 

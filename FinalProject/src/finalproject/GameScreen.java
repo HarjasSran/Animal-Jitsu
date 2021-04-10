@@ -129,8 +129,11 @@ public class GameScreen extends JPanel{
                 
               if(isPlayerTurn){  
               player.getCard(i).moveObject(800, 500);
+              
+              isPlayerTurn = false; 
+              comp.playCard(System.currentTimeMillis()); 
               }
-                isPlayerTurn = false;               
+                         
                
                 
             }
