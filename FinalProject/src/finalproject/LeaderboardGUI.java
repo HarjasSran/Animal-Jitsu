@@ -13,7 +13,7 @@ import java.io.FileWriter;
 
 public class LeaderboardGUI extends javax.swing.JFrame {
 MainMenuGUI m;
-static String output = "Name\t\tRank\n";
+static String output = "Name\tRank\n\n";
 
     /**
      * Creates new form LeaderboardGUI
