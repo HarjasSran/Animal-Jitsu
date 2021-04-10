@@ -80,6 +80,9 @@ public class GameScreen extends JPanel{
     
     //Downscales to 720p 
     static double SCREEN_SCALE = 0.666667;
+    
+    
+    static boolean isPlayerTurn = true; 
 
     ArrayList<Card> cards = new ArrayList<Card>();
     
@@ -123,11 +126,12 @@ public class GameScreen extends JPanel{
            
             
             if(player.getCard(i).isClicked(xPos,yPos)){
-              player.getCard(i).moveObject(800, 500);
-                              
-                //player.moveObject(1000, 500);
                 
-                //System.out.println("X: " + player.getX() + " target X: " + player.getTargetX());
+              if(isPlayerTurn){  
+              player.getCard(i).moveObject(800, 500);
+              }
+                isPlayerTurn = false;               
+               
                 
             }
             
