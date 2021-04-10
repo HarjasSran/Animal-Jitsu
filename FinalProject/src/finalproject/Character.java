@@ -137,7 +137,7 @@ public class Character extends GameObject {
         if (this.getTargetX() > this.getX()) {
 
             // this.setX(xPos+1);
-            this.setX(this.getX() + Math.round(0.01f * this.getTargetX()));
+            this.setX(Math.round(1.01f * this.getTargetX()));
 
         } else if (this.getTargetX() < this.getX()) {
             this.setX(this.getX() - Math.round(0.01f * this.getTargetX()));

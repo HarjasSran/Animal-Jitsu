@@ -103,6 +103,7 @@ abstract public class GameObject {
      * @param xPos - x position of the object
      */
     public void setX(int xPos) {
+        this.targetX =xPos; 
         this.xPos = xPos;
     }
 
@@ -112,6 +113,7 @@ abstract public class GameObject {
      * @param yPos - y position of the object
      */
     public void setY(int yPos) {
+        this.targetY= yPos; 
         this.yPos = yPos;
     }
     /**
@@ -130,6 +132,8 @@ abstract public class GameObject {
      * @return - x position of the object
      */
     public int getX() {
+        
+        
         return xPos;//return th x position
     }
 
@@ -246,12 +250,9 @@ abstract public class GameObject {
     
     
     
-    public static int lerp(float factor, int start, int stop){
-        
-        return start + Math.round(stop*factor); 
-       
-        
-    }
+    public static int lerp(int a, int b, double fac){
+       return a + (int)(fac*(b-a)); 
+   } 
     
     
     public int getTargetX(){
