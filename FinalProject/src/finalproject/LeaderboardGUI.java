@@ -2,11 +2,15 @@
 //April 10 2021
 //
 package finalproject;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.io.FileWriter;
 
-/**
- *
- * @author Aidan
- */
 public class LeaderboardGUI extends javax.swing.JFrame {
 
     /**
@@ -25,8 +29,22 @@ public class LeaderboardGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblLeaderboard = new javax.swing.JLabel();
+        txtList = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblLeaderboard.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
+        lblLeaderboard.setText("Leaderboard");
+        getContentPane().add(lblLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        txtList.setViewportView(jTextArea1);
+
+        getContentPane().add(txtList, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 280, 210));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -64,8 +82,117 @@ public class LeaderboardGUI extends javax.swing.JFrame {
                 new LeaderboardGUI().setVisible(true);
             }
         });
+        String data[] = new String[2];
+        data[0]="john";
+        data[1] = "2";
+        File f = new File("src/highscores/save.txt");//get file
+        ArrayList<String> list = new ArrayList();
+        try {
+            Scanner s = new Scanner(f); //if file is not found
+            
+            while (s.hasNextLine()){
+                String newData[] = new String[2];
+                newData[0] = (s.nextLine());
+                newData[1] = (s.nextLine());
+                list.add(newData[0]);
+                list.add(newData[1]);
+                
+            }
+
+            //descendingQuickSort(level, 5, 4);
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        list.add(data[0]);
+        list.add(data[1]);
+        
+        //save win counters to data file
+        try {
+            FileWriter myWriter = new FileWriter("src/highscores/save.txt");
+            for (int i = 0; i < list.size(); i++) {
+                myWriter.write(list.get(i)+"\n");
+            }
+            myWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error:" + e);
+        } catch (IOException ex) {
+            Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //int level[] = new int[list.size()];
+        //String name[] = new String[list.size()];
+        System.out.println(list);
+        int halfList = list.size()/2;
+        String name[] = new String[list.size()/2];
+        int level[] = new int[list.size()/2];
+        for (int i = 0; i < halfList; i++) {
+            name[i] = list.get(i*2);
+            level[i] = Integer.parseInt(list.get((i*2)+1));
+        }
+        descendingQuickSort(level, level[0], level[halfList]);
+        for (int i = 0; i < halfList; i++) {
+            
+        }
+        
+    }
+    public static int[] descendingQuickSort(int[] numbers, int l, int r) {
+
+        // sort is complete when the left bounds of the array are equal or greater than the right bound
+        if (l >= r) {
+
+            return numbers;
+
+        }
+
+        int left = l;
+        int right = r;
+
+        //pivot at the midpoint between left and right boundary, partitioning two side of array
+        int pivot = numbers[(l + r) / 2];
+
+        //repeat until the left and the right touch
+        while (left < right) {
+
+            //increment left until it finds a value less than the pivot (flipped operator from ascending) 
+            while (numbers[left] > pivot) {
+              
+                left++;
+            }
+
+            //decrement the right until it finds a value greater than pivot (flipped operator from ascending) 
+            while (numbers[right] < pivot) {
+                
+                right--;
+
+            }
+
+            if (left <= right) {
+                //swap the number at the left and right iterators
+                int temp = numbers[left];
+                numbers[left] = numbers[right];
+                numbers[right] = temp;
+                left++;
+                right--;
+
+            }
+
+        }
+
+        //quicksort both partitions of the array
+        descendingQuickSort(numbers, l, right);
+        descendingQuickSort(numbers, left, r);
+        return numbers;
     }
 
+    
+    
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblLeaderboard;
+    private javax.swing.JScrollPane txtList;
     // End of variables declaration//GEN-END:variables
 }
