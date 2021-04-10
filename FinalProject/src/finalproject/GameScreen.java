@@ -28,7 +28,9 @@ import javax.swing.Timer;
 public class GameScreen extends JPanel{
 
     int index;
-    
+    boolean win;
+    int playerElement;
+    int compElement;
     
     
      Timer delay = new Timer(1000,null);
@@ -40,9 +42,8 @@ public class GameScreen extends JPanel{
                compCard = comp.getCard(index);
 
                delay.stop();
-               boolean win = Card.checkWin(compCard,playerCard); 
-               System.out.println(win);
-             
+               win = Card.checkWin(compCard,playerCard); 
+
                removeCard.start(); 
               removeCard.addActionListener(waitForRemoval);
               
@@ -115,6 +116,7 @@ public class GameScreen extends JPanel{
     static BufferedImage CARD_SPRITE= null ;
     
     
+    
     //Downscales to 720p 
     static double SCREEN_SCALE = 0.666667;
     
@@ -175,7 +177,7 @@ public class GameScreen extends JPanel{
                     player.getCard(i).move(-1000, 0);
                     player.getCard(i).moveObject(i * 140 + 49, 48);
                     player.getCard(i).flip();
-                    
+
 //                    player.getCard(i).flip();
                     
                     
@@ -397,8 +399,18 @@ public class GameScreen extends JPanel{
         comp.setScale(80);
         comp.render(g2d);
         
-       
-     
+        if (win) {
+            playerElement = playerCard.getElement();
+        } else {
+            compElement = compCard.getElement();
+        }
+//
+//        if(playerElement == Card.FIRE_ELEMENT){
+//            g2d.drawImage(FIREBALL_IMAGE, 500, 500, FIREBALL_IMAGE.getWidth(), FIREBALL_IMAGE.getHeight(), null);
+//        }
+//        else if(compElement == Card.FIRE_ELEMENT){
+//            g2d.drawImage(FIREBALL_IMAGE, 500, 500, FIREBALL_IMAGE.getWidth(), FIREBALL_IMAGE.getHeight(), null);
+//        }
         
         
         for (int i = 0; i < player.getCards().size(); i++) {
