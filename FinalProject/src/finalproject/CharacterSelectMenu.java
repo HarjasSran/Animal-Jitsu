@@ -1,6 +1,6 @@
 //Caroline Widdecombe, Aidan Goodyr, Harjas Sran
 //April 10 2021
-//
+//window for selecting your character and entering your name
 package finalproject;
 
 import java.awt.Color;
@@ -69,8 +69,12 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
      */
     static Font pixelFont;
     static Font largePixelFont;
-    static Font gameFont; 
+    static Font gameFont;
 
+    /**
+     * method for the character select menu
+     * @param mainMenu 
+     */
     public CharacterSelectMenu(MainMenuGUI mainMenu) {
         m = mainMenu;
 
@@ -85,8 +89,6 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         largePixelFont = pixelFont.deriveFont(60.0f);
         gameFont = pixelFont.deriveFont(100.0f);
 
-        
-       
         System.out.println(largePixelFont);
 
         //Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png"))
@@ -110,8 +112,8 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         initComponents();
 
         nameField.setFont(largePixelFont);
-         warning.setVisible(false);
-         warning.setFont(largePixelFont);
+        warning.setVisible(false);
+        warning.setFont(largePixelFont);
 
         //nameField.set
         // set icon image to penguin character
@@ -235,31 +237,33 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightActionPerformed
-        if (i < icons.size() - 1) {
+        //if the user presses the right button, show the user the next character
+        if (i < icons.size() - 1) {//if i is less than incons size - 1
             //ImageIcon icon = new ImageIcon(icons.get(i + 1));
             System.out.println(i);
             i++;
 
             System.out.println(icons.get(i));
-        } else {
+        } else {//if i is greater or equal to the icons size-1
             i = 0;
         }
-        jLabel1.setIcon(icons.get(i));
+        jLabel1.setIcon(icons.get(i));//set the j label equal to the icons at i
 
 
     }//GEN-LAST:event_rightActionPerformed
 
     private void LeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeftActionPerformed
-        if (i > 0) {
+        //if the user presses th left button, show the user the previous character
+        if (i > 0) {//if i is greater than 0
             //ImageIcon icon = new ImageIcon(icons.get(i + 1));
             System.out.println(i);
             i--;
 
-            System.out.println(icons.get(i));
-        } else {
+            System.out.println(icons.get(i));//print the icon at i
+        } else {//if i is less than 0
             i = icons.size() - 1;
         }
-        jLabel1.setIcon(icons.get(i));
+        jLabel1.setIcon(icons.get(i));//set the icon the the character at i
 
 
     }//GEN-LAST:event_LeftActionPerformed
@@ -270,34 +274,31 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-
+        //if the user presses hte start button, gether information and close this window and open the game window
         //get name from user input field
         name = nameField.getText();
         //get animal index from user input
         animal = i;
-        
-        
-        
-        
-        if(name.length()>0){
-        //Makes a new window when start is clicked
 
-        JFrame game = new JFrame("Animal Jitsu");
-        game.setSize(1280, 720);
-      // game.setSize(1920,1080);
+        if (name.length() > 0) {//if the length of the users name is greater than 0
+            //Makes a new window when start is clicked
 
-        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JFrame game = new JFrame("Animal Jitsu");
+            game.setSize(1280, 720);
+            // game.setSize(1920,1080);
 
-        GameScreen gameScreen = new GameScreen(game);
-        game.add(gameScreen);
-        game.setVisible(true);
-        game.setLocationRelativeTo(null);
-      game.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
+            game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Makes a new window when start is clicked
-        }else{
-            warning.setForeground(new Color(200,0,0));
-            warning.setText("PICK A NAME BEFORE CONTINUING");
+            GameScreen gameScreen = new GameScreen(game);
+            game.add(gameScreen);
+            game.setVisible(true);
+            game.setLocationRelativeTo(null);
+            game.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
+
+            //Makes a new window when start is clicked
+        } else {//if the useer does not entr a name
+            warning.setForeground(new Color(200, 0, 0));
+            warning.setText("PICK A NAME BEFORE CONTINUING");//tell the user to entr their name before continuing
             warning.setVisible(true);
         }
     }//GEN-LAST:event_btnStartActionPerformed
