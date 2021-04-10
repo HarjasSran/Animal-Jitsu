@@ -233,6 +233,15 @@ abstract public class GameObject {
     public String toString() {
         return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;//to string of attributes of the object
     }
+    
+    
+    
+    public void lerp(float factor, int targetX, int targetY){
+        
+        this.xPos=  Math.round(targetX*factor); 
+        this.yPos= Math.round(targetY*factor); 
+        
+    }
     /**
      * method to create buffered image
      * @param src
