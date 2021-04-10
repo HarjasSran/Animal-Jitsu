@@ -1,6 +1,6 @@
-/*
-INSTRUCTIONS MENU 
- */
+//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
+//April 10 2021
+//Instructions window
 package finalproject;
 
 import static finalproject.CharacterSelectMenu.gameFont;
@@ -25,7 +25,7 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
      */
     MainMenuGUI m;
     
-     static Font pixelFont;
+    static Font pixelFont;
     static Font smallPixel;
     static Font mediumPixel; 
 
@@ -40,7 +40,7 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
        // howToPlayArea.setFont(CharacterSelectMenu.gameFont);
        
        try {
-            pixelFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf"));
+            pixelFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf"));//custom font
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(pixelFont.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf")));
         } catch (IOException | FontFormatException e) {
