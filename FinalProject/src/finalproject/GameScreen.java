@@ -27,7 +27,7 @@ import javax.swing.Timer;
  */
 public class GameScreen extends JPanel{
 
-    
+    int index;
     
     
     
@@ -36,9 +36,9 @@ public class GameScreen extends JPanel{
           ActionListener waitForTurn=  new ActionListener(){
         
            public void actionPerformed(ActionEvent ae) {
-              
-               compCard= comp.playCard();
-              
+               index = comp.playCard();
+               compCard = comp.getCard(index);
+
                delay.stop();
                boolean win = Card.checkWin(compCard,playerCard); 
                System.out.println(win);
@@ -123,13 +123,8 @@ public class GameScreen extends JPanel{
     static Card compCard; 
     static Card playerCard; 
     
-    ArrayList<Card> cards = new ArrayList<Card>();
-    
-   // ArrayList<Card> compCards = new ArrayList();
-  //  ArrayList<Card> hand = new ArrayList();
-  //  ArrayList<Card> compHand = new ArrayList();
+    ArrayList<Card> cards = new ArrayList();
 
-    int totalCards = 33;
 
     static BufferedImage image = null;
     String name;
@@ -180,6 +175,11 @@ public class GameScreen extends JPanel{
                     player.getCard(i).move(-1000, 0);
                     player.getCard(i).moveObject(i * 140 + 49, 48);
                     player.getCard(i).flip();
+                    
+//                    player.getCard(i).flip();
+                    
+                    
+                    //System.out.println(player.getCard(i).toString());
 
                     delay.start();
                     delay.addActionListener(waitForTurn);
@@ -196,10 +196,10 @@ public class GameScreen extends JPanel{
             
        
             
-            //FOR TESTING PURPOSES flip computer cards on click
-            if(comp.getCard(i).isClicked(xPos, yPos)){
-             //   comp.getCard(i).flip();
-            }            
+//            //FOR TESTING PURPOSES flip computer cards on click
+//            if(comp.getCard(i).isClicked(xPos, yPos)){
+//             //   comp.getCard(i).flip();
+//            }            
         }
         
         
@@ -334,9 +334,9 @@ public class GameScreen extends JPanel{
        
          //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
-            cards.add(new Card(0, 0, 0, -10, Card.FIRE_ELEMENT, i, false));
-             cards.add(new Card(0,0,0, SCREEN_SCALE,Card.WATER_ELEMENT, i, false));
-             cards.add(new Card(0,0,0, SCREEN_SCALE,Card.SNOW_ELEMENT, i, false));
+            cards.add(new Card(0, 0, 0, -10, Card.FIRE_ELEMENT, i, true));
+             cards.add(new Card(0,0,0, SCREEN_SCALE,Card.WATER_ELEMENT, i, true));
+             cards.add(new Card(0,0,0, SCREEN_SCALE,Card.SNOW_ELEMENT, i, true));
              
                
                
@@ -344,22 +344,13 @@ public class GameScreen extends JPanel{
            
         }
         Collections.shuffle(cards); 
-        
-        
-        
-        
-       
-        
-      // cards.s
-
         name = CharacterSelectMenu.getUsername();
 
         
        
         player = new Player(name, 550, 400, 1, image, false, splitCards(0, 4, cards));
         
-        for (int i = 0; i < 5; i++) {
-            player.getCard(i).setFaceUp(true);
+        for (int i = 0; i < player.getCards().size(); i++) {
             player.getCard(i).setX(i*140+40);
              player.getCard(i).setY(40);
              }
@@ -368,85 +359,38 @@ public class GameScreen extends JPanel{
         
         
         comp = new Computer("Sensei Peng",1550, 400, 0, BOSS_IMAGE, true,splitCards(5, 9,cards), 1);
-        for (int i = 0; i < 5; i++) {
-           // comp.getCards().get(i).setFaceUp(true); 
-          /// comp.getCard(i).setFaceUp(true);
+        for (int i = 0; i < comp.getCards().size(); i++) {
+            comp.getCard(i).setFaceUp(false);
             comp.getCard(i).setX(i*140+1140);
              comp.getCard(i).setY(40);
         }
-     cards = splitCards(10,29, cards); 
-        System.out.println(cards.size());
+     cards = splitCards(10,cards.size()-1, cards); 
        
         
-       
-
-//        
-//        String userWin = checkWin(compPick, userPick);
-        //give element win to the user or sensei based on win or loss
-        //make cards array. use card class to create cards and array list of the random cards that got drawed into users hand
-        //computer has same array list of cards but not a "hand" arraylist
-        //let user pick a card from their array list and have computer draw random card
-        //compare the cards and declare a winner. give winner the element that they have won
-        //make sure that once a card is played, it can not be drawn again from either user or computer
-        //keep the game running until someone has won with all of their elements or their are no more cards left
     }
 
-    // test1 = ImageIO.read(getClass().getResourceAsStream("8BitDeckAssetstest1.png"));
-    //DELETE THESE_ FOR 
-    int x = 0;
-    double v = 0;
-    int c = 0;
-
-    /**
-     *
-     * @param g
-     */
-
-    //static Character character = new Character(Color.BLACK,image, true, cards);
     
    
    
     
     public void paint(Graphics g) {
         
-       
+        
         
 
-        if(!isPlayerTurn){
-            
-        }
-        
-        
-        
-        
-        //System.out.println(listener.isPressed());
-        //System.out.println(listener.);
         Graphics2D g2d = (Graphics2D) g;
        g2d.scale(SCREEN_SCALE, SCREEN_SCALE);
      
         
        
-       
 
-        //g2d.setColor(Color.red);
-        c++;
-        v += (Math.sin(c * 0.001)) / 10;
-        x = (int) Math.floor(v);
-
-        //g2d.fillRect(0, 0, 1000, 1000);
-        //g2d.fillRect(100 + x, 100, 50, 50);
         g2d.drawImage(BACKGROUND_IMAGE, 0, 0, 1920, 1080, null);
         
         if(playerCard!=null){
             
          playerCard.render(g2d);
         }
-//        player.setX(200);
-//        player.setY(500);
-//        player.setWidth(player.getAnimal().getWidth()/4);
-//        player.setHeight(player.getAnimal().getHeight()/4);
 
-        //System.out.println(listener.xPos);
         player.setScale(80);
         player.render(g2d);
 
@@ -458,23 +402,11 @@ public class GameScreen extends JPanel{
         
         
         for (int i = 0; i < player.getCards().size(); i++) {
-//            player.getCard(i).setFaceUp(true);
-//            player.getCard(i).setX(i*140+40);
-//             player.getCard(i).setY(40);
               player.getCard(i).render(g2d);  
               
-              
-            //  System.out.println(i + ": " + player.getCard(i).getElement());
-              
-              //System.out.println(player.getCard(i).getX());
-              
-             // System.out.println(player.getCard(i).isClicked(listener));
+
         }
         for (int i = 0; i < comp.getCards().size(); i++) {
-           // comp.getCards().get(i).setFaceUp(true); 
-          /// comp.getCard(i).setFaceUp(true);
-//            comp.getCard(i).setX(i*140+1140);
-//             comp.getCard(i).setY(40);
              comp.getCard(i).render(g2d);            
         }
         
@@ -528,32 +460,6 @@ public class GameScreen extends JPanel{
         
     }
 
-    /**
-     * method that draws a new card
-     *
-     * @param cards
-     * @param hand
-     */
-    private void drawCard(ArrayList<Card> cards, ArrayList<Card> hand) {
-        int rNum = (int) (Math.random() * totalCards + 1);
-        Card drawCard = cards.get(rNum);
-        drawCard.setFaceUp(true);
-        cards.remove(rNum);
-        hand.add(drawCard);
-        totalCards -= 1;
-    }
-
-    /**
-     * method that picks a card for the sensei penguin
-     *
-     * @param compHand
-     * @return
-     */
-    private Card compPickCard(ArrayList<Card> compHand) {
-        int rNum = (int) (Math.random() * 5 + 1);
-        Card cardDraw = compHand.get(rNum);
-        return cardDraw;
-    }
 
 
 
