@@ -130,7 +130,59 @@ public class LeaderboardGUI extends javax.swing.JFrame {
             name[i] = list.get(i*2);
             level[i] = Integer.parseInt(list.get((i*2)+1));
         }
+        descendingQuickSort(level, level[0], level[halfList]);
+        for (int i = 0; i < halfList; i++) {
+            
+        }
         
+    }
+    public static int[] descendingQuickSort(int[] numbers, int l, int r) {
+
+        // sort is complete when the left bounds of the array are equal or greater than the right bound
+        if (l >= r) {
+
+            return numbers;
+
+        }
+
+        int left = l;
+        int right = r;
+
+        //pivot at the midpoint between left and right boundary, partitioning two side of array
+        int pivot = numbers[(l + r) / 2];
+
+        //repeat until the left and the right touch
+        while (left < right) {
+
+            //increment left until it finds a value less than the pivot (flipped operator from ascending) 
+            while (numbers[left] > pivot) {
+              
+                left++;
+            }
+
+            //decrement the right until it finds a value greater than pivot (flipped operator from ascending) 
+            while (numbers[right] < pivot) {
+                
+                right--;
+
+            }
+
+            if (left <= right) {
+                //swap the number at the left and right iterators
+                int temp = numbers[left];
+                numbers[left] = numbers[right];
+                numbers[right] = temp;
+                left++;
+                right--;
+
+            }
+
+        }
+
+        //quicksort both partitions of the array
+        descendingQuickSort(numbers, l, right);
+        descendingQuickSort(numbers, left, r);
+        return numbers;
     }
 
     
