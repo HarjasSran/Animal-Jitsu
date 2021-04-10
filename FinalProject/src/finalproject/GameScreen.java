@@ -43,6 +43,8 @@ public class GameScreen extends JPanel{
                boolean win = Card.checkWin(compCard,playerCard); 
                System.out.println(win);
              
+               removeCard.start(); 
+              removeCard.addActionListener(waitForRemoval);
               
                
                
@@ -57,7 +59,20 @@ public class GameScreen extends JPanel{
         //start the timer going
     
     
+     Timer removeCard = new Timer(4000,null);
     
+          ActionListener waitForRemoval=  new ActionListener(){
+        
+           public void actionPerformed(ActionEvent q) {
+              
+               playerCard.moveObject(playerCard.getX(), 2000);
+                compCard.moveObject(compCard.getX(), 2000);
+               
+               removeCard.stop();
+             
+            }
+        
+            };
     
     
     
