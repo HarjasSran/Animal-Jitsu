@@ -20,7 +20,7 @@ abstract public class GameObject {
     int rotation;
     int width;
     int height;
-    int scale;
+    double scale;
     boolean direction; //true == left
 
 //    static BufferedImage GIRAFFE_IMAGE = null;
@@ -65,7 +65,7 @@ abstract public class GameObject {
      * @param scale - scale of the object
      * @param direction - the direction the object is facing. true == left
      */
-    public GameObject(int xPos, int yPos, int rotation, int width, int height,int scale, boolean direction) {
+    public GameObject(int xPos, int yPos, int rotation, int width, int height,double scale, boolean direction) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.rotation = rotation;

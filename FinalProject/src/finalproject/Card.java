@@ -46,7 +46,7 @@ public class Card extends GameObject {
      * @param cardNumber
      * @param faceUp
      */
-    public Card(int xPos, int yPos, int rotation,int scale, int element, int cardNumber, boolean faceUp) {
+    public Card(int xPos, int yPos, int rotation, double scale, int element, int cardNumber, boolean faceUp) {
         super(xPos, yPos, rotation, PIXEL_WIDTH * DEFAULT_SCALE, PIXEL_HEIGHT * DEFAULT_SCALE, scale, true);
         this.element = element;
         this.cardNumber = cardNumber;
@@ -181,8 +181,8 @@ public class Card extends GameObject {
         double clickYPos = listener.getYPos();
         boolean isClicked = false;
         
-        double xCard = (double) this.getX()*GameScreen.SCREEN_SCALE - 10;
-        double widthCard = (double) this.getObjectWidth()*GameScreen.SCREEN_SCALE - 34;
+        double xCard = (double) this.getX() - 180;
+        double widthCard = (double) this.getObjectWidth() - 80;
         
         double yCard = (double) this.getY()*GameScreen.SCREEN_SCALE - 10; 
         double heightCard = (double) this.getObjectHeight()*GameScreen.SCREEN_SCALE - 45;
@@ -190,7 +190,7 @@ public class Card extends GameObject {
         if (clickXPos > xCard && clickXPos < xCard + widthCard && clickYPos>yCard && clickYPos < yCard + heightCard) {
             isClicked = true;
 
-            System.out.println(this.getCardNumber());
+            //System.out.println(this.getCardNumber());
             //&& clickYPos>((double)this.getY()*GameScreen.SCREEN_SCALE) && clickYPos<this.getY()+this.getObjectHeight()-100
 
         } else {

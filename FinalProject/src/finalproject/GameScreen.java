@@ -118,9 +118,9 @@ public class GameScreen extends JPanel {
        
          //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
-            cards.add(new Card(0, 0, 0, 100, Card.FIRE_ELEMENT, i, false));
-             cards.add(new Card(0,0,0, 100,Card.WATER_ELEMENT, i, false));
-             cards.add(new Card(0,0,0, 100,Card.SNOW_ELEMENT, i, false));
+            cards.add(new Card(0, 0, 0, SCREEN_SCALE, Card.FIRE_ELEMENT, i, false));
+             cards.add(new Card(0,0,0, SCREEN_SCALE,Card.WATER_ELEMENT, i, false));
+             cards.add(new Card(0,0,0, SCREEN_SCALE,Card.SNOW_ELEMENT, i, false));
         }
         Collections.shuffle(cards); 
         
