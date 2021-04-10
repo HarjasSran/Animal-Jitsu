@@ -155,26 +155,21 @@ public class GameScreen extends JPanel{
             
             if(player.getCard(i).isClicked(xPos,yPos)){
                 
-              if(isPlayerTurn){  
-                  isPlayerTurn = false; 
-                  playerCard = player.getCard(i).clone(); 
-                  
-                   
-             // player.getCard(i).moveObject(800, 500);
-              
-              playerCard.moveObject(800, 500);
-              player.getCards().remove(player.getCard(i)); 
-              player.getCards().add(i, cards.get(1));
-              player.getCard(i).move(-1000, 0);
-              player.getCard(i).moveObject(i*140+49, 48);
-              player.getCard(i).flip();
-              
-              delay.start(); 
-              delay.addActionListener(waitForTurn);
-              
-              
-              
-             
+                if (isPlayerTurn) {
+                    isPlayerTurn = false;
+                    playerCard = player.getCard(i).clone();
+
+                    playerCard.moveObject(800, 500);
+                    player.getCards().remove(player.getCard(i));
+                    player.getCards().add(i, cards.get(0));
+                    player.getCard(i).move(-1000, 0);
+                    player.getCard(i).moveObject(i * 140 + 49, 48);
+                    player.getCard(i).flip();
+
+                    delay.start();
+                    delay.addActionListener(waitForTurn);
+
+
               }
                          
                
