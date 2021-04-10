@@ -13,7 +13,7 @@ import java.io.FileWriter;
 
 public class LeaderboardGUI extends javax.swing.JFrame {
 MainMenuGUI m;
-static String output = "";
+static String output = "Name\t\tRank\n";
 
     /**
      * Creates new form LeaderboardGUI
@@ -64,15 +64,18 @@ static String output = "";
         System.out.println(list);
         int halfList = list.size()/2;
         String name[] = new String[list.size()/2];
+        User users[] = new User[halfList];
         int level[] = new int[list.size()/2];
         for (int i = 0; i < halfList; i++) {
             name[i] = list.get(i*2);
             level[i] = Integer.parseInt(list.get((i*2)+1));
+            users[i] = new User(name[i], level[i]);
+            
         }
-        int numsList[]=descendingQuickSort(level, level[0], level[halfList-1]);
+        User userList[]=descendingQuickSort(users, level[0], level[halfList-1]);
         
         for (int i = 0; i < halfList; i++) {
-            output = output + numsList[i] + "\n";
+            output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
         }
         textList.setText(output);
     }
@@ -158,12 +161,12 @@ static String output = "";
         
         
     }
-    public static int[] descendingQuickSort(int[] numbers, int l, int r) {
+    public static User[] descendingQuickSort(User[] users, int l, int r) {
 
         // sort is complete when the left bounds of the array are equal or greater than the right bound
         if (l >= r) {
 
-            return numbers;
+            return users;
 
         }
 
@@ -171,19 +174,19 @@ static String output = "";
         int right = r;
 
         //pivot at the midpoint between left and right boundary, partitioning two side of array
-        int pivot = numbers[(l + r) / 2];
+        int pivot = users[(l + r) / 2].getRank();
 
         //repeat until the left and the right touch
         while (left < right) {
 
             //increment left until it finds a value less than the pivot (flipped operator from ascending) 
-            while (numbers[left] > pivot) {
+            while (users[left].getRank() > pivot) {
               
                 left++;
             }
 
             //decrement the right until it finds a value greater than pivot (flipped operator from ascending) 
-            while (numbers[right] < pivot) {
+            while (users[right].getRank() < pivot) {
                 
                 right--;
 
@@ -191,9 +194,9 @@ static String output = "";
 
             if (left <= right) {
                 //swap the number at the left and right iterators
-                int temp = numbers[left];
-                numbers[left] = numbers[right];
-                numbers[right] = temp;
+                User temp = users[left];
+                users[left] = users[right];
+                users[right] = temp;
                 left++;
                 right--;
 
@@ -202,9 +205,9 @@ static String output = "";
         }
 
         //quicksort both partitions of the array
-        descendingQuickSort(numbers, l, right);
-        descendingQuickSort(numbers, left, r);
-        return numbers;
+        descendingQuickSort(users, l, right);
+        descendingQuickSort(users, left, r);
+        return users;
     }
 
     
