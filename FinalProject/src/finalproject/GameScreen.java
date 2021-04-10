@@ -128,16 +128,26 @@ public class GameScreen extends JPanel{
             
             if(player.getCard(i).isClicked(xPos,yPos)){
               player.getCard(i).moveObject(1000, 500);
-                System.out.println("ffffff");
-                
+                              
                 //player.moveObject(1000, 500);
                 
                 //System.out.println("X: " + player.getX() + " target X: " + player.getTargetX());
                 
             }
+            
+            
+            
+            
+            
+            if(comp.getCard(i).isClicked(xPos, yPos)){
+                comp.getCard(i).flip();
+            }
            // player.setX(player.getX()+5);
             
         }
+        
+        
+       
 
         //save x and y coordinates
     }
