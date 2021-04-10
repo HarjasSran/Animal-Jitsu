@@ -72,7 +72,7 @@ static String output = "Name\tRank\n\n";
             users[i] = new User(name[i], level[i]);
             
         }
-        User userList[]=descendingQuickSort(users, level[0], level[halfList-1]);
+        User userList[]=descendingQuickSort(users, 0, halfList-1);
         
         for (int i = 0; i < halfList; i++) {
             output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
