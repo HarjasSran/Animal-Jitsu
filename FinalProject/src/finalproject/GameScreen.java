@@ -127,7 +127,7 @@ public class GameScreen extends JPanel{
            
             
             if(player.getCard(i).isClicked(xPos,yPos)){
-              player.getCard(i).moveObject(1000, 500);
+              player.getCard(i).moveObject(800, 500);
                               
                 //player.moveObject(1000, 500);
                 

@@ -143,7 +143,7 @@ public class Card extends GameObject {
     //once the card with reaches its minimum value, this method will change the card to face up, and then reset the width to default via linear interpolation
     public void flip2(){
         this.targetWidth = PIXEL_WIDTH*DEFAULT_SCALE; 
-        this.setFaceUp(true);
+        this.setFaceUp(!faceUp);
     }
 
    
