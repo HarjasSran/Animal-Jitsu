@@ -22,6 +22,10 @@ abstract public class GameObject {
     int height;
     double scale;
     boolean direction; //true == left
+    
+    
+    int targetX; 
+    int targetY; 
 
 //    static BufferedImage GIRAFFE_IMAGE = null;
 //    static BufferedImage BOSS_IMAGE = null;
@@ -74,6 +78,12 @@ abstract public class GameObject {
         this.height = height;
         this.scale = scale;
         this.direction = direction;
+        
+        
+        targetX = this.xPos; 
+        targetY = this.yPos; 
+        
+        
     }
 
     /**
@@ -236,10 +246,27 @@ abstract public class GameObject {
     
     
     
-    public void lerp(float factor, int targetX, int targetY){
+    public static int lerp(float factor, int start, int stop){
         
-        this.xPos=  Math.round(targetX*factor); 
-        this.yPos= Math.round(targetY*factor); 
+        return start + Math.round(stop*factor); 
+       
+        
+    }
+    
+    
+    public int getTargetX(){
+        return this.targetX;
+    }
+    public int getTargetY(){
+        return this.targetY;
+    }
+    
+    public void moveObject(int x, int y){
+        
+       
+        
+        targetX = x; 
+        targetY = y; 
         
     }
     /**

@@ -127,7 +127,11 @@ public class GameScreen extends JPanel{
            
             
             if(player.getCard(i).isClicked(xPos,yPos)){
-             //  player.lerp(0.5f,1000, 1000);
+             //comp.moveObject(100,500);
+                System.out.println("ffffff");
+                
+                System.out.println("X: " + player.getX() + " target X: " + player.getTargetX());
+                
             }
            // player.setX(player.getX()+5);
             
