@@ -25,10 +25,10 @@ public class Card extends GameObject {
     final static int FIRE_ELEMENT = 0;
     final static int WATER_ELEMENT = 1;
     final static int SNOW_ELEMENT = 2;
-    
-     static int DEFAULT_SCALE = 4;
-     
-     int targetWidth; 
+
+    static int DEFAULT_SCALE = 4;
+
+    int targetWidth;
 
     /**
      * Default constructor
@@ -53,11 +53,7 @@ public class Card extends GameObject {
         this.element = element;
         this.cardNumber = cardNumber;
         this.faceUp = faceUp;
-        targetWidth = PIXEL_WIDTH*DEFAULT_SCALE; 
-       
-        
-        
-       
+        targetWidth = PIXEL_WIDTH * DEFAULT_SCALE;
 
     }
 
@@ -132,69 +128,61 @@ public class Card extends GameObject {
     public boolean getFaceUp() {
         return faceUp;//return weather or not the card is face up
     }
-    
-    
+
     //makes the card width approach 0 as to appear to flip (using linear interpolation)
-    public void flip(){
-        this.targetWidth=0; 
+    public void flip() {
+        this.targetWidth = 0;
         System.out.println(width + "target " + this.targetWidth);
     }
-    
+
     //once the card with reaches its minimum value, this method will change the card to face up, and then reset the width to default via linear interpolation
-    public void flip2(){
-        this.targetWidth = PIXEL_WIDTH*DEFAULT_SCALE; 
+    public void flip2() {
+        this.targetWidth = PIXEL_WIDTH * DEFAULT_SCALE;
         this.setFaceUp(!faceUp);
     }
 
-   
     int horizontalIndex;
-    int verticalIndex; 
+    int verticalIndex;
 
-    int cardXOffset; 
-    int cardYOffset; 
+    int cardXOffset;
+    int cardYOffset;
 
     public void render(Graphics2D g2d) {
-  
-        
-        
-if(this.targetWidth != this.width && this.width!=1){
-   this.width = lerp(width,targetWidth,0.5);
-    System.out.println(this.width);
-}
 
-if(this.width==1){
-    flip2(); 
-    this.width = lerp(width,targetWidth,0.5);
-  
-}
-        
-        
- if(this.getTargetX()!=this.getX()){
-     xPos =  GameObject.lerp(xPos, targetX, 0.1); 
- }
- 
- if(this.getTargetY()>=this.getY()){
-     yPos =  GameObject.lerp(yPos, targetY, 0.1); 
- }
-        
-        
-        if(faceUp){
-          horizontalIndex = this.cardNumber+1;
-         verticalIndex = this.element;
-         
-        }else{
-            horizontalIndex=0; 
-            verticalIndex=0; 
+        if (this.targetWidth != this.width && this.width != 1) {
+            this.width = lerp(width, targetWidth, 0.5);
+            System.out.println(this.width);
         }
-         cardXOffset = horizontalIndex * PIXEL_WIDTH;
-          cardYOffset = verticalIndex * PIXEL_HEIGHT;   
-        
+
+        if (this.width == 1) {
+            flip2();
+            this.width = lerp(width, targetWidth, 0.5);
+
+        }
+
+        if (this.getTargetX() != this.getX()) {
+            xPos = GameObject.lerp(xPos, targetX, 0.1);
+        }
+
+        if (this.getTargetY() >= this.getY()) {
+            yPos = GameObject.lerp(yPos, targetY, 0.1);
+        }
+
+        if (faceUp) {
+            horizontalIndex = this.cardNumber + 1;
+            verticalIndex = this.element;
+
+        } else {
+            horizontalIndex = 0;
+            verticalIndex = 0;
+        }
+        cardXOffset = horizontalIndex * PIXEL_WIDTH;
+        cardYOffset = verticalIndex * PIXEL_HEIGHT;
+
         /**
          *
          */
-        
-       
-        g2d.drawImage(GameScreen.CARD_SPRITE, xPos , yPos, this.width+xPos,this.height+yPos, cardXOffset, cardYOffset, PIXEL_WIDTH + cardXOffset, PIXEL_HEIGHT + cardYOffset, null);
+        g2d.drawImage(GameScreen.CARD_SPRITE, xPos, yPos, this.width + xPos, this.height + yPos, cardXOffset, cardYOffset, PIXEL_WIDTH + cardXOffset, PIXEL_HEIGHT + cardYOffset, null);
 
     }
 
@@ -216,29 +204,24 @@ if(this.width==1){
     public String toString() {
         return "Element: " + String.valueOf(element) + "\tCard Number: " + String.valueOf(cardNumber) + "\tColour: " + color + "\tFacing: " + faceUp;//return tring of all attributes of the card
     }
-    
-    
+
     public boolean isClicked(double x, double y) {
-        
-     
+
         boolean isClicked = false;
-      //  System.out.println(this.xPos);
-     
-        
-        if (this.getX()<x && x<this.getX()+this.getObjectWidth()) {
-            
-            if(this.getY()<y && y<this.getY()+this.getObjectHeight()){
-         // System.out.println("Element"+this.element +  "Value" + this.getCardNumber());
-            isClicked = true;
+
+        if (this.getX() < x && x < this.getX() + this.getObjectWidth()) {
+
+            if (this.getY() < y && y < this.getY() + this.getObjectHeight()) {
+
+                isClicked = true;
 
             }
-            
 
         } else {
-          //  System.out.println(false);
+            isClicked = false;
+
         }
-        
-       
+
         return isClicked;
     }
 }
