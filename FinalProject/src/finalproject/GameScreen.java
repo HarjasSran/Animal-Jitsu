@@ -57,7 +57,7 @@ public class GameScreen extends JPanel {
     
     static BufferedImage CARD_SPRITE= null ;
     
-    static double SCREEN_SCALE = 0.6667;
+    static double SCREEN_SCALE = 0.666667;
 
     ArrayList<Card> cards = new ArrayList<Card>();
     
@@ -118,11 +118,21 @@ public class GameScreen extends JPanel {
        
          //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
-            cards.add(new Card(0, 0, 0, SCREEN_SCALE, Card.FIRE_ELEMENT, i, false));
+            cards.add(new Card(0, 0, 0, -10, Card.FIRE_ELEMENT, i, false));
              cards.add(new Card(0,0,0, SCREEN_SCALE,Card.WATER_ELEMENT, i, false));
              cards.add(new Card(0,0,0, SCREEN_SCALE,Card.SNOW_ELEMENT, i, false));
+             
+               
+               
+             
+           
         }
         Collections.shuffle(cards); 
+        
+        
+        for (int i = 0; i < cards.size(); i++) {
+            System.out.println(cards.get(i).toString());
+        }
         
        
         
@@ -138,55 +148,7 @@ public class GameScreen extends JPanel {
        
         
        
-//        
-//        for (int i = 0; i < 4; i++) {
-//            drawCard(cards, hand);
-//            drawCard(compCards, compHand);
-//        }
-//        
-//        
-//        Card compPick = compPickCard(compHand);
-//        drawCard(compCards, compHand);
-//        int choice = Integer.parseInt(JOptionPane.showInputDialog("Pick a card to draw./n1. " + hand.get(0).toString() + "\n2. " + hand.get(1).toString() + "\n3. " + hand.get(2).toString() + "\n4. " + hand.get(3).toString() + "\n5. " + hand.get(4).toString()));
-//        Card userPick = hand.get(choice);
-//        hand.remove(choice);
-//        drawCard(cards, hand);
-//        
-//        String userWin = checkWin(compPick, userPick);
-//        
 
-//        for (int i = 0; i < 10; i++) {
-//            cards.add(new Card(0, i, false));
-//            compCards.add(new Card(0, i, false));
-//        }
-//
-//        //All fire element cards added to arraylist
-//        for (int i = 0; i < 10; i++) {
-//            cards.add(new Card(1, i, false));
-//            compCards.add(new Card(1, i, false));
-//        }
-//
-//        //All snow element cards added to arraylist
-//        for (int i = 0; i < 10; i++) {
-//            cards.add(new Card(2, i, false));
-//            compCards.add(new Card(2, i, false));
-//        }
-//        
-//        for (int i = 0; i < 4; i++) {
-//            drawCard(cards, hand);
-//            drawCard(compCards, compHand);
-//        }
-//        
-//        for (int i = 0; i < 4; i++) {
-//            
-//        }
-//        
-//        Card compPick = compPickCard(compHand);
-//        drawCard(compCards, compHand);
-//        int choice = Integer.parseInt(JOptionPane.showInputDialog("Pick a card to draw./n1. " + hand.get(0).toString() + "\n2. " + hand.get(1).toString() + "\n3. " + hand.get(2).toString() + "\n4. " + hand.get(3).toString() + "\n5. " + hand.get(4).toString()));
-//        Card userPick = hand.get(choice);
-//        hand.remove(choice);
-//        drawCard(cards, hand);
 //        
 //        String userWin = checkWin(compPick, userPick);
         //give element win to the user or sensei based on win or loss
@@ -251,24 +213,30 @@ public class GameScreen extends JPanel {
      
         
         
-        for (int i = 0; i < 5; i++) {
-            player.getCards().get(i).setFaceUp(true);
-            player.getCards().get(i).setX(i*140+40);
-             player.getCards().get(i).setY(40);
-              player.getCards().get(i).render(g2d);            
+        for (int i = 0; i < 2; i++) {
+            player.getCard(i).setFaceUp(true);
+            player.getCard(i).setX(i*140+40);
+             player.getCard(i).setY(40);
+              player.getCard(i).render(g2d);  
+              
+              
+            //  System.out.println(i + ": " + player.getCard(i).getElement());
+              
+              //System.out.println(player.getCard(i).getX());
+              
+              System.out.println(player.getCard(i).isClicked(listener));
         }
         for (int i = 0; i < 5; i++) {
            // comp.getCards().get(i).setFaceUp(true); 
-            comp.getCards().get(i).setX(i*140+1140);
-             comp.getCards().get(i).setY(40);
-             comp.getCards().get(i).render(g2d);            
+           comp.getCard(i).setFaceUp(true);
+            comp.getCard(i).setX(i*140+1140);
+             comp.getCard(i).setY(40);
+             comp.getCard(i).render(g2d);            
         }
         
-        if (player.getCards().get(1).isClicked(listener)) {
-            System.out.println(player.getCards().get(1).getCardNumber()); 
-        }else{
-            System.out.println(false);
-        }
+      
+       
+         
         //System.out.println(cardClicked);
       
 

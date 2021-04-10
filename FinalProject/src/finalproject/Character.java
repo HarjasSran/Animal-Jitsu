@@ -42,7 +42,7 @@ int multiplier;
      */
     public Character(String name, int x, int y, int bow, BufferedImage animal, boolean direction, ArrayList<Card> cards) {
 
-        super(x, y, 0, animal.getWidth(), animal.getHeight(), 1, direction);
+        super(x, y, 0, animal.getWidth(), animal.getHeight(), 1.0, direction);
 
         if (direction) {
             multiplier = 1;
@@ -71,6 +71,11 @@ int multiplier;
         this.bow = bow;
     }
 
+    
+    
+     public Card getCard(int i){
+        return (Card) this.cards.get(i); 
+    }
     /**
      * accessor method to get the color of the bow
      *

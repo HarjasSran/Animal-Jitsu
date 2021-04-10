@@ -51,6 +51,9 @@ public class Card extends GameObject {
         this.element = element;
         this.cardNumber = cardNumber;
         this.faceUp = faceUp;
+        
+        
+       
 
     }
 
@@ -177,21 +180,22 @@ public class Card extends GameObject {
     
     
     public boolean isClicked(ClickListener listener) {
+        
+        
         double clickXPos = listener.getXPos();
         double clickYPos = listener.getYPos();
         boolean isClicked = false;
+      //  System.out.println(this.xPos);
+     
         
-        double xCard = (double) this.getX() - 180;
-        double widthCard = (double) this.getObjectWidth() - 80;
-        
-        double yCard = (double) this.getY()*GameScreen.SCREEN_SCALE - 10; 
-        double heightCard = (double) this.getObjectHeight()*GameScreen.SCREEN_SCALE - 45;
-        
-        if (clickXPos > xCard && clickXPos < xCard + widthCard && clickYPos>yCard && clickYPos < yCard + heightCard) {
+        if (this.getX()<clickXPos && clickXPos<this.getX()+this.getObjectWidth()) {
+            
+            if(this.getY()<clickYPos && clickYPos<this.getY()+this.getObjectHeight()){
+          System.out.println("Element"+this.element +  "Value" + this.getCardNumber());
             isClicked = true;
 
-            //System.out.println(this.getCardNumber());
-            //&& clickYPos>((double)this.getY()*GameScreen.SCREEN_SCALE) && clickYPos<this.getY()+this.getObjectHeight()-100
+            }
+            
 
         } else {
             //System.out.println(false);
