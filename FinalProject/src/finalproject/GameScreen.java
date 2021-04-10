@@ -37,9 +37,17 @@ public class GameScreen extends JPanel{
         
            public void actionPerformed(ActionEvent ae) {
               
-             comp.playCard(start);
-             delay.stop();
-             isPlayerTurn = true; 
+               compCard= comp.playCard();
+              
+               delay.stop();
+               boolean win = Card.checkWin(compCard,playerCard); 
+               System.out.println(win);
+             
+              
+               
+               
+              isPlayerTurn = true; 
+             
             }
         
             };
@@ -97,7 +105,9 @@ public class GameScreen extends JPanel{
     
     
     static boolean isPlayerTurn = true; 
-
+    static Card compCard; 
+    static Card playerCard; 
+    
     ArrayList<Card> cards = new ArrayList<Card>();
     
    // ArrayList<Card> compCards = new ArrayList();
@@ -139,16 +149,22 @@ public class GameScreen extends JPanel{
         
         System.out.println(xPos + ", " + yPos);
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < player.getCards().size(); i++) {
             
            
             
             if(player.getCard(i).isClicked(xPos,yPos)){
                 
               if(isPlayerTurn){  
-              player.getCard(i).moveObject(800, 500);
+                  isPlayerTurn = false; 
+                  playerCard = player.getCard(i).clone(); 
+                  
+                   
+             // player.getCard(i).moveObject(800, 500);
               
-              isPlayerTurn = false; 
+              playerCard.moveObject(800, 500);
+              player.getCards().remove(player.getCard(i)); 
+              
               delay.start(); 
               delay.addActionListener(waitForTurn);
               
@@ -168,7 +184,7 @@ public class GameScreen extends JPanel{
             
             //FOR TESTING PURPOSES flip computer cards on click
             if(comp.getCard(i).isClicked(xPos, yPos)){
-                comp.getCard(i).flip();
+             //   comp.getCard(i).flip();
             }            
         }
         
@@ -325,8 +341,8 @@ public class GameScreen extends JPanel{
         name = CharacterSelectMenu.getUsername();
 
         
-        //ArrayList playerCards = (ArrayList)cards.subList(0, cards.size()/2-1); 
-        player = new Player(name, 550, 400, 1, image, false, splitCards(0, cards.size()/2-1, cards));
+       
+        player = new Player(name, 550, 400, 1, image, false, splitCards(0, 4, cards));
         
         for (int i = 0; i < 5; i++) {
             player.getCard(i).setFaceUp(true);
@@ -337,14 +353,15 @@ public class GameScreen extends JPanel{
         
         
         
-        comp = new Computer("Sensei Peng",1550, 400, 0, BOSS_IMAGE, true,splitCards(cards.size()/2, cards.size()-1,cards), 1);
+        comp = new Computer("Sensei Peng",1550, 400, 0, BOSS_IMAGE, true,splitCards(5, 9,cards), 1);
         for (int i = 0; i < 5; i++) {
            // comp.getCards().get(i).setFaceUp(true); 
           /// comp.getCard(i).setFaceUp(true);
             comp.getCard(i).setX(i*140+1140);
              comp.getCard(i).setY(40);
         }
-        cards.clear();
+     cards = splitCards(10,29, cards); 
+        System.out.println(cards.size());
        
         
        
@@ -377,10 +394,16 @@ public class GameScreen extends JPanel{
    
     
     public void paint(Graphics g) {
+        
+       
+        
 
         if(!isPlayerTurn){
             
         }
+        
+        
+        
         
         //System.out.println(listener.isPressed());
         //System.out.println(listener.);
@@ -388,6 +411,8 @@ public class GameScreen extends JPanel{
        g2d.scale(SCREEN_SCALE, SCREEN_SCALE);
      
         
+       
+       
 
         //g2d.setColor(Color.red);
         c++;
@@ -398,7 +423,10 @@ public class GameScreen extends JPanel{
         //g2d.fillRect(100 + x, 100, 50, 50);
         g2d.drawImage(BACKGROUND_IMAGE, 0, 0, 1920, 1080, null);
         
-       
+        if(playerCard!=null){
+            
+         playerCard.render(g2d);
+        }
 //        player.setX(200);
 //        player.setY(500);
 //        player.setWidth(player.getAnimal().getWidth()/4);
@@ -415,7 +443,7 @@ public class GameScreen extends JPanel{
      
         
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < player.getCards().size(); i++) {
 //            player.getCard(i).setFaceUp(true);
 //            player.getCard(i).setX(i*140+40);
 //             player.getCard(i).setY(40);
@@ -428,7 +456,7 @@ public class GameScreen extends JPanel{
               
              // System.out.println(player.getCard(i).isClicked(listener));
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < comp.getCards().size(); i++) {
            // comp.getCards().get(i).setFaceUp(true); 
           /// comp.getCard(i).setFaceUp(true);
 //            comp.getCard(i).setX(i*140+1140);
@@ -513,49 +541,6 @@ public class GameScreen extends JPanel{
         return cardDraw;
     }
 
-    /**
-     * method to check if someone has won
-     *
-     * @param compPick
-     * @param userPick
-     * @return
-     */
-    private String checkWin(Card compPick, Card userPick) {
-        String userWin = "";
-
-        //snow(2) beats water(0)
-        //water(0) beats fire(1)
-        //fire(1) beats snow(2)
-        int compElement = compPick.getElement();
-        int userElement = userPick.getElement();
-
-        int compNumber = compPick.getCardNumber();
-        int userNumber = compPick.getCardNumber();
-
-        if (userElement != compElement) {
-            if (userElement == 0) {
-                if (compElement == 1) {
-                    userWin = "win";
-                }
-            } else if (userElement == 1) {
-                if (compElement == 2) {
-                    userWin = "win";
-                }
-            } else if (userElement == 2) {
-                if (compElement == 0) {
-                    userWin = "win";
-                }
-            }
-        } else if (userElement == compElement) {
-            if (userNumber > compNumber) {
-                userWin = "win";
-            } else if (userElement == compNumber) {
-                userWin = "tie";
-            }
-        }
-
-        return userWin;
-    }
 
 
     

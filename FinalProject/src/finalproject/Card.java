@@ -162,6 +162,8 @@ public class Card extends GameObject {
     int cardYOffset;
 
     public void render(Graphics2D g2d) {
+        
+     
   
         
  //the card always strives to approach the target width
@@ -169,7 +171,7 @@ public class Card extends GameObject {
  // easing its way to the correct width smoothly
 if(this.targetWidth != this.width && this.width!=1){
    this.width = lerp(width,targetWidth,0.5);
-    System.out.println(this.width);
+   
 }
 
 // the minimum possible width of the card
@@ -241,6 +243,53 @@ if(this.width==1){
         Card newCard = new Card(xPos, yPos, rotation, scale, element, cardNumber, faceUp); //create new card with the exact same attributes and value
         return newCard;//return the clone of the card
     }
+    
+    
+    
+    
+    public static boolean checkWin(Card compPick, Card userPick) {
+      boolean userWin= false; 
+
+        //snow(2) beats water(0)
+        //water(0) beats fire(1)
+        //fire(1) beats snow(2)
+        int compElement = compPick.getElement();
+        int userElement = userPick.getElement();
+
+        int compNumber = compPick.getCardNumber();
+        int userNumber = userPick.getCardNumber();
+
+        if (userElement != compElement) {
+            if (userElement == FIRE_ELEMENT) {
+                if (compElement == SNOW_ELEMENT) {
+                 userWin = true; 
+                }
+            } else if (userElement == WATER_ELEMENT) {
+                if (compElement == FIRE_ELEMENT) {
+                   userWin = true; 
+                }
+            } else if (userElement ==SNOW_ELEMENT) {
+                if (compElement == WATER_ELEMENT) {
+                    userWin = true;
+                }
+            }
+
+
+        } else if (userElement == compElement) {
+            if (userNumber > compNumber) {
+                userWin = true;
+            }
+        }
+
+        return userWin;
+    }
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Accessor method for all attributes and values of the card
@@ -248,7 +297,8 @@ if(this.width==1){
      * @return - all attributes and values of the card
      */
     public String toString() {
-        return "Element: " + String.valueOf(element) + "\tCard Number: " + String.valueOf(cardNumber) + "\tColour: " + color + "\tFacing: " + faceUp;//return tring of all attributes of the card
+       
+        return  super.toString() + "Element: " + String.valueOf(element) + "\tCard Number: " + String.valueOf(cardNumber) + "\tColour: " + color + "\tFacing: " + faceUp;//return tring of all attributes of the card
     }
 
     public boolean isClicked(double x, double y) {
