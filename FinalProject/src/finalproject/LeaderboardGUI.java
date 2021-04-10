@@ -12,17 +12,19 @@ import java.util.logging.Logger;
 import java.io.FileWriter;
 
 public class LeaderboardGUI extends javax.swing.JFrame {
+MainMenuGUI m;
 static String output = "";
 
     /**
      * Creates new form LeaderboardGUI
      */
-    public LeaderboardGUI() {
+    public LeaderboardGUI(MainMenuGUI mainMenu) {
+        m = mainMenu;
         initComponents();
         String data[] = new String[2];
         data[0]="john";
         data[1] = "2";
-        File f = new File("src/highscores/save.txt");//get file
+        File f = new File("src/finalproject/save.txt");//get file
         ArrayList<String> list = new ArrayList();
         try {
             Scanner s = new Scanner(f); //if file is not found
@@ -46,7 +48,7 @@ static String output = "";
         
         //save win counters to data file
         try {
-            FileWriter myWriter = new FileWriter("src/highscores/save.txt");
+            FileWriter myWriter = new FileWriter("src/finalproject/save.txt");
             for (int i = 0; i < list.size(); i++) {
                 myWriter.write(list.get(i)+"\n");
             }
@@ -67,7 +69,7 @@ static String output = "";
             name[i] = list.get(i*2);
             level[i] = Integer.parseInt(list.get((i*2)+1));
         }
-        int numsList[]=descendingQuickSort(level, level[0], level[halfList]);
+        int numsList[]=descendingQuickSort(level, level[0], level[halfList-1]);
         
         for (int i = 0; i < halfList; i++) {
             output = output + numsList[i] + "\n";
@@ -87,6 +89,7 @@ static String output = "";
         lblLeaderboard = new javax.swing.JLabel();
         txtList = new javax.swing.JScrollPane();
         textList = new javax.swing.JTextArea();
+        btnMainMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,14 +98,29 @@ static String output = "";
         lblLeaderboard.setText("Leaderboard");
         getContentPane().add(lblLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
+        textList.setEditable(false);
         textList.setColumns(20);
         textList.setRows(5);
         txtList.setViewportView(textList);
 
         getContentPane().add(txtList, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 350, 190));
 
+        btnMainMenu.setText("Main Menu");
+        btnMainMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMainMenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainMenuActionPerformed
+        //if the user presses the back button, close this window and open the main menu window
+        this.setVisible(false);
+        m.setVisible(true);
+    }//GEN-LAST:event_btnMainMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,7 +152,7 @@ static String output = "";
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LeaderboardGUI().setVisible(true);
+                
             }
         });
         
@@ -195,6 +213,7 @@ static String output = "";
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMainMenu;
     private javax.swing.JLabel lblLeaderboard;
     private javax.swing.JTextArea textList;
     private javax.swing.JScrollPane txtList;
