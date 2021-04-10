@@ -21,6 +21,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  *
@@ -123,7 +124,12 @@ public class GameScreen extends JPanel{
         
         for (int i = 0; i < 5; i++) {
             
-            player.getCard(i).isClicked(xPos,yPos);
+           
+            
+            if(player.getCard(i).isClicked(xPos,yPos)){
+                player.setX(player.getX()+5);
+            }
+           // player.setX(player.getX()+5);
             
         }
 
@@ -185,6 +191,20 @@ public class GameScreen extends JPanel{
    ///////////////////////////////////////////////////////////////// 
 
     public GameScreen(JFrame game) {
+        
+        
+        
+         ActionListener al = new ActionListener() {
+            //when the timer ticks
+            public void actionPerformed(ActionEvent ae) {
+              
+                repaint(); //redraw the panel
+            }
+        };
+         
+          Timer timer = new Timer(30,al);
+        //start the timer going
+        timer.start();
 
 //        listener = new ClickListener();
        game.getContentPane().addMouseListener(new ClickListener());
@@ -351,7 +371,7 @@ public class GameScreen extends JPanel{
         // g2d.drawImage(image, 100, x, null);
         //g2d.drawImage(image, 500, 100,-image.getWidth()/2, image.getHeight()/2-x/20, null);
         g2d.dispose();
-        repaint();
+        //repaint();
 
     }
 

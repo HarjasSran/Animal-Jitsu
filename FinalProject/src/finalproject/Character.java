@@ -135,7 +135,7 @@ int distort;
         //System.out.println(this.animal);
         
         
-          x += (Math.sin((currentFrame+this.xPos) * 0.001)) / 100;
+          x += (Math.sin((currentFrame+this.xPos) * 0.1)) / 1.5;
         distort = (int) Math.floor(x);
         
         
