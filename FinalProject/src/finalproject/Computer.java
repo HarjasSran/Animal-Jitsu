@@ -1,6 +1,6 @@
 //Caroline Widdecombe, Aidan Goodyr, Harjas Sran
 //April 10 2021
-//
+//Class for the Sensei playing
 package finalproject;
 
 import java.awt.Color;
@@ -53,7 +53,7 @@ public class Computer extends Character{
      * @return - skill level of the computer sensei
      */
     public int getSkillLevel(){
-        return skillLevel;
+        return skillLevel;//return the skill level
     }
     
     /**
@@ -62,9 +62,12 @@ public class Computer extends Character{
      */
     public Computer clone(){
         Computer newComp = new Computer(name, xPos, yPos, bow, animal, direction, cards, skillLevel); //new copy of the computer sensei is created 
-        return newComp;
+        return newComp;//return the cloned computer
     }
-
+    /**
+     * 
+     * @param g2d 
+     */
     public void render(Graphics2D g2d) {
         super.render(g2d);
         g2d.setFont(CharacterSelectMenu.gameFont);
@@ -77,6 +80,6 @@ public class Computer extends Character{
      * @return - all attributes and values of the computer sensei
      */
     public String toString(){
-        return String.valueOf(skillLevel);
+        return String.valueOf(skillLevel);//retun the skill level
     }
 }
