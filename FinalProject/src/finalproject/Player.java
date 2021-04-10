@@ -59,6 +59,13 @@ public class Player extends Character{
 //    public Card playCard (){
 //        
 //    }
+    
+    public void redraw(){
+        
+    }
+    
+    
+    
     public void render(Graphics2D g2d) {
         super.render(g2d);
         g2d.setFont(CharacterSelectMenu.gameFont);

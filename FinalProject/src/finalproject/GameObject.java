@@ -269,6 +269,8 @@ abstract public class GameObject {
         targetY = y; 
         
     }
+    
+    
     /**
      * method to create buffered image
      * @param src

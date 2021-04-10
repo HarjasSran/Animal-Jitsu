@@ -67,14 +67,16 @@ public class Computer extends Character{
     }
     
     
-    public void playCard(long startTime){
+    public Card playCard(){
         
-        
-     
+      
+    // this.getCards().
             int index = (int)(Math.random()*5); 
         this.getCard(index).moveObject(1000, 500);   
+      this.getCard(index).flip();
+      return this.getCard(index); 
       
-        
+      
     }
     
     
