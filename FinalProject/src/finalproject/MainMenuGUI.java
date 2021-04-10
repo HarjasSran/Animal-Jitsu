@@ -78,6 +78,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         btnCredits = new javax.swing.JButton();
         title = new javax.swing.JLabel();
+        leaderboardButton = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -143,6 +144,9 @@ public class MainMenuGUI extends javax.swing.JFrame {
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/header.png"))); // NOI18N
         getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        leaderboardButton.setText("LEADERBOARD");
+        getContentPane().add(leaderboardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 403, 260, 40));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/chunin.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -234,6 +238,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnInstructions;
     private javax.swing.JButton btnStart;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton leaderboardButton;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
