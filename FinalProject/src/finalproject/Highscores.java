@@ -98,7 +98,11 @@ john
     
     
     
-    
+    /**
+     * method that reads data from the file
+     * @param src
+     * @return 
+     */
     public static ArrayList readData(String src){
         
         File f = new File(src);
@@ -128,7 +132,11 @@ john
     
     
     
-    
+    /**
+     * metod that writes data to the file
+     * @param list
+     * @param src 
+     */
     public static void writeData(ArrayList<String> list, String src){
          try {
             FileWriter myWriter = new FileWriter(src);
@@ -148,7 +156,12 @@ john
     }
     
     
-    
+    /**
+     * method for descending quicksort
+     * @param numbers
+     * @param l
+     * @param r 
+     */
    public static void descendingQuickSort(int[] numbers, int l, int r) {
 
         // sort is complete when the left bounds of the array are equal or greater than the right bound
