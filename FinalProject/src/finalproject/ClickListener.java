@@ -1,6 +1,6 @@
 //Caroline Widdecombe, Aidan Goodyr, Harjas Sran
 //April 10 2021
-//
+//class to register the mouse actions preformed by the user
 package finalproject;
 
 import java.awt.event.MouseAdapter;
@@ -19,7 +19,10 @@ public class ClickListener extends MouseAdapter {
 
 
     
-    
+    /**
+     * accessor method to get the x and y pos of whenre the user clicked
+     * @param e 
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         xPos = e.getX()/scale;
@@ -33,13 +36,19 @@ public class ClickListener extends MouseAdapter {
 
         //save x and y coordinates
     }
-
+    /**
+     * method for wwhen mouse is pressed 
+     * @param e 
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         clicked = true;
         // System.out.println("f" + clicked);
     }
-
+    /**
+     * method for when moouse is released
+     * @param e 
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
         clicked = false;
