@@ -32,6 +32,16 @@ public class GameScreen extends JPanel{
     int playerElement;
     int compElement;
     
+    boolean playerFireWin = false;
+    boolean playerWaterWin = false;
+    boolean playerSnowWin = false;
+    
+    boolean compFireWin = false;
+    boolean compWaterWin = false;
+    boolean compSnowWin = false;
+    
+    boolean gameEnd = false;
+    
     
      Timer delay = new Timer(1000,null);
     
@@ -42,8 +52,44 @@ public class GameScreen extends JPanel{
                compCard = comp.getCard(index);
 
                delay.stop();
-               win = Card.checkWin(compCard,playerCard); 
+               win = Card.checkWin(compCard, playerCard);
 
+               if (win) {
+                   playerElement = playerCard.getElement();
+                   if (playerElement == Card.FIRE_ELEMENT) {
+                       playerFireWin = true;
+                   } else if (playerElement == Card.WATER_ELEMENT) {
+                       playerWaterWin = true;
+                   } else if (playerElement == Card.SNOW_ELEMENT) {
+                       playerSnowWin = true;
+                   }
+
+                   JOptionPane.showMessageDialog(null, "You have won!");
+               } else {
+                   compElement = compCard.getElement();
+                   if (compElement == Card.FIRE_ELEMENT) {
+                       compFireWin = true;
+                   } else if (playerElement == Card.WATER_ELEMENT) {
+                       compWaterWin = true;
+                   } else if (playerElement == Card.SNOW_ELEMENT) {
+                       compSnowWin = true;
+                   }
+                   JOptionPane.showMessageDialog(null, "Sensei Peng has won!");
+               }
+               
+               if(playerFireWin == true && playerWaterWin == true && playerSnowWin == true){
+                   JOptionPane.showMessageDialog(null, "You have won this round against Sensei Peng! You will get Promoted!");
+                   gameEnd = true;
+                   player.setBow(player.getBow()+1);
+               }
+               else if(compFireWin == true && compWaterWin == true && compSnowWin == true){
+                   JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
+                   gameEnd = true;
+               }
+               else{
+                   gameEnd = false;
+               }
+               
                removeCard.start(); 
               removeCard.addActionListener(waitForRemoval);
               
@@ -399,11 +445,7 @@ public class GameScreen extends JPanel{
         comp.setScale(80);
         comp.render(g2d);
         
-        if (win) {
-            playerElement = playerCard.getElement();
-        } else {
-            compElement = compCard.getElement();
-        }
+
 //
 //        if(playerElement == Card.FIRE_ELEMENT){
 //            g2d.drawImage(FIREBALL_IMAGE, 500, 500, FIREBALL_IMAGE.getWidth(), FIREBALL_IMAGE.getHeight(), null);
