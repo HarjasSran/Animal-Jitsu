@@ -127,10 +127,10 @@ public class GameScreen extends JPanel{
            
             
             if(player.getCard(i).isClicked(xPos,yPos)){
-             //comp.moveObject(100,500);
+              player.getCard(i).moveObject(1000, 500);
                 System.out.println("ffffff");
                 
-                System.out.println("X: " + player.getX() + " target X: " + player.getTargetX());
+                //System.out.println("X: " + player.getX() + " target X: " + player.getTargetX());
                 
             }
            // player.setX(player.getX()+5);
@@ -274,7 +274,23 @@ public class GameScreen extends JPanel{
         
         //ArrayList playerCards = (ArrayList)cards.subList(0, cards.size()/2-1); 
         player = new Player(name, 550, 400, 1, image, false, splitCards(0, cards.size()/2-1, cards));
+        
+        for (int i = 0; i < 5; i++) {
+            player.getCard(i).setFaceUp(true);
+            player.getCard(i).setX(i*140+40);
+             player.getCard(i).setY(40);
+             }
+        
+        
+        
+        
         comp = new Computer("Sensei Peng",1550, 400, 0, BOSS_IMAGE, true,splitCards(cards.size()/2, cards.size()-1,cards), 1);
+        for (int i = 0; i < 5; i++) {
+           // comp.getCards().get(i).setFaceUp(true); 
+          /// comp.getCard(i).setFaceUp(true);
+            comp.getCard(i).setX(i*140+1140);
+             comp.getCard(i).setY(40);
+        }
         cards.clear();
        
         
@@ -345,9 +361,9 @@ public class GameScreen extends JPanel{
         
         
         for (int i = 0; i < 5; i++) {
-            player.getCard(i).setFaceUp(true);
-            player.getCard(i).setX(i*140+40);
-             player.getCard(i).setY(40);
+//            player.getCard(i).setFaceUp(true);
+//            player.getCard(i).setX(i*140+40);
+//             player.getCard(i).setY(40);
               player.getCard(i).render(g2d);  
               
               
@@ -360,8 +376,8 @@ public class GameScreen extends JPanel{
         for (int i = 0; i < 5; i++) {
            // comp.getCards().get(i).setFaceUp(true); 
           /// comp.getCard(i).setFaceUp(true);
-            comp.getCard(i).setX(i*140+1140);
-             comp.getCard(i).setY(40);
+//            comp.getCard(i).setX(i*140+1140);
+//             comp.getCard(i).setY(40);
              comp.getCard(i).render(g2d);            
         }
         

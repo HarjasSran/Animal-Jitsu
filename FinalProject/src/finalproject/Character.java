@@ -131,6 +131,9 @@ public class Character extends GameObject {
 
     public void render(Graphics2D g2d) {
 
+        
+        System.out.println(this.targetX);
+        System.out.println(this.xPos);
         if (this.getTargetX() > this.getX()) {
 
             // this.setX(xPos+1);

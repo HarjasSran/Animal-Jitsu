@@ -138,6 +138,24 @@ public class Card extends GameObject {
 
     public void render(Graphics2D g2d) {
         
+         if (this.getTargetX() > this.getX()) {
+
+            //this.setX(xPos+1);
+            this.setX(this.getX() + Math.round(0.01f * this.getTargetX()));
+
+        } else if (this.getTargetX() < this.getX()) {
+            this.setX(this.getX() - Math.round(0.01f * this.getTargetX()));
+        }
+
+        if (this.getTargetY() > this.getY()) {
+
+            // this.setX(xPos+1);
+            this.setY(this.getY() + Math.round(0.01f * this.getTargetY()));
+
+        } else if (this.getTargetY() < this.getY()) {
+            this.setY(this.getY() - Math.round(0.01f * this.getTargetY()));
+        }
+        
         
         if(faceUp){
           horizontalIndex = this.cardNumber+1;
