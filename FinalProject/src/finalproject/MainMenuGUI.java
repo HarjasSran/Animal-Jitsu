@@ -146,6 +146,11 @@ public class MainMenuGUI extends javax.swing.JFrame {
         getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         leaderboardButton.setText("LEADERBOARD");
+        leaderboardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leaderboardButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(leaderboardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 403, 260, 40));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/chunin.png"))); // NOI18N
@@ -196,6 +201,14 @@ public class MainMenuGUI extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void leaderboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderboardButtonActionPerformed
+         LeaderboardGUI leaderboard = new LeaderboardGUI(this); 
+        
+       leaderboard.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_leaderboardButtonActionPerformed
 
     /**
      * @param args the command line arguments
