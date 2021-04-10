@@ -31,8 +31,22 @@ public class GameScreen extends JPanel{
     
     
     
+     Timer delay = new Timer(1000,null);
+    
+          ActionListener waitForTurn=  new ActionListener(){
+        
+           public void actionPerformed(ActionEvent ae) {
+              
+             comp.playCard(start);
+             delay.stop();
+             isPlayerTurn = true; 
+            }
+        
+            };
     
     
+    
+        //start the timer going
     
     
     
@@ -109,6 +123,10 @@ public class GameScreen extends JPanel{
 
 
     
+   
+    
+    
+  
     
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -131,7 +149,12 @@ public class GameScreen extends JPanel{
               player.getCard(i).moveObject(800, 500);
               
               isPlayerTurn = false; 
-              comp.playCard(System.currentTimeMillis()); 
+              delay.start(); 
+              delay.addActionListener(waitForTurn);
+              
+              
+              
+             
               }
                          
                
@@ -225,6 +248,21 @@ public class GameScreen extends JPanel{
         //start the timer going
         timer.start();
 
+        
+        
+        
+        
+        
+        
+       
+        
+       
+        
+        
+        
+        
+        
+        
 //        listener = new ClickListener();
        game.getContentPane().addMouseListener(new ClickListener());
 
@@ -340,7 +378,9 @@ public class GameScreen extends JPanel{
     
     public void paint(Graphics g) {
 
-        
+        if(!isPlayerTurn){
+            
+        }
         
         //System.out.println(listener.isPressed());
         //System.out.println(listener.);
