@@ -1,6 +1,6 @@
 //Caroline Widdecombe, Aidan Goodyr, Harjas Sran
 //April 10 2021
-//
+//class that saves, and loads stuff from a file then dif=splays the info on a gui
 package finalproject;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -98,6 +98,7 @@ static String output = "Name\tRank\n\n";
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblLeaderboard.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
+        lblLeaderboard.setForeground(new java.awt.Color(0, 153, 0));
         lblLeaderboard.setText("Leaderboard");
         getContentPane().add(lblLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
