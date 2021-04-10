@@ -54,11 +54,7 @@ public class GameScreen extends JPanel{
     
     
     ///BEGINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-//    @Override
-//    public Component add(Component comp) {
-//        return super.add(comp); //To change body of generated methods, choose Tools | Templates.
-//    }
-    //GameScreen g = new GameScreen(); 
+
     final long start = System.currentTimeMillis();
 
     static BufferedImage GIRAFFE_IMAGE = null;
@@ -83,6 +79,8 @@ public class GameScreen extends JPanel{
     
     static BufferedImage CARD_SPRITE= null ;
     
+    
+    //Downscales to 720p 
     static double SCREEN_SCALE = 0.666667;
 
     ArrayList<Card> cards = new ArrayList<Card>();
@@ -138,12 +136,12 @@ public class GameScreen extends JPanel{
             
             
             
+       
             
+            //FOR TESTING PURPOSES flip computer cards on click
             if(comp.getCard(i).isClicked(xPos, yPos)){
                 comp.getCard(i).flip();
-            }
-           // player.setX(player.getX()+5);
-            
+            }            
         }
         
         

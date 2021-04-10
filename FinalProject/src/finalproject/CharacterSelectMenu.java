@@ -191,6 +191,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
         nameField.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         nameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameField.setToolTipText("Enter your Username");
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -283,7 +284,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         if(name.length()>0){
         //Makes a new window when start is clicked
 
-        JFrame game = new JFrame("Game");
+        JFrame game = new JFrame("Animal Jitsu");
         game.setSize(1280, 720);
       // game.setSize(1920,1080);
 
@@ -293,6 +294,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         game.add(gameScreen);
         game.setVisible(true);
         game.setLocationRelativeTo(null);
+      game.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
 
         //Makes a new window when start is clicked
         }else{

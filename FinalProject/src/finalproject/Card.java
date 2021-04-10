@@ -117,7 +117,8 @@ public class Card extends GameObject {
 
     /**
      * Mutator method to set the direction card is facing
-     *
+     * In practice, this method should typically not be called
+     * 
      * @param faceUp - true (up) or false (down)
      */
     public void setFaceUp(boolean faceUp) {
@@ -140,7 +141,13 @@ public class Card extends GameObject {
         System.out.println(width + "target " + this.targetWidth);
     }
     
-    //once the card with reaches its minimum value, this method will change the card to face up, and then reset the width to default via linear interpolation
+    //
+    /**
+     * once the card with reaches its minimum value, 
+     * this method will be called by the render fucntion 
+     * in order to change the card to face up, and then reset 
+     * the width to default via linear interpolation
+     */
     public void flip2(){
         this.targetWidth = PIXEL_WIDTH*DEFAULT_SCALE; 
         this.setFaceUp(!faceUp);
@@ -156,13 +163,18 @@ public class Card extends GameObject {
     public void render(Graphics2D g2d) {
   
         
-        
+ //the card always strives to approach the target width
+ // if the target width is not currently reached, it will move 50% of the way there
+ // easing its way to the correct width smoothly
 if(this.targetWidth != this.width && this.width!=1){
    this.width = lerp(width,targetWidth,0.5);
     System.out.println(this.width);
 }
 
+// the minimum possible width of the card
+// occurs after flip is called
 if(this.width==1){
+    // second half of the flipping animation  - flip2 changes the faceUp attribute of the card
     flip2(); 
     this.width = lerp(width,targetWidth,0.5);
   
