@@ -179,18 +179,16 @@ public class Card extends GameObject {
     }
     
     
-    public boolean isClicked(ClickListener listener) {
+    public boolean isClicked(double x, double y) {
         
-        
-        double clickXPos = listener.getXPos();
-        double clickYPos = listener.getYPos();
+     
         boolean isClicked = false;
       //  System.out.println(this.xPos);
      
         
-        if (this.getX()<clickXPos && clickXPos<this.getX()+this.getObjectWidth()) {
+        if (this.getX()<x && x<this.getX()+this.getObjectWidth()) {
             
-            if(this.getY()<clickYPos && clickYPos<this.getY()+this.getObjectHeight()){
+            if(this.getY()<y && y<this.getY()+this.getObjectHeight()){
           System.out.println("Element"+this.element +  "Value" + this.getCardNumber());
             isClicked = true;
 
@@ -198,7 +196,7 @@ public class Card extends GameObject {
             
 
         } else {
-            //System.out.println(false);
+            System.out.println(false);
         }
         
        

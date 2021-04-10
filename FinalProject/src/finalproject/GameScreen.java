@@ -26,8 +26,33 @@ import javax.swing.JPanel;
  *
  * @author Aidan
  */
-public class GameScreen extends JPanel {
+public class GameScreen extends JPanel{
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ///BEGINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 //    @Override
 //    public Component add(Component comp) {
 //        return super.add(comp); //To change body of generated methods, choose Tools | Templates.
@@ -73,12 +98,96 @@ public class GameScreen extends JPanel {
     Player player;
     Computer comp;
 
-    ClickListener listener;
+   
+    
+    public class ClickListener extends MouseAdapter {
+
+    double xPos;
+    double yPos;
+  
+    boolean clicked;
+
+
+    
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        xPos = e.getX()/SCREEN_SCALE;
+        
+        
+      
+        yPos = e.getY()/SCREEN_SCALE;
+        
+        
+        System.out.println(xPos + ", " + yPos);
+        
+        for (int i = 0; i < 5; i++) {
+            
+            player.getCard(i).isClicked(xPos,yPos);
+            
+        }
+
+        //save x and y coordinates
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        clicked = true;
+        // System.out.println("f" + clicked);
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        clicked = false;
+    }
+
+    /**
+     * accessor method to get x position
+     *
+     * @return
+     */
+    public double getXPos() {
+        return xPos;//return x position
+    }
+
+    /**
+     * accessor method to get the y position
+     *
+     * @return
+     */
+    public double getYPos() {
+        return yPos;//return y position
+    }
+
+    /**
+     * accessor method to get wethoer or not the something is pressed
+     *
+     * @return
+     */
+    public boolean isPressed() {
+        return clicked;//return if it is pressed
+    }
+
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   ///////////////////////////////////////////////////////////////// 
 
     public GameScreen(JFrame game) {
 
-        listener = new ClickListener();
-        game.getContentPane().addMouseListener(listener);
+//        listener = new ClickListener();
+       game.getContentPane().addMouseListener(new ClickListener());
 
         GIRAFFE_IMAGE = createBufferedImage("/assets/giraffe.png");
         BOSS_IMAGE = createBufferedImage("/assets/boss.png");
@@ -130,9 +239,7 @@ public class GameScreen extends JPanel {
         Collections.shuffle(cards); 
         
         
-        for (int i = 0; i < cards.size(); i++) {
-            System.out.println(cards.get(i).toString());
-        }
+        
         
        
         
@@ -213,7 +320,7 @@ public class GameScreen extends JPanel {
      
         
         
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             player.getCard(i).setFaceUp(true);
             player.getCard(i).setX(i*140+40);
              player.getCard(i).setY(40);
@@ -224,11 +331,11 @@ public class GameScreen extends JPanel {
               
               //System.out.println(player.getCard(i).getX());
               
-              System.out.println(player.getCard(i).isClicked(listener));
+             // System.out.println(player.getCard(i).isClicked(listener));
         }
         for (int i = 0; i < 5; i++) {
            // comp.getCards().get(i).setFaceUp(true); 
-           comp.getCard(i).setFaceUp(true);
+          /// comp.getCard(i).setFaceUp(true);
             comp.getCard(i).setX(i*140+1140);
              comp.getCard(i).setY(40);
              comp.getCard(i).render(g2d);            
@@ -356,4 +463,23 @@ public class GameScreen extends JPanel {
     }
 
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

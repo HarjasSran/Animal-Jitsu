@@ -49,6 +49,8 @@ public class MainMenuGUI extends javax.swing.JFrame {
         clip.open(audioStream);
         
         clip.start();
+        
+        clip.loop(javax.sound.sampled.Clip.LOOP_CONTINUOUSLY);
       
             
             
