@@ -35,76 +35,133 @@ public class GameScreen extends JPanel {
     int compWaterWin = 0;
     int compSnowWin = 0;
 
-
+    //timer that delays 1000 ms
     Timer delay = new Timer(1000, null);
 
+    //waits 1000 ms until the computer plays
     ActionListener waitForTurn = new ActionListener() {
-
+        //when mouse is clicked on a card
         public void actionPerformed(ActionEvent ae) {
-           
+           //remove the mouse listener so that this all runs once only
             delay.removeActionListener(waitForTurn);
             delay.stop();
+            //generate and save a random card that the computer will play using the playCard method from the Computer class
             compIndex = comp.playCard();
-
+                //clone the card that is gettng player and delete it from the computers hand 
             compCard = comp.getCard(compIndex).clone();
             comp.getCards().remove(comp.getCard(compIndex));
+            //move the computer selected card to the screen to display
             compCard.moveObject(1000, 500);
+            //flip the card being displayed
             compCard.flip();
 
+            //check which card wins using the checkWin method from the Card method by comparing the elements and values of the 2 cards
             win = Card.checkWin(compCard, playerCard);
+            //if it is not the players turn
             if (isPlayerTurn == false) {
-
+                //save the card that is going to be added back to the computers hand from the shuffled deck and set it face down
                 Card deckCard = cards.get(0);
                 deckCard.setFaceUp(false);
+                //add the card to the computers hand of cards 
                 comp.getCards().add(compIndex, deckCard);
-
+                //remove the new added card from the deck
                 cards.remove(cards.get(0));
+                //move it off the screen so that is can be moving with animation
                 comp.getCard(compIndex).move(3000, 0);
+                //x and y postions of where the computers card should move dependent on its postion and index
                 int compMoveX = compIndex * 140 + 1135;
                 int compMoveY = 49;
+                //move the card into position
                 comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
             }
+            //removal of the played cards so that they go off the screen
             removeCard.start();
-            removeCard.addActionListener(waitForRemoval);
-            //////////////////////////////////////////////// 
+            removeCard.addActionListener(waitForRemoval); 
+            
+            //check for who won and which element they won with and display method
+            checkElementWins();
+            
+            //check if someone has won the round and display message
+            checkRoundWin();
+
+        }/**
+         * reset all element wins to default
+         */
+        private void reset() {
+            playerFireWin = 0;
+            playerWaterWin = 0;
+            playerSnowWin = 0;
+
+            compFireWin = 0;
+            compWaterWin = 0;
+            compSnowWin = 0;
+        }
+
+        /**
+         * check for who has won and which element they won with. Display message accordingly
+         */
+        private void checkElementWins() {
+           //if the user has won
             if (win) {
+                //save the element that the user has won win
                 playerElement = playerCard.getElement();
+                //if the user won with fire element, add a fire element win
                 if (playerElement == Card.FIRE_ELEMENT) {
                     playerFireWin += 1;
-                } else if (playerElement == Card.WATER_ELEMENT) {
+                    
+                }
+                //if the user won with the water element, add a water element win
+                else if (playerElement == Card.WATER_ELEMENT) {
                     playerWaterWin += 1;
-                } else if (playerElement == Card.SNOW_ELEMENT) {
+                } 
+                //if the user won with the snow element, add a snow element win
+                else if (playerElement == Card.SNOW_ELEMENT) {
                     playerSnowWin +=1;
                 }
-
+                //show the user that they have won
                 JOptionPane.showMessageDialog(null, "You have won!");
-            } else {
+            } 
+            //if the user has not won and the computer has won instead
+            else {
+                //save the element that the computer has won win
                 compElement = compCard.getElement();
+                //if the computer has won with the fire element, add a fire element win
                 if (compElement == Card.FIRE_ELEMENT) {
                     compFireWin += 1;
-                } else if (playerElement == Card.WATER_ELEMENT) {
+                }
+                //if the computer has won with the water element, add a water element win
+                else if (playerElement == Card.WATER_ELEMENT) {
                     compWaterWin += 1;
-                } else if (playerElement == Card.SNOW_ELEMENT) {
+                }
+                //if the computer has won with the snow element, add a snow element win
+                else if (playerElement == Card.SNOW_ELEMENT) {
                     compSnowWin +=1;
                 }
+                //show the user that the sensei has won
                 JOptionPane.showMessageDialog(null, "You lost to Sensei Peng");
             }
+        }
 
+        /**
+         * check if someone has won the round and display message according. start new round if someone has won
+         */
+        private void checkRoundWin() {
+           
+            //if the player has atleast 1 win with each element or 3 in total with 1 certain element
             if ((playerFireWin >= 1 && playerWaterWin >= 1 && playerSnowWin >= 1) || playerFireWin >= 3 || playerWaterWin >= 3 || playerSnowWin >= 3 ) {
+                //show the user that they have won this round and that they will be promoted
                 JOptionPane.showMessageDialog(null, "You have won this round against Sensei Peng! You will get Promoted!");
+                //increase the players rank and this will also change their bow colour
                 player.setBow(player.getBow() + 1);
-
-                playerFireWin = 0;
-                playerWaterWin = 0;
-                playerSnowWin = 0;
-            } else if (compFireWin >=1 && compWaterWin >= 1 && compSnowWin >= 1 || compFireWin >= 3 || compWaterWin >= 3 || playerSnowWin >= 3) {
-                JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
-                
-                compFireWin = 0;
-                compWaterWin = 0;
-                compSnowWin = 0;
+                //reset all the element wins back to default for the new round
+                reset();
             } 
-
+            //if the computer has atleast 1 win with each element or 3 in total with 1 certain element
+            else if (compFireWin >=1 && compWaterWin >= 1 && compSnowWin >= 1 || compFireWin >= 3 || compWaterWin >= 3 || playerSnowWin >= 3) {
+                JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
+                //reset all the element wins back to default for the new round
+                reset();
+            } 
         }
 
     };
@@ -412,7 +469,6 @@ public class GameScreen extends JPanel {
         ArrayList<Card> split = new ArrayList();
         for (int i = start; i <= end; i++) {
             split.add(cards.get(i));
-
         }
 
         return split;
