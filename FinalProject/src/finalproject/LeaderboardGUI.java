@@ -19,16 +19,16 @@ static String output = "Name\tRank\n\n";
 
     /**
      * Creates new form LeaderboardGUI
-     */User users[];
+     */
 
+//User users[];
+
+User[] userList; 
     public LeaderboardGUI(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
         
          this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
-        String data[] = new String[2];
-        data[0]="john";
-        data[1] = "2";
         File f = new File("src/finalproject/save.txt");//get file
         ArrayList<String> list = new ArrayList();
         try {
@@ -46,21 +46,6 @@ static String output = "Name\tRank\n\n";
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
         }
-        list.add(data[0]);
-        list.add(data[1]);
-        
-        //save win counters to data file
-        try {
-            FileWriter myWriter = new FileWriter("src/finalproject/save.txt");
-            for (int i = 0; i < list.size(); i++) {
-                myWriter.write(list.get(i)+"\n");
-            }
-            myWriter.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error:" + e);
-        } catch (IOException ex) {
-            Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         int halfList = list.size()/2;
         String name[] = new String[list.size()/2];
@@ -72,7 +57,7 @@ static String output = "Name\tRank\n\n";
             users[i] = new User(name[i], level[i]);
             
         }
-        User userList[]=descendingQuickSort(users, 0, halfList-1);
+        userList=descendingQuickSort(users, 0, halfList-1);
         
         for (int i = 0; i < halfList; i++) {
             output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
@@ -94,8 +79,8 @@ static String output = "Name\tRank\n\n";
         textList = new javax.swing.JTextArea();
         searchQuery = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnMainMenu = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Leaderboard");
@@ -127,9 +112,6 @@ static String output = "Name\tRank\n\n";
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 80, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/city.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -100, 830, 780));
-
         btnMainMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft1.png"))); // NOI18N
         btnMainMenu.setBorderPainted(false);
         btnMainMenu.setContentAreaFilled(false);
@@ -141,7 +123,10 @@ static String output = "Name\tRank\n\n";
                 btnMainMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 70, -1));
+        getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, 70, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/city.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -100, 830, 780));
 
         pack();
         setLocationRelativeTo(null);
@@ -156,7 +141,10 @@ static String output = "Name\tRank\n\n";
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         String query = searchQuery.getText(); 
-        textList.setText(linearSearch(users, query));
+        
+       
+       
+        textList.setText(linearSearch(userList, query));
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -205,8 +193,8 @@ static String output = "Name\tRank\n\n";
  
     public static String linearSearch(User[] users, String q){
         String output=""; 
-        for (int i = 0; i < 10; i++) {
-            if(users[i].getName().contains(q)){
+        for (int i = 0; i < users.length; i++) {
+            if(users[i].getName().toLowerCase().contains(q.toLowerCase())){
                output+= "\n"+ users[i].toString();
             }
             

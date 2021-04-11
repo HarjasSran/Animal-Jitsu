@@ -33,10 +33,10 @@ public class Card extends GameObject {
      */
     public Card() {
         super();
-        element = 0;
-        cardNumber = 1;
-        color = Color.WHITE;
-        faceUp = false;
+        this.element = 0;
+        this.cardNumber = 1;
+        this.color = Color.WHITE;
+        this.faceUp = false;
     }
 
     /**
@@ -177,7 +177,8 @@ if(this.width==1){
   
 }
         
-        
+ //card always tries to approach its targetX   
+ //via smooth easing function
  if(this.getTargetX()!=this.getX()){
      xPos =  GameObject.lerp(xPos, targetX, 0.1); 
  }
