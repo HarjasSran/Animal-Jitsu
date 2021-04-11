@@ -79,8 +79,8 @@ User[] userList;
         textList = new javax.swing.JTextArea();
         searchQuery = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnMainMenu = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Leaderboard");
@@ -112,9 +112,6 @@ User[] userList;
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 80, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/city.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -100, 830, 780));
-
         btnMainMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft1.png"))); // NOI18N
         btnMainMenu.setBorderPainted(false);
         btnMainMenu.setContentAreaFilled(false);
@@ -126,7 +123,10 @@ User[] userList;
                 btnMainMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 70, -1));
+        getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, 70, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/city.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -100, 830, 780));
 
         pack();
         setLocationRelativeTo(null);
