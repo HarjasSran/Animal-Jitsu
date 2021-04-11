@@ -2,6 +2,7 @@
 //April 10 2021
 //class that saves, and loads stuff from a file then dif=splays the info on a gui
 package finalproject;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,6 +22,8 @@ static String output = "Name\tRank\n\n";
     public LeaderboardGUI(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
+        
+         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         String data[] = new String[2];
         data[0]="john";
         data[1] = "2";
@@ -93,29 +96,41 @@ static String output = "Name\tRank\n\n";
         txtList = new javax.swing.JScrollPane();
         textList = new javax.swing.JTextArea();
         btnMainMenu = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Leaderboard");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblLeaderboard.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
         lblLeaderboard.setForeground(new java.awt.Color(0, 153, 0));
-        lblLeaderboard.setText("Leaderboard");
-        getContentPane().add(lblLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+        lblLeaderboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/leaderboardButton3.png"))); // NOI18N
+        getContentPane().add(lblLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         textList.setEditable(false);
         textList.setColumns(20);
+        textList.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         textList.setRows(5);
         txtList.setViewportView(textList);
 
-        getContentPane().add(txtList, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 350, 190));
+        getContentPane().add(txtList, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 350, 510));
 
-        btnMainMenu.setText("Main Menu");
+        btnMainMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft1.png"))); // NOI18N
+        btnMainMenu.setBorderPainted(false);
+        btnMainMenu.setContentAreaFilled(false);
+        btnMainMenu.setFocusPainted(false);
+        btnMainMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft2.png"))); // NOI18N
+        btnMainMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft3.png"))); // NOI18N
         btnMainMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMainMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 70, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/city.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -100, 830, 730));
 
         pack();
         setLocationRelativeTo(null);
@@ -187,6 +202,7 @@ static String output = "Name\tRank\n\n";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMainMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblLeaderboard;
     private javax.swing.JTextArea textList;
     public static javax.swing.JScrollPane txtList;
