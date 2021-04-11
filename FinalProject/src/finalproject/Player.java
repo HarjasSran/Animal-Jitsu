@@ -69,7 +69,7 @@ public class Player extends Character{
     public void render(Graphics2D g2d) {
         super.render(g2d);
         g2d.setFont(CharacterSelectMenu.gameFont);
-        g2d.drawChars((this.getBow()+ " " + this.name).toCharArray(), 0, name.length()+2, 120, 1000);
+        g2d.drawChars((this.getBow()+ " " + this.name).toCharArray(), 0, (this.getBow()+ " " + this.name).toCharArray().length, 120, 1000);
 
     }
 

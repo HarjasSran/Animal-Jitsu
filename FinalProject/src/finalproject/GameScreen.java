@@ -170,7 +170,7 @@ public class GameScreen extends JPanel {
             //if the computer has atleast 1 win with each element or 3 in total with 1 certain element
             else if (compFireWin >=1 && compWaterWin >= 1 && compSnowWin >= 1 || compFireWin >= 3 || compWaterWin >= 3 || playerSnowWin >= 3) {
                 
-               // label = "you have been defeated by the sensei"; 
+                label = "defeated by sensei peng"; 
                 
                 //JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
                 //reset all the element wins back to default for the new round
