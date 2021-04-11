@@ -27,7 +27,8 @@ import javax.swing.Timer;
  */
 public class GameScreen extends JPanel{
 
-    int index;
+    
+    int compIndex = -1;
     boolean win;
     int playerElement;
     int compElement;
@@ -46,16 +47,35 @@ public class GameScreen extends JPanel{
      Timer delay = new Timer(1000,null);
     
           ActionListener waitForTurn=  new ActionListener(){
-        
-           public void actionPerformed(ActionEvent ae) {
-               index = comp.playCard();
-               compCard = comp.getCard(index);
+  
+              public void actionPerformed(ActionEvent ae) {
+                  compIndex = comp.playCard();
+                  compCard = comp.getCard(compIndex);
+
+                  compCard.moveObject(1000, 500);
+
+
 
                delay.stop();
                win = Card.checkWin(compCard, playerCard);
 
+
+               
+                              
+               removeCard.start();
+               removeCard.addActionListener(waitForRemoval);
+
+               comp.getCards().remove(comp.getCard(compIndex));
+               comp.getCards().add(compIndex, cards.get(1));
+               cards.remove(cards.get(1));
+               comp.getCard(compIndex).move(3000, 0);
+               int compMoveX = compIndex * 140 + 1135;
+               int compMoveY = 49;
+               comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
+               comp.getCard(compIndex).flip();
                
                
+               isPlayerTurn = true;
                
                if (win) {
                    playerElement = playerCard.getElement();
@@ -93,13 +113,7 @@ public class GameScreen extends JPanel{
                else{
                    gameEnd = false;
                }
-               
-               removeCard.start(); 
-              removeCard.addActionListener(waitForRemoval);
-              
-               
-               
-              isPlayerTurn = true; 
+
              
             }
         
@@ -110,7 +124,7 @@ public class GameScreen extends JPanel{
         //start the timer going
     
     
-     Timer removeCard = new Timer(4000,null);
+     Timer removeCard = new Timer(2000,null);
     
           ActionListener waitForRemoval=  new ActionListener(){
         
@@ -124,20 +138,7 @@ public class GameScreen extends JPanel{
             }
         
             };
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     ///BEGINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 
@@ -219,21 +220,27 @@ public class GameScreen extends JPanel{
                     playerCard = player.getCard(playerIndex).clone();
 
                     playerCard.moveObject(800, 500);
+                      
+                    
                     player.getCards().remove(player.getCard(playerIndex));
-                    //if (playerIndex >= 0) {
                     player.getCards().add(playerIndex, cards.get(0));
                     cards.remove(cards.get(0));
                     player.getCard(playerIndex).move(-1000, 0);
                     int moveX = playerIndex * 140 + 49;
                     int moveY = 48;
                     player.getCard(playerIndex).moveObject(moveX, moveY);
-//                    player.getCard(playerIndex).setX(moveX);
-//                    player.getCard(playerIndex).setY(moveY);
-                    //player.getCard(playerIndex).flip();
-                    //}
-                    
-                    
-                   
+
+//
+//                    comp.getCards().remove(comp.getCard(compIndex));
+//                    comp.getCards().add(compIndex, cards.get(1));
+//                    cards.remove(cards.get(1));
+//                    comp.getCard(compIndex).move(3000, 0);
+//                    int compMoveX = compIndex * 140 + 1135;
+//                    int compMoveY = 49;
+//                    comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
+//                    comp.getCard(compIndex).flip();
+
+
 
                     delay.start();
                     delay.addActionListener(waitForTurn);

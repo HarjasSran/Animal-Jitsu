@@ -71,8 +71,7 @@ public class Computer extends Character{
         
       
     // this.getCards().
-            int index = (int)(Math.random()*5); 
-        this.getCard(index).moveObject(1000, 500);   
+      int index = (int)(Math.random()*5); 
       this.getCard(index).flip();
       return index; 
       

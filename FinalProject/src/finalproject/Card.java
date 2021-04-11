@@ -295,6 +295,12 @@ if(this.width==1){
         return  super.toString() + "Element: " + String.valueOf(element) + "\tCard Number: " + String.valueOf(cardNumber) + "\tColour: " + color + "\tFacing: " + faceUp;//return tring of all attributes of the card
     }
 
+    /**
+     * Checks whether or not the card is getting clicked by the user
+     * @param x - x pos of mouse when clicking
+     * @param y - y pos of mouse when clicking
+     * @return 
+     */
     public boolean isClicked(double x, double y) {
 
         boolean isClicked = false;
