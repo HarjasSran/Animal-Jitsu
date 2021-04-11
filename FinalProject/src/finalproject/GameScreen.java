@@ -325,15 +325,19 @@ public class GameScreen extends JPanel {
             }
             
             //g2d.fillRect(750, 950, 270, 60);
-           if(xPos>750 && xPos<1020 && yPos<1000 && yPos>950){
-               
-             User user = new User(player.getName(), player.getBow()); 
-             
-             LeaderboardGUI.writeData(user);
-                main.setVisible(true); 
-        gameFrame.setVisible(false);
-       
-           // System.exit(0);
+            
+            if (xPos > 750 && xPos < 1020 && yPos < 1000 && yPos > 950) {
+                gameFrame.setVisible(false);
+                User user = new User(player.getName(), player.getBow());
+                LeaderboardGUI.writeData(user);
+                JOptionPane.showMessageDialog(null, "User is created");
+                main.setVisible(true);
+                
+                
+                
+                
+                
+
            }
         }
         
@@ -378,13 +382,10 @@ public class GameScreen extends JPanel {
 
     }
 
+    /////////////////////////////////////////
+    JFrame gameFrame;
+    MainMenuGUI main;
 
-    //////////////////////////////////////////
-    //public GameScreen(JFrame game) {
-
-
-            JFrame gameFrame;
-        MainMenuGUI main;
     ///////////////////////////////////////////////////////////////// 
     public GameScreen(JFrame game, MainMenuGUI m) {
 
@@ -543,10 +544,7 @@ public class GameScreen extends JPanel {
         
          g2d.setColor(Color.BLACK);
         g2d.drawChars(("END BATTLE").toCharArray(), 0,("END BATTLE").toCharArray().length , 1700,1980);
-        
-        
-        
-        //g2d.scale(SCREEN_SCALE, SCREEN_SCALE);
+
         
         
         

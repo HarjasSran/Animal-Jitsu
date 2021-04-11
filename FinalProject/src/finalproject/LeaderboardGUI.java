@@ -25,19 +25,14 @@ static String output = "Name\tRank\n\n";
      */
 //User users[];
     User[] userList;
-
+    ArrayList<String> list = new ArrayList();
     public LeaderboardGUI(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
 
-        //this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         try {
             FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
-            //FileInputStream in = new FileInputStream(System.getProperty("save.txt"));
-            //File in = new File("src/finalproject/save.txt");//get file
-            ArrayList<String> list = new ArrayList();
-            Scanner s = new Scanner(in); //if file is not found
-            //ObjectInputStream s = new ObjectInputStream(in);
+            Scanner s = new Scanner(in); 
             while (s.hasNextLine()) {//while the input stream has lines
 
                 String newData[] = new String[2];
@@ -62,7 +57,7 @@ static String output = "Name\tRank\n\n";
                 output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
             }
             textList.setText(output);
-
+            list.clear();
         } catch (IOException e) {
             //Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Error!");
@@ -189,7 +184,7 @@ static String output = "Name\tRank\n\n";
         
         //save win counters to data file
         try {
-            FileWriter myWriter = new FileWriter(System.getProperty("user.dir") + "save.txt");
+            FileWriter myWriter = new FileWriter(System.getProperty("user.dir") + "/saves/save.txt");
             for (int i = 0; i < list.size(); i++) {
                 myWriter.write(list.get(i)+"\n");
             }
