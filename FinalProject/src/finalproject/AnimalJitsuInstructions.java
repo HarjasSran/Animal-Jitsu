@@ -84,6 +84,7 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Instructions");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblInstructions.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
@@ -114,7 +115,6 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         lblRules.setText("How to Play");
         getContentPane().add(lblRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
-        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setHorizontalScrollBar(null);
         jScrollPane2.setOpaque(false);
 

@@ -295,6 +295,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
             game.setLocationRelativeTo(null);
             game.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
             
+            game.setResizable(false); 
             this.setVisible(false);
 
             //Makes a new window when start is clicked
