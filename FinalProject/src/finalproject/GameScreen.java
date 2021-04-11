@@ -264,7 +264,7 @@ public class GameScreen extends JPanel {
            
             xPos = e.getX() / SCREEN_SCALE;
             yPos = e.getY() / SCREEN_SCALE;
-             System.out.println(xPos + ", " + yPos);
+            // System.out.println(xPos + ", " + yPos);
             for (int i = 0; i < player.getCards().size(); i++) {
                 playerIndex = i;
 

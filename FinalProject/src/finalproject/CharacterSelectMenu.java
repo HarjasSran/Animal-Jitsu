@@ -89,7 +89,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         largePixelFont = pixelFont.deriveFont(60.0f);
         gameFont = pixelFont.deriveFont(100.0f);
 
-        System.out.println(largePixelFont);
+       
 
         //Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png"))
         // ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
