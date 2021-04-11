@@ -118,6 +118,7 @@ static String output = "Name\tRank\n\n";
         getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainMenuActionPerformed
@@ -188,6 +189,6 @@ static String output = "Name\tRank\n\n";
     private javax.swing.JButton btnMainMenu;
     private javax.swing.JLabel lblLeaderboard;
     private javax.swing.JTextArea textList;
-    private javax.swing.JScrollPane txtList;
+    public static javax.swing.JScrollPane txtList;
     // End of variables declaration//GEN-END:variables
 }

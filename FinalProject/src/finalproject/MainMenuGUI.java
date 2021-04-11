@@ -99,7 +99,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
                 btnStartActionPerformed(evt);
             }
         });
-        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 278, -1));
+        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 278, -1));
 
         btnInstructions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/InstructionsButton1.png"))); // NOI18N
         btnInstructions.setBorderPainted(false);
@@ -113,7 +113,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
                 btnInstructionsActionPerformed(evt);
             }
         });
-        getContentPane().add(btnInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
+        getContentPane().add(btnInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
 
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/volumeON.png"))); // NOI18N
         jToggleButton1.setBorderPainted(false);
@@ -140,18 +140,24 @@ public class MainMenuGUI extends javax.swing.JFrame {
                 btnCreditsActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+        getContentPane().add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/header.png"))); // NOI18N
         getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
-        leaderboardButton.setText("LEADERBOARD");
+        leaderboardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/leaderboardButton1.png"))); // NOI18N
+        leaderboardButton.setBorderPainted(false);
+        leaderboardButton.setContentAreaFilled(false);
+        leaderboardButton.setFocusPainted(false);
+        leaderboardButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/leaderboardButton2.png"))); // NOI18N
+        leaderboardButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/leaderboardButton3.png"))); // NOI18N
+        leaderboardButton.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/leaderboardButton2.png"))); // NOI18N
         leaderboardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 leaderboardButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(leaderboardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 403, 260, 40));
+        getContentPane().add(leaderboardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 450, 50));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/chunin.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

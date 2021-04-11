@@ -123,19 +123,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         jLabel1.setIcon(icons.get(i));
         //  System.out.println(jLabel1.getIcon());
 
-//            try {
-//        //create the font to use. Specify the size!
-//        Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("/fonts/pixelfont.ttf")).deriveFont(12f);
-//        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-//        //register the font
-//        ge.registerFont(customFont);
-//    } catch (IOException e) {
-//        e.printStackTrace();
-//    } catch(FontFormatException e) {
-//        e.printStackTrace();
-//    }
-        //use the font
-        //yourSwingComponent.setFont(customFont);
+
     }
 
     /**
