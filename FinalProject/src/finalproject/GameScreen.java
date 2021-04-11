@@ -329,9 +329,10 @@ public class GameScreen extends JPanel {
             if (xPos > 750 && xPos < 1020 && yPos < 1000 && yPos > 950) {
                 gameFrame.setVisible(false);
                 User user = new User(player.getName(), player.getBow());
-                LeaderboardGUI.writeData(user);
-                JOptionPane.showMessageDialog(null, "User is created");
                 main.setVisible(true);
+                
+                
+                LeaderboardGUI.writeData(user);
                 
                 
                 

@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
+import java.nio.file.Path;
 import javax.swing.JOptionPane;
 
 public class LeaderboardGUI extends javax.swing.JFrame {
@@ -162,10 +163,8 @@ static String output = "Name\tRank\n\n";
         data[1] = user.getRank()+"";
         ArrayList<String> list = new ArrayList();
         try {
-             FileOutputStream out = new FileOutputStream(System.getProperty("user.dir") + "/saves/save.txt");
-             //FileOutputStream out = new FileOutputStream("save.txt");
-             Scanner s = new Scanner((Readable) out);
-            //Scanner s = new Scanner(LeaderboardGUI.class.getResourceAsStream("save.txt")); //if file is not found
+             FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
+             Scanner s = new Scanner(in);
             
             while (s.hasNextLine()){
                 String newData[] = new String[2];
@@ -190,8 +189,9 @@ static String output = "Name\tRank\n\n";
             }
             myWriter.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Error:" + e);
+            JOptionPane.showMessageDialog(null, "Error" + e);
         } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error: " + ex);
             Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
         }
         
