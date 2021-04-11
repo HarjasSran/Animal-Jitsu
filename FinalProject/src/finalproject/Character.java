@@ -157,22 +157,14 @@ public class Character extends GameObject {
 
         currentFrame++;
         BufferedImage bows[] = {GameScreen.BLACK_BOW, GameScreen.WHITE_BOW, GameScreen.GREEN_BOW, GameScreen.YELLOW_BOW, GameScreen.ORANGE_BOW, GameScreen.RED_BOW};
-        g2d.drawImage(bows[this.getBow()], this.getX() - this.getObjectWidth(), 965, bows[this.getBow()].getWidth(), bows[this.getBow()].getHeight(), null);
+        if (this.getBow() >= 5) {
+            g2d.drawImage(bows[5], this.getX() - this.getObjectWidth(), 965, bows[this.getBow()].getWidth(), bows[this.getBow()].getHeight(), null);
+        } else {
+            g2d.drawImage(bows[this.getBow()], this.getX() - this.getObjectWidth(), 965, bows[this.getBow()].getWidth(), bows[this.getBow()].getHeight(), null);
+        }
+
         g2d.drawImage(animal, this.getX(), this.getY() + distort, this.getObjectWidth() * multiplier, this.getObjectHeight() - distort, null);
 
-//        g2d.setFont(CharacterSelectMenu.gameFont);
-//        if(this instanceof Player){
-//            g2d.drawChars(this.name.toCharArray(), 0,name.length(),50, 1000);
-//            
-//        }
-//        else if(this instanceof Computer){
-//             g2d.drawChars(this.name.toCharArray(), 0,name.length(),this.getX()-175, 1000);
-//        }
-//        if(this.getAnimal() != GameScreen.BOSS_IMAGE){
-//            
-//              g2d.drawImage(GameScreen.WHITE_BOW, 425,645+distort/2,GameScreen.WHITE_BOW.getWidth()*3,GameScreen.WHITE_BOW.getHeight()*3-distort/5,null); 
-//          //g2d.drawImage(GameScreen.WHITE_BOW, 390,550+distort/2,GameScreen.WHITE_BOW.getWidth()*2,GameScreen.WHITE_BOW.getHeight()*2-distort/5,null); 
-//        }
     }
 
     /**

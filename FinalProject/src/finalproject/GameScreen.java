@@ -104,6 +104,10 @@ public class GameScreen extends JPanel {
                 playerSnowWin = false;
             } else if (compFireWin == true && compWaterWin == true && compSnowWin == true) {
                 JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
+                
+                compFireWin = false;
+                compWaterWin = false;
+                compSnowWin = false;
                 gameEnd = true;
             } else {
                 gameEnd = false;
