@@ -40,20 +40,19 @@ public class GameScreen extends JPanel{
     
     
      Timer delay = new Timer(1000,null);
-    
+     
           ActionListener waitForTurn=  new ActionListener(){
-  
+              
               public void actionPerformed(ActionEvent ae) {
                   
-                  
-                   delay.stop();
+                  delay.stop();
                   compIndex = comp.playCard();
                   comp.getCards().remove(comp.getCard(compIndex));
-                  
-                  //comp.getCards().r
-                  compCard = comp.getCard(compIndex).clone(); 
-                    compCard.moveObject(1000, 500);
+                  compCard = comp.getCard(compIndex).clone();
+                  compCard.moveObject(1000, 500);
                   compCard.flip();
+                  
+                  
 
                   
                   
@@ -61,29 +60,22 @@ public class GameScreen extends JPanel{
 
               
                win = Card.checkWin(compCard, playerCard);
-
-
-               
-                 //function that waits to remove played cards from screen             
-               removeCard.start();
-               removeCard.addActionListener(waitForRemoval);
-
-               
-               
-           
-               
-               
-               
-//               comp.getCards().add(compIndex, cards.get(1));
-               //cards.remove(cards.get(1));
-//               comp.getCard(compIndex).move(3000, 0);
-//               int compMoveX = compIndex * 140 + 1135;
-//               int compMoveY = 49;
-//               comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
-//               comp.getCard(compIndex).flip();
+               if (isPlayerTurn == false){
+                  comp.getCards().add(compIndex, cards.get(0));
+                  
+                  cards.remove(cards.get(0));
+                  comp.getCard(compIndex).move(3000, 0);
+                  int compMoveX = compIndex * 140 + 1135;
+                  int compMoveY = 49;
+                  comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
+                  comp.getCard(compIndex).flip();
+             
                
                
                isPlayerTurn = true;
+               }
+                  removeCard.start();
+                  removeCard.addActionListener(waitForRemoval);
               //////////////////////////////////////////////// 
                if (win) {
                    playerElement = playerCard.getElement();
@@ -159,13 +151,13 @@ public class GameScreen extends JPanel{
                 
                 
                 
-                comp.getCards().add(compIndex, cards.get(1));
-               cards.remove(cards.get(1));
-                comp.getCard(compIndex).move(3000, 0);
-               int compMoveX = compIndex * 140 + 1135;
-               int compMoveY = 49;
-               comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
-               comp.getCard(compIndex).flip();
+//                comp.getCards().add(compIndex, cards.get(1));
+//               cards.remove(cards.get(1));
+//                comp.getCard(compIndex).move(3000, 0);
+//               int compMoveX = compIndex * 140 + 1135;
+//               int compMoveY = 49;
+//               comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
+//               comp.getCard(compIndex).flip();
                 
 //                for (int i = 0; i < cards.size(); i++) {
 //                    cards.get(i).setFaceUp(false);
@@ -271,6 +263,7 @@ public class GameScreen extends JPanel{
                 
                 if (isPlayerTurn) {
                     isPlayerTurn = false;
+                    
                     playerCard = player.getCard(playerIndex).clone();
 
                     playerCard.moveObject(800, 500);
@@ -297,14 +290,11 @@ public class GameScreen extends JPanel{
 //                    int compMoveY = 49;
 //                    comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
 //                    comp.getCard(compIndex).flip();
-
-
-
                     delay.start();
                     delay.addActionListener(waitForTurn);
 
+                }
 
-              }
                          
                
                 
@@ -444,12 +434,10 @@ public class GameScreen extends JPanel{
        
          //All fire element cards added to arraylist
         for (int i = 0; i < 10; i++) {
-            cards.add(new Card(0, 0, 0, -10, Card.FIRE_ELEMENT, i, true));
+            cards.add(new Card(0, 0, 0, SCREEN_SCALE, Card.FIRE_ELEMENT, i, true));
              cards.add(new Card(0,0,0, SCREEN_SCALE,Card.WATER_ELEMENT, i, true));
              cards.add(new Card(0,0,0, SCREEN_SCALE,Card.SNOW_ELEMENT, i, true));
              
-               
-               
              
            
         }
@@ -468,12 +456,15 @@ public class GameScreen extends JPanel{
         
         
         
-        comp = new Computer("Sensei Peng",1550, 400, 0, BOSS_IMAGE, true,splitCards(5, 9,cards), 1);
+        comp = new Computer("Sensei Peng", 1550, 400, 0, BOSS_IMAGE, true, splitCards(5, 9, cards), 1);
+        
         for (int i = 0; i < comp.getCards().size(); i++) {
-          //  comp.getCard(i).setFaceUp(false);
-            comp.getCard(i).setX(i*140+1140);
-             comp.getCard(i).setY(40);
+            comp.getCard(i).setFaceUp(false);
+            comp.getCard(i).setX(i * 140 + 1140);
+            comp.getCard(i).setY(40);
         }
+        
+        
      cards = splitCards(10,cards.size()-1, cards); 
        
         
@@ -495,15 +486,6 @@ public class GameScreen extends JPanel{
        
 
         g2d.drawImage(BACKGROUND_IMAGE, 0, 0, 1920, 1080, null);
-        
-        if (playerCard != null) {
-
-            playerCard.render(g2d);
-        }
-        
-        if(compCard !=null){
-            compCard.render(g2d);
-        }
 
         player.setScale(80);
         player.render(g2d);
@@ -527,6 +509,14 @@ public class GameScreen extends JPanel{
             comp.getCard(i).render(g2d);
         }
 
+        if (playerCard != null) {
+
+            playerCard.render(g2d);
+        }
+
+        if (compCard != null) {
+            compCard.render(g2d);
+        }
 
         g2d.dispose();
 
