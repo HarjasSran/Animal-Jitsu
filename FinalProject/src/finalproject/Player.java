@@ -16,56 +16,38 @@ public class Player extends Character{
     int bow;
     
     public Player(){
+        super();
         bow = 1;
     }
     
     public Player(String name, int x, int y, int bow, BufferedImage animal, boolean direction, ArrayList<Card> cards){
-        
         super(name,x,y,bow,animal,direction,cards); 
         this.bow = bow;
-        
-       
     }
     
    
         
     /**
-     * 
+     * Mutator method to set the name of the player
      * @param name 
      */
     public void setName(String name){
         this.name = name;
     }
     /**
-     * 
-     * @return 
+     * Accessor method to get the name of the player
+     * @return - name of the character
      */
     public String getName(){
         return name;
     }
+    
+    
+    
     /**
-     * 
-     * @return 
+     * Render method which draws the players and rank as well as calling on the
+     * super render method
      */
-    public Player clone(){
-        Player newPlayer = new Player(); //After adding second constructor, use that
-        return newPlayer;
-    }
-    /**
-     * 
-     * @return 
-     */
-    
-//    public Card playCard (){
-//        
-//    }
-    
-    public void redraw(){
-        
-    }
-    
-    
-    
     public void render(Graphics2D g2d) {
         super.render(g2d);
         g2d.setFont(CharacterSelectMenu.gameFont);
@@ -73,9 +55,20 @@ public class Player extends Character{
 
     }
 
-    
-    
+    /**
+     * Clone method to make an identical new player
+     *
+     * @return - the identical new player
+     */
+    public Player clone() {
+        Player newPlayer = new Player(name, xPos, yPos, bow, animal, direction, cards); //After adding second constructor, use that
+        return newPlayer;
+    }
+    /**
+     * method to return the name and bow of the character to the user
+     * @return 
+     */
     public String toString(){
-        return name + "\t" + bow;
+        return super.toString() + name + "\t" +  bow;
     }
 }

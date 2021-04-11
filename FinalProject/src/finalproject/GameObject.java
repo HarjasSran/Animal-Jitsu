@@ -231,13 +231,7 @@ abstract public class GameObject {
     public boolean getDirection() {
         return direction;//return the direction
     }
-    /**
-     * check if the mouse is over an object
-     */
-    public void mouseOver() { 
-        
-    }
-
+    
     /**
      * Accessor method to return all GameObject attributes and values
      *

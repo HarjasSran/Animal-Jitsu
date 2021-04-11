@@ -42,9 +42,9 @@ public class Character extends GameObject {
      * @param direction
      * @param cards
      */
-    public Character(String name, int x, int y, int bow, BufferedImage animal, boolean direction, ArrayList<Card> cards) {
+    public Character(String name, int xPos, int yPos, int bow, BufferedImage animal, boolean direction, ArrayList<Card> cards) {
 
-        super(x, y, 0, animal.getWidth(), animal.getHeight(), 1.0, direction);
+        super(xPos, yPos, 0, animal.getWidth(), animal.getHeight(), 1.0, direction);
 
         if (direction) {
             multiplier = 1;
@@ -56,9 +56,6 @@ public class Character extends GameObject {
         this.animal = animal;
         this.cards = cards;
         this.name = name;
-
-        //gorilla
-        //   g2d.drawImage(GameScreen.WHITE_BOW, 425,645+distort/2,GameScreen.WHITE_BOW.getWidth()*3,GameScreen.WHITE_BOW.getHeight()*3-distort/5,null); 
     }
 
     /**
@@ -110,15 +107,6 @@ public class Character extends GameObject {
         return cards;//return the cards
     }
 
-    /**
-     * method to clone the character and its attributes
-     *
-     * @return
-     */
-//    public Character clone(){
-//        //Character newChar = new Character(bow, animal, direction, cards);
-//      //  return newChar;
-//    }
     /**
      * accessor method for all the attributes of the player
      *
@@ -185,6 +173,16 @@ public class Character extends GameObject {
         this.height = (this.getAnimal().getHeight() * scale) / 100;
 
     }
+    
+        /**
+     * method to clone the character and its attributes
+     *
+     * @return
+     */
+    public Character clone(){
+        Character newChar = new Character(name, xPos, yPos, bow, animal, direction, cards);
+        return newChar;
+    }
 
     /**
      * to string method with all attributes of the character
@@ -192,6 +190,7 @@ public class Character extends GameObject {
      * @return
      */
     public String toString() {
-        return "Color: " + bow + "\tAnimal: " + animal + "\tCards: " + cards;//return atring with all attributes of the character
+        
+        return super.toString()+ "Color: " + bow + "\tAnimal: " + animal + "\tCards: " + cards;//return atring with all attributes of the character
     }
 }

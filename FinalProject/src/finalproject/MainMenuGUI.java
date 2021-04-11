@@ -3,14 +3,12 @@
 //
 package finalproject;
 
-import java.awt.Image;
+
 import java.awt.Toolkit;
 import java.io.BufferedInputStream;
-import java.io.File;
+
 import java.io.IOException;
 import javax.sound.sampled.*;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +24,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
      * @throws javax.sound.sampled.LineUnavailableException
      */
     
+    //clip that holds music
    static Clip clip=null; 
     public MainMenuGUI()  {
         initComponents();
@@ -38,8 +37,8 @@ public class MainMenuGUI extends javax.swing.JFrame {
         //throws UnsupportedAudioFileException, IOException, LineUnavailableException
         //C:\Users\Aidan\Documents\SummativeProjectNewestVersion\FinalSummativeICS4U\FinalProject\dist\FinalProject.zip\finalproject
         
+        //gets the music for the game running
         try{
-        // File f = new File("/finalproject/naruto.wav");
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(new BufferedInputStream(getClass().getResourceAsStream("/finalproject/naruto.wav")));
 
         clip = AudioSystem.getClip();
@@ -168,17 +167,14 @@ public class MainMenuGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-      
-        CharacterSelectMenu characterSelect = new CharacterSelectMenu(this); 
-        
-       characterSelect.setVisible(true);
-        this.setVisible(false);
-        
-        
-        
-        
-        
-        
+
+        //if the user clicks the start button, connect to the character select menu
+        CharacterSelectMenu characterSelect = new CharacterSelectMenu(this);
+
+        characterSelect.setVisible(true);
+        this.setVisible(false); //the screen right now 
+
+
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnInstructionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstructionsActionPerformed
