@@ -4,6 +4,7 @@
  * April 10 2021
  */
 package finalproject;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,20 +16,19 @@ import java.io.FileWriter;
 import javax.swing.JOptionPane;
 
 public class LeaderboardGUI extends javax.swing.JFrame {
-    MainMenuGUI m;
-    static String output = "";
-//    output = "Name\tRank\n\n";
 
-    User[] userList;
+    MainMenuGUI m;
+    static String output = "Name\tRank\n\n";
+
+    ArrayList<User> userList = new ArrayList();
     static ArrayList<String> list = new ArrayList();
-    
+
     public LeaderboardGUI(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
-        output = "Name\tRank\n\n";
         try {
             FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
-            Scanner s = new Scanner(in); 
+            Scanner s = new Scanner(in);
             while (s.hasNextLine()) {//while the input stream has lines
 
                 String newData[] = new String[2];
@@ -40,27 +40,25 @@ public class LeaderboardGUI extends javax.swing.JFrame {
             }
             int halfList = list.size() / 2;
             String name[] = new String[list.size() / 2];
-            User users[] = new User[halfList];
+            ArrayList<User> users = new ArrayList(halfList);
             int level[] = new int[list.size() / 2];
             for (int i = 0; i < halfList; i++) {
                 name[i] = list.get(i * 2);
                 level[i] = Integer.parseInt(list.get((i * 2) + 1));
-                users[i] = new User(name[i], level[i]);
-
+                users.add(i, new User(name[i], level[i]));
             }
+            list.clear();
             userList = descendingQuickSort(users, 0, halfList - 1);
             for (int i = 0; i < halfList; i++) {
-                output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
+                output = output + userList.get(i).getName() + "\t" + userList.get(i).getRank() + "\n";
             }
             textList.setText(output);
-            
+            output = "Name\tRank\n\n";
+
         } catch (IOException e) {
             Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Error!");
         }
-
-        
-  
 
     }
 
@@ -138,72 +136,69 @@ public class LeaderboardGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMainMenuActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        String query = searchQuery.getText(); 
-        
-       
-       
+
+        String query = searchQuery.getText();
+
         textList.setText(linearSearch(userList, query));
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
-    public static void writeData(User user){
+    public static void writeData(User user) {
         String data[] = new String[2];
-        data[0]=user.getName();
-        data[1] = user.getRank()+"";
+        data[0] = user.getName();
+        data[1] = user.getRank() + "";
         try {
-             FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
-             Scanner s = new Scanner(in);
-            while (s.hasNextLine()){
+            FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
+            Scanner s = new Scanner(in);
+            while (s.hasNextLine()) {
                 String newData[] = new String[2];
                 newData[0] = (s.nextLine());
                 newData[1] = (s.nextLine());
                 list.add(newData[0]);
                 list.add(newData[1]);
-                
+
             }
 
         } catch (FileNotFoundException e) {
-          JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null, e);
         }
         list.add(data[0]);
         list.add(data[1]);
-        
+
         //save win counters to data file
         try {
             FileWriter myWriter = new FileWriter(System.getProperty("user.dir") + "/saves/save.txt");
             for (int i = 0; i < list.size(); i++) {
                 myWriter.write(list.get(i)+"\n");
             }
+            
             myWriter.close();
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Error" + e);
-        } catch (IOException ex) {
+        } catch (IOException ex ) {
             JOptionPane.showMessageDialog(null, "Error: " + ex);
             Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+
     }
- 
-    public static String linearSearch(User[] users, String q){
-        String output=""; 
-        for (int i = 0; i < users.length; i++) {
-            if(users[i].getName().toLowerCase().contains(q.toLowerCase())){
-               output+= "\n"+ users[i].toString();
+
+    public static String linearSearch(ArrayList<User> users, String q) {
+        String output = "";
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getName().toLowerCase().contains(q.toLowerCase())) {
+                output += "\n" + users.get(i).toString();
             }
-            
+
         }
         return output;
-        
-        
+
     }
-    
-    
-    public static User[] descendingQuickSort(User[] users, int l, int r) {
+
+    public static ArrayList descendingQuickSort(ArrayList<User> users, int l, int r) {
 
         // sort is complete when the left bounds of the array are equal or greater than the right bound
         if (l >= r) {
@@ -216,29 +211,29 @@ public class LeaderboardGUI extends javax.swing.JFrame {
         int right = r;
 
         //pivot at the midpoint between left and right boundary, partitioning two side of array
-        int pivot = users[(l + r) / 2].getRank();
+        int pivot = users.get((l + r) / 2).getRank();
 
         //repeat until the left and the right touch
         while (left < right) {
 
             //increment left until it finds a value less than the pivot (flipped operator from ascending) 
-            while (users[left].getRank() > pivot) {
-              
+            while (users.get(left).getRank() > pivot) {
+
                 left++;
             }
 
             //decrement the right until it finds a value greater than pivot (flipped operator from ascending) 
-            while (users[right].getRank() < pivot) {
-                
+            while (users.get(right).getRank() < pivot) {
+
                 right--;
 
             }
 
             if (left <= right) {
                 //swap the number at the left and right iterators
-                User temp = users[left];
-                users[left] = users[right];
-                users[right] = temp;
+                User temp = users.get(left);
+                users.set(left, users.get(right));
+                users.set(right, temp);
                 left++;
                 right--;
 
@@ -252,10 +247,6 @@ public class LeaderboardGUI extends javax.swing.JFrame {
         return users;
     }
 
-    
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMainMenu;

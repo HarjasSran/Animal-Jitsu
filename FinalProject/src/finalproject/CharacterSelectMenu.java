@@ -77,7 +77,8 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
      */
     public CharacterSelectMenu(MainMenuGUI mainMenu) {
         m = mainMenu;
-
+        
+        //fonts
         try {
             pixelFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf"));
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -85,10 +86,12 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         } catch (IOException | FontFormatException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
+        
+        //different size of fonts
         largePixelFont = pixelFont.deriveFont(60.0f);
         gameFont = pixelFont.deriveFont(100.0f);
 
+        //icon for animals, jar
         URL gorillaURL = CharacterSelectMenu.class.getResource("/icons/gorillaIcon.png");
         ImageIcon gorilla = new ImageIcon(gorillaURL);
 
@@ -100,19 +103,22 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
         URL zebraURL = CharacterSelectMenu.class.getResource("/icons/zebraIcon.png");
         ImageIcon zebra = new ImageIcon(zebraURL);
+        
+        //add icons of animals to list
         icons.add(gorilla);
         icons.add(giraffe);
         icons.add(tiger);
         icons.add(zebra);
 
         initComponents();
-
+        //set font where name is entered
         nameField.setFont(largePixelFont);
         warning.setVisible(false);
+        
         warning.setFont(largePixelFont);
 
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
-        
+        //set icon dependent on character of choice
         jLabel1.setIcon(icons.get(i));
 
 

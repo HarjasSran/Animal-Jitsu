@@ -16,11 +16,24 @@ import java.util.ArrayList;
 public class Player extends Character{
     int bow;
     
+    /**
+     * Primary constructor 
+     */
     public Player(){
         super();
         bow = 1;
     }
     
+    /**
+     * Secondary constructor 
+     * @param name
+     * @param x
+     * @param y
+     * @param bow
+     * @param animal
+     * @param direction
+     * @param cards 
+     */
     public Player(String name, int x, int y, int bow, BufferedImage animal, boolean direction, ArrayList<Card> cards){
         super(name,x,y,bow,animal,direction,cards); 
         this.bow = bow;

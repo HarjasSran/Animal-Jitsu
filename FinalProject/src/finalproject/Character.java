@@ -62,7 +62,7 @@ public class Character extends GameObject {
     /**
      * mutator method to set the color of the bow
      *
-     * @param c
+     * @param bow
      */
     public void setBow(int bow) {
         this.bow = bow;
@@ -75,7 +75,7 @@ public class Character extends GameObject {
     /**
      * accessor method to get the color of the bow
      *
-     * @return
+     * @return - color of the bow
      */
     public int getBow() {
         return bow; //return the color of the bow
@@ -93,7 +93,7 @@ public class Character extends GameObject {
     /**
      * accesor method to get the animal
      *
-     * @return
+     * @return - image fo the animal
      */
     public BufferedImage getAnimal() {
         return animal;//return the animal
@@ -108,11 +108,8 @@ public class Character extends GameObject {
         return cards;//return the cards
     }
 
-    /**
-     * accessor method for all the attributes of the player
-     *
-     * @return
-     */
+    
+    
 // used to distort the heights of characters by a periodic funtion
 // making them appear to sort of breathe.     
     double x = 0.0;
@@ -121,36 +118,41 @@ public class Character extends GameObject {
     public void render(Graphics2D g2d) {
 
         
-        
+        //move object if there target x positon isnt their current x position
         if (this.getTargetX() > this.getX()) {
 
-            // this.setX(xPos+1);
             this.setX(Math.round(1.01f * this.getTargetX()));
 
         } else if (this.getTargetX() < this.getX()) {
             this.setX(this.getX() - Math.round(0.01f * this.getTargetX()));
         }
 
+        //move object if their targer y positons isnt their current y positon
         if (this.getTargetY() > this.getY()) {
-
-            // this.setX(xPos+1);
             this.setY(this.getY() + Math.round(0.01f * this.getTargetY()));
 
         } else if (this.getTargetY() < this.getY()) {
             this.setY(this.getY() - Math.round(0.01f * this.getTargetY()));
         }
-
-        //System.out.println(this.animal);
+        
+        //breating for the player and computer
         x += (Math.sin((currentFrame + this.xPos) * 0.1)) / 1.5;
         distort = (int) Math.floor(x);
 
         currentFrame++;
+        
+        //array holding image of bows
         BufferedImage bows[] = {GameScreen.BLACK_BOW, GameScreen.WHITE_BOW, GameScreen.GREEN_BOW, GameScreen.YELLOW_BOW, GameScreen.ORANGE_BOW, GameScreen.RED_BOW};
+        //if the rank of the user is more than 4, their bow color stays the same but rank increases
         if (this.getBow() >= 5) {
+            //draw it
             g2d.drawImage(bows[5], this.getX() - this.getObjectWidth(), 965, bows[5].getWidth(), bows[5].getHeight(), null);
-        } else if(this.getBow() == 0) {
+        } 
+        //if the bow of the image is black, then only draw black belt
+        else if(this.getBow() == 0) {
             g2d.drawImage(bows[this.getBow()], this.getX() - this.getObjectWidth(), 965, bows[this.getBow()].getWidth(), bows[this.getBow()].getHeight(), null);
         }
+        //otherwise, the bows change colour dependent on the rank
         else {
             g2d.drawImage(bows[this.getBow()], 40, 965, bows[this.getBow()].getWidth(), bows[this.getBow()].getHeight(), null);
 
@@ -178,7 +180,7 @@ public class Character extends GameObject {
         /**
      * method to clone the character and its attributes
      *
-     * @return
+     * @return - new character
      */
     public Character clone(){
         Character newChar = new Character(name, xPos, yPos, bow, animal, direction, cards);
@@ -188,7 +190,7 @@ public class Character extends GameObject {
     /**
      * to string method with all attributes of the character
      *
-     * @return
+     * @return - all attributes and values of the character
      */
     public String toString() {
         

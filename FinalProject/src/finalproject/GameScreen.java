@@ -25,13 +25,6 @@ import javax.swing.Timer;
  */
 public class GameScreen extends JPanel {
 
-
-    
- 
-    
-  
-  
-
     static BufferedImage GIRAFFE_IMAGE = null;
     static BufferedImage BOSS_IMAGE = null;
     static BufferedImage GORILLA_IMAGE = null;
@@ -66,30 +59,26 @@ public class GameScreen extends JPanel {
     static BufferedImage image = null;
     static int imageX = 0;
     static int imageY = 0;
-    
-    
-    String name = CharacterSelectMenu.getUsername();;
+
+    String name = CharacterSelectMenu.getUsername();
+    ;
 
     Player player;
     Computer comp;
 
     int playerIndex = -1;
-    
-    
+
     // save a global reference to the gamescreen so we can manipulate its properties while running the game
-    GameScreen g = this; 
-    
+    GameScreen g = this;
+
     //label that stores text that is printed after each turn
-    String label = ""; 
-    
-   
+    String label = "";
 
     int compIndex = -1;
     boolean win;
     int playerElement;
     int compElement;
 
-    
     //win trackers for computer and player
     int playerFireWin = 0;
     int playerWaterWin = 0;
@@ -106,12 +95,12 @@ public class GameScreen extends JPanel {
     ActionListener waitForTurn = new ActionListener() {
         //when mouse is clicked on a card
         public void actionPerformed(ActionEvent ae) {
-           //remove the mouse listener so that this all runs once only every time
+            //remove the mouse listener so that this all runs once only every time
             delay.removeActionListener(waitForTurn);
             delay.stop();
             //generate and save a random card that the computer will play using the playCard method from the Computer class
             compIndex = comp.playCard();
-                //clone the card that is gettng player and delete it from the computers hand 
+            //clone the card that is gettng player and delete it from the computers hand 
             compCard = comp.getCard(compIndex).clone();
             comp.getCards().remove(comp.getCard(compIndex));
             //move the computer selected card to the screen to display
@@ -140,15 +129,17 @@ public class GameScreen extends JPanel {
             }
             //removal of the played cards so that they go off the screen
             removeCard.start();
-            removeCard.addActionListener(waitForRemoval); 
-            
+            removeCard.addActionListener(waitForRemoval);
+
             //check for who won and which element they won with and display method
             checkElementWins();
-            
+
             //check if someone has won the round and display message
             checkRoundWin();
 
-        }/**
+        }
+
+        /**
          * reset all element wins to default
          */
         private void reset() {
@@ -162,75 +153,73 @@ public class GameScreen extends JPanel {
         }
 
         /**
-         * check for who has won and which element they won with. Display message accordingly
+         * check for who has won and which element they won with. Display
+         * message accordingly
          */
         private void checkElementWins() {
-           //if the user has won
+            //if the user has won
             if (win) {
                 //save the element that the user has won win
                 playerElement = playerCard.getElement();
                 //if the user won with fire element, add a fire element win
                 if (playerElement == Card.FIRE_ELEMENT) {
                     playerFireWin += 1;
-                    
-                }
-                //if the user won with the water element, add a water element win
+
+                } //if the user won with the water element, add a water element win
                 else if (playerElement == Card.WATER_ELEMENT) {
                     playerWaterWin += 1;
-                } 
-                //if the user won with the snow element, add a snow element win
+                } //if the user won with the snow element, add a snow element win
                 else if (playerElement == Card.SNOW_ELEMENT) {
-                    playerSnowWin +=1;
+                    playerSnowWin += 1;
                 }
                 //show the user that they have won
-                label = name + " wins"; 
-            } 
-            //if the user has not won and the computer has won instead
+                label = name + " wins";
+            } //if the user has not won and the computer has won instead
             else {
                 //save the element that the computer has won win
                 compElement = compCard.getElement();
                 //if the computer has won with the fire element, add a fire element win
                 if (compElement == Card.FIRE_ELEMENT) {
                     compFireWin += 1;
-                }
-                //if the computer has won with the water element, add a water element win
+                } //if the computer has won with the water element, add a water element win
                 else if (playerElement == Card.WATER_ELEMENT) {
                     compWaterWin += 1;
-                }
-                //if the computer has won with the snow element, add a snow element win
+                } //if the computer has won with the snow element, add a snow element win
                 else if (playerElement == Card.SNOW_ELEMENT) {
-                    compSnowWin +=1;
+                    compSnowWin += 1;
                 }
                 //show the user that the sensei has won
-                
-                label = "Sensei wins"; 
+
+                label = "Sensei wins";
             }
         }
 
         /**
-         * check if someone has won the round and display message according. start new round if someone has won
+         * check if someone has won the round and display message according.
+         * start new round if someone has won
          */
         private void checkRoundWin() {
-           
+
             //if the player has atleast 1 win with each element or 3 in total with 1 certain element
-            if ((playerFireWin >= 1 && playerWaterWin >= 1 && playerSnowWin >= 1) || playerFireWin >= 3 || playerWaterWin >= 3 || playerSnowWin >= 3 ) {
+            if ((playerFireWin >= 1 && playerWaterWin >= 1 && playerSnowWin >= 1) || playerFireWin >= 3 || playerWaterWin >= 3 || playerSnowWin >= 3) {
                 //show the user that they have won this round and that they will be promoted
-                
-                label  = "new bow achieved"; 
+
+                label = "new bow achieved";
                 //increase the players rank and this will also change their bow colour
                 player.setBow(player.getBow() + 1);
                 //reset all the element wins back to default for the new round
                 reset();
-            } 
-            //if the computer has atleast 1 win with each element or 3 in total with 1 certain element
-            else if (compFireWin >=1 && compWaterWin >= 1 && compSnowWin >= 1 || compFireWin >= 3 || compWaterWin >= 3 || playerSnowWin >= 3) {
-                
-                player.setBow(player.getBow()-1);
-                label = "defeated by sensei peng"; 
-                
+            } //if the computer has atleast 1 win with each element or 3 in total with 1 certain element
+            else if (compFireWin >= 1 && compWaterWin >= 1 && compSnowWin >= 1 || compFireWin >= 3 || compWaterWin >= 3 || playerSnowWin >= 3) {
+
+                if (player.getBow() != 1) {
+                    player.setBow(player.getBow() - 1);
+                }
+                label = "defeated by sensei peng";
+
                 //reset all the element wins back to default for the new round
                 reset();
-            } 
+            }
         }
 
     };
@@ -239,10 +228,10 @@ public class GameScreen extends JPanel {
     Timer removeCard = new Timer(2000, null);
     //once the cards have been removed after playing
     ActionListener waitForRemoval = new ActionListener() {
-        
+
         public void actionPerformed(ActionEvent q) {
             removeCard.removeActionListener(waitForRemoval);
-            
+
             //move the player user and computer cards off the screen
             playerCard.moveObject(playerCard.getX(), 2000);
             compCard.moveObject(compCard.getX(), 2000);
@@ -260,11 +249,12 @@ public class GameScreen extends JPanel {
             removeCard.stop();
             //it is now the players turn to play
             isPlayerTurn = true;
-            label = ""; 
+            label = "";
 
         }
 
     };
+
     //class which listens for card clicks
     public class ClickListener extends MouseAdapter {
 
@@ -273,12 +263,11 @@ public class GameScreen extends JPanel {
 
         boolean clicked;
 
-
         /**
          * If the mouse is clicked
-         * @param e 
+         *
+         * @param e
          */
-
         @Override
         public void mouseClicked(MouseEvent e) {
 
@@ -287,7 +276,6 @@ public class GameScreen extends JPanel {
             yPos = e.getY() / SCREEN_SCALE;
 
             //for all the cards that the user has
-
             for (int i = 0; i < player.getCards().size(); i++) {
                 //index of the specific card 
                 playerIndex = i;
@@ -297,7 +285,7 @@ public class GameScreen extends JPanel {
                     if (isPlayerTurn) {
                         //no longer players turn
                         isPlayerTurn = false;
-                        
+
                         //clone the card which the user clicked
                         playerCard = player.getCard(playerIndex).clone();
 
@@ -310,7 +298,7 @@ public class GameScreen extends JPanel {
                         //temporary card that holds the new card getting added to the players hand7
                         Card deckCard = cards.get(0);
                         deckCard.setFaceUp(true);
-                        
+
                         //add new card to the players hand from the deck
                         player.getCards().add(playerIndex, deckCard);
                         //remove the card from the overall deck
@@ -322,7 +310,7 @@ public class GameScreen extends JPanel {
                         int moveY = 48;
                         //move the card into the correct position
                         player.getCard(playerIndex).moveObject(moveX, moveY);
-            
+
                         delay.start();
                         delay.addActionListener(waitForTurn);
 
@@ -331,8 +319,7 @@ public class GameScreen extends JPanel {
                 }
 
             }
-            
-            
+
             //sorta hardcoded because last minute fix
             // if the bottom middle is clicked (exit game text) 
             if (xPos > 750 && xPos < 1020 && yPos < 1000 && yPos > 950) {
@@ -341,33 +328,22 @@ public class GameScreen extends JPanel {
                 //create a new user object to store name & score
                 User user = new User(player.getName(), player.getBow());
                 main.setVisible(true);
-                
-                
+
                 LeaderboardGUI.writeData(user);
-                
-                
-                
-                
-                
 
-           }
+            }
         }
-        
-
 
     }
 
-    
     //store the GUIs that may be accessed from within the screen so that they can be returned to 
     JFrame gameFrame;
     MainMenuGUI main;
 
-  
     public GameScreen(JFrame game, MainMenuGUI m) {
 
         main = m;
         gameFrame = game;
-        
 
         /**
          * Game animation loop - repaints every 30ms
@@ -417,27 +393,24 @@ public class GameScreen extends JPanel {
             imageX = 550;
             imageY = 250;
 
-        } 
-        //if the user choses to be a gorilla
+        } //if the user choses to be a gorilla
         else if (CharacterSelectMenu.getAnimal().equals("gorilla")) {
             //save image as gorrila
             image = GORILLA_IMAGE;
             imageX = 550;
             imageY = 400;
-        }
-        //if the user choses to be a tiger
+        } //if the user choses to be a tiger
         else if (CharacterSelectMenu.getAnimal().equals("tiger")) {
             //save image as tiger
             image = TIGER_IMAGE;
             imageX = 680;
             imageY = 560;
-        }
-        //if the user choses to be a zebra
+        } //if the user choses to be a zebra
         else {
             //save image as zebra
             image = ZEBRA_IMAGE;
             imageX = 600;
-            imageY = 0;
+            imageY = 550;
         }
 
         //All cards get generated and added into deck
@@ -449,7 +422,7 @@ public class GameScreen extends JPanel {
         }
         //shuffle the cards
         Collections.shuffle(cards);
-        
+
         //create player using secondary constructor from the Player class. Use split card method to assign the first 5 cards in the shuffled deck to the user
         player = new Player(name, imageX, imageY, 1, image, false, splitCards(0, 4, cards));
 
@@ -492,7 +465,6 @@ public class GameScreen extends JPanel {
         comp.setScale(80);
         comp.render(g2d);
 
-
         //render all of the cards in the player deck
         for (int i = 0; i < player.getCards().size(); i++) {
             player.getCard(i).render(g2d);
@@ -513,22 +485,17 @@ public class GameScreen extends JPanel {
             //render the player card onto the screen
             compCard.render(g2d);
         }
-        
-        
+
         // renders whatever label text appears above the cards after each turn
         g2d.setColor(Color.WHITE);
         g2d.drawChars(label.toCharArray(), 0, label.length(), 700, 400);
-        
-        
+
         // bad fix to downscale text, last minute fix
         g2d.scale(0.5, 0.5);
         // print end battle text on middle bottom of screen
-         g2d.setColor(Color.BLACK);
-        g2d.drawChars(("END BATTLE").toCharArray(), 0,("END BATTLE").toCharArray().length , 1700,1980);
+        g2d.setColor(Color.BLACK);
+        g2d.drawChars(("END BATTLE").toCharArray(), 0, ("END BATTLE").toCharArray().length, 1700, 1980);
 
-        
-        
-        
         //dispose of the current render frame. hopefully this is good for memory usage 
         g2d.dispose();
 
@@ -555,13 +522,15 @@ public class GameScreen extends JPanel {
         return img;
 
     }
-    
+
     /**
-     * Split method to split an array of cards into smaller groups using start and end indexes
+     * Split method to split an array of cards into smaller groups using start
+     * and end indexes
+     *
      * @param start - start index of the card arraylist
      * @param end - end index of the card arraylist
      * @param cards - arraylist which holds the deck of cards
-     * @return - the split array 
+     * @return - the split array
      */
     private ArrayList<Card> splitCards(int start, int end, ArrayList<Card> cards) {
 

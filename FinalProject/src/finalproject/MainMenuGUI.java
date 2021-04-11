@@ -207,9 +207,12 @@ public class MainMenuGUI extends javax.swing.JFrame {
     private void leaderboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderboardButtonActionPerformed
 
         //if the user clicks to see the leaderboard, show the user the leaderboard menu
+        LeaderboardGUI fake = new LeaderboardGUI(this);
         LeaderboardGUI leaderboard = new LeaderboardGUI(this);
 
+        fake.setVisible(false);
         leaderboard.setVisible(true);
+  
         this.setVisible(false);//the screen right now gets disables
 
     }//GEN-LAST:event_leaderboardButtonActionPerformed

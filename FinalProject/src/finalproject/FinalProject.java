@@ -20,12 +20,14 @@ import javax.swing.JOptionPane;
 
 public class FinalProject {
     
+    //fonts
     static Font pixelFont;
     static Font largePixelFont;
     
     
     public FinalProject(){
         
+        //creates fonts
         try {
             pixelFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf"));
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -34,14 +36,13 @@ public class FinalProject {
             JOptionPane.showMessageDialog(null, e);
         }
 
+        //larger font
         largePixelFont = pixelFont.deriveFont(80.0f);
-
-        System.out.println(largePixelFont);
         
     }
 
     /**
-     * @param args the command line arguments
+     * when the game begins, the main menu is displayed
      */
     public static void main(String[] args) {
         

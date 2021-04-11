@@ -5,11 +5,6 @@
  */
 package finalproject;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author harja
@@ -243,7 +238,7 @@ abstract public class GameObject {
     }
 
     /**
-     * accessor
+     * accessor 
      * @return target y of object
      */
     public int getTargetY() {

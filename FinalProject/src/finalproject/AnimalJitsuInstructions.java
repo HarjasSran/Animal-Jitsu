@@ -35,9 +35,10 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         // set icon image to penguin character
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         howToPlayArea.setOpaque(false);
-        howToPlayArea.setBackground(new Color(0, 0, 0, 200));
-       // howToPlayArea.setFont(CharacterSelectMenu.gameFont);
+        howToPlayArea.setBackground(new Color(0, 0, 0, 200)); //Background
+        
        
+        //Creates fonts
        try {
             pixelFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("fonts/pixelfont.ttf"));//custom font
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -45,18 +46,18 @@ public class AnimalJitsuInstructions extends javax.swing.JFrame {
         } catch (IOException | FontFormatException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
+       //different sized texts
         smallPixel = pixelFont.deriveFont(35.0f);
         mediumPixel = pixelFont.deriveFont(60.0f);
 
-       
+       //fonts for areas and labels
        earnYourBowsArea.setFont(smallPixel);
        howToPlayArea.setFont(smallPixel);
        lblInstructions.setFont(mediumPixel);
        lblRules.setFont(smallPixel);
        lblBows.setFont(smallPixel);
 
-        //jScrollPane2.getViewport().setOpaque(false);
+        
         jScrollPane2.setOpaque(false);
     }
 
