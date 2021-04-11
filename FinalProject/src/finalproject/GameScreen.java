@@ -27,15 +27,14 @@ public class GameScreen extends JPanel {
     int playerElement;
     int compElement;
 
-    boolean playerFireWin = false;
-    boolean playerWaterWin = false;
-    boolean playerSnowWin = false;
+    int playerFireWin = 0;
+    int playerWaterWin = 0;
+    int playerSnowWin = 0;
 
-    boolean compFireWin = false;
-    boolean compWaterWin = false;
-    boolean compSnowWin = false;
+    int compFireWin = 0;
+    int compWaterWin = 0;
+    int compSnowWin = 0;
 
-    boolean gameEnd = false;
 
     Timer delay = new Timer(1000, null);
 
@@ -64,9 +63,6 @@ public class GameScreen extends JPanel {
                 int compMoveX = compIndex * 140 + 1135;
                 int compMoveY = 49;
                 comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
-               
-
-                //isPlayerTurn = true;
             }
             removeCard.start();
             removeCard.addActionListener(waitForRemoval);
@@ -74,44 +70,40 @@ public class GameScreen extends JPanel {
             if (win) {
                 playerElement = playerCard.getElement();
                 if (playerElement == Card.FIRE_ELEMENT) {
-                    playerFireWin = true;
+                    playerFireWin += 1;
                 } else if (playerElement == Card.WATER_ELEMENT) {
-                    playerWaterWin = true;
+                    playerWaterWin += 1;
                 } else if (playerElement == Card.SNOW_ELEMENT) {
-                    playerSnowWin = true;
+                    playerSnowWin +=1;
                 }
 
                 JOptionPane.showMessageDialog(null, "You have won!");
             } else {
                 compElement = compCard.getElement();
                 if (compElement == Card.FIRE_ELEMENT) {
-                    compFireWin = true;
+                    compFireWin += 1;
                 } else if (playerElement == Card.WATER_ELEMENT) {
-                    compWaterWin = true;
+                    compWaterWin += 1;
                 } else if (playerElement == Card.SNOW_ELEMENT) {
-                    compSnowWin = true;
+                    compSnowWin +=1;
                 }
                 JOptionPane.showMessageDialog(null, "You lost to Sensei Peng");
             }
 
-            if (playerFireWin == true && playerWaterWin == true && playerSnowWin == true) {
+            if ((playerFireWin >= 1 && playerWaterWin >= 1 && playerSnowWin >= 1) || playerFireWin >= 3 || playerWaterWin >= 3 || playerSnowWin >= 3 ) {
                 JOptionPane.showMessageDialog(null, "You have won this round against Sensei Peng! You will get Promoted!");
-                gameEnd = true;
                 player.setBow(player.getBow() + 1);
 
-                playerFireWin = false;
-                playerWaterWin = false;
-                playerSnowWin = false;
-            } else if (compFireWin == true && compWaterWin == true && compSnowWin == true) {
+                playerFireWin = 0;
+                playerWaterWin = 0;
+                playerSnowWin = 0;
+            } else if (compFireWin >=1 && compWaterWin >= 1 && compSnowWin >= 1 || compFireWin >= 3 || compWaterWin >= 3 || playerSnowWin >= 3) {
                 JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
                 
-                compFireWin = false;
-                compWaterWin = false;
-                compSnowWin = false;
-                gameEnd = true;
-            } else {
-                gameEnd = false;
-            }
+                compFireWin = 0;
+                compWaterWin = 0;
+                compSnowWin = 0;
+            } 
 
         }
 
@@ -126,9 +118,6 @@ public class GameScreen extends JPanel {
             removeCard.removeActionListener(waitForRemoval);
             playerCard.moveObject(playerCard.getX(), 2000);
             compCard.moveObject(compCard.getX(), 2000);
-
-//         
-            /////////////
             compCard.setFaceUp(false);
             playerCard.setFaceUp(false);
             cards.add(compCard);
@@ -199,8 +188,6 @@ public class GameScreen extends JPanel {
         public void mouseClicked(MouseEvent e) {
             xPos = e.getX() / SCREEN_SCALE;
             yPos = e.getY() / SCREEN_SCALE;
-
-            //System.out.println(xPos + ", " + yPos);
             for (int i = 0; i < player.getCards().size(); i++) {
                 playerIndex = i;
 
@@ -234,8 +221,6 @@ public class GameScreen extends JPanel {
                 }
 
             }
-
-            //save x and y coordinates
         }
 
         @Override
