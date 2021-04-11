@@ -268,8 +268,6 @@ public class GameScreen extends JPanel {
          * @param e 
          */
 
-       
-
         @Override
         public void mouseClicked(MouseEvent e) {
 

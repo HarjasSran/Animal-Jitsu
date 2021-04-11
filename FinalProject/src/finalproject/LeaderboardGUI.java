@@ -169,7 +169,6 @@ static String output = "Name\tRank\n\n";
         String data[] = new String[2];
         data[0]=user.getName();
         data[1] = user.getRank()+"";
-        File f = new File("src/finalproject/save.txt");//get file
         ArrayList<String> list = new ArrayList();
         try {
             Scanner s = new Scanner(LeaderboardGUI.class.getResourceAsStream("save.txt")); //if file is not found
