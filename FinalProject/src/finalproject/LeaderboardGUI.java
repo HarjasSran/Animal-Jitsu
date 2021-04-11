@@ -26,9 +26,6 @@ static String output = "Name\tRank\n\n";
         initComponents();
         
          this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
-        String data[] = new String[2];
-        data[0]="john";
-        data[1] = "2";
         File f = new File("src/finalproject/save.txt");//get file
         ArrayList<String> list = new ArrayList();
         try {
@@ -44,21 +41,6 @@ static String output = "Name\tRank\n\n";
             }
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        list.add(data[0]);
-        list.add(data[1]);
-        
-        //save win counters to data file
-        try {
-            FileWriter myWriter = new FileWriter("src/finalproject/save.txt");
-            for (int i = 0; i < list.size(); i++) {
-                myWriter.write(list.get(i)+"\n");
-            }
-            myWriter.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error:" + e);
-        } catch (IOException ex) {
             Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
         }
         
