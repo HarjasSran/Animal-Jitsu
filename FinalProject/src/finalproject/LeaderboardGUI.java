@@ -19,7 +19,8 @@ static String output = "Name\tRank\n\n";
 
     /**
      * Creates new form LeaderboardGUI
-     */
+     */User users[];
+
     public LeaderboardGUI(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
@@ -96,8 +97,10 @@ static String output = "Name\tRank\n\n";
         lblLeaderboard = new javax.swing.JLabel();
         txtList = new javax.swing.JScrollPane();
         textList = new javax.swing.JTextArea();
-        btnMainMenu = new javax.swing.JButton();
+        searchQuery = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnMainMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Leaderboard");
@@ -115,7 +118,22 @@ static String output = "Name\tRank\n\n";
         textList.setRows(5);
         txtList.setViewportView(textList);
 
-        getContentPane().add(txtList, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 350, 510));
+        getContentPane().add(txtList, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 350, 510));
+        getContentPane().add(searchQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 230, -1));
+
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Search");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 80, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/city.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -100, 830, 780));
 
         btnMainMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/arrowButtonLeft1.png"))); // NOI18N
         btnMainMenu.setBorderPainted(false);
@@ -130,9 +148,6 @@ static String output = "Name\tRank\n\n";
         });
         getContentPane().add(btnMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 70, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgrounds/city.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -100, 830, 730));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -142,6 +157,14 @@ static String output = "Name\tRank\n\n";
         this.setVisible(false);
         m.setVisible(true);
     }//GEN-LAST:event_btnMainMenuActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        String query = searchQuery.getText(); 
+        textList.setText(linearSearch(users, query));
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,6 +212,20 @@ static String output = "Name\tRank\n\n";
         
     }
  
+    public static String linearSearch(User[] users, String q){
+        String output=""; 
+        for (int i = 0; i < 10; i++) {
+            if(users[i].getName().contains(q)){
+               output+= "\n"+ users[i].toString();
+            }
+            
+        }
+        return output;
+        
+        
+    }
+    
+    
     public static User[] descendingQuickSort(User[] users, int l, int r) {
 
         // sort is complete when the left bounds of the array are equal or greater than the right bound
@@ -245,8 +282,10 @@ static String output = "Name\tRank\n\n";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMainMenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblLeaderboard;
+    private javax.swing.JTextField searchQuery;
     private javax.swing.JTextArea textList;
     public static javax.swing.JScrollPane txtList;
     // End of variables declaration//GEN-END:variables
