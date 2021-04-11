@@ -2,34 +2,28 @@
 //April 10 2021
 //class that saves, and loads stuff from a file then displays the info on a gui
 package finalproject;
-import java.awt.Toolkit;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.FileWriter;
-import java.io.ObjectInputStream;
 import javax.swing.JOptionPane;
 
 public class LeaderboardGUI extends javax.swing.JFrame {
-MainMenuGUI m;
-static String output = "Name\tRank\n\n";
+    MainMenuGUI m;
+    static String output = "";
+//    output = "Name\tRank\n\n";
 
-    /**
-     * Creates new form LeaderboardGUI
-     */
-//User users[];
     User[] userList;
-    ArrayList<String> list = new ArrayList();
+    static ArrayList<String> list = new ArrayList();
+    
     public LeaderboardGUI(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
-
+        output = "Name\tRank\n\n";
         try {
             FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
             Scanner s = new Scanner(in); 
@@ -57,9 +51,9 @@ static String output = "Name\tRank\n\n";
                 output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
             }
             textList.setText(output);
-            list.clear();
+            
         } catch (IOException e) {
-            //Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Error!");
         }
 
@@ -149,7 +143,6 @@ static String output = "Name\tRank\n\n";
        
         textList.setText(linearSearch(userList, query));
         
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -160,13 +153,9 @@ static String output = "Name\tRank\n\n";
         String data[] = new String[2];
         data[0]=user.getName();
         data[1] = user.getRank()+"";
-        ArrayList<String> list = new ArrayList();
         try {
-             FileOutputStream out = new FileOutputStream(System.getProperty("user.dir") + "/saves/save.txt");
-             //FileOutputStream out = new FileOutputStream("save.txt");
-             Scanner s = new Scanner((Readable) out);
-            //Scanner s = new Scanner(LeaderboardGUI.class.getResourceAsStream("save.txt")); //if file is not found
-            
+             FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
+             Scanner s = new Scanner(in);
             while (s.hasNextLine()){
                 String newData[] = new String[2];
                 newData[0] = (s.nextLine());
@@ -190,8 +179,9 @@ static String output = "Name\tRank\n\n";
             }
             myWriter.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Error:" + e);
+            JOptionPane.showMessageDialog(null, "Error" + e);
         } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error: " + ex);
             Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
         }
         

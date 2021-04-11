@@ -338,11 +338,10 @@ public class GameScreen extends JPanel {
                 gameFrame.setVisible(false);
                 //create a new user object to store name & score
                 User user = new User(player.getName(), player.getBow());
-                //write the user to the datafile
-                LeaderboardGUI.writeData(user);
-                JOptionPane.showMessageDialog(null, "User is created");
-                //show the main menu 
                 main.setVisible(true);
+                
+                
+                LeaderboardGUI.writeData(user);
                 
                 
                 
