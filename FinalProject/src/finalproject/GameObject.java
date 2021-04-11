@@ -14,29 +14,18 @@ import javax.swing.JOptionPane;
  */
 abstract public class GameObject {
 
-    int xPos;
-    int yPos;
-    int rotation;
-    int width;
-    int height;
-    double scale;
-    boolean direction; //true == left
+    protected int xPos;
+    protected int yPos;
+    protected int rotation;
+    protected int width;
+    protected int height;
+    protected double scale;
+    protected boolean direction; //true == left
 
     int targetX;
     int targetY;
 
-//    static BufferedImage GIRAFFE_IMAGE = null;
-//    static BufferedImage BOSS_IMAGE = null;
-//    static BufferedImage GORILLA_IMAGE = null;
-//    static BufferedImage TIGER_IMAGE = null;
-//    static BufferedImage MONKEY_IMAGE = null;
-//    static BufferedImage ZEBRA_IMAGE = null;
-//
-//    static BufferedImage FIREBALL_IMAGE = null;
-//    static BufferedImage WATERBALL_IMAGE = null;
-//    static BufferedImage SNOWBALL_IMAGE = null;
-//
-//    static BufferedImage CARD_SPRITESHEET = null;
+
     /**
      * Default constructor
      */
@@ -231,6 +220,13 @@ abstract public class GameObject {
         return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;//to string of attributes of the object
     }
 
+    /**
+     * Static method to interpolate between 2 values
+     * @param a start value
+     * @param b end value
+     * @param fac factor controlling speed (0.5 means it moves halfway to end point each time) 
+     * @return the interpolated value
+     */
     public static int lerp(int a, int b, double fac) {
         return a + (int) (fac * (b - a));
     }

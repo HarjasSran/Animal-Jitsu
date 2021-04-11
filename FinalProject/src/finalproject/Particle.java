@@ -1,6 +1,6 @@
 //Caroline Widdecombe, Aidan Goodyr, Harjas Sran
 //April 10 2021
-//
+// Particle Class
 package finalproject;
 
 import java.awt.image.BufferedImage;
@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
  */
 public class Particle extends GameObject {
 
-    BufferedImage element;
+   protected BufferedImage element;
 
     /**
      * initial constructor to set to default values

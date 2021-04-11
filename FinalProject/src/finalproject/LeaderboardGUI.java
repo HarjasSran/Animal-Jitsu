@@ -1,4 +1,4 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
+//Caroline Widdecombe, Aidan Goodyer, Harjas Sran
 //April 10 2021
 //class that saves, and loads stuff from a file then displays the info on a gui
 package finalproject;

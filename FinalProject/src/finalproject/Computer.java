@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Computer extends Character {
 
-    int skillLevel;
+    protected int skillLevel;
 
     /**
      * Default constructor
