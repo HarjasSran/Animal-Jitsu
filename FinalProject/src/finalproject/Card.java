@@ -299,21 +299,24 @@ if(this.width==1){
      * Checks whether or not the card is getting clicked by the user
      * @param x - x pos of mouse when clicking
      * @param y - y pos of mouse when clicking
-     * @return 
+     * @return - if the card was clicked (boolean)
      */
     public boolean isClicked(double x, double y) {
 
         boolean isClicked = false;
 
+        //if the user has clikced between the x positions of the card
         if (this.getX() < x && x < this.getX() + this.getObjectWidth()) {
-
+            //if the user has also clicked between the ypostions of the card
             if (this.getY() < y && y < this.getY() + this.getObjectHeight()) {
-
+                //then the user has clicked the card
                 isClicked = true;
 
             }
 
-        } else {
+        }
+        //card was not clicked otherwise
+        else {
             isClicked = false;
 
         }
