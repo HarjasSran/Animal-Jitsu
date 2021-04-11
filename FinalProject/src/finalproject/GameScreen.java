@@ -24,7 +24,7 @@ import javax.swing.Timer;
  */
 public class GameScreen extends JPanel {
     
-    
+    GameScreen g = this; 
     String label = ""; 
     
     Color highlight = Color.BLACK;
@@ -305,8 +305,10 @@ public class GameScreen extends JPanel {
              User user = new User(player.getName(), player.getBow()); 
              
              LeaderboardGUI.writeData(user);
-               
-            System.exit(0);
+                main.setVisible(true); 
+        gameFrame.setVisible(false);
+       
+           // System.exit(0);
            }
         }
 
@@ -350,10 +352,14 @@ public class GameScreen extends JPanel {
 
     }
 
+    JFrame gameFrame;
+    MainMenuGUI main;
+    
     ///////////////////////////////////////////////////////////////// 
-    public GameScreen(JFrame game) {
+    public GameScreen(JFrame game, MainMenuGUI m) {
         
-       
+        main = m; 
+       gameFrame = game; 
         
 
         ActionListener al = new ActionListener() {
