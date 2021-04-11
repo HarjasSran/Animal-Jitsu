@@ -3,8 +3,6 @@
 //
 package finalproject;
 
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.*;
@@ -12,9 +10,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -50,9 +45,10 @@ public class GameScreen extends JPanel{
   
               public void actionPerformed(ActionEvent ae) {
                   compIndex = comp.playCard();
-                  compCard = comp.getCard(compIndex);
+                  compCard = comp.getCard(compIndex).clone();
 
                   compCard.moveObject(1000, 500);
+                  compCard.flip();
 
 
 
@@ -97,7 +93,7 @@ public class GameScreen extends JPanel{
                    } else if (playerElement == Card.SNOW_ELEMENT) {
                        compSnowWin = true;
                    }
-                   JOptionPane.showMessageDialog(null, "Sensei Peng has won!");
+                   JOptionPane.showMessageDialog(null, "You lost to Sensei Peng");
                }
                
                
@@ -442,12 +438,17 @@ public class GameScreen extends JPanel{
 
             playerCard.render(g2d);
         }
+        
+        if(compCard !=null){
+            compCard.render(g2d);
+        }
 
         player.setScale(80);
         player.render(g2d);
 
         comp.setScale(80);
         comp.render(g2d);
+        
 
 //
 //        if(playerElement == Card.FIRE_ELEMENT){
