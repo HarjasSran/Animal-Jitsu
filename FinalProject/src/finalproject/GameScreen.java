@@ -44,35 +44,47 @@ public class GameScreen extends JPanel{
           ActionListener waitForTurn=  new ActionListener(){
   
               public void actionPerformed(ActionEvent ae) {
+                  
+                  
+                   delay.stop();
                   compIndex = comp.playCard();
-                  compCard = comp.getCard(compIndex).clone();
-
-                  compCard.moveObject(1000, 500);
+                  comp.getCards().remove(comp.getCard(compIndex));
+                  
+                  //comp.getCards().r
+                  compCard = comp.getCard(compIndex).clone(); 
+                    compCard.moveObject(1000, 500);
                   compCard.flip();
 
+                  
+                  
 
 
-               delay.stop();
+              
                win = Card.checkWin(compCard, playerCard);
 
 
                
-                              
+                 //function that waits to remove played cards from screen             
                removeCard.start();
                removeCard.addActionListener(waitForRemoval);
 
-               comp.getCards().remove(comp.getCard(compIndex));
-               comp.getCards().add(compIndex, cards.get(1));
-               cards.remove(cards.get(1));
-               comp.getCard(compIndex).move(3000, 0);
-               int compMoveX = compIndex * 140 + 1135;
-               int compMoveY = 49;
-               comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
-               comp.getCard(compIndex).flip();
+               
+               
+           
+               
+               
+               
+//               comp.getCards().add(compIndex, cards.get(1));
+               //cards.remove(cards.get(1));
+//               comp.getCard(compIndex).move(3000, 0);
+//               int compMoveX = compIndex * 140 + 1135;
+//               int compMoveY = 49;
+//               comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
+//               comp.getCard(compIndex).flip();
                
                
                isPlayerTurn = true;
-               
+              //////////////////////////////////////////////// 
                if (win) {
                    playerElement = playerCard.getElement();
                    if (playerElement == Card.FIRE_ELEMENT) {
@@ -83,7 +95,7 @@ public class GameScreen extends JPanel{
                        playerSnowWin = true;
                    }
 
-                   JOptionPane.showMessageDialog(null, "You have won!");
+                   //JOptionPane.showMessageDialog(null, "You have won!");
                } else {
                    compElement = compCard.getElement();
                    if (compElement == Card.FIRE_ELEMENT) {
@@ -93,17 +105,21 @@ public class GameScreen extends JPanel{
                    } else if (playerElement == Card.SNOW_ELEMENT) {
                        compSnowWin = true;
                    }
-                   JOptionPane.showMessageDialog(null, "You lost to Sensei Peng");
+                 //  JOptionPane.showMessageDialog(null, "You lost to Sensei Peng");
                }
                
                
                if(playerFireWin == true && playerWaterWin == true && playerSnowWin == true){
-                   JOptionPane.showMessageDialog(null, "You have won this round against Sensei Peng! You will get Promoted!");
+                  // JOptionPane.showMessageDialog(null, "You have won this round against Sensei Peng! You will get Promoted!");
                    gameEnd = true;
                    player.setBow(player.getBow()+1);
+                   
+                   playerFireWin =false; 
+                   playerWaterWin=false; 
+                   playerSnowWin= false;
                }
                else if(compFireWin == true && compWaterWin == true && compSnowWin == true){
-                   JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
+                 //  JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
                    gameEnd = true;
                }
                else{
@@ -128,8 +144,50 @@ public class GameScreen extends JPanel{
               
                playerCard.moveObject(playerCard.getX(), 2000);
                 compCard.moveObject(compCard.getX(), 2000);
+                
+//         
+
+   
+               /////////////
+               
+//               compCard.setFaceUp(false);
+//               playerCard.setFaceUp(false);
+               //cards.add(compCard); 
+            
+               //cards.add(playerCard);  
+               // Collections.shuffle(cards); 
+                
+                
+                
+                comp.getCards().add(compIndex, cards.get(1));
+               cards.remove(cards.get(1));
+                comp.getCard(compIndex).move(3000, 0);
+               int compMoveX = compIndex * 140 + 1135;
+               int compMoveY = 49;
+               comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
+               comp.getCard(compIndex).flip();
+                
+//                for (int i = 0; i < cards.size(); i++) {
+//                    cards.get(i).setFaceUp(false);
+//                   
+//               }
+               
+               ///////////////
+                
                
                removeCard.stop();
+               
+               
+               
+//               for (int i = 0; i < player.getCards().size(); i++) {
+//                   player.getCard(i).setFaceUp(true);
+//                   
+//               }
+//               
+//                for (int i = 0; i < comp.getCards().size(); i++) {
+//                  comp.getCard(i).setFaceUp(false);
+//                   
+//               }
              
             }
         
@@ -219,6 +277,10 @@ public class GameScreen extends JPanel{
                       
                     
                     player.getCards().remove(player.getCard(playerIndex));
+                    
+                    
+                    
+                    
                     player.getCards().add(playerIndex, cards.get(0));
                     cards.remove(cards.get(0));
                     player.getCard(playerIndex).move(-1000, 0);
@@ -408,7 +470,7 @@ public class GameScreen extends JPanel{
         
         comp = new Computer("Sensei Peng",1550, 400, 0, BOSS_IMAGE, true,splitCards(5, 9,cards), 1);
         for (int i = 0; i < comp.getCards().size(); i++) {
-            comp.getCard(i).setFaceUp(false);
+          //  comp.getCard(i).setFaceUp(false);
             comp.getCard(i).setX(i*140+1140);
              comp.getCard(i).setY(40);
         }
