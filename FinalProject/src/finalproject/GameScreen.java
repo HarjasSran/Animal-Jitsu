@@ -55,12 +55,7 @@ public class GameScreen extends JPanel{
                win = Card.checkWin(compCard, playerCard);
 
                
-               if (playerIndex >= 0) {
-                   player.getCards().add(playerIndex, cards.get(0));
-                   player.getCard(playerIndex).move(-1000, 0);
-                   player.getCard(playerIndex).moveObject(playerIndex * 140 + 49, 48);
-                   //player.getCard(playerIndex).flip();
-               }
+               
                
                if (win) {
                    playerElement = playerCard.getElement();
@@ -208,13 +203,10 @@ public class GameScreen extends JPanel{
     @Override
     public void mouseClicked(MouseEvent e) {
         xPos = e.getX()/SCREEN_SCALE;
-        
-        
-      
         yPos = e.getY()/SCREEN_SCALE;
         
         
-        System.out.println(xPos + ", " + yPos);
+        //System.out.println(xPos + ", " + yPos);
         
         for (int i = 0; i < player.getCards().size(); i++) {
             playerIndex = i;
@@ -228,7 +220,18 @@ public class GameScreen extends JPanel{
 
                     playerCard.moveObject(800, 500);
                     player.getCards().remove(player.getCard(playerIndex));
-//                    player.getCard(i).flip();
+                    //if (playerIndex >= 0) {
+                    player.getCards().add(playerIndex, cards.get(0));
+                    cards.remove(cards.get(0));
+                    player.getCard(playerIndex).move(-1000, 0);
+                    int moveX = playerIndex * 140 + 49;
+                    int moveY = 48;
+                    player.getCard(playerIndex).moveObject(moveX, moveY);
+//                    player.getCard(playerIndex).setX(moveX);
+//                    player.getCard(playerIndex).setY(moveY);
+                    //player.getCard(playerIndex).flip();
+                    //}
+                    
                     
                    
 
@@ -428,9 +431,9 @@ public class GameScreen extends JPanel{
 
         g2d.drawImage(BACKGROUND_IMAGE, 0, 0, 1920, 1080, null);
         
-        if(playerCard!=null){
-            
-         playerCard.render(g2d);
+        if (playerCard != null) {
+
+            playerCard.render(g2d);
         }
 
         player.setScale(80);
