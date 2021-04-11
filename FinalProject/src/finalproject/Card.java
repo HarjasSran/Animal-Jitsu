@@ -24,12 +24,15 @@ public class Card extends GameObject {
     final static int WATER_ELEMENT = 1;
     final static int SNOW_ELEMENT = 2;
 
+    
+    // controls the scaling of the card e.g. 4 is 4 times larger than source image
     static int DEFAULT_SCALE = 4;
 
     int targetWidth;
 
     /**
      * Default constructor
+     * create a generic card that is face down
      */
     public Card() {
         super();
@@ -149,10 +152,14 @@ public class Card extends GameObject {
         this.setFaceUp(!faceUp);
     }
 
+    // controls which card is drawn based off a portion of the card spritesheet x Position
     int horizontalIndex;
+    // controls which card is drawn based off a portion of the card spritesheet y Position
     int verticalIndex;
 
+    // the width of the selection area for the spritesheet
     int cardXOffset;
+     // the height of the selection area for the spritesheet
     int cardYOffset;
 
     public void render(Graphics2D g2d) {
@@ -183,20 +190,25 @@ if(this.width==1){
      xPos =  GameObject.lerp(xPos, targetX, 0.1); 
  }
  
+ 
+ //card always tries to approach its targetY   
+ //via smooth easing function
  if(this.getTargetY()>=this.getY()){
      yPos =  GameObject.lerp(yPos, targetY, 0.1); 
  }
         
-        
+        //if it is face up, it translates the selected portion of the spritesheet to the correct location
         if(faceUp){
           horizontalIndex = this.cardNumber+1;
          verticalIndex = this.element;
          
         }else{
+            // if face down, the selected portion of the spritesheet is the first card which is facedown
             horizontalIndex=0; 
             verticalIndex=0; 
         }
 
+        // minimum width reached by the flip() lerp function, once this is reached, flip it to the other side and expand width with flip2()
         if (this.width == 1) {
             flip2();
             this.width = lerp(width, targetWidth, 0.5);
@@ -223,7 +235,7 @@ if(this.width==1){
         cardYOffset = verticalIndex * PIXEL_HEIGHT;
 
         /**
-         *
+         *Cards are drawn by selecting a start & end x and y value from the spritesheet, and drawing that rectangular portion of the spritesheet
          */
         g2d.drawImage(GameScreen.CARD_SPRITE, xPos, yPos, this.width + xPos, this.height + yPos, cardXOffset, cardYOffset, PIXEL_WIDTH + cardXOffset, PIXEL_HEIGHT + cardYOffset, null);
 
