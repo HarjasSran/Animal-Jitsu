@@ -253,29 +253,29 @@ if(this.width==1){
         int compNumber = compPick.getCardNumber();
         int userNumber = userPick.getCardNumber();
 
-        if (userElement != compElement) {
-            if (userElement == FIRE_ELEMENT) {
-                if (compElement == SNOW_ELEMENT) {
-                 userWin = true; 
+        if (userElement != compElement) {//if the user and sensei pick differant elements
+            if (userElement == FIRE_ELEMENT) {//if user picks fire
+                if (compElement == SNOW_ELEMENT) {//if sensei picks snow
+                 userWin = true; //user wins
                 }
-            } else if (userElement == WATER_ELEMENT) {
-                if (compElement == FIRE_ELEMENT) {
-                   userWin = true; 
+            } else if (userElement == WATER_ELEMENT) {//if user picks water
+                if (compElement == FIRE_ELEMENT) {//if sensei picks fire
+                   userWin = true; //user wins
                 }
-            } else if (userElement ==SNOW_ELEMENT) {
-                if (compElement == WATER_ELEMENT) {
-                    userWin = true;
+            } else if (userElement ==SNOW_ELEMENT) {//if user picks snow
+                if (compElement == WATER_ELEMENT) {//if sensi picks water
+                    userWin = true;//user wins
                 }
             }
 
 
-        } else if (userElement == compElement) {
-            if (userNumber > compNumber) {
-                userWin = true;
+        } else if (userElement == compElement) {//if user and sensei pick the sme element
+            if (userNumber > compNumber) {//if the users number is greater than senseis number
+                userWin = true;//user wins
             }
         }
 
-        return userWin;
+        return userWin;//return weather or not the user won
     }
     
     
