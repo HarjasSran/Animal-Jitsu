@@ -291,6 +291,11 @@ public class GameScreen extends JPanel {
             
             //g2d.fillRect(750, 950, 270, 60);
            if(xPos>750 && xPos<1020 && yPos<1000 && yPos>950){
+               
+             User user = new User(player.getName(), player.getBow()); 
+             
+             LeaderboardGUI.writeData(user);
+               
             System.exit(0);
            }
         }
