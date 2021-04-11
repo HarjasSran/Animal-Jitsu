@@ -158,7 +158,7 @@ public class Character extends GameObject {
         currentFrame++;
         BufferedImage bows[] = {GameScreen.BLACK_BOW, GameScreen.WHITE_BOW, GameScreen.GREEN_BOW, GameScreen.YELLOW_BOW, GameScreen.ORANGE_BOW, GameScreen.RED_BOW};
         if (this.getBow() >= 5) {
-            g2d.drawImage(bows[5], this.getX() - this.getObjectWidth(), 965, bows[this.getBow()].getWidth(), bows[this.getBow()].getHeight(), null);
+            g2d.drawImage(bows[5], this.getX() - this.getObjectWidth(), 965, bows[5].getWidth(), bows[5].getHeight(), null);
         } else {
             g2d.drawImage(bows[this.getBow()], this.getX() - this.getObjectWidth(), 965, bows[this.getBow()].getWidth(), bows[this.getBow()].getHeight(), null);
         }

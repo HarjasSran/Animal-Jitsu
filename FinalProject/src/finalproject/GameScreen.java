@@ -23,6 +23,8 @@ import javax.swing.Timer;
  * @author Aidan
  */
 public class GameScreen extends JPanel {
+    
+    
     String label = ""; 
     
     Color highlight = Color.BLACK;
