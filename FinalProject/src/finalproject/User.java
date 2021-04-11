@@ -12,11 +12,12 @@ package finalproject;
  * @author harja
  */
 public class User {
-    String name;
-    int rank;
+   protected String name;
+   protected int rank;
     
     /**
      * Default User constructor
+     * with empty name and minimum rank
      */
     public User(){
         name = "";
@@ -28,9 +29,6 @@ public class User {
      * Second constructor for user 
      * @param name - name of the user
      * @param rank - rank of the user
-     * @param bow - color of the user's bow
-     * @param date - date user was created
-     * @param animal - animal which user used
      */
     public User(String name, int rank){
         this.name = name;

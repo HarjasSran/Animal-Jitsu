@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
  */
 public class Particle extends GameObject {
 
-    BufferedImage element;
+   protected BufferedImage element;
 
     /**
      * initial constructor to set to default values

@@ -3,8 +3,6 @@
  * Leaderboard GUI and sorting with reading and writing with jar
  * April 10 2021
  */
-
-
 package finalproject;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -27,10 +27,10 @@ public class GameScreen extends JPanel {
 
 
     
-    ///BEGINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+ 
     
-    //VARIABLES
-    final long start = System.currentTimeMillis();
+  
+  
 
     static BufferedImage GIRAFFE_IMAGE = null;
     static BufferedImage BOSS_IMAGE = null;
@@ -54,7 +54,7 @@ public class GameScreen extends JPanel {
 
     static BufferedImage CARD_SPRITE = null;
 
-    //Downscales to 720p 
+    //Downscales to 720p from native 1080
     static double SCREEN_SCALE = 0.666667;
 
     static boolean isPlayerTurn = true; //starts as the players turn
@@ -75,16 +75,22 @@ public class GameScreen extends JPanel {
 
     int playerIndex = -1;
     
+    
+    // save a global reference to the gamescreen so we can manipulate its properties while running the game
     GameScreen g = this; 
+    
+    //label that stores text that is printed after each turn
     String label = ""; 
     
-    Color highlight = Color.BLACK;
+   
 
     int compIndex = -1;
     boolean win;
     int playerElement;
     int compElement;
 
+    
+    //win trackers for computer and player
     int playerFireWin = 0;
     int playerWaterWin = 0;
     int playerSnowWin = 0;
@@ -100,7 +106,7 @@ public class GameScreen extends JPanel {
     ActionListener waitForTurn = new ActionListener() {
         //when mouse is clicked on a card
         public void actionPerformed(ActionEvent ae) {
-           //remove the mouse listener so that this all runs once only
+           //remove the mouse listener so that this all runs once only every time
             delay.removeActionListener(waitForTurn);
             delay.stop();
             //generate and save a random card that the computer will play using the playCard method from the Computer class
@@ -326,10 +332,13 @@ public class GameScreen extends JPanel {
 
             }
             
-            //g2d.fillRect(750, 950, 270, 60);
             
+            //sorta hardcoded because last minute fix
+            // if the bottom middle is clicked (exit game text) 
             if (xPos > 750 && xPos < 1020 && yPos < 1000 && yPos > 950) {
+                //hide the game
                 gameFrame.setVisible(false);
+                //create a new user object to store name & score
                 User user = new User(player.getName(), player.getBow());
                 main.setVisible(true);
                 
@@ -344,59 +353,25 @@ public class GameScreen extends JPanel {
            }
         }
         
-        //rest of the mouse listener methods 
-        @Override
-        public void mousePressed(MouseEvent e) {
-            clicked = true;
-            // System.out.println("f" + clicked);
-        }
 
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            clicked = false;
-        }
-
-        /**
-         * accessor method to get x position
-         *
-         * @return
-         */
-        public double getXPos() {
-            return xPos;//return x position
-        }
-
-        /**
-         * accessor method to get the y position
-         *
-         * @return
-         */
-        public double getYPos() {
-            return yPos;//return y position
-        }
-
-        /**
-         * accessor method to get wethoer or not the something is pressed
-         *
-         * @return
-         */
-        public boolean isPressed() {
-            return clicked;//return if it is pressed
-        }
 
     }
 
-    /////////////////////////////////////////
+    
+    //store the GUIs that may be accessed from within the screen so that they can be returned to 
     JFrame gameFrame;
     MainMenuGUI main;
 
-    ///////////////////////////////////////////////////////////////// 
+  
     public GameScreen(JFrame game, MainMenuGUI m) {
 
         main = m;
         gameFrame = game;
         
 
-
+        /**
+         * Game animation loop - repaints every 30ms
+         */
         ActionListener al = new ActionListener() {
             //when the timer ticks
             public void actionPerformed(ActionEvent ae) {
@@ -404,7 +379,7 @@ public class GameScreen extends JPanel {
                 repaint(); //redraw the panel
             }
         };
-
+        // timer triggers actionlistener every 30ms
         Timer timer = new Timer(30, al);
         //start the timer going
         timer.start();
@@ -540,24 +515,27 @@ public class GameScreen extends JPanel {
         }
         
         
+        // renders whatever label text appears above the cards after each turn
         g2d.setColor(Color.WHITE);
         g2d.drawChars(label.toCharArray(), 0, label.length(), 700, 400);
         
-        g2d.scale(0.5, 0.5);
         
+        // bad fix to downscale text, last minute fix
+        g2d.scale(0.5, 0.5);
+        // print end battle text on middle bottom of screen
          g2d.setColor(Color.BLACK);
         g2d.drawChars(("END BATTLE").toCharArray(), 0,("END BATTLE").toCharArray().length , 1700,1980);
 
         
         
         
-        
+        //dispose of the current render frame. hopefully this is good for memory usage 
         g2d.dispose();
 
     }
 
     /**
-     * Accessor method which creates a 2d image using the source of the image
+     * creates a 2d image using the source of the image
      *
      * @param src - source of the image
      * @return - 2d image that can be put on screen for user
