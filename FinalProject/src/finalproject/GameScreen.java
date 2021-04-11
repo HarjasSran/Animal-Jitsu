@@ -172,7 +172,6 @@ public class GameScreen extends JPanel {
                     playerSnowWin +=1;
                 }
                 //show the user that they have won
-               // JOptionPane.showMessageDialog(null, "You have won!");
                 label = name + " wins"; 
             } 
             //if the user has not won and the computer has won instead
@@ -192,7 +191,6 @@ public class GameScreen extends JPanel {
                     compSnowWin +=1;
                 }
                 //show the user that the sensei has won
-                //JOptionPane.showMessageDialog(null, "You lost to Sensei Peng");
                 
                 label = "Sensei wins"; 
             }
@@ -206,7 +204,6 @@ public class GameScreen extends JPanel {
             //if the player has atleast 1 win with each element or 3 in total with 1 certain element
             if ((playerFireWin >= 1 && playerWaterWin >= 1 && playerSnowWin >= 1) || playerFireWin >= 3 || playerWaterWin >= 3 || playerSnowWin >= 3 ) {
                 //show the user that they have won this round and that they will be promoted
-                //JOptionPane.showMessageDialog(null, "You have won this round against Sensei Peng! You will get Promoted!");
                 
                 label  = "new bow achieved"; 
                 //increase the players rank and this will also change their bow colour
@@ -217,9 +214,9 @@ public class GameScreen extends JPanel {
             //if the computer has atleast 1 win with each element or 3 in total with 1 certain element
             else if (compFireWin >=1 && compWaterWin >= 1 && compSnowWin >= 1 || compFireWin >= 3 || compWaterWin >= 3 || playerSnowWin >= 3) {
                 
+                player.setBow(player.getBow()-1);
                 label = "defeated by sensei peng"; 
                 
-                //JOptionPane.showMessageDialog(null, "You have lost this round to Sensei Peng. Better luck next time!");
                 //reset all the element wins back to default for the new round
                 reset();
             } 
