@@ -66,7 +66,7 @@ public class GameScreen extends JPanel {
                 comp.getCard(compIndex).moveObject(compMoveX, compMoveY);
                
 
-                isPlayerTurn = true;
+                //isPlayerTurn = true;
             }
             removeCard.start();
             removeCard.addActionListener(waitForRemoval);
@@ -135,6 +135,7 @@ public class GameScreen extends JPanel {
 
 
             removeCard.stop();
+            isPlayerTurn = true;
 
 
         }
