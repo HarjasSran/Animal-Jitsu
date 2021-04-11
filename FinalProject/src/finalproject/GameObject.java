@@ -260,12 +260,5 @@ abstract public class GameObject {
 
     }
 
-    /**
-     * method to create buffered image
-     *
-     * @param src
-     * @return
-     */
- 
 
 }
