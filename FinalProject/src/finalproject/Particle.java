@@ -21,8 +21,10 @@ public class Particle extends GameObject {
         element = null;
         direction = true;
     }
+
     /**
      * Secondary constructor to create particle game object
+     *
      * @param xPos
      * @param yPos
      * @param rotation
@@ -30,39 +32,47 @@ public class Particle extends GameObject {
      * @param height
      * @param scale
      * @param element
-     * @param direction 
+     * @param direction
      */
-    public Particle(int xPos, int yPos, int rotation, int width, int height, double scale,  boolean direction, BufferedImage element) {
+    public Particle(int xPos, int yPos, int rotation, int width, int height, double scale, boolean direction, BufferedImage element) {
         super(xPos, yPos, rotation, width, height, scale, direction);
         this.direction = direction;
     }
+
     /**
      * mutator method to set the element
-     * @param element 
+     *
+     * @param element
      */
-    public void setElement(BufferedImage element){
+    public void setElement(BufferedImage element) {
         this.element = element;
     }
+
     /**
      * accesor method to get the element
+     *
      * @return - element of the particle
      */
-    public BufferedImage getElement(){
+    public BufferedImage getElement() {
         return element;
     }
+
     /**
      * clone method to clone the particle
-     * @return 
+     *
+     * @return
      */
-    public Particle clone(){
+    public Particle clone() {
         Particle newParticle = new Particle(xPos, yPos, rotation, width, height, scale, direction, element);
         return newParticle;
     }
+
     /**
      * Accessor method to return all particle attributes and values
-     * @return 
+     *
+     * @return
      */
-    public String toString(){
+    public String toString() {
         return super.toString() + "Element: " + element + "Direction: " + direction;
     }
 }

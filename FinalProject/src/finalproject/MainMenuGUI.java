@@ -3,7 +3,6 @@
 //
 package finalproject;
 
-
 import java.awt.Toolkit;
 import java.io.BufferedInputStream;
 
@@ -19,49 +18,40 @@ public class MainMenuGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MainMenuGUI
+     *
      * @throws javax.sound.sampled.UnsupportedAudioFileException
      * @throws java.io.IOException
      * @throws javax.sound.sampled.LineUnavailableException
      */
-    
     //clip that holds music
-   static Clip clip=null; 
-    public MainMenuGUI()  {
+    static Clip clip = null;
+    static boolean music = true; //music starts off true, meaning it starts off by playing
+
+    public MainMenuGUI() {
         initComponents();
-        
-        
-      // set icon image to penguin character
-       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
-        
-        
+
+        // set icon image to penguin character
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
+
         //throws UnsupportedAudioFileException, IOException, LineUnavailableException
         //C:\Users\Aidan\Documents\SummativeProjectNewestVersion\FinalSummativeICS4U\FinalProject\dist\FinalProject.zip\finalproject
-        
         //gets the music for the game running
-        try{
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(new BufferedInputStream(getClass().getResourceAsStream("/finalproject/naruto.wav")));
+        try {
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(new BufferedInputStream(getClass().getResourceAsStream("/finalproject/naruto.wav")));
 
-        clip = AudioSystem.getClip();
-        
-        clip.open(audioStream);
-        
-        clip.start();
-        
-        clip.loop(javax.sound.sampled.Clip.LOOP_CONTINUOUSLY);
-      
-            
-            
-        }catch(LineUnavailableException | IOException | UnsupportedAudioFileException e){
-            JOptionPane.showMessageDialog(null, "The following Error occured:" + e); 
+            clip = AudioSystem.getClip();
+
+            clip.open(audioStream);
+
+            clip.start();
+
+            clip.loop(javax.sound.sampled.Clip.LOOP_CONTINUOUSLY);
+
+        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+            JOptionPane.showMessageDialog(null, "The following Error occured:" + e);
         }
-        
-        
-        
 
     }
-
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -172,81 +162,56 @@ public class MainMenuGUI extends javax.swing.JFrame {
         CharacterSelectMenu characterSelect = new CharacterSelectMenu(this);
 
         characterSelect.setVisible(true);
-        this.setVisible(false); //the screen right now 
+        this.setVisible(false); //the screen right now gets disables
 
 
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnInstructionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstructionsActionPerformed
-    AnimalJitsuInstructions instructions = new AnimalJitsuInstructions(this); 
-    instructions.setVisible(true);
-       this.setVisible(false); 
-       
+
+        //if the user clicks to see the instructions menu, connect to the instrcutions menu
+        AnimalJitsuInstructions instructions = new AnimalJitsuInstructions(this);
+        instructions.setVisible(true);
+        this.setVisible(false);//the screen right now gets disabled
+
     }//GEN-LAST:event_btnInstructionsActionPerformed
 
     private void btnCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditsActionPerformed
+        //if the user clicks to see the creidts menu, connect to the instructions menu
         Credits credits = new Credits(this);
 
         credits.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false);//the screen right now gets disable
     }//GEN-LAST:event_btnCreditsActionPerformed
 
-    boolean music=true; 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        
-        if(music){
-            music= false; 
+        //when the mute button is pressed
+
+        //and if the music is currently playing
+        if (music) {
+            //stop it from playing
+            music = false;
             clip.stop();
-        }else{
-            music=true;
+        } //and if the music is not currently playing 
+        else {
+            //start the music to playing
+            music = true;
             clip.start();
         }
-        
-        
+
+
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void leaderboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderboardButtonActionPerformed
-         LeaderboardGUI leaderboard = new LeaderboardGUI(this); 
-        
-       leaderboard.setVisible(true);
-        this.setVisible(false);
-        
+
+        //if the user clicks to see the leaderboard, show the user the leaderboard menu
+        LeaderboardGUI leaderboard = new LeaderboardGUI(this);
+
+        leaderboard.setVisible(true);
+        this.setVisible(false);//the screen right now gets disables
+
     }//GEN-LAST:event_leaderboardButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(MainMenuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(MainMenuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(MainMenuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(MainMenuGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new MainMenuGUI().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;

@@ -21,10 +21,9 @@ abstract public class GameObject {
     int height;
     double scale;
     boolean direction; //true == left
-    
-    
-    int targetX; 
-    int targetY; 
+
+    int targetX;
+    int targetY;
 
 //    static BufferedImage GIRAFFE_IMAGE = null;
 //    static BufferedImage BOSS_IMAGE = null;
@@ -38,16 +37,11 @@ abstract public class GameObject {
 //    static BufferedImage SNOWBALL_IMAGE = null;
 //
 //    static BufferedImage CARD_SPRITESHEET = null;
-
     /**
      * Default constructor
      */
-    
-    
-
     public GameObject() {
 
-    
         xPos = 0;
         yPos = 0;
         rotation = 0;
@@ -68,7 +62,7 @@ abstract public class GameObject {
      * @param scale - scale of the object
      * @param direction - the direction the object is facing. true == left
      */
-    public GameObject(int xPos, int yPos, int rotation, int width, int height,double scale, boolean direction) {
+    public GameObject(int xPos, int yPos, int rotation, int width, int height, double scale, boolean direction) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.rotation = rotation;
@@ -77,12 +71,10 @@ abstract public class GameObject {
         this.height = height;
         this.scale = scale;
         this.direction = direction;
-        
-        
-        targetX = this.xPos; 
-        targetY = this.yPos; 
-        
-        
+
+        targetX = this.xPos;
+        targetY = this.yPos;
+
     }
 
     /**
@@ -102,7 +94,7 @@ abstract public class GameObject {
      * @param xPos - x position of the object
      */
     public void setX(int xPos) {
-        this.targetX =xPos; 
+        this.targetX = xPos;
         this.xPos = xPos;
     }
 
@@ -112,13 +104,15 @@ abstract public class GameObject {
      * @param yPos - y position of the object
      */
     public void setY(int yPos) {
-        this.targetY= yPos; 
+        this.targetY = yPos;
         this.yPos = yPos;
     }
+
     /**
      * mutator method which sets the x and y position of the game objects
+     *
      * @param xPos
-     * @param yPos 
+     * @param yPos
      */
     public void setPositon(int xPos, int yPos) {
         this.xPos = xPos;
@@ -131,8 +125,7 @@ abstract public class GameObject {
      * @return - x position of the object
      */
     public int getX() {
-        
-        
+
         return xPos;//return th x position
     }
 
@@ -163,8 +156,6 @@ abstract public class GameObject {
         return rotation;//return the rotation
     }
 
-
-
     /**
      * Accessor method for scale
      *
@@ -181,8 +172,7 @@ abstract public class GameObject {
      */
     public void setWidth(int width) {
 
-     
-            this.width = width;
+        this.width = width;
 
     }
 
@@ -192,7 +182,7 @@ abstract public class GameObject {
      * @return - width of the object
      */
     public int getObjectWidth() {
-        
+
         return width;//return the width
     }
 
@@ -231,7 +221,7 @@ abstract public class GameObject {
     public boolean getDirection() {
         return direction;//return the direction
     }
-    
+
     /**
      * Accessor method to return all GameObject attributes and values
      *
@@ -240,35 +230,31 @@ abstract public class GameObject {
     public String toString() {
         return "X Position: " + xPos + "\tY Position: " + yPos + "\tRotation: " + rotation + "\tWidth: " + width + "\tHeight: " + height + "\tScale: " + scale + "\tDirection: " + direction;//to string of attributes of the object
     }
-    
-    
-    
-    public static int lerp(int a, int b, double fac){
-       return a + (int)(fac*(b-a)); 
-   } 
-    
-    
-    public int getTargetX(){
+
+    public static int lerp(int a, int b, double fac) {
+        return a + (int) (fac * (b - a));
+    }
+
+    public int getTargetX() {
         return this.targetX;
     }
-    public int getTargetY(){
+
+    public int getTargetY() {
         return this.targetY;
     }
-    
-    public void moveObject(int x, int y){
-        
-       
-        
-        targetX = x; 
-        targetY = y; 
-        
+
+    public void moveObject(int x, int y) {
+
+        targetX = x;
+        targetY = y;
+
     }
-    
-    
+
     /**
      * method to create buffered image
+     *
      * @param src
-     * @return 
+     * @return
      */
     protected BufferedImage createBufferedImage(String src) {
         BufferedImage img;

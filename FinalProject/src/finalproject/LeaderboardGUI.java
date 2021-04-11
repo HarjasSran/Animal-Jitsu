@@ -4,13 +4,16 @@
 package finalproject;
 import java.awt.Toolkit;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.FileWriter;
+import java.io.ObjectInputStream;
 import javax.swing.JOptionPane;
 
 public class LeaderboardGUI extends javax.swing.JFrame {
@@ -20,49 +23,54 @@ static String output = "Name\tRank\n\n";
     /**
      * Creates new form LeaderboardGUI
      */
-
 //User users[];
+    User[] userList;
 
-User[] userList; 
     public LeaderboardGUI(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
-        
-         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
-        File f = new File("src/finalproject/save.txt");//get file
-        ArrayList<String> list = new ArrayList();
+
+        //this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
         try {
-            Scanner s = new Scanner(f); //if file is not found
-            
-            while (s.hasNextLine()){
+            FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
+            //FileInputStream in = new FileInputStream(System.getProperty("save.txt"));
+            //File in = new File("src/finalproject/save.txt");//get file
+            ArrayList<String> list = new ArrayList();
+            Scanner s = new Scanner(in); //if file is not found
+            //ObjectInputStream s = new ObjectInputStream(in);
+            while (s.hasNextLine()) {//while the input stream has lines
+
                 String newData[] = new String[2];
                 newData[0] = (s.nextLine());
                 newData[1] = (s.nextLine());
                 list.add(newData[0]);
                 list.add(newData[1]);
-                
-            }
 
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            int halfList = list.size() / 2;
+            String name[] = new String[list.size() / 2];
+            User users[] = new User[halfList];
+            int level[] = new int[list.size() / 2];
+            for (int i = 0; i < halfList; i++) {
+                name[i] = list.get(i * 2);
+                level[i] = Integer.parseInt(list.get((i * 2) + 1));
+                users[i] = new User(name[i], level[i]);
+
+            }
+            userList = descendingQuickSort(users, 0, halfList - 1);
+            for (int i = 0; i < halfList; i++) {
+                output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
+            }
+            textList.setText(output);
+
+        } catch (IOException e) {
+            //Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "Error!");
         }
+
         
-        int halfList = list.size()/2;
-        String name[] = new String[list.size()/2];
-        User users[] = new User[halfList];
-        int level[] = new int[list.size()/2];
-        for (int i = 0; i < halfList; i++) {
-            name[i] = list.get(i*2);
-            level[i] = Integer.parseInt(list.get((i*2)+1));
-            users[i] = new User(name[i], level[i]);
-            
-        }
-        userList=descendingQuickSort(users, 0, halfList-1);
-        
-        for (int i = 0; i < halfList; i++) {
-            output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
-        }
-        textList.setText(output);
+  
+
     }
 
     /**
@@ -159,7 +167,10 @@ User[] userList;
         data[1] = user.getRank()+"";
         ArrayList<String> list = new ArrayList();
         try {
-            Scanner s = new Scanner(LeaderboardGUI.class.getResourceAsStream("save.txt")); //if file is not found
+             FileOutputStream out = new FileOutputStream(System.getProperty("user.dir") + "/saves/save.txt");
+             //FileOutputStream out = new FileOutputStream("save.txt");
+             Scanner s = new Scanner((Readable) out);
+            //Scanner s = new Scanner(LeaderboardGUI.class.getResourceAsStream("save.txt")); //if file is not found
             
             while (s.hasNextLine()){
                 String newData[] = new String[2];
@@ -170,7 +181,7 @@ User[] userList;
                 
             }
 
-        } catch (Error e) {
+        } catch (FileNotFoundException e) {
           JOptionPane.showMessageDialog(null,e);
         }
         list.add(data[0]);
@@ -178,7 +189,7 @@ User[] userList;
         
         //save win counters to data file
         try {
-            FileWriter myWriter = new FileWriter("src/finalproject/save.txt");
+            FileWriter myWriter = new FileWriter(System.getProperty("user.dir") + "save.txt");
             for (int i = 0; i < list.size(); i++) {
                 myWriter.write(list.get(i)+"\n");
             }

@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,6 +26,8 @@ public class GameScreen extends JPanel {
 
     
     ///BEGINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+    
+    //VARIABLES
     final long start = System.currentTimeMillis();
 
     static BufferedImage GIRAFFE_IMAGE = null;
@@ -54,7 +55,7 @@ public class GameScreen extends JPanel {
     //Downscales to 720p 
     static double SCREEN_SCALE = 0.666667;
 
-    static boolean isPlayerTurn = true;
+    static boolean isPlayerTurn = true; //starts as the players turn
     static Card compCard;
     static Card playerCard;
 
@@ -63,6 +64,8 @@ public class GameScreen extends JPanel {
     static BufferedImage image = null;
     static int imageX = 0;
     static int imageY = 0;
+    
+    
     String name = CharacterSelectMenu.getUsername();;
 
     Player player;
