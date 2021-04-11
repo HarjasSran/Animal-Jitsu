@@ -46,16 +46,15 @@ public class FinalProject {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        
-        
-        
+    public static void main(String[] args) {
         
        
         MainMenuGUI menu = new MainMenuGUI(); 
         menu.setVisible(true);       
        
        
+        menu.setVisible(true);
+   
         
     }
     

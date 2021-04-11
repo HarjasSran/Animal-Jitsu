@@ -87,7 +87,6 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         largePixelFont = pixelFont.deriveFont(60.0f);
         gameFont = pixelFont.deriveFont(100.0f);
 
-
         URL gorillaURL = CharacterSelectMenu.class.getResource("/icons/gorillaIcon.png");
         ImageIcon gorilla = new ImageIcon(gorillaURL);
 
@@ -255,7 +254,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
             game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-            GameScreen gameScreen = new GameScreen(game);
+            GameScreen gameScreen = new GameScreen(game,m);
             game.add(gameScreen);
             game.setVisible(true);
             game.setLocationRelativeTo(null);
