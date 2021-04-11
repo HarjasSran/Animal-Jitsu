@@ -12,10 +12,10 @@ import java.awt.Graphics2D;
  */
 public class Card extends GameObject {
 
-    int element;
-    int cardNumber;
-    Color color;
-    boolean faceUp; //true == facing up
+    protected int element;
+    protected int cardNumber;
+
+    protected boolean faceUp; //true == facing up
 
     final static int PIXEL_WIDTH = 35;
     final static int PIXEL_HEIGHT = 47;
@@ -24,18 +24,23 @@ public class Card extends GameObject {
     final static int WATER_ELEMENT = 1;
     final static int SNOW_ELEMENT = 2;
 
+    
+    // controls the scaling of the card e.g. 4 is 4 times larger than source image
     static int DEFAULT_SCALE = 4;
 
-    int targetWidth;
+    
+    //allows us to animate change of width
+    protected int targetWidth;
 
     /**
      * Default constructor
+     * create a generic card that is face down
      */
     public Card() {
         super();
         this.element = 0;
         this.cardNumber = 1;
-        this.color = Color.WHITE;
+      
         this.faceUp = false;
     }
 
@@ -51,6 +56,7 @@ public class Card extends GameObject {
         this.element = element;
         this.cardNumber = cardNumber;
         this.faceUp = faceUp;
+        //initialize the target width to the width
         targetWidth = PIXEL_WIDTH * DEFAULT_SCALE;
         
         
@@ -95,24 +101,9 @@ public class Card extends GameObject {
         return cardNumber;//return the number of the card
     }
 
-    /**
-     * Mutator method to set the color of the card
-     *
-     * @param c
-     */
-    public void setColor(Color c) {
-        color = c;
-    }
+    
 
-    /**
-     * Accessor method for the color
-     *
-     * @return - color of the card
-     */
-    public Color getColor() {
-        return color;//return the color of the card
-    }
-
+    
     /**
      * Mutator method to set the direction card is facing
      * In practice, this method should typically not be called
@@ -149,10 +140,14 @@ public class Card extends GameObject {
         this.setFaceUp(!faceUp);
     }
 
+    // controls which card is drawn based off a portion of the card spritesheet x Position
     int horizontalIndex;
+    // controls which card is drawn based off a portion of the card spritesheet y Position
     int verticalIndex;
 
+    // the width of the selection area for the spritesheet
     int cardXOffset;
+     // the height of the selection area for the spritesheet
     int cardYOffset;
 
     public void render(Graphics2D g2d) {
@@ -183,47 +178,47 @@ if(this.width==1){
      xPos =  GameObject.lerp(xPos, targetX, 0.1); 
  }
  
+ 
+ //card always tries to approach its targetY   
+ //via smooth easing function
  if(this.getTargetY()>=this.getY()){
      yPos =  GameObject.lerp(yPos, targetY, 0.1); 
  }
         
-        
+        //if it is face up, it translates the selected portion of the spritesheet to the correct location
         if(faceUp){
           horizontalIndex = this.cardNumber+1;
          verticalIndex = this.element;
          
         }else{
+            // if face down, the selected portion of the spritesheet is the first card which is facedown
             horizontalIndex=0; 
             verticalIndex=0; 
         }
 
+        // minimum width reached by the flip() lerp function, once this is reached, flip it to the other side and expand width with flip2()
         if (this.width == 1) {
             flip2();
             this.width = lerp(width, targetWidth, 0.5);
 
         }
-
+        // ease function towards target x
         if (this.getTargetX() != this.getX()) {
             xPos = GameObject.lerp(xPos, targetX, 0.1);
         }
-
+         // ease function towards target y
         if (this.getTargetY() >= this.getY()) {
             yPos = GameObject.lerp(yPos, targetY, 0.1);
         }
+        
 
-        if (faceUp) {
-            horizontalIndex = this.cardNumber + 1;
-            verticalIndex = this.element;
-
-        } else {
-            horizontalIndex = 0;
-            verticalIndex = 0;
-        }
+        // the width of the selection area for the spritesheet
         cardXOffset = horizontalIndex * PIXEL_WIDTH;
+         // the height of the selection area for the spritesheet
         cardYOffset = verticalIndex * PIXEL_HEIGHT;
 
         /**
-         *
+         *Cards are drawn by selecting a start & end x and y value from the spritesheet, and drawing that rectangular portion of the spritesheet
          */
         g2d.drawImage(GameScreen.CARD_SPRITE, xPos, yPos, this.width + xPos, this.height + yPos, cardXOffset, cardYOffset, PIXEL_WIDTH + cardXOffset, PIXEL_HEIGHT + cardYOffset, null);
 
@@ -248,12 +243,16 @@ if(this.width==1){
         //snow(2) beats water(0)
         //water(0) beats fire(1)
         //fire(1) beats snow(2)
+        
+        //get the element and card numbers of each card
         int compElement = compPick.getElement();
         int userElement = userPick.getElement();
 
         int compNumber = compPick.getCardNumber();
         int userNumber = userPick.getCardNumber();
 
+        
+        //determine the correct winner of the round
         if (userElement != compElement) {//if the user and sensei pick differant elements
             if (userElement == FIRE_ELEMENT) {//if user picks fire
                 if (compElement == SNOW_ELEMENT) {//if sensei picks snow
@@ -293,7 +292,7 @@ if(this.width==1){
      */
     public String toString() {
        
-        return  super.toString() + "Element: " + String.valueOf(element) + "\tCard Number: " + String.valueOf(cardNumber) + "\tColour: " + color + "\tFacing: " + faceUp;//return tring of all attributes of the card
+        return  super.toString() + "Element: " + String.valueOf(element) + "\tCard Number: " + String.valueOf(cardNumber) + "\tColour: " + "\tFacing: " + faceUp;//return tring of all attributes of the card
     }
 
     /**

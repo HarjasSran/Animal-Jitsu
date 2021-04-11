@@ -25,7 +25,7 @@ public class Character extends GameObject {
     protected long currentFrame = 0;
     final int distortOffset = (int) (Math.random() * 10);
 
-    int multiplier;
+   protected int multiplier;
 
     /**
      * default character constructor
@@ -46,6 +46,7 @@ public class Character extends GameObject {
 
         super(xPos, yPos, 0, animal.getWidth(), animal.getHeight(), 1.0, direction);
 
+        //a width of -1 flips the character's horizontal orientation
         if (direction) {
             multiplier = 1;
         } else {
