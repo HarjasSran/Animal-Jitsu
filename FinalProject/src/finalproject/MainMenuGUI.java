@@ -1,6 +1,8 @@
-//Caroline Widdecombe, Aidan Goodyer, Harjas Sran
-//April 10 2021
-//
+/**
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * Main Menu GUI with connections to other screen
+ * April 10 2021
+ */
 package finalproject;
 
 import java.awt.Toolkit;

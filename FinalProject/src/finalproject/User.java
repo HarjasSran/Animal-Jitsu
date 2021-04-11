@@ -1,6 +1,8 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
-//April 10 2021
-//
+/**
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * User class
+ * April 10 2021
+ */
 package finalproject;
 
 

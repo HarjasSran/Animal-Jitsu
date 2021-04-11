@@ -1,6 +1,8 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
-//April 10 2021
-//window for selecting your character and entering your name
+/**
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * Character Select Menu
+ * April 10 2021
+ */
 package finalproject;
 
 import java.awt.Color;

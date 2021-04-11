@@ -1,11 +1,10 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
-//April 10 2021
-//Instructions window
+/**
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * Instructions Menu
+ * April 10 2021
+ */
 package finalproject;
 
-import static finalproject.CharacterSelectMenu.gameFont;
-import static finalproject.CharacterSelectMenu.largePixelFont;
-import static finalproject.CharacterSelectMenu.pixelFont;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;

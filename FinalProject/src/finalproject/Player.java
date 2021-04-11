@@ -1,9 +1,10 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
-//April 10 2021
-//
+/**
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * Player class
+ * April 10 2021
+ */
 package finalproject;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;

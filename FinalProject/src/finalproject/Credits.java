@@ -1,6 +1,8 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
-//April 10 2021
-//credit screen window
+/**
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * Credits Screen
+ * April 10 2021
+ */
 package finalproject;
 
 import java.awt.Toolkit;

@@ -1,6 +1,10 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
-//April 10 2021
-//class that saves, and loads stuff from a file then displays the info on a gui
+/**
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * Leaderboard GUI and sorting with reading and writing with jar
+ * April 10 2021
+ */
+
+
 package finalproject;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

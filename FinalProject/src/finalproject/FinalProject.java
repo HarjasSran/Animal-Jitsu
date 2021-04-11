@@ -1,17 +1,14 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
-//April 10 2021
-//
+/**
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * Final Project Main Method
+ * April 10 2021
+ */
 package finalproject;
 
-import static finalproject.CharacterSelectMenu.largePixelFont;
-import static finalproject.CharacterSelectMenu.pixelFont;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**

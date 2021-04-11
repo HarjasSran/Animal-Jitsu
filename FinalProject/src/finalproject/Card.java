@@ -1,9 +1,10 @@
-//Caroline Widdecombe, Aidan Goodyr, Harjas Sran
-//April 10 2021
-//
+/** 
+ * Caroline Widdecombe, Aidan Goodyer, Harjas Sran
+ * Card Class
+ * April 10 2021
+ */
 package finalproject;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
@@ -58,11 +59,6 @@ public class Card extends GameObject {
         this.faceUp = faceUp;
         //initialize the target width to the width
         targetWidth = PIXEL_WIDTH * DEFAULT_SCALE;
-        
-        
-        
-         
-
     }
 
     /**
