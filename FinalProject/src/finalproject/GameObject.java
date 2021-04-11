@@ -20,7 +20,7 @@ abstract public class GameObject {
     protected int width;
     protected int height;
     protected double scale;
-    protected boolean direction; //true == left
+    protected boolean direction; //true = left
 
     int targetX;
     int targetY;
@@ -28,6 +28,7 @@ abstract public class GameObject {
 
     /**
      * Default constructor
+     * makes a game object with default values
      */
     public GameObject() {
 
@@ -231,14 +232,27 @@ abstract public class GameObject {
         return a + (int) (fac * (b - a));
     }
 
+    /**
+     * accessor 
+     * @return  the target x value of the object
+     */
     public int getTargetX() {
         return this.targetX;
     }
 
+    /**
+     * accessor
+     * @return target y of object
+     */
     public int getTargetY() {
         return this.targetY;
     }
 
+    /**
+     * method to animate motion
+     * @param x the x position to begin moving to 
+     * @param y the y position to begin moving to 
+     */
     public void moveObject(int x, int y) {
 
         targetX = x;
