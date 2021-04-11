@@ -27,10 +27,12 @@ public class LeaderboardGUI extends javax.swing.JFrame {
         m = mainMenu;
         initComponents();
         try {
+            //finds file on user directory
             FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
+            //scans directory
             Scanner s = new Scanner(in);
             while (s.hasNextLine()) {//while the input stream has lines
-
+                //read file and add to arraylist
                 String newData[] = new String[2];
                 newData[0] = (s.nextLine());
                 newData[1] = (s.nextLine());
@@ -38,21 +40,32 @@ public class LeaderboardGUI extends javax.swing.JFrame {
                 list.add(newData[1]);
 
             }
+            //half size of directory 
             int halfList = list.size() / 2;
-            String name[] = new String[list.size() / 2];
+            //array holding names of user
+            String name[] = new String[halfList];
+            //arraylist holding all users 
             ArrayList<User> users = new ArrayList(halfList);
-            int level[] = new int[list.size() / 2];
+            //array holding level of user
+            int level[] = new int[halfList];
+          
+            //adds new users to the arraylist of users
             for (int i = 0; i < halfList; i++) {
                 name[i] = list.get(i * 2);
                 level[i] = Integer.parseInt(list.get((i * 2) + 1));
                 users.add(i, new User(name[i], level[i]));
             }
+            //clear list reading input stream
             list.clear();
+            //sort the users using quick sort by rank(recursion and sorting)
             userList = descendingQuickSort(users, 0, halfList - 1);
+            //creates output to show user
             for (int i = 0; i < halfList; i++) {
                 output = output + userList.get(i).getName() + "\t" + userList.get(i).getRank() + "\n";
             }
+            //show user the sorted output
             textList.setText(output);
+            //reset output string
             output = "Name\tRank\n\n";
 
         } catch (IOException e) {
@@ -137,22 +150,28 @@ public class LeaderboardGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        //search for what user enters
         String query = searchQuery.getText();
 
         textList.setText(linearSearch(userList, query));
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+   
     /**
-     * @param args the command line arguments
+     * Method writing into the text file with saved highscores
+     * @param user 
      */
     public static void writeData(User user) {
+        //new added scores from user
         String data[] = new String[2];
         data[0] = user.getName();
         data[1] = user.getRank() + "";
         try {
+            //read current file
             FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "/saves/save.txt");
             Scanner s = new Scanner(in);
+            //save current file into arraylist
             while (s.hasNextLine()) {
                 String newData[] = new String[2];
                 newData[0] = (s.nextLine());
@@ -165,11 +184,13 @@ public class LeaderboardGUI extends javax.swing.JFrame {
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        //save new values into arraylist
         list.add(data[0]);
         list.add(data[1]);
 
-        //save win counters to data file
+        
         try {
+            //write the new scores into the save text file in the users directory
             FileWriter myWriter = new FileWriter(System.getProperty("user.dir") + "/saves/save.txt");
             for (int i = 0; i < list.size(); i++) {
                 myWriter.write(list.get(i)+"\n");
@@ -184,10 +205,16 @@ public class LeaderboardGUI extends javax.swing.JFrame {
         }
 
 
-    }
-
+    }/**
+     * method used to search the current arraylist for what the user searched for 
+     * @param users - all the current users
+     * @param q - what the user wants to see
+     * @return - the user that the user has searched for 
+     */
     public static String linearSearch(ArrayList<User> users, String q) {
+        //output is now black
         String output = "";
+        //check all the users for the User score that they have searched for 
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getName().toLowerCase().contains(q.toLowerCase())) {
                 output += "\n" + users.get(i).toString();
