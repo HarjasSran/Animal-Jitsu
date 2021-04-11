@@ -3,6 +3,7 @@
 //
 package finalproject;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.*;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,6 +24,8 @@ import javax.swing.Timer;
  */
 public class GameScreen extends JPanel {
 
+    
+    Color highlight = Color.BLACK;
     int compIndex = -1;
     boolean win;
     int playerElement;
@@ -241,10 +245,16 @@ public class GameScreen extends JPanel {
 
         boolean clicked;
 
+       
+        
+        
         @Override
         public void mouseClicked(MouseEvent e) {
+            
+           
             xPos = e.getX() / SCREEN_SCALE;
             yPos = e.getY() / SCREEN_SCALE;
+             System.out.println(xPos + ", " + yPos);
             for (int i = 0; i < player.getCards().size(); i++) {
                 playerIndex = i;
 
@@ -278,6 +288,11 @@ public class GameScreen extends JPanel {
                 }
 
             }
+            
+            //g2d.fillRect(750, 950, 270, 60);
+           if(xPos>750 && xPos<1020 && yPos<1000 && yPos>950){
+            System.exit(0);
+           }
         }
 
         @Override
@@ -322,6 +337,9 @@ public class GameScreen extends JPanel {
 
     ///////////////////////////////////////////////////////////////// 
     public GameScreen(JFrame game) {
+        
+       
+        
 
         ActionListener al = new ActionListener() {
             //when the timer ticks
@@ -438,6 +456,22 @@ public class GameScreen extends JPanel {
             compCard.render(g2d);
         }
 
+        
+        
+        
+        
+        
+        //g2d.fillRect(750, 950, 270, 60);
+        
+        g2d.scale(0.5, 0.5);
+        
+        
+        g2d.drawChars(("END BATTLE").toCharArray(), 0,("END BATTLE").toCharArray().length , 1540,1980);
+        //g2d.scale(SCREEN_SCALE, SCREEN_SCALE);
+        
+        
+        
+        
         g2d.dispose();
 
     }
