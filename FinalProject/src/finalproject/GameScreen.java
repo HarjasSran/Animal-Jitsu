@@ -54,6 +54,14 @@ public class GameScreen extends JPanel{
                delay.stop();
                win = Card.checkWin(compCard, playerCard);
 
+               
+               if (playerIndex >= 0) {
+                   player.getCards().add(playerIndex, cards.get(0));
+                   player.getCard(playerIndex).move(-1000, 0);
+                   player.getCard(playerIndex).moveObject(playerIndex * 140 + 49, 48);
+                   //player.getCard(playerIndex).flip();
+               }
+               
                if (win) {
                    playerElement = playerCard.getElement();
                    if (playerElement == Card.FIRE_ELEMENT) {
@@ -76,6 +84,7 @@ public class GameScreen extends JPanel{
                    }
                    JOptionPane.showMessageDialog(null, "Sensei Peng has won!");
                }
+               
                
                if(playerFireWin == true && playerWaterWin == true && playerSnowWin == true){
                    JOptionPane.showMessageDialog(null, "You have won this round against Sensei Peng! You will get Promoted!");
@@ -180,7 +189,8 @@ public class GameScreen extends JPanel{
     Player player;
     Computer comp;
 
-   
+    int playerIndex = -1;
+
     
     public class ClickListener extends MouseAdapter {
 
@@ -191,7 +201,6 @@ public class GameScreen extends JPanel{
 
 
     
-   
     
     
   
@@ -208,26 +217,20 @@ public class GameScreen extends JPanel{
         System.out.println(xPos + ", " + yPos);
         
         for (int i = 0; i < player.getCards().size(); i++) {
-            
+            playerIndex = i;
            
             
             if(player.getCard(i).isClicked(xPos,yPos)){
                 
                 if (isPlayerTurn) {
                     isPlayerTurn = false;
-                    playerCard = player.getCard(i).clone();
+                    playerCard = player.getCard(playerIndex).clone();
 
                     playerCard.moveObject(800, 500);
-                    player.getCards().remove(player.getCard(i));
-                    player.getCards().add(i, cards.get(0));
-                    player.getCard(i).move(-1000, 0);
-                    player.getCard(i).moveObject(i * 140 + 49, 48);
-                    player.getCard(i).flip();
-
+                    player.getCards().remove(player.getCard(playerIndex));
 //                    player.getCard(i).flip();
                     
-                    
-                    //System.out.println(player.getCard(i).toString());
+                   
 
                     delay.start();
                     delay.addActionListener(waitForTurn);
@@ -238,16 +241,7 @@ public class GameScreen extends JPanel{
                
                 
             }
-            
-            
-            
-            
-       
-            
-//            //FOR TESTING PURPOSES flip computer cards on click
-//            if(comp.getCard(i).isClicked(xPos, yPos)){
-//             //   comp.getCard(i).flip();
-//            }            
+                      
         }
         
         
@@ -444,7 +438,6 @@ public class GameScreen extends JPanel{
 
         comp.setScale(80);
         comp.render(g2d);
-        
 
 //
 //        if(playerElement == Card.FIRE_ELEMENT){
@@ -453,28 +446,16 @@ public class GameScreen extends JPanel{
 //        else if(compElement == Card.FIRE_ELEMENT){
 //            g2d.drawImage(FIREBALL_IMAGE, 500, 500, FIREBALL_IMAGE.getWidth(), FIREBALL_IMAGE.getHeight(), null);
 //        }
-        
-        
         for (int i = 0; i < player.getCards().size(); i++) {
-              player.getCard(i).render(g2d);  
-              
+            player.getCard(i).render(g2d);
 
         }
         for (int i = 0; i < comp.getCards().size(); i++) {
-             comp.getCard(i).render(g2d);            
+            comp.getCard(i).render(g2d);
         }
-        
-      
-       
-         
-        //System.out.println(cardClicked);
-      
 
-        // System.out.println(GameScreen.image);
-        // g2d.drawImage(image, 100, x, null);
-        //g2d.drawImage(image, 500, 100,-image.getWidth()/2, image.getHeight()/2-x/20, null);
+
         g2d.dispose();
-        //repaint();
 
     }
 
@@ -514,26 +495,5 @@ public class GameScreen extends JPanel{
         
     }
 
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
