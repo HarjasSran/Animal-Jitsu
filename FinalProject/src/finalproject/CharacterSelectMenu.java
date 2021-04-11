@@ -8,11 +8,9 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -89,10 +87,7 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         largePixelFont = pixelFont.deriveFont(60.0f);
         gameFont = pixelFont.deriveFont(100.0f);
 
-        System.out.println(largePixelFont);
 
-        //Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png"))
-        // ImageIcon gorilla = new ImageIcon("src/icons/gorillaIcon.png");
         URL gorillaURL = CharacterSelectMenu.class.getResource("/icons/gorillaIcon.png");
         ImageIcon gorilla = new ImageIcon(gorillaURL);
 
@@ -115,13 +110,9 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         warning.setVisible(false);
         warning.setFont(largePixelFont);
 
-        //nameField.set
-        // set icon image to penguin character
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/windowIcon.png")));
-
-        //ImageIcon icon = new ImageIcon(icons.get(i));
+        
         jLabel1.setIcon(icons.get(i));
-        //  System.out.println(jLabel1.getIcon());
 
 
     }
@@ -180,11 +171,6 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
         nameField.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         nameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nameField.setToolTipText("Enter your Username");
-        nameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
-            }
-        });
         getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 530, 430, 40));
 
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttons/StartButton1.png"))); // NOI18N
@@ -227,11 +213,9 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
     private void rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightActionPerformed
         //if the user presses the right button, show the user the next character
         if (i < icons.size() - 1) {//if i is less than incons size - 1
-            //ImageIcon icon = new ImageIcon(icons.get(i + 1));
-            System.out.println(i);
+            
             i++;
 
-            System.out.println(icons.get(i));
         } else {//if i is greater or equal to the icons size-1
             i = 0;
         }
@@ -256,11 +240,6 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LeftActionPerformed
 
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-
-        //save user using User class
-    }//GEN-LAST:event_nameFieldActionPerformed
-
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         //if the user presses hte start button, gether information and close this window and open the game window
         //get name from user input field
@@ -273,7 +252,6 @@ public class CharacterSelectMenu extends javax.swing.JFrame {
 
             JFrame game = new JFrame("Animal Jitsu");
             game.setSize(1280, 720);
-            // game.setSize(1920,1080);
 
             game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
