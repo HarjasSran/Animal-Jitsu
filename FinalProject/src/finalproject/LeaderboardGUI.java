@@ -1,6 +1,6 @@
 //Caroline Widdecombe, Aidan Goodyr, Harjas Sran
 //April 10 2021
-//class that saves, and loads stuff from a file then dif=splays the info on a gui
+//class that saves, and loads stuff from a file then displays the info on a gui
 package finalproject;
 import java.awt.Toolkit;
 import java.io.File;
@@ -43,8 +43,6 @@ static String output = "Name\tRank\n\n";
                 
             }
 
-            //descendingQuickSort(level, 5, 4);
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -64,9 +62,6 @@ static String output = "Name\tRank\n\n";
             Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //int level[] = new int[list.size()];
-        //String name[] = new String[list.size()];
-        System.out.println(list);
         int halfList = list.size()/2;
         String name[] = new String[list.size()/2];
         User users[] = new User[halfList];
@@ -188,10 +183,7 @@ static String output = "Name\tRank\n\n";
                 
             }
 
-            //descendingQuickSort(level, 5, 4);
-
         } catch (Error e) {
-          //  Logger.getLogger(Highscores.class.getName()).log(Level.SEVERE, null, ex);
           JOptionPane.showMessageDialog(null,e);
         }
         list.add(data[0]);

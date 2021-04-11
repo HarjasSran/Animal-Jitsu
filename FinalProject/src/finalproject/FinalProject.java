@@ -50,6 +50,9 @@ public class FinalProject {
         
        
         MainMenuGUI menu = new MainMenuGUI(); 
+        menu.setVisible(true);       
+       
+       
         menu.setVisible(true);
    
         
