@@ -266,20 +266,6 @@ abstract public class GameObject {
      * @param src
      * @return
      */
-    protected BufferedImage createBufferedImage(String src) {
-        BufferedImage img;
-
-        try {
-
-            img = ImageIO.read(getClass().getResourceAsStream(src)); //load image using source and save
-
-        } catch (IOException | IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(null, "ERROR LOADING " + src + " :\n" + e); //error message
-            img = null; //no image if error occurs 
-
-        }
-        return img;//return the image
-
-    }
+ 
 
 }
