@@ -19,8 +19,11 @@ static String output = "Name\tRank\n\n";
 
     /**
      * Creates new form LeaderboardGUI
-     */User users[];
+     */
 
+//User users[];
+
+User[] userList; 
     public LeaderboardGUI(MainMenuGUI mainMenu) {
         m = mainMenu;
         initComponents();
@@ -54,7 +57,7 @@ static String output = "Name\tRank\n\n";
             users[i] = new User(name[i], level[i]);
             
         }
-        User userList[]=descendingQuickSort(users, 0, halfList-1);
+        userList=descendingQuickSort(users, 0, halfList-1);
         
         for (int i = 0; i < halfList; i++) {
             output = output + userList[i].getName() + "\t" + userList[i].getRank() + "\n";
@@ -138,7 +141,10 @@ static String output = "Name\tRank\n\n";
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         String query = searchQuery.getText(); 
-        textList.setText(linearSearch(users, query));
+        
+       
+       
+        textList.setText(linearSearch(userList, query));
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -188,8 +194,8 @@ static String output = "Name\tRank\n\n";
  
     public static String linearSearch(User[] users, String q){
         String output=""; 
-        for (int i = 0; i < 10; i++) {
-            if(users[i].getName().contains(q)){
+        for (int i = 0; i < users.length; i++) {
+            if(users[i].getName().toLowerCase().contains(q.toLowerCase())){
                output+= "\n"+ users[i].toString();
             }
             
